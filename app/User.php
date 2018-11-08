@@ -2,9 +2,11 @@
 
 namespace App;
 
+use App\Http\Controllers\helper\UserHelper;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\Auth;
 
 class User extends Authenticatable
 {
@@ -13,7 +15,7 @@ class User extends Authenticatable
 
 
     protected $fillable = [
-        'name', 'email', 'mobile', 'student_number', 'national_code', 'password',
+        'name', 'is_male', 'email', 'mobile', 'student_number', 'national_code', 'password'
     ];
 
 
@@ -44,12 +46,19 @@ class User extends Authenticatable
 
 
     public function payments(){
-      return $this->hasMany('App\Message');
+      return $this->hasMany('App\Payment');
     }
 
 
     public function photo(){
-      return $this->morphOne('App\Photo');
+      return $this->morphOne('App\Photo', 'imageable');
     }
+
+
+    public function roles(){
+      return $this -> belongsToMany('App\Role', 'user_role', 'user_id', 'role_id');
+    }
+
+
 
 }

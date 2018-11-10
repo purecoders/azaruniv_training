@@ -12,4 +12,5 @@ class MasterExtraInfo extends Model
     protected $fillable = [
       'master_id', 'content'
     ];
+
 }

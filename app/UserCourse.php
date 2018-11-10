@@ -12,4 +12,13 @@ class UserCourse extends Model
     protected $fillable = [
       'student_id', 'course_id'
     ];
+
+
+    public function user(){
+      return $this->belongsTo('App\User');
+    }
+
+    public function course(){
+      return $this->belongsTo('App\Course');
+    }
 }

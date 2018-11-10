@@ -25,6 +25,26 @@
                             </div>
                         </div>
 
+
+
+
+
+                        <div class="form-group row">
+                            <label for="is_male" class="col-md-4 col-form-label text-md-right">{{ __('isMale') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="is_male" type="text" class="form-control{{ $errors->has('isMale') ? ' is-invalid' : '' }}" name="is_male" value="{{ old('is_male') }}" required autofocus>
+
+                                @if ($errors->has('is_male'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('is_male') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+
+
                         <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
@@ -38,6 +58,60 @@
                                 @endif
                             </div>
                         </div>
+
+
+
+
+
+                        <div class="form-group row">
+                            <label for="mobile" class="col-md-4 col-form-label text-md-right">{{ __('mobile') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="mobile" type="tel" class="form-control{{ $errors->has('mobile') ? ' is-invalid' : '' }}" name="mobile" value="{{ old('mobile') }}" required autofocus>
+
+                                @if ($errors->has('mobile'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('mobile') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="form-group row">
+                            <label for="student_number" class="col-md-4 col-form-label text-md-right">{{ __('student_number') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="student_number" type="number" class="form-control{{ $errors->has('student_number') ? ' is-invalid' : '' }}" name="student_number" value="{{ old('student_number') }}" required autofocus>
+
+                                @if ($errors->has('student_number'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('student_number') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-group row">
+                            <label for="national_code" class="col-md-4 col-form-label text-md-right">{{ __('national_code') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="national_code" type="number" class="form-control{{ $errors->has('national_code') ? ' is-invalid' : '' }}" name="national_code" value="{{ old('national_code') }}" required autofocus>
+
+                                @if ($errors->has('national_code'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('national_code') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+
+
 
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>

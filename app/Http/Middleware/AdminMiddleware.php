@@ -17,7 +17,7 @@ class AdminMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if(!UserHelper::isAmin(Auth::user())){
+        if(!UserHelper::isAdmin(Auth::user())){
           //return to not access page
           return redirect('/home');
         }

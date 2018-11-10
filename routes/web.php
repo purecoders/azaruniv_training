@@ -1,6 +1,7 @@
 <?php
 
 
+use App\Course;
 use App\User;
 
 Route::get('/', function () {
@@ -14,10 +15,13 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 Route::get('/a', function () {
-  $user = User::find(2);
 
-  echo 'hello admin';
+  $courses = Course::all();
+  foreach ($courses as $course){
+    $course->master->masterInfo;
+    $course->coverImage;
+  }
 
-
+  return $courses;
 });
 

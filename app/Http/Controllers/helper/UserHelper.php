@@ -11,7 +11,7 @@ namespace App\Http\Controllers\helper;
 
 class UserHelper {
 
-  public static function isAmin($user){
+  public static function isAdmin($user){
     if($user === null){
       return false;
     }
@@ -39,4 +39,6 @@ class UserHelper {
     }
     return false;
   }
+
+
 }

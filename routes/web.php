@@ -16,12 +16,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/a', function () {
 
-  $courses = Course::all();
-  foreach ($courses as $course){
-    $course->master->masterInfo;
-    $course->coverImage;
-  }
-
-  return $courses;
+  $courses = Course::orderBy('id', 'desc')->get();
+  $course = Course::find(1);
+  $count = $course->students()->count();
+  return $count;
 });
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Photo;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -52,9 +53,9 @@ class RegisterController extends Controller
             'name' => 'required|string|max:255',
             'is_male' => 'required|numeric|max:1|min:0',
             'email' => 'required|string|email|max:255|unique:users',
-            'mobile' => 'required|string|max:255|unique:users',
+            'mobile' => 'required|string|max:20',
 //            'student_number' => '',
-            'national_code' => 'required|numeric|max:9999999999|min:1000000000',
+            'national_code' => 'required|string|max:11|min:9',
             'password' => 'required|string|min:6|confirmed',
         ]);
     }
@@ -67,7 +68,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+         $user = User::create([
             'name' => $data['name'],
             'is_male' => $data['is_male'],
             'email' => $data['email'],
@@ -76,5 +77,25 @@ class RegisterController extends Controller
             'national_code' => $data['national_code'],
             'password' => Hash::make($data['password']),
         ]);
+
+
+        if($data['is_male'] == 1){
+          $file_path = Photo::USER_MALE_AVATAR_PATH;
+        }else{
+          $file_path = Photo::USER_FEMALE_AVATAR_PATH;
+        }
+
+        $photo = Photo::create([
+          'imageable_id' => $user->id,
+          'imageable_type' => 'App\User',
+          'path' => $file_path,
+          'url' => env('APP_URL') . '/'. $file_path,
+        ]);
+
+
+         return $user;
+
+
+
     }
 }

@@ -3,16 +3,24 @@
 namespace App\Http\Controllers;
 
 use App\Course;
+use App\Http\Controllers\helper\UserHelper;
 use App\Http\Controllers\helpers\FileHelper;
 use App\Photo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CourseController extends Controller
 {
 
-    public function index()
-    {
 
+  public function __construct() {
+    $this->middleware('auth');
+  }
+
+  public function index()
+    {
+      $courses = Course::orderBy('id', 'desc');
+      //
     }
 
 
@@ -34,6 +42,7 @@ class CourseController extends Controller
         'gender'     =>'required|string|max:20|min:1',
         'start_date'     =>'required|date',
         'finish_date'     =>'required|date',
+        'is_open'     =>'required|numeric|min:0|max:1',
         'image'       =>'required',
       ]);
 
@@ -56,7 +65,7 @@ class CourseController extends Controller
         'gender' => $request->gender,
         'start_date' => $request->start_date,
         'finish_date' => $request->finish_date,
-
+        'is_open'     => $request->is_open,
       ]);
 
 
@@ -73,10 +82,21 @@ class CourseController extends Controller
 
     public function show($id)
     {
+        $user = Auth::user();
         $course = Course::find($id);
         $course->master->masterInfo;
         $course->coverImage;
 
+        if(UserHelper::isMaster($user)){
+          $course->students;
+        }
+
+        if(UserHelper::isAdmin($user)){
+          $course->students;
+          $course->payments;
+        }
+
+        //return view
     }
 
 
@@ -88,13 +108,54 @@ class CourseController extends Controller
 
     public function update(Request $request, $id)
     {
-        //
+        $user = Auth::user();
+        if(!UserHelper::isAdmin($user)){
+          return;
+        }
+
+        $this->validate($request,[
+          'master_id'       =>'numeric',
+          'category_id' =>'numeric',
+          'title'       =>'required|string|max:250|min:3',
+          'description'    =>'required|string|max:3000|min:3',
+          'cost'     =>'required|numeric',
+          'capacity'     =>'required|numeric|max:1000|min:1',
+          'gender'     =>'required|string|max:20|min:1',
+          'start_date'     =>'required|date',
+          'finish_date'     =>'required|date',
+          'is_open'     =>'required|numeric|min:0|max:1',
+          'image'       =>'required',
+        ]);
+
+        $course = Course::find($id);
+        $course->master_id = $request->master_id;
+        $course->category_id = $request->category_id;
+        $course->description = $request->description;
+        $course->cost = $request->cost;
+        $course->capacity = $request->capacity;
+        $course->gender = $request->gender;
+        $course->start_date = $request->start_date;
+        $course->finish_date = $request->finish_date;
+        $course->is_open = $request->is_open;
+
+        $course->save();
+
+
+        //return view
+
     }
 
 
     public function destroy($id)
     {
-        //
+        if(!UserHelper::isAdmin(Auth::user())){
+          return;
+        }
+
+        $course = Course::find($id);
+        $course->delete();
+
+        //return view
     }
 
 

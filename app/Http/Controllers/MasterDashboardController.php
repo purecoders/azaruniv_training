@@ -22,7 +22,7 @@ class MasterDashboardController extends Controller
       $courses = $user->masterCourses;
       foreach ($courses as $course) {
         $course->coverImage;
-        $course->master;
+        $course->master->masterInfo;
         $course->messages;
       }
       $tickets = $user->tickets;
@@ -62,7 +62,7 @@ class MasterDashboardController extends Controller
         'course_id' => $request->course_id,
         'type' => 'public',
         'user_id' => $user->id,
-        'is_student_sent' => 0,
+        'is_user_sent' => 0,
         'is_seen' => 0,
       ]);
 

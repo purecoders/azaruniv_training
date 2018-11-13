@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\helpers\FileHelper;
 use App\Photo;
 use App\Slider;
 use Illuminate\Http\Request;
@@ -9,13 +10,12 @@ use Illuminate\Http\Request;
 class SliderController extends Controller
 {
 
-  public function __construct() {
-    $this->middleware('admin');
-  }
+    public function __construct() {
+      $this->middleware('admin', ['except' => ['index']]);
+    }
 
-  public function index()
-    {
-
+    public function index() {
+      $sliders = Slider::orderBy('id', 'desc')->get();
     }
 
 

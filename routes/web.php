@@ -16,9 +16,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/a', function () {
 
-  $courses = Course::orderBy('id', 'desc')->get();
-  $course = Course::find(1);
-  $count = $course->students()->count();
-  return $count;
+  $user = Auth::user();
+  $tickets = $user->tickets()->orderBy('id', 'desc');
+  $newTicketsCount = $tickets = $user->tickets()->where('is_user_sent', '=', 0)->where('is_seen', '=', 0)->count();
+  return $newTicketsCount;
 });
 

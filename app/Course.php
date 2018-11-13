@@ -24,8 +24,8 @@ class Course extends Model
       return $this->belongsToMany('App\User', 'user_courses', 'course_id', 'student_id');
     }
 
-    public function messages(){
-      return $this->hasMany('App\Message');
+    public function publicMessages(){
+      return $this->hasMany('App\Message')->where('type', '=', 'public');
     }
 
 
@@ -36,6 +36,11 @@ class Course extends Model
 
     public function coverImage(){
       return $this->morphOne('App\Photo', 'imageable');
+    }
+
+
+    public function usersCourses(){
+      return $this->hasMany('App\UserCourse');
     }
 
 }

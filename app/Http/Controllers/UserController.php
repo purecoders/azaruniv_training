@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\helpers\FileHelper;
 use App\Photo;
+use App\Ticket;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -89,6 +90,34 @@ class UserController extends Controller
     ]);
 
     //return dashboard
+  }
+
+
+
+  public function getTickets(){
+    $user = Auth::user();
+    $tickets = $user->tickets()->orderBy('id', 'desc');
+    $newTicketsCount = $tickets = $user->tickets()->where('is_user_sent', '=', 0)->where('is_seen', '=', 0)->count();
+  }
+
+
+  public function sendTicket(Request $request){
+    $this->validate($request,[
+      'text' => 'required|string|max:3000',
+    ]);
+
+    $user = Auth::user();
+
+    $ticket = Ticket::create([
+      'user_id' => $user->id,
+      'is_user_sent' => 1,
+      'text' => $request->text,
+      'is_seen' => 0,
+    ]);
+
+    //return
+
+
   }
 
 

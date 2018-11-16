@@ -25,6 +25,7 @@
         "vue": "^2.5.7"
     },
     "dependencies": {
+        "jalali-date": "^1.0.2",
         "webpack-bundle-analyzer": "^3.0.3"
     }
 }

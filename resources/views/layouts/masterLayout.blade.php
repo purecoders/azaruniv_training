@@ -5,15 +5,19 @@
 </head>
 <body>
 <div id="app" class="rtl">
-    @include('include.navbar')
+    <div class='thetop'></div>
+    @include('include.header')
 
-    <main class="py-4">
+    <main class="">
         <!-- content -->
         @yield('content')
     </main>
-    <footer class="row">
+    <footer>
         @include('include.footer')
     </footer>
+    <div class='scrolltop'>
+        <div class='scroll icon'><i class="fa fa-4x fa-angle-up"></i></div>
+    </div>
 </div>
 </body>
 </html>

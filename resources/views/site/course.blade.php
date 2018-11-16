@@ -1,0 +1,37 @@
+@extends('layouts.app')
+@section('content')
+    <div >
+        <h3 style="font-size: 1.5em">آشنایی با بازار بورس</h3>
+        <p class="text" style="white-space: pre-wrap">
+            به اطلاع آن دسته از دانشجویان متقاضی شرکت در دوره آمادگی آزمون زبان دانشگاه می رساند که ششمین دوره آمادگی آزمون زبان دانشگاه علامه طباطبائی در تاریخ ۱۳۹۷/۰۴/۱۴ روز های پنج شنبه و جمعه شروع می شود.
+
+            طول دوره: ۸۰ ساعت
+
+            روزهای برگزاری: پنج شنبه و جمعه
+
+            ساعت برگزاری: ۹ الی ۱۳
+
+            مکان برگزاری: توانیر، نظامی گنجوی، پردیس تحصیلات تکمیلی خودگردان، طبقه دوم، کلاس ۲۰۵
+
+            هزینه: ۸۸۰ هزار تومان( %۲۰ تخفیف برای دانشجویان دانشگاه علامه طباطبائی)
+
+            در پایان دوره به دانشجویانی که حد نصاب نمره قبولی را احراز نمایند مدرک زبان قابل قبول در دانشگاه علامه طباطبائی اعطا می شود.
+        </p>
+        <div class="content-img-container text-center mb-3">
+            <img src="{{asset('img/1.jpg')}}" class="content-img" alt="">
+        </div>
+        <div class="master-container card mb-3">
+            <div class="card-body d-flex p-3">
+                <div class="master-img-container">
+                <img class="master-img" src="{{asset('img/master.jpg')}}" alt="">
+                </div>
+                <div class="d-flex flex-column justify-content-around">
+                    <span class="mx-3"><i class="fal fa-chalkboard-teacher"></i> استاد مدرس </span>
+                    <h6 class="mx-3">پویا آکلیون</h6>
+                </div>
+
+            </div>
+        </div>
+        <a href="#" class="btn btn-success "><i class="fal fa-plus"></i> ثبت نام در این دوره</a>
+    </div>
+@endsection

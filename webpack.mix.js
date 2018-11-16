@@ -41,5 +41,6 @@ mix
 mix.webpackConfig({
     plugins: [
         // new BundleAnalyzerPlugin()  // if you want analyze bundle use this
+
     ]
 })

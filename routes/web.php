@@ -24,6 +24,14 @@ Route::get('/course/category/{id}', function () {
     return view('site.courses',compact('id'));
 })->name('course-category');
 
+Route::get('/user-dashboard', function () {
+    return view('user.dashboard');
+})->middleware('auth')->name('user-dashboard');
+
+Route::get('/user-courses', function () {
+    return view('user.courses');
+})->middleware('auth')->name('user-courses');
+
 
 
 Auth::routes();

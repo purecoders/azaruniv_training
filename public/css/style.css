@@ -484,7 +484,7 @@ footer .nav-list a:hover {
 }
 
 .img-upload-btn-wrapper {
-  position: absolute;
+  position: relative;
   overflow: hidden;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -519,6 +519,10 @@ footer .nav-list a:hover {
 .img-upload-btn-wrapper input[type=file]:hover {
   cursor: pointer !important;
   color: #1e1e1e;
+}
+
+.user-ticket-container {
+  border: 1px solid #a7a7a7;
 }
 
 @media only screen and (max-width: 768px) {

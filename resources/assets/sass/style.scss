@@ -478,7 +478,7 @@ footer{
 }
 
 .img-upload-btn-wrapper {
-  position: absolute;
+  position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -509,6 +509,9 @@ footer{
     cursor: pointer !important;
     color: #1e1e1e;
   }
+}
+.user-ticket-container{
+  border: 1px solid #a7a7a7;
 }
 @media only screen and (max-width: 768px) {
 

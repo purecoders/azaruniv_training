@@ -1,20 +1,23 @@
 @extends('user.dashboard')
 @section('user_content')
+    <h6>پروفایل</h6>
     <div class="container">
-        <div class="user-info-container p-3">
+        <div class=" p-3">
             <div class="row">
                 <div class="col-sm-4 col-md-3 col-xl-2">
                     <form action="" method="">
                         <div class="user-img-container d-flex justify-content-center align-items-center">
                             <img id="profileImage" src="#" alt="">
-                            <div id="imgUploadBtnContainer" class="img-upload-btn-wrapper">
-                                <button class="btn img-upload-btn" onclick="performClick('inputProfileImg')"><i
-                                            class="fal fa-plus-circle"></i></button>
-                                <div id="imgTitle">تصویر پروفایل</div>
-                                <input id="inputProfileImg" type="file" name="" accept="image/jpeg"/>
-                            </div>
+
 
                         </div>
+                        <div id="imgUploadBtnContainer" class="img-upload-btn-wrapper">
+                            <button class="btn btn-block mt-1 btn-outline-secondary" onclick="performClick('inputProfileImg')">انتخاب تصویر</button>
+                            {{--<div id="imgTitle">تصویر پروفایل</div>--}}
+                            {{--<button class="btn  btn-block mt-1 btn-outline-secondary" onclick="performClick('inputProfileImg')">انتخاب تصویر</button>--}}
+                            <input id="inputProfileImg" type="file" name="" accept="image/jpeg"/>
+                        </div>
+
                         <button type="submit" class="btn btn-block mt-1 btn-outline-secondary">ثبت تصویر</button>
                     </form>
                 </div>

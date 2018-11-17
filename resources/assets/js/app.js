@@ -154,6 +154,7 @@ $(document).ready(function () {
     });
 
     function performClick(elemId) {
+        console.log("sfsdfdf")
         var elem = document.getElementById(elemId);
         if(elem && document.createEvent) {
             var evt = document.createEvent("MouseEvents");

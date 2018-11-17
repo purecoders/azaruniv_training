@@ -1,6 +1,6 @@
 <div class="">
     <div class="bg-blue footer-top"></div>
-    <div id="contactUs" class="container-fluid bg-light-blue text-white p-5" style="font-size: .9em">
+    <div id="contactUs" class="container-fluid bg-light-blue text-white p-5 rtl" style="font-size: .9em">
         <div class="row ">
             <div class="col-md-4">
                 <div class="contact-details">

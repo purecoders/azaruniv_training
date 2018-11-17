@@ -46,18 +46,25 @@ $(document).ready(function () {
             $("#title_" + carousel.activeIndex).show("slow");
         }
     });
+
     var todayDate = $('#todayDate').html()
-    var postedDate = $('.posted-date').html()
     todayDate = todayDate.replace(/-/g, ',')
-    postedDate = postedDate.replace(/-/g, ',')
     const jTodaydate = new JDate(new Date(todayDate));
-    const jPosteddate = new JDate(new Date(postedDate));
     $('#todayDate').html(jTodaydate.format('dddd DD MMMM YYYY'))
-    $('.posted-date').html(jPosteddate.format('dddd DD MMMM YYYY'))
+
+
+    try {
+        var postedDate = $('.posted-date').html()
+        postedDate = postedDate.replace(/-/g, ',')
+        const jPosteddate = new JDate(new Date(postedDate));
+        $('.posted-date').html(jPosteddate.format('dddd DD MMMM YYYY'))
+    }catch (err){
+
+    }
+
 
     window.onscroll = function () {
         var currentScrollPos = window.pageYOffset;
-        console.log(navbarScrollPos,"  ",currentScrollPos)
         if (currentScrollPos > navbarScrollPos) {
             $('#mainNavbar').addClass('fixed-top')
         }
@@ -67,16 +74,93 @@ $(document).ready(function () {
     }
 
 
-
-    $(window).scroll(function() {
-        if ($(this).scrollTop() > 400 ) {
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 400) {
             $('.scrolltop:hidden').stop(true, true).fadeIn();
         } else {
             $('.scrolltop').stop(true, true).fadeOut();
         }
     });
-    $(function(){$(".scroll").click(function(){$("html,body").animate({scrollTop:$(".thetop").offset().top},"1000");return false})})
-    $(function(){$("#contactUsBtn").click(function(){$("html,body").animate({scrollTop:$("#contactUs").offset().top},"1000");return false})})
+    $(function () {
+        $(".scroll").click(function () {
+            $("html,body").animate({scrollTop: $(".thetop").offset().top}, "1000");
+            return false
+        })
+    })
+    $(function () {
+        $("#contactUsBtn").click(function () {
+            $("html,body").animate({scrollTop: $("#contactUs").offset().top}, "1000");
+            return false
+        })
+    })
+
+
+    var pageUrl = window.location.href
+    if(pageUrl.includes('user-courses')){
+        try{
+            $('#userCardNavCourse').addClass('active')
+        }catch (err){
+
+        }
+    }else if(pageUrl.includes('user-profile')){
+        try{
+            $('#userCardNavProfile').addClass('active')
+        }catch (err){
+
+        }
+    }else if(pageUrl.includes('user-tickets')){
+        try{
+            $('#userCardNavTickets').addClass('active')
+        }catch (err){
+
+        }
+    }
+    function checkImageLoad() {
+        var profileImg=$('#profileImage')
+        if($(profileImg).attr("src")=='#'){
+            $('#profileImage').addClass('d-none')
+            // $('#imgUploadBtnContainer').removeClass('d-none')
+
+        }else{
+            $('#imgTitle').css('color','rgba(0,0,0,0)')
+            $('.fa-plus-circle').css('color','rgba(0,0,0,0)')
+
+            $('#imgUploadBtnContainer').addClass('d-none')
+            $('#profileImage').removeClass('d-none')
+        }
+    }
+    checkImageLoad()
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#profileImage').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+        $('#profileImage').removeClass('d-none')
+        $('#imgTitle').css('color','rgba(0,0,0,0)')
+        $('.fa-plus-circle').css('color','rgba(0,0,0,0)')
+
+    }
+
+    $("#inputProfileImg").change(function(){
+        readURL(this)
+    });
+    $("#profileImg").change(function(){
+        checkImageLoad()
+    });
+
+    function performClick(elemId) {
+        var elem = document.getElementById(elemId);
+        if(elem && document.createEvent) {
+            var evt = document.createEvent("MouseEvents");
+            evt.initEvent("click", true, false);
+            elem.dispatchEvent(evt);
+        }
+    }
 })
 
 

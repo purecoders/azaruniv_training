@@ -25,7 +25,7 @@ class Course extends Model
     }
 
     public function publicMessages(){
-      return $this->hasMany('App\Message')->where('type', '=', 'public');
+      return $this->hasMany('App\Message')->orderBy('id', 'desc')->where('type', '=', 'public')->get();
     }
 
 

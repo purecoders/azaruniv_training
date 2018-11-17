@@ -14,7 +14,7 @@ class CourseController extends Controller
 
 
   public function __construct() {
-    $this->middleware('auth');
+    $this->middleware('auth', ['except' => ['show', 'archiveCourses']]);
   }
 
   public function index()
@@ -82,21 +82,8 @@ class CourseController extends Controller
 
     public function show($id)
     {
-        $user = Auth::user();
-        $course = Course::find($id);
-        $course->master->masterInfo;
-        $course->coverImage;
-
-        if(UserHelper::isMaster($user)){
-          $course->students;
-        }
-
-        if(UserHelper::isAdmin($user)){
-          $course->students;
-          $course->payments;
-        }
-
-        //return view
+      $course = Course::find($id);
+      return view('site.course', compact('course'));
     }
 
 
@@ -157,6 +144,14 @@ class CourseController extends Controller
 
         //return view
     }
+
+
+    public function archiveCourses(){
+      $courses = Course::orderBy('id', 'desc')->paginate(6);
+      return view('site.archivecourses', compact('courses'));
+    }
+
+
 
 
 }

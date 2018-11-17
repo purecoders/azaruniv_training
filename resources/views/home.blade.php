@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app', ['site_route'=>'خانه'])
 
 @section('content')
 <div class="container">

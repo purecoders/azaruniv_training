@@ -19,68 +19,32 @@ class SiteIndexPageController extends Controller
         $slider->photo;
       }
 
-      $siteInfos = SiteInfo::all();
+//      $siteInfos = SiteInfo::all();
 
-      $courses = Course::orderBy('id', 'desc')->get();
+      $courses = Course::orderBy('id', 'desc')->take(20)->get();
       foreach ($courses as $course){
         $course->master->masterInfo;
         $course->master->photo;
         $course->coverImage;
       }
 
-      $posts = Post::orderBy('id', 'desc')->get();
+      $posts = Post::orderBy('id', 'desc')->take(20)->get();
       foreach ($posts as $post){
         $post->photo;
       }
 
-    }
 
-    public function courseList(){
-      $courses = Course::orderBy('id', 'desc')->get();
-      foreach ($courses as $course){
-        $course->coverImage;
-        $course->master->masterInfo;
-        $course->master->photo;
-        $course->students;
-      }
+      return view('site.home', compact(['sliders', 'courses', 'posts']));
 
-      //return view
-    }
-
-    public function postList(){
-      $posts = Post::orderBy('id', 'desc')->get();
-      foreach ($posts as $post){
-        $post->photo;
-      }
-
-      //
     }
 
 
-    public function showCourse($id){
-      $course = Course::find($id);
-      $course->coverImage;
-      $course->master->masterInfo;
-      $course->master->photo;
-      $course->students;
-      //
-    }
 
-    public function showPost($id){
-      $post = Post::find($id);
-      $post->photo;
-      //
-    }
 
     public function categoryCourses($id){
       $category = Category::find($id);
       $courses = $category->courses;
-      foreach ($courses as $course){
-        $course->coverImage;
-        $course->master->masterInfo;
-        $course->master->photo;
-        $course->students;
-      }
+      return view('site.courses',compact(['courses', 'category']));
     }
 
 

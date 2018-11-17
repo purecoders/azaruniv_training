@@ -1,22 +1,79 @@
-
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
-
 require('./bootstrap');
 
-window.Vue = require('vue');
+import 'slick-carousel';
 
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
+const JDate = require('jalali-date');
+$(document).ready(function () {
+  var navbarScrollPos = $('#mainNavbar').offset().top;
+  var currentScrollPos = window.pageYOffset;
+  if (currentScrollPos > navbarScrollPos) {
+    $('#mainNavbar').addClass('fixed-top')
+  }
+  else {
+    $('#mainNavbar').removeClass('fixed-top')
+  }
+  $('.single-item').slick({
+    // dots: true,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    prevArrow: false,
+    nextArrow: false
+    // speed: 800,
+    // slidesToShow: 1,
+    // adaptiveHeight: true
 
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
+  });
 
-const app = new Vue({
-    el: '#app'
-});
+  var carousel = new Swiper('#carousel', {
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    loop: true,
+    autoplay: {
+      delay: 2500,
+      disableOnInteraction: false,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    onTransitionStart: function () {
+      $(".swiper-slide div.title").hide();
+    },
+    onTransitionEnd: function (carousel) {
+
+      $("#title_" + carousel.activeIndex).show("slow");
+    }
+  });
+  var georgianData = $('#todayDate').html()
+  georgianData = georgianData.replace(/-/g, ',')
+  const jdate = new JDate(new Date(georgianData));
+  $('#todayDate').html(jdate.format('dddd DD MMMM YYYY'))
+  $('.posted-date').html(jdate.format('dddd DD MMMM YYYY'))
+
+  window.onscroll = function () {
+    var currentScrollPos = window.pageYOffset;
+    console.log(navbarScrollPos,"  ",currentScrollPos)
+    if (currentScrollPos > navbarScrollPos) {
+      $('#mainNavbar').addClass('fixed-top')
+    }
+    else {
+      $('#mainNavbar').removeClass('fixed-top')
+    }
+  }
+
+
+
+  $(window).scroll(function() {
+    if ($(this).scrollTop() > 400 ) {
+      $('.scrolltop:hidden').stop(true, true).fadeIn();
+    } else {
+      $('.scrolltop').stop(true, true).fadeOut();
+    }
+  });
+  $(function(){$(".scroll").click(function(){$("html,body").animate({scrollTop:$(".thetop").offset().top},"1000");return false})})
+  $(function(){$("#contactUsBtn").click(function(){$("html,body").animate({scrollTop:$("#contactUs").offset().top},"1000");return false})})
+})
+
+

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Post;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -26,7 +27,9 @@ class PostController extends Controller
 
     public function show($id)
     {
-        //
+        $post = Post::find($id);
+
+      return view('site.post', compact(['post']));
     }
 
 
@@ -45,5 +48,13 @@ class PostController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+
+
+
+    public function archivePosts(){
+      $posts = Post::orderBy('id', 'desc')->paginate(6);
+      return view('site.archiveposts', compact('posts'));
     }
 }

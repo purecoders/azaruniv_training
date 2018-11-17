@@ -10,7 +10,7 @@ class Message extends Model
     use SoftDeletes;
 
     protected $fillable = [
-      'course_id', 'type', 'user_id', 'is_student_sent', 'is_seen'
+      'course_id', 'type', 'user_id', 'is_student_sent', 'text', 'is_seen'
     ];
 
 

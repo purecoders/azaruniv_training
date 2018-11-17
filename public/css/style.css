@@ -454,6 +454,10 @@ footer .nav-list a:hover {
   -o-transition: 0.5s;
 }
 
+.test {
+  justify-self: flex-start;
+}
+
 @media only screen and (max-width: 768px) {
   body {
     font-size: 0.8em;

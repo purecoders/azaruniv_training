@@ -46,11 +46,14 @@ $(document).ready(function () {
             $("#title_" + carousel.activeIndex).show("slow");
         }
     });
-    var georgianData = $('#todayDate').html()
-    georgianData = georgianData.replace(/-/g, ',')
-    const jdate = new JDate(new Date(georgianData));
-    $('#todayDate').html(jdate.format('dddd DD MMMM YYYY'))
-    $('.posted-date').html(jdate.format('dddd DD MMMM YYYY'))
+    var todayDate = $('#todayDate').html()
+    var postedDate = $('.posted-date').html()
+    todayDate = todayDate.replace(/-/g, ',')
+    postedDate = postedDate.replace(/-/g, ',')
+    const jTodaydate = new JDate(new Date(todayDate));
+    const jPosteddate = new JDate(new Date(postedDate));
+    $('#todayDate').html(jTodaydate.format('dddd DD MMMM YYYY'))
+    $('.posted-date').html(jPosteddate.format('dddd DD MMMM YYYY'))
 
     window.onscroll = function () {
         var currentScrollPos = window.pageYOffset;

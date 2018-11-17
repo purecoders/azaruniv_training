@@ -22,7 +22,7 @@
         </div>
 
         <div class="d-flex justify-content-end">
-            <span class="posted-date">2018-10-12</span>
+            <span class="posted-date">2018-05-16</span>
         </div>
     </div>
 @endsection

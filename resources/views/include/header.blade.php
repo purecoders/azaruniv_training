@@ -43,26 +43,31 @@
     </div>
     <div class="logo-container d-flex align-content-center align-items-center flex-wrap">
         <a href="{{route('home')}}">
-        <img src="{{asset('img/logo.png')}}" alt="logo" class="p-2 px-4" style="height: 100px">
+            <img src="{{asset('img/logo.png')}}" alt="logo" class="p-2 px-4" style="height: 100px">
         </a>
         <div class="flex-grow-1"></div>
-        <div class="p-1 p-xl-5  d-flex">
-            {{--<form class="form-inline my-2 my-lg-0">--}}
-            {{--<i class="fal fa-search position-absolute"></i>--}}
-            {{--<input class="form-control mr-sm-2" type="search" placeholder="جستوجو" aria-label="Search">--}}
-            {{--<button class="btn btn-outline-success my-2 my-sm-0" type="submit">جستوجو</button>--}}
-            {{--</form>--}}
-            <span id="todayDate" class="align-self-center mr-1">2017-10-19</span>
-            <form id="headerSearch" novalidate="novalidate"  action="" method="post">
-                <div class="input-group">
-                    <input type="text" aria-required="true" class="form-control search" name="T1" id="q"
-                           placeholder="جستجو" required="">
-                    <span class="input-group-btn">
+        <div class="d-flex flex-column">
+            <div class="d-flex p-1 p-xl-5 ">
+                <span id="todayDate" class="align-self-center mr-1">2015-12-19</span>
+                <form id="headerSearch" novalidate="novalidate" action="" method="post">
+                    <div class="input-group">
+                        <input type="text" aria-required="true" class="form-control search" name="T1" id="q"
+                               placeholder="جستجو" required="">
+                        <span class="input-group-btn">
 												<button class="btn btn-default" type="submit"><i
                                                             class="fa fa-search"></i></button>
 											</span>
-                </div>
-            </form>
+                    </div>
+                </form>
+            </div>
+            @auth
+            <div class="text-white align-self-end mr-5 ">
+
+                <span class="mx-1">کاربر</span>
+                <span class="mx-1">{{ Auth::user()->name }}</span>
+                <span class="mx-1">خوش آمدید</span>
+            </div>
+                @endauth
         </div>
     </div>
     <nav id="mainNavbar" class="navbar navbar-expand-md navbar-dark navbar-custom">
@@ -77,8 +82,6 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav mr-auto ">
-                    @guest
-
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('course-category',['id'=>1]) }}">زبان های خارجه</a>
                         </li>
@@ -92,38 +95,34 @@
                         <li class="nav-item">
                             <a id="contactUsBtn" class="nav-link" href="#contactUs">ارتباط با ما</a>
                         </li>
-
-                    @else
-                        <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ Auth::user()->name }} <span class="caret"></span>
-                            </a>
-
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                   onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
-                                </a>
-
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                      style="display: none;">
-                                    @csrf
-                                </form>
-                            </div>
-                        </li>
-                    @endguest
                 </ul>
 
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ml-auto">
                     <!-- Authentication Links -->
-                    <li class="nav-item">
-                        <a class="nav-link btn sign-btn " href="{{ route('register') }}">
-                            <i class="fal fa-user mr-1"></i>
-                            ورود  | ثبت نام</a>
-                    </li>
+                    @guest
+                        <li class="nav-item">
+                            <a class="nav-link btn sign-btn " href="{{ route('register') }}">
+                                <i class="fal fa-user mr-1"></i>
+                                ورود | ثبت نام</a>
+                        </li>
+                    @else
+                        <li class="nav-item">
+                            <a class="nav-link btn sign-btn " href="{{ route('user-dashboard') }}">
+                                <i class="fal fa-tachometer mr-1"></i>
+                                پنل کاربری</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link btn sign-btn "onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                <i class="fal fa-sign-out-alt mr-1"></i>
+                                خروج</a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                  style="display: none;">
+                                @csrf
+                            </form>
+                        </li>
+                    @endguest
 
                 </ul>
             </div>

@@ -61,6 +61,15 @@ $(document).ready(function () {
     }catch (err){
 
     }
+    try{
+        var gDate = $('.jDate').html()
+        gDate = gDate.replace(/-/g, ',')
+        const jDate = new JDate(new Date(gDate));
+        $('.jDate').html(jDate.format('YY/MM/DD'))
+
+    }catch (err){
+
+    }
 
 
     window.onscroll = function () {
@@ -89,11 +98,16 @@ $(document).ready(function () {
     })
     $(function () {
         $("#contactUsBtn").click(function () {
-            $("html,body").animate({scrollTop: $("#contactUs").offset().top}, "1000");
+            $("html,body").animate({scrollTop: $("#contactUs").offset().top}, "200");
             return false
         })
     })
+    try {
 
+    $("#charViewContainer").animate({scrollTop:$(".the-end").offset().top})
+    }catch (err){
+
+    }
 
     var pageUrl = window.location.href
     if(pageUrl.includes('user-courses')){
@@ -125,7 +139,7 @@ $(document).ready(function () {
             $('#imgTitle').css('color','rgba(0,0,0,0)')
             $('.fa-plus-circle').css('color','rgba(0,0,0,0)')
 
-            $('#imgUploadBtnContainer').addClass('d-none')
+            // $('#imgUploadBtnContainer').addClass('d-none')
             $('#profileImage').removeClass('d-none')
         }
     }

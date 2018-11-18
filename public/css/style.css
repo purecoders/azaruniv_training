@@ -38,6 +38,42 @@
   src: url("../fonts/IranSans/eot/IRANSansWeb(FaNum).eot?#iefix") format("embedded-opentype"), url("../fonts/IranSans/woff2/IRANSansWeb(FaNum).woff2") format("woff2"), url("../fonts/IranSans/woff/IRANSansWeb(FaNum).woff") format("woff"), url("../fonts/IranSans/ttf/IRANSansWeb(FaNum).ttf") format("truetype");
 }
 
+.btn-blue {
+  color: #fff;
+  background-color: #233761;
+  border-color: #2b4376;
+}
+
+.btn-blue:hover {
+  color: #fff;
+  background-color: #2c4377;
+  border-color: #2b4376;
+}
+
+.btn-blue:focus, .btn-blue.focus {
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(43, 67, 118, 0.3);
+          box-shadow: 0 0 0 0.2rem rgba(43, 67, 118, 0.3);
+}
+
+.btn-blue.disabled, .btn-blue:disabled {
+  color: #fff;
+  background-color: #2b4376;
+  border-color: #2b4376;
+}
+
+.btn-blue:not(:disabled):not(.disabled):active, .btn-blue:not(:disabled):not(.disabled).active,
+.show > .btn-blue.dropdown-toggle {
+  color: #fff;
+  background-color: #2b4376;
+  border-color: #2b4376;
+}
+
+.btn-blue:not(:disabled):not(.disabled):active:focus, .btn-blue:not(:disabled):not(.disabled).active:focus,
+.show > .btn-blue.dropdown-toggle:focus {
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(43, 67, 118, 0.5);
+          box-shadow: 0 0 0 0.2rem rgba(43, 67, 118, 0.5);
+}
+
 body {
   font-family: IRANSans;
   background-color: #eeeeee;
@@ -523,6 +559,20 @@ footer .nav-list a:hover {
 
 .user-ticket-container {
   border: 1px solid #a7a7a7;
+  border-radius: .25rem;
+}
+
+.user-ticket-container .chat-view-container {
+  max-height: 400px;
+  overflow-y: scroll;
+}
+
+.chat-view {
+  padding-left: .25rem;
+}
+
+.jDate {
+  font-size: .8em;
 }
 
 @media only screen and (max-width: 768px) {

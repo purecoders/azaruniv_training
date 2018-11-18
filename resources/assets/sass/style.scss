@@ -43,6 +43,7 @@ $iranSansFontPath:"../fonts/IranSans";
 
 //colors
 @import 'variables';
+@import "buttons";
 
 body{
   font-family: IRANSans;
@@ -512,7 +513,21 @@ footer{
 }
 .user-ticket-container{
   border: 1px solid #a7a7a7;
+  -webkit-border-radius: .25rem;
+  -moz-border-radius: .25rem;
+  border-radius: .25rem;
+  .chat-view-container{
+  max-height: 400px;
+  overflow-y: scroll;
+  }
 }
+.chat-view{
+  padding-left: .25rem;
+}
+.jDate{
+  font-size: .8em;
+}
+.chat-view-container
 @media only screen and (max-width: 768px) {
 
   body {

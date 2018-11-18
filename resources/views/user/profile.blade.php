@@ -7,7 +7,7 @@
                 <div class="col-sm-4 col-md-3 col-xl-2">
                     <form action="" method="">
                         <div class="user-img-container d-flex justify-content-center align-items-center">
-                            <img id="profileImage" src="#" alt="">
+                            <img id="profileImage" src="{{asset('img/master.jpg')}}" alt="">
 
 
                         </div>

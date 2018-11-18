@@ -30,6 +30,15 @@ class UserDashboardController extends Controller
     }
 
 
+    public function profile(){
+      return view('user.profile');
+    }
+
+    public function tickets(){
+      return view('user.tickets');
+    }
+
+
 
 
 

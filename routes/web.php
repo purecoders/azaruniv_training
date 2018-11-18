@@ -44,21 +44,12 @@ Route::get('/arcposts', 'PostController@archivePosts')->name('arcposts');
 Route::get('/arccourses', 'CourseController@archiveCourses')->name('arccourses');
 
 
-Route::get('/category/courses/{id}', 'SiteIndexPageController@categoryCourses')->name('course-category');
+Route::get('/category/{id}/courses', 'SiteIndexPageController@categoryCourses')->name('course-category');
 
 
 
 //user dashboard
 Route::get('/user-dashboard', 'UserDashboardController@show')->name('user-dashboard');
 Route::get('/user-courses', 'UserDashboardController@courses')->name('user-courses');
-
-
-
-
-Route::get('/user-profile', function () {
-  return view('user.profile');
-})->middleware('auth')->name('user-profile');
-
-Route::get('/user-tickets', function () {
-  return view('user.tickets');
-})->middleware('auth')->name('user-tickets');
+Route::get('/user-profile', 'UserDashboardController@profile')->name('user-profile');
+Route::get('/user-tickets', 'UserDashboardController@tickets')->name('user-tickets');

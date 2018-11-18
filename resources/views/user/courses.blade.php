@@ -5,6 +5,7 @@
     <!--user course cards-->
     <div  class="d-flex flex-column">
 
+
         @foreach($courses as $course)
         <div class="card border-0">
             <div class="card-body row">

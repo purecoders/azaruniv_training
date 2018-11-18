@@ -15,27 +15,9 @@ class SiteIndexPageController extends Controller
 
     public function show(){
       $sliders = Slider::orderBy('id', 'desc')->get();
-      foreach ($sliders as $slider){
-        $slider->photo;
-      }
-
-//      $siteInfos = SiteInfo::all();
-
       $courses = Course::orderBy('id', 'desc')->take(20)->get();
-      foreach ($courses as $course){
-        $course->master->masterInfo;
-        $course->master->photo;
-        $course->coverImage;
-      }
-
-      $posts = Post::orderBy('id', 'desc')->take(20)->get();
-      foreach ($posts as $post){
-        $post->photo;
-      }
-
-
+      $posts = Post::orderBy('id', 'desc')->take(10)->get();
       return view('site.home', compact(['sliders', 'courses', 'posts']));
-
     }
 
 

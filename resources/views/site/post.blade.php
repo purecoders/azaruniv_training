@@ -10,7 +10,7 @@
         </div>
 
         <div class="d-flex justify-content-end">
-            <span class="posted-date">{{$post->created_at}}</span>
+            <span class="jDate">{{$post->created_at}}</span>
         </div>
     </div>
 @endsection

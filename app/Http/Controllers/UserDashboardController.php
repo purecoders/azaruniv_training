@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Course;
+use App\Ticket;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -35,8 +37,38 @@ class UserDashboardController extends Controller
     }
 
     public function tickets(){
-      return view('user.tickets');
+      $user = Auth::user();
+
+      //set seen to tickets
+      $tickets = $user->tickets()->where('is_user_sent', '=', '0')
+        ->where('is_seen', '=', '0')->get();
+      foreach ($tickets as $ticket){
+        $ticket->is_seen = 1;
+        $ticket->save();
+      }
+
+
+      $tickets = $user->tickets()->take(50)->get();
+      return view('user.tickets', compact('tickets'));
     }
+
+    public function sendTicket(Request $request){
+    $this->validate($request,[
+      'text' => 'required|string|max:3000',
+    ]);
+
+    $user = Auth::user();
+
+    $ticket = Ticket::create([
+      'user_id' => $user->id,
+      'is_user_sent' => 1,
+      'text' => $request->text,
+      'is_seen' => 0,
+    ]);
+
+    return redirect(route('user-tickets'));
+
+  }
 
 
 

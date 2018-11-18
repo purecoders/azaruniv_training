@@ -89,36 +89,15 @@ class UserController extends Controller
       'url' => env('APP_URL') . '/'. $file_path,
     ]);
 
-    //return dashboard
+    return redirect(route('user-profile'));
   }
 
 
 
-  public function getTickets(){
-    $user = Auth::user();
-    $tickets = $user->tickets()->orderBy('id', 'desc');
-    $newTicketsCount = $tickets = $user->tickets()->where('is_user_sent', '=', 0)->where('is_seen', '=', 0)->count();
-  }
 
 
-  public function sendTicket(Request $request){
-    $this->validate($request,[
-      'text' => 'required|string|max:3000',
-    ]);
-
-    $user = Auth::user();
-
-    $ticket = Ticket::create([
-      'user_id' => $user->id,
-      'is_user_sent' => 1,
-      'text' => $request->text,
-      'is_seen' => 0,
-    ]);
-
-    //return
 
 
-  }
 
 
 

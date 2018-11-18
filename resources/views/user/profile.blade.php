@@ -7,18 +7,17 @@
                     @php
                         $user = \Illuminate\Support\Facades\Auth::user();
                     @endphp
-                    <form action="" method="">
+                    <form action="{{route('user-change-avatar')}}" method="post" enctype="multipart/form-data">
                         <div class="user-img-container d-flex justify-content-center align-items-center">
                             <img id="profileImage" src="{{asset($user->photo->path)}}" alt="">
-                            <div id="imgUploadBtnContainer" class="img-upload-btn-wrapper">
-                                <button class="btn img-upload-btn" onclick="performClick('inputProfileImg')"><i
-                                            class="fal fa-plus-circle"></i></button>
-                                <div id="imgTitle">تصویر پروفایل</div>
-                                <input id="inputProfileImg" type="file" name="" accept="image/jpeg"/>
-                            </div>
+                        </div>
+
+                        <div id="imgUploadBtnContainer" class="img-upload-btn-wrapper">
+                            <button class="btn btn-block mt-1 btn-outline-secondary" onclick="performClick('inputProfileImg')">انتخاب تصویر</button>
+                            <input id="inputProfileImg" type="file" name="image" accept="image/jpeg/png"/>
+                        </div>
 
                             {{csrf_field()}}
-                        </div>
                         <button type="submit" class="btn btn-block mt-1 btn-outline-secondary">ثبت تصویر</button>
                     </form>
                 </div>

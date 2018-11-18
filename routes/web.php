@@ -40,11 +40,13 @@ Route::resource('course', 'CourseController', [
 ]);
 
 Route::get('/arcposts', 'PostController@archivePosts')->name('arcposts');
-
 Route::get('/arccourses', 'CourseController@archiveCourses')->name('arccourses');
-
-
 Route::get('/category/{id}/courses', 'SiteIndexPageController@categoryCourses')->name('course-category');
+
+
+//users public api
+Route::post('/user-change-avatar', 'UserController@changeAvatar')->name('user-change-avatar');
+
 
 
 
@@ -53,3 +55,4 @@ Route::get('/user-dashboard', 'UserDashboardController@show')->name('user-dashbo
 Route::get('/user-courses', 'UserDashboardController@courses')->name('user-courses');
 Route::get('/user-profile', 'UserDashboardController@profile')->name('user-profile');
 Route::get('/user-tickets', 'UserDashboardController@tickets')->name('user-tickets');
+Route::post('/user-send-ticket', 'UserDashboardController@sendTicket')->name('user-send-ticket');

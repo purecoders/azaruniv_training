@@ -119,7 +119,7 @@
                         </li>
                     @else
                         <li class="nav-item">
-                            <a class="nav-link btn sign-btn " href="{{ route('user-dashboard') }}">
+                            <a class="nav-link btn sign-btn " href="{{ route('user-courses') }}">
                                 <i class="fal fa-tachometer mr-1"></i>
                                 پنل کاربری</a>
                         </li>

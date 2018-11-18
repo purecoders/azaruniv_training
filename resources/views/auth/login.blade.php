@@ -5,6 +5,12 @@
         <div class="row justify-content-center">
             <div class="col-md-8 mx-5">
                 <div class="card">
+
+                    <div class="bg-info p-2 m-0 text-white">
+                        اگر قبلا ثبت نام نکرده اید
+                        <a href="{{route('register')}}" class="btn btn-outline-light">ثبت نام کنید</a>
+                    </div>
+
                     <div class="card-header">ورود</div>
 
                     <div class="card-body">
@@ -61,7 +67,10 @@
                                 </div>
                             </div>
                         </form>
+
                     </div>
+
+
                 </div>
             </div>
         </div>

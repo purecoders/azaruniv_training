@@ -31,7 +31,7 @@
                             </div>
                             <div>
                                 <span><i class="fal fa-clock"></i>زمان شروع</span>
-                                <span class="mx-1 posted-date">{{$course->start_date}}</span>
+                                <span class="mx-1 jDate">{{$course->start_date}}</span>
                             </div>
                         </div>
                     </div>
@@ -51,7 +51,7 @@
                                     <i class="fal fa-envelope-open"></i>
                                    {{$message->text}}
                                 </div>
-                                <span class="mx-2 mt-4 posted-date">{{$message->created_at}}</span>
+                                <span class="mx-2 mt-4 jDate">{{$message->created_at}}</span>
                             </div>
                            @endforeach
 

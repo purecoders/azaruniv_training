@@ -19,8 +19,8 @@ class Photo extends Model
     const MASTER_MALE_AVATAR_PATH = 'uploads/images/users/avatar_master_male.png';
     const MASTER_FEMALE_AVATAR_PATH = 'uploads/images/users/avatar_master_female.png';
 
-    const USER_AVATAR_HEIGHT = 50;
-    const USER_AVATAR_WIDTH = 50;
+    const USER_AVATAR_HEIGHT = 200;
+    const USER_AVATAR_WIDTH = 200;
 
 
 }

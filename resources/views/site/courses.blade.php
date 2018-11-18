@@ -28,7 +28,7 @@
                             </div>
                             <div>
                                 <span><i class="fal fa-clock"></i>زمان شروع</span>
-                                <span class="mx-1 posted-date">{{$course->start_date}}</span>
+                                <span class="mx-1 jDate">{{$course->start_date}}</span>
                             </div>
                         </div>
                     </div>

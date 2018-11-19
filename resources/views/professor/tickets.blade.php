@@ -1,5 +1,5 @@
-@extends('user.dashboard')
-@section('user_content')
+@extends('professor.dashboard')
+@section('professor_content')
     <h6>تیکت ها</h6>
 
     <div class="container mt-3 user-ticket-container p-3" id="chat">
@@ -21,7 +21,7 @@
                 </p>
                 <div class="ml-auto d-flex flex-column justify-content-end">
                     <div class="d-flex flex-row-reverse align-items-center">
-                    <span class="jDate">2018-10-16</span>
+                        <span class="jDate">2018-10-16</span>
                         <span><i class="fal fa-check-double mr-1"></i></span>
                     </div>
 
@@ -54,5 +54,4 @@
             </div>
         </form>
     </div>
-
 @endsection

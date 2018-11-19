@@ -3,6 +3,7 @@ require('./bootstrap');
 import 'slick-carousel';
 
 const JDate = require('jalali-date');
+
 $(document).ready(function () {
     var navbarScrollPos = $('#mainNavbar').offset().top;
     var currentScrollPos = window.pageYOffset;
@@ -62,10 +63,14 @@ $(document).ready(function () {
 
     }
     try{
-        var gDate = $('.jDate').html()
-        gDate = gDate.replace(/-/g, ',')
-        const jDate = new JDate(new Date(gDate));
-        $('.jDate').html(jDate.format('YY/MM/DD'))
+        var gDates = $('.jDate')
+        for(var i=0;i<gDates.length;i++){
+            var gDate=$(gDates[i]).html()
+            gDate=gDate.replace(/-/g, ',')
+            var jDate = new JDate(new Date(gDate));
+            $(gDates[i]).html(jDate.format('YY/MM/DD'))
+        }
+
 
     }catch (err){
 
@@ -129,6 +134,27 @@ $(document).ready(function () {
 
         }
     }
+
+    if(pageUrl.includes('professor-courses')){
+        try{
+            $('#professorCardNavCourse').addClass('active')
+        }catch (err){
+
+        }
+    }else if(pageUrl.includes('professor-profile')){
+        try{
+            $('#professorCardNavProfile').addClass('active')
+        }catch (err){
+
+        }
+    }else if(pageUrl.includes('professor-tickets')){
+        try{
+            $('#professorCardNavTickets').addClass('active')
+        }catch (err){
+
+        }
+    }
+
     function checkImageLoad() {
         var profileImg=$('#profileImage')
         if($(profileImg).attr("src")=='#'){
@@ -176,6 +202,42 @@ $(document).ready(function () {
             elem.dispatchEvent(evt);
         }
     }
+
+    window.myFunction=function () {
+        alert("The form was submitted");
+    }
+
+
+    window.checkForm=function()
+    {
+        // return false
+        // alert("sfsf")
+
+        //validation fails if the input is blank
+        if($('#professorMassage').val() == "") {
+            alert("خطا: متن پیام خالی است!");
+            $('#professorMassage').focus();
+            return false;
+        }
+
+        // regular expression to match only alphanumeric characters and spaces
+        var re = /^[\w ]+$/;
+
+        // validation fails if the input doesn't match our regular expression
+        if(!re.test($('#professorMassage').val())) {
+            alert("خطا: !");
+            $('#professorMassage').focus();
+            return false;
+        }
+        if(confirm("این پیام را ارسال کن")){
+            return true
+        }else{
+            return false
+        }
+
+    }
+
+
 })
 
 

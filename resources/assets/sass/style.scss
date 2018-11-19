@@ -259,6 +259,7 @@ a.hover-link:hover{
   }
 }
 .tab-img-link{
+  height: fit-content;
   padding: .7rem;
   border-radius: 0.25rem;
   border: 1px solid #eeeeee;
@@ -269,7 +270,7 @@ a.hover-link:hover{
 .tab-card-img{
 
   width: 100%;
-  height: 180px !important;
+  height: 190px !important;
   -webkit-transition: transform .3s;
   -moz-transition: transform .3s;
   -ms-transition: transform .3s;
@@ -310,6 +311,30 @@ footer{
   border-radius: .25rem;
   height: 35px;
 
+}
+.course-price{
+  text-decoration: none;
+  padding: .25rem .5rem;
+  background-color: rgba(32, 116, 22, 0.69);
+  text-align: center;
+  border-radius: .25rem;
+  color: #fff;
+  min-width: 100px;
+  transition: background-color .2s;
+  &:hover{
+    color: #fff;
+    text-decoration: none;
+    background-color: rgba(41, 135, 28, 0.69);
+  }
+
+}
+.course-list a{
+  &:hover{
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none;
+    background-color: rgba(41, 135, 28, 0.69);
+  }
 }
 
 .content-container{
@@ -377,6 +402,12 @@ footer{
   height: 1px;
   background-color: $red;
 }
+.grey-divider{
+  height: 1px;
+  border-radius: 2px;
+  margin: .25rem;
+  background-color: rgba(43, 67, 118, 0.31);
+}
 .content-img-container{
   width: 80%;
   margin: auto;
@@ -388,7 +419,7 @@ footer{
   width: 100%;
 }
 .master-img-container{
-  width: 15%;
+  width: 40%;
   border: 1px solid #eeeeee;
   padding: .25rem;
 }
@@ -451,9 +482,14 @@ footer{
   -moz-border-radius: 3px;
   border-radius: 3px;
   a{
-    color: $lightBlue !important;
+
   }
+
 }
+.active > a{
+  color: $lightBlue !important;
+}
+
 
 .user-info-container{
   border: 1px solid #eeeeee;
@@ -523,11 +559,42 @@ footer{
 }
 .chat-view{
   padding-left: .25rem;
+  .jDate{
+    font-size: .8em;
+  }
 }
 .jDate{
-  font-size: .8em;
+  font-size: 1em;
 }
-.chat-view-container
+.students-list{
+  max-height: 500px;
+  overflow-y: scroll;
+  list-style-type: none;
+  li{
+    margin-bottom: .5rem;
+    min-height: 45px;
+    transition: background-color .3s;
+    &:hover{
+      cursor:  default;
+      background-color: #eeeeee;
+    }
+  }
+  .student-img-container{
+    background-color: #d6d6d6;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+
+    img{
+      height: 100%;
+      width: 100%;
+      border-radius: 50%;
+    }
+  }
+}
+.professor-course{
+  min-height: 600px;
+}
 @media only screen and (max-width: 768px) {
 
   body {

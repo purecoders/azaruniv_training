@@ -20,6 +20,7 @@
                             لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
                             لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت...
                         </p>
+
                         <div class="d-flex justify-content-around " style="font-size: .8em">
                             <div>
                                 <span class=""><i class="fal fa-chalkboard-teacher"></i>استاد مربوطه</span>
@@ -29,7 +30,10 @@
                                 <span><i class="fal fa-clock"></i>زمان شروع</span>
                                 <span class="mx-1">12 اردیبهشت</span>
                             </div>
+
                         </div>
+                        <a href="#" class="course-price align-self-start mt-1">62000 تومان</a>
+
                     </div>
                 </div>
 
@@ -61,6 +65,7 @@
                                 <span class="mx-1">12 اردیبهشت</span>
                             </div>
                         </div>
+                        <a href="#" class="course-price align-self-start mt-1">رایگان</a>
                     </div>
                 </div>
 
@@ -92,6 +97,7 @@
                                 <span class="mx-1">12 اردیبهشت</span>
                             </div>
                         </div>
+                        <a href="#" class="course-price align-self-start mt-1">45000 تومان</a>
                     </div>
                 </div>
 
@@ -123,6 +129,7 @@
                                 <span class="mx-1">12 اردیبهشت</span>
                             </div>
                         </div>
+                        <a href="#" class="course-price align-self-start mt-1">13800 تومان</a>
                     </div>
                 </div>
 

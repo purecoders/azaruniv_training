@@ -24,6 +24,10 @@ Route::get('/course/category/{id}', function () {
     return view('site.courses',compact('id'));
 })->name('course-category');
 
+Route::get('/search', function () {
+    return view('site.search');
+})->name('search');
+
 
 
 Route::get('/user-dashboard', function () {
@@ -51,6 +55,10 @@ Route::get('/professor-courses', function () {
     return view('professor.courses');
 })->middleware('auth')->name('professor-courses');
 
+Route::get('/professor-course', function () {
+    return view('professor.course');
+})->middleware('auth')->name('professor-course');
+
 Route::get('/professor-profile', function () {
     return view('professor.profile');
 })->middleware('auth')->name('professor-profile');
@@ -59,7 +67,9 @@ Route::get('/professor-tickets', function () {
     return view('professor.tickets');
 })->middleware('auth')->name('professor-tickets');
 
-
+Route::post('postt',function (){
+   return "posted";
+});
 
 Auth::routes();
 

@@ -30,6 +30,13 @@ class SiteIndexPageController extends Controller
     }
 
 
+    public function search(Request $request){
+      $text = $request->T1;
+      $courses = Course::orderBy('id', 'desc')->where('title', 'like', '%'.$text.'%')->orWhere('description', 'like', '%'.$text.'%')->take(20)->get();
+      return view('site.search', compact(['text', 'courses']));
+    }
+
+
 
 
 }

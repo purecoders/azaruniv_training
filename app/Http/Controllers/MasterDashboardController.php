@@ -18,15 +18,17 @@ class MasterDashboardController extends Controller
 
     public function show(){
       $user = Auth::user();
-      $photo = $user->photo;
       $courses = $user->masterCourses;
-      foreach ($courses as $course) {
-        $course->coverImage;
-        $course->master->masterInfo;
-        $course->messages;
-      }
-      $tickets = $user->tickets;
-      $messages = $user->messages;
+
+      return view('professor.dashboard');
+    }
+
+
+    public function courses(){
+      $user = Auth::user();
+      $courses = $user->masterCourses;
+
+      return view('professor.courses', compact(['courses']));
     }
 
 

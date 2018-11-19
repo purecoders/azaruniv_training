@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\helpers\FileHelper;
 use App\Photo;
-use App\Ticket;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
 use Intervention\Image\ImageManagerStatic as Image;
 
@@ -79,6 +79,7 @@ class UserController extends Controller
     $user = Auth::user();
     $photo = $user->photo;
     if($photo !== null){
+      File::delete($photo->path);
       $photo->delete();
     }
 
@@ -91,14 +92,6 @@ class UserController extends Controller
 
     return redirect(route('user-profile'));
   }
-
-
-
-
-
-
-
-
 
 
 

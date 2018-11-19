@@ -42,6 +42,7 @@ Route::resource('course', 'CourseController', [
 Route::get('/arcposts', 'PostController@archivePosts')->name('arcposts');
 Route::get('/arccourses', 'CourseController@archiveCourses')->name('arccourses');
 Route::get('/category/{id}/courses', 'SiteIndexPageController@categoryCourses')->name('course-category');
+Route::post('/search', 'SiteIndexPageController@search')->name('search');
 
 
 //users public api
@@ -56,3 +57,22 @@ Route::get('/user-courses', 'UserDashboardController@courses')->name('user-cours
 Route::get('/user-profile', 'UserDashboardController@profile')->name('user-profile');
 Route::get('/user-tickets', 'UserDashboardController@tickets')->name('user-tickets');
 Route::post('/user-send-ticket', 'UserDashboardController@sendTicket')->name('user-send-ticket');
+
+
+
+
+//master routes
+Route::get('/professor-dashboard', 'MasterDashboardController@show')->name('professor-dashboard');
+Route::get('/professor-courses', 'MasterDashboardController@courses')->name('professor-courses');
+
+Route::get('/professor-course', function () {
+  return view('professor.course');
+})->middleware('auth')->name('professor-course');
+
+Route::get('/professor-profile', function () {
+  return view('professor.profile');
+})->middleware('auth')->name('professor-profile');
+
+Route::get('/professor-tickets', function () {
+  return view('professor.tickets');
+})->middleware('auth')->name('professor-tickets');

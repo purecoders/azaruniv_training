@@ -55,10 +55,12 @@
                     $date = date('Y-m-d', time());
                 @endphp
                 <span id="todayDate" class="align-self-center mr-1">{{$date}}</span>
-                <form id="headerSearch" novalidate="novalidate" action="" method="post">
+                <form id="headerSearch" novalidate="novalidate" action="{{route('search')}}" method="post">
                     <div class="input-group">
                         <input type="text" aria-required="true" class="form-control search" name="T1" id="q"
                                placeholder="جستجو" required="">
+
+                        {{csrf_field()}}
                         <span class="input-group-btn">
 								<button class="btn btn-default" type="submit">
                                     <i class="fa fa-search"></i>

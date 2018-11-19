@@ -31,6 +31,7 @@
                                 <span class="mx-1 jDate">{{$course->start_date}}</span>
                             </div>
                         </div>
+                        <a href="#" class="course-price align-self-start mt-1">{{$course->cost}} تومان </a>
                     </div>
                 </div>
 

@@ -155,6 +155,7 @@
                                         <p class="mt-3">
                                             {{$course1->description}}
                                         </p>
+                                        <a href="#" class="course-price">{{$course1->cost}} تومان </a>
                                     </div>
                                 </div>
 
@@ -178,6 +179,7 @@
                                             <p class="mt-3">
                                                 {{$course2->description}}
                                             </p>
+                                            <a href="#" class="course-price">{{$course2->cost}} تومان </a>
                                         </div>
                                     </div>
 

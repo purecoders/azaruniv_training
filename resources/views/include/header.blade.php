@@ -114,14 +114,14 @@
                     <!-- Authentication Links -->
                     @guest
                         <li class="nav-item">
-                                <a class="nav-link btn sign-btn " href="{{ route('user-courses') }}">
+                                <a class="nav-link btn sign-btn " href="{{ route('dashboard-home') }}">
                             {{--<a class="nav-link btn sign-btn " href="{{ route('register') }}">--}}
                                 <i class="fal fa-user mr-1"></i>
                                 ورود | ثبت نام</a>
                         </li>
                     @else
                         <li class="nav-item">
-                            <a class="nav-link btn sign-btn " href="{{ route('user-courses') }}">
+                            <a class="nav-link btn sign-btn " href="{{ route('dashboard-home') }}">
                                 <i class="fal fa-tachometer mr-1"></i>
                                 پنل کاربری</a>
                         </li>

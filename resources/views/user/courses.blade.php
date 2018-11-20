@@ -15,7 +15,7 @@
                         <img class="tab-card-img " src="{{asset($course->coverImage->path)}}" alt="">
                     </a>
 
-                    <button class="text-dark border-dark  btn btn-outline-light btn-block mt-2" data-toggle="collapse" data-target="#{{$course->id}}">   <i class="fal fa-check"></i> آخرین پیام های استاد</button>
+                    <button class="text-dark border-dark  btn btn-outline-light btn-block mt-2" data-toggle="collapse" data-target="#professorMessage{{$course->id}}">   <i class="fal fa-check"></i> آخرین پیام های استاد</button>
 
                 </div>
                 <div class="col-xl-8">
@@ -42,7 +42,7 @@
                 @php
                     $messages = $course->publicMessages();
                 @endphp
-                <div id="{{$course->id}}" class="collapse">
+                <div id="professorMessage{{$course->id}}" class="collapse">
                     <div class="container p-3">
                         <div class="d-flex flex-column">
                             @foreach($messages as $message)

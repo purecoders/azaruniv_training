@@ -6,9 +6,8 @@ use App\Http\Controllers\helpers\FileHelper;
 use App\Photo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
-use Intervention\Image\ImageManagerStatic as Image;
+
 
 class UserController extends Controller
 {
@@ -59,39 +58,7 @@ class UserController extends Controller
   }
 
 
-  public function changeAvatar(Request $request){
-    $this->validate($request,[
-      'image' => 'required|image',
-    ]);
 
-    $image = $request->file('image');
-
-    $file_extension = $image->getClientOriginalExtension();
-    $dir = FileHelper::getFileDirName('images/users');
-    $file_name = FileHelper::getFileNewName();
-    $image_name = $file_name . '.' . $file_extension;
-    $file_path = $dir . '/' . $file_name . '.'.$file_extension;
-    $image->move($dir, $image_name);
-    $image = Image::make($file_path);
-    $image->resize(Photo::USER_AVATAR_WIDTH, Photo::USER_AVATAR_HEIGHT);
-    $image->save();
-
-    $user = Auth::user();
-    $photo = $user->photo;
-    if($photo !== null){
-      File::delete($photo->path);
-      $photo->delete();
-    }
-
-    $photo = Photo::create([
-      'imageable_id' => $user->id,
-      'imageable_type' => 'App\User',
-      'path' => $file_path,
-      'url' => env('APP_URL') . '/'. $file_path,
-    ]);
-
-    return redirect(route('user-profile'));
-  }
 
 
 

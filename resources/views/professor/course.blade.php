@@ -19,11 +19,12 @@
                         <div class="red-divider"></div>
                         <div>
                             <h6 class="mt-3"></h6>
-                            <form action="post" method="post"   onsubmit="return checkForm()">
+                            <form action="{{route('professor-send-message', ['id' => $course->id])}}" method="post"   onsubmit="return checkForm()">
                                 <div class="form-group">
                                     <label for="professorMassage">ارسال پیام برا همه دانشجو ها</label>
                                     <textarea  name="inputfield" class="form-control" id="professorMassage" rows="3" placeholder="متن پیام را وارد کنید..."></textarea>
                                 </div>
+
                                 {{csrf_field()}}
                                 <button type="submit" class="btn btn-blue"><i class="fal fa-paper-plane mr-2"></i>ارسال</button>
                             </form>
@@ -41,82 +42,23 @@
                     <div class="red-divider"></div>
                     <ul class="students-list nav-list d-flex flex-column p-1 mt-2">
 
-                        <li class="d-flex align-items-center justify-content-start mt-2">
-                            <span class="mr-3">1-</span>
-                            <div class="student-img-container">
-                                <img src="{{asset('img/master.jpg')}}" alt="">
-                            </div>
-                            <span class="ml-2">پویا آکلیون</span>
-                        </li>
-                        <div class="grey-divider"></div>
+                        @php($i = 1)
 
-                        <li class="d-flex align-items-center justify-content-start mt-2">
-                            <span class="mr-3">2-</span>
-                            <div class="student-img-container">
-                                <img src="{{asset('img/master.jpg')}}" alt="">
-                            </div>
-                            <span class="ml-2">پویا آکلیون</span>
-                        </li>
+                        @foreach($students as $student)
 
-                        <li class="d-flex align-items-center justify-content-start mt-2">
-                            <span class="mr-3">3-</span>
-                            <div class="student-img-container">
-                                <img src="{{asset('img/master.jpg')}}" alt="">
-                            </div>
-                            <span class="ml-2">پویا آکلیون</span>
-                        </li>
+                            <li class="d-flex align-items-center justify-content-start mt-2">
+                                <span class="mr-3">{{$i++}}-</span>
+                                <div class="student-img-container">
+                                    <img src="{{asset($student->photo->path)}}" alt="">
+                                </div>
+                                <span class="ml-2">{{$student->name}}</span>
+                            </li>
 
-                        <li class="d-flex align-items-center justify-content-start mt-2">
-                            <span class="mr-3">4-</span>
-                            <div class="student-img-container">
-                                <img src="{{asset('img/master.jpg')}}" alt="">
-                            </div>
-                            <span class="ml-2">پویا آکلیون</span>
-                        </li>
+                        @endforeach
 
-                        <li class="d-flex align-items-center justify-content-start mt-2">
-                            <span class="mr-3">4-</span>
-                            <div class="student-img-container">
-                                <img src="{{asset('img/master.jpg')}}" alt="">
-                            </div>
-                            <span class="ml-2">پویا آکلیون</span>
-                        </li>
 
-                        <li class="d-flex align-items-center justify-content-start mt-2">
-                            <span class="mr-3">4-</span>
-                            <div class="student-img-container">
-                                <img src="{{asset('img/master.jpg')}}" alt="">
-                            </div>
-                            <span class="ml-2">پویا آکلیون</span>
-                        </li>
-                        <li class="d-flex align-items-center justify-content-start mt-2">
-                            <span class="mr-3">4-</span>
-                            <div class="student-img-container">
-                                <img src="{{asset('img/master.jpg')}}" alt="">
-                            </div>
-                            <span class="ml-2">پویا آکلیون</span>
-                        </li>
-                        <li class="d-flex align-items-center justify-content-start mt-2">
-                            <span class="mr-3">4-</span>
-                            <div class="student-img-container">
-                                <img src="{{asset('img/master.jpg')}}" alt="">
-                            </div>
-                            <span class="ml-2">پویا آکلیون</span>
-                        </li>
-                        <li class="d-flex align-items-center justify-content-start mt-2">
-                            <span class="mr-3">4-</span>
-                            <div class="student-img-container">
-                                <img src="{{asset('img/master.jpg')}}" alt="">
-                            </div>
-                            <span class="ml-2">پویا آکلیون</span>
-                        </li>
-                        <li class="d-flex align-items-center justify-content-start mt-2">
-                            <span class="mr-3">4-</span>
-                            <div class="student-img-container">
-                                <img src="{{asset('img/master.jpg')}}" alt="">
-                            </div>
-                            <span class="ml-2">پویا آکلیون</span>
-                        </li>
+
+
 
 
                     </ul>

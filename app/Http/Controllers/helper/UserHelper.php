@@ -41,4 +41,9 @@ class UserHelper {
   }
 
 
+
+//  public static function isForThisUser($obj, $key = 'user_id'){
+//  }
+
+
 }

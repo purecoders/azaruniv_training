@@ -21,7 +21,7 @@
                             <h6 class="mt-3"></h6>
                             <form action="{{route('professor-send-message', ['id' => $course->id])}}" method="post"   onsubmit="return checkForm()">
                                 <div class="form-group">
-                                    <label for="professorMassage">ارسال پیام برا همه دانشجو ها</label>
+                                    <label for="professorMassage">ارسال پیام برای دانشجویان این دوره</label>
                                     <textarea  name="inputfield" class="form-control" id="professorMassage" rows="3" placeholder="متن پیام را وارد کنید..."></textarea>
                                 </div>
 

@@ -90,7 +90,7 @@
                                 <label for="student_number" class="col-md-4 col-form-label text-md-right">شماره دانشجویی</label>
 
                                 <div class="col-md-6">
-                                    <input id="student_number" type="number" class="form-control{{ $errors->has('student_number') ? ' is-invalid' : '' }}" name="student_number" value="{{ old('student_number') }}" required autofocus>
+                                    <input  id="student_number" placeholder="اگر دانشجو هستید این قسمت را پر کنید" type="number" class="form-control{{ $errors->has('student_number') ? ' is-invalid' : '' }}" name="student_number" value="{{ old('student_number') }}" required autofocus>
 
                                     @if ($errors->has('student_number'))
                                         <span class="invalid-feedback" role="alert">
@@ -143,7 +143,7 @@
 
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
-                                    <button type="submit"  class="btn btn-success"><i class="fal fa-user-plus"></i> ثبت نام</button>
+                                    <button type="submit" formnovalidate  class="btn btn-success"><i class="fal fa-user-plus"></i> ثبت نام</button>
                                 </div>
                             </div>
                         </form>

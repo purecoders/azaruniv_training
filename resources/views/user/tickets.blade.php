@@ -1,6 +1,6 @@
 @extends('user.dashboard')
 @section('user_content')
-    <h6>تیکت ها</h6>
+    <h6>ارتباط با مدیریت</h6>
 
     <div class="container mt-3 user-ticket-container p-3" id="chat">
         <div id="charViewContainer" class="chat-view-container">
@@ -37,7 +37,7 @@
                         </p>
                         <div class="d-flex flex-column justify-content-start align-items-center">
                             <i class="fal fa-user img-chat-view "></i>
-                            <b><span>ادمین</span></b>
+                            <b><span>مدیریت</span></b>
                             <span class="jDate mt-auto">{{$ticket->created_at}}</span>
                         </div>
 

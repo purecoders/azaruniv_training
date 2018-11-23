@@ -20,7 +20,7 @@
                     <li id="userCardNavTickets" class="nav-item "><a  class="nav-link text-white"
                                                                       href="{{route('user-tickets')}}">
                             <i class="fal fa-ticket mr-1"></i>
-                            ارسال تیکت</a></li>
+                            ارتباط با مدیریت</a></li>
                 </ul>
             </div>
             <div class="card-body">

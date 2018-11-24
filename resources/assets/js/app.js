@@ -1,8 +1,11 @@
-require('./bootstrap');
+require('./bootstrap')
 
-import 'slick-carousel';
+import 'slick-carousel'
 
-const JDate = require('jalali-date');
+
+
+const JDate = require('jalali-date')
+
 
 $(document).ready(function () {
     var navbarScrollPos = $('#mainNavbar').offset().top;
@@ -203,16 +206,9 @@ $(document).ready(function () {
         }
     }
 
-    window.myFunction=function () {
-        alert("The form was submitted");
-    }
-
 
     window.checkForm=function()
     {
-        // return false
-        // alert("sfsf")
-
         //validation fails if the input is blank
         if($('#professorMassage').val() == "") {
             alert("خطا: متن پیام خالی است!");
@@ -236,9 +232,82 @@ $(document).ready(function () {
         }
 
     }
+    // $('.normal-example').persianDatepicker();
+
+
+    function readSlideURL1(input) {
+
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#slideImg1').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+        // $('#slideImg1').removeClass('d-none')
+        // $('#imgTitle').css('color','rgba(0,0,0,0)')
+        // $('.fa-plus-circle').css('color','rgba(0,0,0,0)')
+    }
+
+    $("#inputSlideImg1").change(function(){
+        readSlideURL1(this)
+    });
+
+
+    function readSlideURL2(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#slideImg2').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $("#inputSlideImg2").change(function(){
+        readSlideURL2(this)
+    });
+
+    function readSlideURL3(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#slideImg3').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $("#inputSlideImg3").change(function(){
+        readSlideURL3(this)
+    });
+
+    function readSlideURL4(input) {
+        console.log("slideImg4")
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#slideImg4').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $("#inputSlideImg4").change(function(){
+        readSlideURL4(this)
+    });
 
 
 })
+
 
 
 

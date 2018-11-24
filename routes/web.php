@@ -67,6 +67,36 @@ Route::get('/professor-tickets', function () {
     return view('professor.tickets');
 })->middleware('auth')->name('professor-tickets');
 
+
+Route::get('/admin-dashboard', function () {
+    return view('admin.dashboard');
+})->middleware('auth')->name('admin-dashboard');
+Route::get('/admin-posts', function () {
+    return view('admin.site.posts');
+})->middleware('auth')->name('admin-posts');
+Route::get('/admin-courses', function () {
+    return view('admin.site.courses');
+})->middleware('auth')->name('admin-courses');
+Route::get('/admin-course', function () {
+    return view('admin.site.course');
+})->middleware('auth')->name('admin-course');
+Route::get('/admin-slider', function () {
+    return view('admin.site.slider');
+})->middleware('auth')->name('admin-slider');
+Route::get('/admin-contact-us', function () {
+    return view('admin.site.contactUs');
+})->middleware('auth')->name('admin-contact-us');
+
+Route::get('/admin-users', function () {
+    return view('admin.user.users');
+})->middleware('auth')->name('admin-users');
+Route::get('/admin-user-detail', function () {
+    return view('admin.user.detail');
+})->middleware('auth')->name('admin-user-detail');
+
+
+
+
 Route::post('postt',function (){
    return "posted";
 });

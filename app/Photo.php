@@ -14,6 +14,7 @@ class Photo extends Model
     ];
 
 
+    //user
     const USER_MALE_AVATAR_PATH = 'uploads/images/users/avatar_male.png';
     const USER_FEMALE_AVATAR_PATH = 'uploads/images/users/avatar_female.png';
     const MASTER_MALE_AVATAR_PATH = 'uploads/images/users/avatar_master_male.png';
@@ -22,5 +23,9 @@ class Photo extends Model
     const USER_AVATAR_HEIGHT = 200;
     const USER_AVATAR_WIDTH = 200;
 
+
+    //post
+    const POST_PHOTO_HEIGHT = 200;
+    const POST_PHOTO_WIDTH = 200;
 
 }

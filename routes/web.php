@@ -1,21 +1,6 @@
 <?php
 
 
-use App\Course;
-use App\User;
-
-//tests
-Route::get('/a', function () {
-
-  $user = Auth::user();
-  $courses = $user->studentCourses;
-  return $courses;
-  $tickets = $user->tickets()->orderBy('id', 'desc');
-  $newTicketsCount = $tickets = $user->tickets()->where('is_user_sent', '=', 0)->where('is_seen', '=', 0)->count();
-  return $newTicketsCount;
-});
-
-
 
 
 //auth
@@ -23,16 +8,23 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('dashboard-home');
 
 
+
+
 //site public
 Route::get('/', 'SiteIndexPageController@show')->name('home');
 Route::resource('post', 'PostController', [
   'names' => [
     'show' => 'post.show',
+    'destroy' => 'post.destroy',
+    'store' => 'post.store',
   ]
 ]);
 Route::resource('course', 'CourseController', [
   'names' => [
     'show' => 'course.show',
+    'store' => 'course.store',
+    'destroy' => 'course.destroy',
+    'update' => 'course.update',
   ]
 ]);
 Route::get('/arcposts', 'PostController@archivePosts')->name('arcposts');
@@ -63,3 +55,27 @@ Route::post('/professor-change-avatar', 'MasterDashboardController@changeAvatar'
 Route::post('/professor-update-cv', 'MasterDashboardController@updateCv')->name('professor-update-cv');
 Route::get('/professor-tickets', 'MasterDashboardController@tickets')->name('professor-tickets');
 Route::post('/professor-send-ticket', 'MasterDashboardController@sendTicket')->name('professor-send-ticket');
+
+
+
+
+//admin routes
+Route::get('/admin-dashboard', 'AdminDashboardController@dashboard')->name('admin-dashboard');
+Route::get('/admin-posts', 'AdminDashboardController@posts')->name('admin-posts');
+Route::get('/admin-courses', 'AdminDashboardController@courses')->name('admin-courses');
+Route::get('/admin-course/{id}', 'AdminDashboardController@course')->name('admin-course');
+
+
+
+Route::get('/admin-slider', function () {
+  return view('admin.site.slider');
+})->middleware('auth')->name('admin-slider');
+Route::get('/admin-contact-us', function () {
+  return view('admin.site.contactUs');
+})->middleware('auth')->name('admin-contact-us');
+Route::get('/admin-users', function () {
+  return view('admin.user.users');
+})->middleware('auth')->name('admin-users');
+Route::get('/admin-user-detail', function () {
+  return view('admin.user.detail');
+})->middleware('auth')->name('admin-user-detail');

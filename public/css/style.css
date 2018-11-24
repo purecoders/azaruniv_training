@@ -52,7 +52,7 @@
 
 .btn-blue:focus, .btn-blue.focus {
   -webkit-box-shadow: 0 0 0 0.2rem rgba(43, 67, 118, 0.3);
-  box-shadow: 0 0 0 0.2rem rgba(43, 67, 118, 0.3);
+          box-shadow: 0 0 0 0.2rem rgba(43, 67, 118, 0.3);
 }
 
 .btn-blue.disabled, .btn-blue:disabled {
@@ -71,7 +71,7 @@
 .btn-blue:not(:disabled):not(.disabled):active:focus, .btn-blue:not(:disabled):not(.disabled).active:focus,
 .show > .btn-blue.dropdown-toggle:focus {
   -webkit-box-shadow: 0 0 0 0.2rem rgba(43, 67, 118, 0.5);
-  box-shadow: 0 0 0 0.2rem rgba(43, 67, 118, 0.5);
+          box-shadow: 0 0 0 0.2rem rgba(43, 67, 118, 0.5);
 }
 
 body {
@@ -87,7 +87,7 @@ body {
   width: 100%;
   background-color: #233761;
   -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
 #mainNavbar.navbar-custom li > a {
@@ -382,8 +382,13 @@ footer .nav-list a:hover {
   -webkit-box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.3);
   box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.3);
   border-radius: .25rem;
-  padding-right: 3rem !important;
-  padding-left: 3rem !important;
+}
+
+@media (min-width: 576px) {
+  .content-container {
+    padding-right: 3rem !important;
+    padding-left: 3rem !important;
+  }
 }
 
 .news-container {
@@ -562,8 +567,8 @@ footer .nav-list a:hover {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
   z-index: 500;
 }
 
@@ -647,6 +652,167 @@ footer .nav-list a:hover {
 
 .professor-course {
   min-height: 600px;
+}
+
+#adminNavbar {
+  width: 100%;
+  background-color: #233761;
+  -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+  border-radius: .25rem;
+  padding: 0.25rem .75rem;
+  padding-bottom: 0;
+}
+
+#adminNavbar li.dropdown:hover > .dropdown-menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#adminNavbar li > a {
+  color: #ccc !important;
+}
+
+#adminNavbar .navbar-nav > li.dropdown:hover > a,
+#adminNavbar .navbar-nav > li.dropdown:hover > a:hover,
+#adminNavbar .navbar-nav > li.dropdown:hover > a:focus {
+  background-color: #fff;
+  color: #233761 !important;
+}
+
+#adminNavbar .dropdown-menu {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  margin-top: -1px;
+  border-top: 0px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+#adminNavbar .dropdown-menu a {
+  width: auto;
+}
+
+#adminNavbar .dropdown-menu a:hover {
+  color: #cd2e41;
+}
+
+@media (max-width: 767px) {
+  #adminNavbar li.dropdown:hover > .dropdown-menu {
+    display: block;
+  }
+  #adminNavbar .dropdown-menu {
+    margin-top: 0px;
+  }
+  #adminNavbar .dropdown-menu a {
+    width: 100%;
+  }
+}
+
+#adminNavbar nav-mega {
+  width: 100%;
+}
+
+#adminNavbar .nav-mega .dropdown {
+  position: static;
+}
+
+#adminNavbar .nav-mega .dropdown-menu.mega-menu {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  min-width: auto;
+  width: 100%;
+  margin-top: 0;
+  padding: 0;
+  border-color: #ccc;
+}
+
+#adminNavbar .nav-mega .dropdown-menu.mega-menu > li {
+  padding: 20px;
+}
+
+#adminNavbar .nav-mega .dropdown-menu.mega-menu .media-list .media {
+  padding: 10px;
+  font-size: 13px;
+}
+
+#adminNavbar .nav-mega .dropdown-menu.mega-menu .media-list .media-heading {
+  font-size: 16px;
+}
+
+.admin-news-container {
+  max-height: 600px !important;
+  overflow-y: scroll;
+}
+
+.admin-news-container .nav-list li {
+  border-bottom: 1px solid #EDEDDE;
+}
+
+.admin-news-container .nav-list a {
+  display: inline-block;
+}
+
+.btn-delete {
+  background-color: transparent;
+  color: #cd2e41;
+  -webkit-transition: background-color .2s,color .2s;
+  transition: background-color .2s,color .2s;
+}
+
+.btn-delete:hover {
+  background-color: rgba(255, 66, 82, 0.91);
+  color: #eeeeee;
+}
+
+.admin-course-container {
+  padding: .5rem;
+  min-height: 200px;
+  width: 400px;
+  background-color: #ffffff;
+  border: 1px solid #eeeeee;
+  border-radius: .25rem;
+}
+
+.admin-course-container .admin-course-img-container {
+  height: 100%;
+  width: 100%;
+}
+
+.admin-course-container .admin-course-img-container img {
+  width: 100%;
+  height: 100%;
+}
+
+.table td {
+  padding: .25rem;
+}
+
+.table .student-img-container {
+  background-color: #d6d6d6;
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+}
+
+.table .student-img-container img {
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
 }
 
 @media only screen and (max-width: 768px) {

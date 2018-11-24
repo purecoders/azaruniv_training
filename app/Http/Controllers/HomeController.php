@@ -21,7 +21,7 @@ class HomeController extends Controller
       $user = Auth::user();
 
       if(UserHelper::isAdmin($user)){
-        //return to admin dashboard
+        return redirect('/admin-posts');
       }elseif (UserHelper::isMaster($user)){
         return redirect('/professor-courses');
       }else{

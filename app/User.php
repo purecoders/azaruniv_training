@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Http\Controllers\helper\UserHelper;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -62,5 +63,16 @@ class User extends Authenticatable
     }
 
 
+    public static function masters(){
+      $masters = array();
+      $users = User::all();
+      foreach ($users as $user){
+        if(UserHelper::isMaster($user)){
+          $masters[] = $user;
+        }
+      }
+
+      return $masters;
+    }
 
 }

@@ -8,6 +8,7 @@ use App\Http\Controllers\helpers\FileHelper;
 use App\Photo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 
 class CourseController extends Controller
 {
@@ -15,6 +16,7 @@ class CourseController extends Controller
 
   public function __construct() {
     $this->middleware('auth', ['except' => ['show', 'archiveCourses']]);
+    $this->middleware('admin', ['except' => ['show', 'archiveCourses']]);
   }
 
   public function index()
@@ -36,14 +38,13 @@ class CourseController extends Controller
         'master_id'       =>'numeric',
         'category_id' =>'numeric',
         'title'       =>'required|string|max:250|min:3',
-        'description'    =>'required|string|max:3000|min:3',
+        'course_content'    =>'required|string|max:3000|min:3',
         'cost'     =>'required|numeric',
         'capacity'     =>'required|numeric|max:1000|min:1',
         'gender'     =>'required|string|max:20|min:1',
         'start_date'     =>'required|date',
         'finish_date'     =>'required|date',
-        'is_open'     =>'required|numeric|min:0|max:1',
-        'image'       =>'required',
+        'image'       =>'required|image',
       ]);
 
 
@@ -56,16 +57,20 @@ class CourseController extends Controller
       $file_path = $dir . '/' . $file_name . '.'.$file_extension;
       $image->move($dir, $image_name);
 
+
+
       $course = Course::create([
         'master_id' => $request->master_id,
         'category_id' => $request->category_id,
-        'description' => $request->description,
+        'title' => $request->title,
+        'description' => $request->course_content,
         'cost' => $request->cost,
         'capacity' => $request->capacity,
         'gender' => $request->gender,
         'start_date' => $request->start_date,
         'finish_date' => $request->finish_date,
-        'is_open'     => $request->is_open,
+//        'is_open'     => $request->is_open,
+        'is_open'     => 1,
       ]);
 
 
@@ -76,6 +81,7 @@ class CourseController extends Controller
         'url' => env('APP_URL') . '/'. $file_path,
       ]);
 
+      return redirect('admin-courses');
 
     }
 
@@ -95,54 +101,66 @@ class CourseController extends Controller
 
     public function update(Request $request, $id)
     {
-        $user = Auth::user();
-        if(!UserHelper::isAdmin($user)){
-          return;
-        }
-
-        $this->validate($request,[
-          'master_id'       =>'numeric',
-          'category_id' =>'numeric',
-          'title'       =>'required|string|max:250|min:3',
-          'description'    =>'required|string|max:3000|min:3',
-          'cost'     =>'required|numeric',
-          'capacity'     =>'required|numeric|max:1000|min:1',
-          'gender'     =>'required|string|max:20|min:1',
-          'start_date'     =>'required|date',
-          'finish_date'     =>'required|date',
-          'is_open'     =>'required|numeric|min:0|max:1',
-          'image'       =>'required',
-        ]);
-
-        $course = Course::find($id);
-        $course->master_id = $request->master_id;
-        $course->category_id = $request->category_id;
-        $course->description = $request->description;
-        $course->cost = $request->cost;
-        $course->capacity = $request->capacity;
-        $course->gender = $request->gender;
-        $course->start_date = $request->start_date;
-        $course->finish_date = $request->finish_date;
-        $course->is_open = $request->is_open;
-
-        $course->save();
+      $this->validate($request,[
+        'master_id'       =>'numeric',
+        'category_id' =>'numeric',
+        'title'       =>'required|string|max:250|min:3',
+        'course_content'    =>'required|string|max:3000|min:3',
+        'cost'     =>'required|numeric',
+        'capacity'     =>'required|numeric|max:1000|min:1',
+        'gender'     =>'required|string|max:20|min:1',
+        'start_date'     =>'required|date',
+        'finish_date'     =>'required|date',
+//        'is_open'     =>'required|numeric|min:0|max:1',
+        'image'       =>'required|image',
+      ]);
 
 
-        //return view
+      $image = $request->file('image');
+
+      $file_extension = $image->getClientOriginalExtension();
+      $dir = FileHelper::getFileDirName('images/courses');
+      $file_name = FileHelper::getFileNewName();
+      $image_name = $file_name . '.' . $file_extension;
+      $file_path = $dir . '/' . $file_name . '.'.$file_extension;
+      $image->move($dir, $image_name);
+
+
+      $course = Course::find($id);
+      $course->master_id = $request->master_id;
+      $course->category_id = $request->category_id;
+      $course->title = $request->title;
+      $course->description = $request->course_content;
+      $course->cost = $request->cost;
+      $course->capacity = $request->capacity;
+      $course->gender= $request->gender;
+      $course->start_date = $request->start_date;
+      $course->finish_date = $request->finish_date;
+      $course->is_open = 1;
+      $course->save();
+
+
+      $photo = $course->coverImage;
+      $photo->delete();
+      File::delete($photo->path);
+
+      $photo = Photo::create([
+        'imageable_id' => $course->id,
+        'imageable_type' => 'App\Course',
+        'path' => $file_path,
+        'url' => env('APP_URL') . '/'. $file_path,
+      ]);
+
+
+      return redirect(route('course.show', $course->id));
 
     }
 
 
     public function destroy($id)
     {
-        if(!UserHelper::isAdmin(Auth::user())){
-          return;
-        }
-
-        $course = Course::find($id);
-        $course->delete();
-
-        //return view
+        Course::find($id)->delete();
+        return redirect('/admin-courses');
     }
 
 

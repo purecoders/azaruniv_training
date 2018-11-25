@@ -193,14 +193,17 @@
                         </div>
                     </div>
                     <div class="col-sm-8">
+                        <div class="d-flex justify-content-between align-items-center">
                         <h6>دوره زبان</h6>
+                            <span class="btn-sm course-price align-self-start ">36000 تومان</span>
+                        </div>
                         <p>
                             مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته
                             اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
                         </p>
                     </div>
                 </div>
-                <div class="d-flex mt-3 justify-content-around align-items-center flex-wrap">
+                <div class="d-flex mt-3 justify-content-between align-items-center flex-wrap">
                     <span><i class="fal fa-users-class"></i> 24</span>
                     <span><i class="fal fa-chalkboard-teacher"></i> پویا آکلیون</span>
                     <a href="{{route('admin-course')}}" class="btn btn-sm btn-blue"><i class="fal fa-cog mr-1 "></i>مدیریت دوره</a>

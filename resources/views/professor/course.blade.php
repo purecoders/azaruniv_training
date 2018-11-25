@@ -44,7 +44,10 @@
             <!-- student list -->
             <div id="sidebar" class="col-md-4">
                 <div class="content-container p-4 mb-3">
-                    <h6>لیست دانشجو ها</h6>
+                    <div class="d-flex justify-content-around align-items-center mb-1">
+                        <h6> دانشجو ها</h6>
+                        <button class=" btn btn-sm btn-blue"><i class="fal fa-print"></i>  پرینت لیست کلاسی</button>
+                    </div>
                     <div class="red-divider"></div>
                     <ul class="students-list nav-list d-flex flex-column p-1 mt-2">
                         <li class="d-flex align-items-center justify-content-start mt-2">

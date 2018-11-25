@@ -166,6 +166,52 @@
             </table>
             </div>
         </div>
+        <div class="mb-3 red-divider"></div>
+        <div class="mt-3 col-10 m-auto">
+            <div class="d-flex justify-content-between align-items-center">
+                <h6 class="m-1 my-3">پرداخت های این دوره</h6>
+                <h6 class="course-price p-2">مجموع : 108000 تومان</h6>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th scope="col">ردیف</th>
+                        <th scope="col">مبلغ</th>
+                        <th scope="col">واریز شده توسط</th>
+                        <th scope="col">تاریخ</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>36000 تومان</td>
+                        <td>پویا آکلیون</td>
+                        <td>
+                           1397/09/04
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>36000 تومان</td>
+                        <td>پویا آکلیون</td>
+                        <td>
+                            1397/09/04
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>36000 تومان</td>
+                        <td>پویا آکلیون</td>
+                        <td>
+                            1397/09/04
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
     </div>
 
     <script>

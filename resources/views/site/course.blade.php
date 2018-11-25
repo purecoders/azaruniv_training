@@ -33,7 +33,7 @@
             </div>
         </div>
         <div class="d-flex justify-content-between flex-wrap">
-        <a href="#" class="btn btn-success "><i class="fal fa-plus"></i> ثبت نام در این دوره</a>
+        <a href="{{route('register')}}" class="btn btn-success "><i class="fal fa-plus"></i> ثبت نام در این دوره</a>
             <span href="#" class="course-price align-self-start mt-1">38000 تومان</span>
         </div>
     </div>

@@ -17,15 +17,18 @@
 
                 <div class="col-sm-8 col-md-8 col-xl-9 d-flex flex-column justify-content-around">
                     <span class=""><i class="fal fa-chalkboard-teacher"></i> استاد مدرس </span>
+                    <br>
                     <h6 class="">{{$course->master->name}}</h6>
+                    <span>{{$course->master->masterInfo->content}}</span>
                 </div>
+
 
             </div>
         </div>
 
         <div class="d-flex justify-content-between flex-wrap">
             <a href="#" class="btn btn-success "><i class="fal fa-plus"></i> ثبت نام در این دوره</a>
-            <span href="#" class="course-price align-self-start mt-1">{{$course->cost}} تومان </span>
+            <span href="#" class="course-price align-self-start mt-1">{{number_format($course->cost)}} تومان </span>
         </div>
 
     </div>

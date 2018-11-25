@@ -140,7 +140,7 @@
                             </div>
                         </td>
                         <td>
-                            <a href="" class="btn btn-sm btn-blue mt-2">مشاهده جزئیات</a>
+                            <a href="{{route('admin-user-detail', ['id' => $student->id])}}" class="btn btn-sm btn-blue mt-2">مشاهده جزئیات</a>
                         </td>
                     </tr>
                 @endforeach

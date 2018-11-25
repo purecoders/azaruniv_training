@@ -32,7 +32,7 @@
                                     </div>
 
                                 </div>
-                                <a href="#" class="course-price align-self-start mt-1">{{$course->cost}} تومان </a>
+                                <a href="#" class="course-price align-self-start mt-1">{{number_format($course->cost)}} تومان </a>
 
                             </div>
                         </div>

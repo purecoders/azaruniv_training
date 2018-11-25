@@ -10,6 +10,7 @@ use App\SiteInfo;
 use App\Slider;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class AdminDashboardController extends Controller
 {
@@ -84,6 +85,17 @@ class AdminDashboardController extends Controller
     $courses = $user->studentCourses;
     $payments = $user->payments;
     return view('admin.user.detail', compact(['user', 'courses', 'payments']));
+  }
+
+
+  public function resetPassword($id){
+    $user = User::find($id);
+    $national_code = $user->national_code;
+    $newPassword = Hash::make($national_code);
+    $user->password = $newPassword;
+    $user->save();
+
+    return redirect('/admin-user-detail/' . $id);
   }
 
 }

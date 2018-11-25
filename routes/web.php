@@ -69,3 +69,4 @@ Route::get('/admin-contact-us', 'AdminDashboardController@contactUs')->name('adm
 Route::post('/admin-update-contact-us', 'SiteInfoController@update')->name('admin-update-contact-us');
 Route::get('/admin-users', 'AdminDashboardController@users')->name('admin-users');
 Route::get('/admin-user-detail/{id}', 'AdminDashboardController@user')->name('admin-user-detail');
+Route::get('/admin-reset-password/{id}', 'AdminDashboardController@resetPassword')->name('admin-reset-password');

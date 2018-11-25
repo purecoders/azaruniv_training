@@ -7,7 +7,7 @@
                 <thead>
                 <tr>
                     <th scope="col">ردیف</th>
-                    <th scope="col">اسم کامل</th>
+                    <th scope="col">نام کامل</th>
                     <th scope="col">شماره تلفن</th>
                     <th scope="col">عکس</th>
                     <th scope="col">جزئیات</th>
@@ -15,9 +15,10 @@
                 </thead>
                 <tbody>
 
+                @php($i = 0)
                 @foreach($students as $student)
                     <tr>
-                        <th scope="row">1</th>
+                        <th scope="row">{{++$i}}</th>
                         <td>{{$student->name}}</td>
                         <td>{{$student->mobile}}</td>
                         <td>

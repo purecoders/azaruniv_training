@@ -51,7 +51,10 @@
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <a href="" class="btn btn-sm btn-blue align-self-center">بازیابی رمز عبور</a>
+
+                                <a href="{{route('admin-reset-password', ['id' => $user->id])}}" class="btn btn-sm btn-blue align-self-center">بازیابی رمز عبور</a>
+                                <br>
+                                <span style="color: #fe4219">با کلیک روی دکمه بالا رمز حساب دانشجو به کد ملی تغییر می یابد</span>
                             </div>
                         </div>
                     </div>
@@ -99,7 +102,7 @@
                 <thead>
                 <tr>
                     <th scope="col">ردیف</th>
-                    <th scope="col">مبلغ</th>
+                    <th scope="col">مبلغ(تومان)</th>
                     <th scope="col">بابت</th>
                     <th scope="col">وضعیت</th>
                     <th scope="col">تاریخ</th>
@@ -114,7 +117,7 @@
                     @if($payment->is_success == 1)
                         <tr>
                             <th scope="row">{{++$i}}</th>
-                            <td>{{$payment->amount}}</td>
+                            <td>{{number_format($payment->amount)}}</td>
                             <td>{{$payment->course->title}}</td>
                             <td>موفق</td>
                             <td class="jDate">{{$payment->created_at}}</td>
@@ -124,7 +127,7 @@
                     @else
                         <tr style="background-color: #ff1a00">
                             <th scope="row">{{++$i}}</th>
-                            <td>{{$payment->amount}}</td>
+                            <td>{{number_format($payment->amount)}}</td>
                             <td>دوره زبان خارجه</td>
                             <td>ناموفق</td>
                             <td class="jDate">{{$payment->created_at}}</td>

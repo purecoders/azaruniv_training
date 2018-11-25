@@ -112,18 +112,21 @@ class CourseController extends Controller
         'start_date'     =>'required|date',
         'finish_date'     =>'required|date',
 //        'is_open'     =>'required|numeric|min:0|max:1',
-        'image'       =>'required|image',
+//        'image'       =>'image',
       ]);
 
 
       $image = $request->file('image');
-
-      $file_extension = $image->getClientOriginalExtension();
-      $dir = FileHelper::getFileDirName('images/courses');
-      $file_name = FileHelper::getFileNewName();
-      $image_name = $file_name . '.' . $file_extension;
-      $file_path = $dir . '/' . $file_name . '.'.$file_extension;
-      $image->move($dir, $image_name);
+      $hasImage = false;
+      if($image !== null) {
+        $hasImage = true;
+        $file_extension = $image->getClientOriginalExtension();
+        $dir = FileHelper::getFileDirName('images/courses');
+        $file_name = FileHelper::getFileNewName();
+        $image_name = $file_name . '.' . $file_extension;
+        $file_path = $dir . '/' . $file_name . '.' . $file_extension;
+        $image->move($dir, $image_name);
+      }
 
 
       $course = Course::find($id);
@@ -140,16 +143,18 @@ class CourseController extends Controller
       $course->save();
 
 
-      $photo = $course->coverImage;
-      $photo->delete();
-      File::delete($photo->path);
+      if($hasImage) {
+        $photo = $course->coverImage;
+        $photo->delete();
+        File::delete($photo->path);
 
-      $photo = Photo::create([
-        'imageable_id' => $course->id,
-        'imageable_type' => 'App\Course',
-        'path' => $file_path,
-        'url' => env('APP_URL') . '/'. $file_path,
-      ]);
+        $photo = Photo::create([
+          'imageable_id' => $course->id,
+          'imageable_type' => 'App\Course',
+          'path' => $file_path,
+          'url' => env('APP_URL') . '/' . $file_path,
+        ]);
+      }
 
 
       return redirect(route('course.show', $course->id));

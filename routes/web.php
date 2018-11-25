@@ -34,7 +34,7 @@ Route::post('/search', 'SiteIndexPageController@search')->name('search');
 
 
 
-//user dashboard
+//student dashboard
 Route::get('/user-dashboard', 'UserDashboardController@show')->name('user-dashboard');
 Route::get('/user-courses', 'UserDashboardController@courses')->name('user-courses');
 Route::get('/user-profile', 'UserDashboardController@profile')->name('user-profile');
@@ -64,18 +64,8 @@ Route::get('/admin-dashboard', 'AdminDashboardController@dashboard')->name('admi
 Route::get('/admin-posts', 'AdminDashboardController@posts')->name('admin-posts');
 Route::get('/admin-courses', 'AdminDashboardController@courses')->name('admin-courses');
 Route::get('/admin-course/{id}', 'AdminDashboardController@course')->name('admin-course');
-
-
-
-Route::get('/admin-slider', function () {
-  return view('admin.site.slider');
-})->middleware('auth')->name('admin-slider');
-Route::get('/admin-contact-us', function () {
-  return view('admin.site.contactUs');
-})->middleware('auth')->name('admin-contact-us');
-Route::get('/admin-users', function () {
-  return view('admin.user.users');
-})->middleware('auth')->name('admin-users');
-Route::get('/admin-user-detail', function () {
-  return view('admin.user.detail');
-})->middleware('auth')->name('admin-user-detail');
+Route::get('/admin-slider', 'AdminDashboardController@sliders')->name('admin-slider');
+Route::get('/admin-contact-us', 'AdminDashboardController@contactUs')->name('admin-contact-us');
+Route::post('/admin-update-contact-us', 'SiteInfoController@update')->name('admin-update-contact-us');
+Route::get('/admin-users', 'AdminDashboardController@users')->name('admin-users');
+Route::get('/admin-user-detail/{id}', 'AdminDashboardController@user')->name('admin-user-detail');

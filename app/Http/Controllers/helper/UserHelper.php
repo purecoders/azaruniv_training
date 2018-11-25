@@ -9,9 +9,11 @@
 namespace App\Http\Controllers\helper;
 
 
+use App\User;
+
 class UserHelper {
 
-  public static function isAdmin($user){
+  public static function isAdmin(User $user){
     if($user === null){
       return false;
     }
@@ -27,7 +29,7 @@ class UserHelper {
 
 
 
-  public static function isMaster($user){
+  public static function isMaster(User $user){
     if($user === null){
       return false;
     }
@@ -42,8 +44,11 @@ class UserHelper {
 
 
 
-//  public static function isForThisUser($obj, $key = 'user_id'){
-//  }
+  public static function isStudent(User $user){
+    if($user === null) return false;
+    if(sizeof( $user->roles) > 0) return false;
+    return true;
+  }
 
 
 }

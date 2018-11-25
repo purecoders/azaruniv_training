@@ -149,7 +149,7 @@
                         </div>
                     </div>
                     <div class="col-sm-8">
-                        <a href="{{route('course.show', ['id' => $course->id])}}"><h6>{{$course->title}}</h6></a>
+                        <h6>{{$course->title}}</h6>
                         <p>
                             {{$course->description}}.
                         </p>

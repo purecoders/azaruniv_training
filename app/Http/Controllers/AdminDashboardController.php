@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Course;
+use App\Http\Controllers\helper\UserHelper;
 use App\Post;
+use App\SiteInfo;
+use App\Slider;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -38,6 +41,49 @@ class AdminDashboardController extends Controller
     $course = Course::find($id);
     $categories = Category::all();
     $masters = User::masters();
-    return view('admin.site.course', compact(['course', 'categories', 'masters']));
+    $students = $course->students;
+
+    return view('admin.site.course', compact(['course', 'categories', 'masters', 'students']));
   }
+
+
+  public function sliders(){
+    $sliders = Slider::all();
+    return view('admin.site.slider', compact('sliders'));
+  }
+
+
+  public function contactUs(){
+    $infos = SiteInfo::all();
+    foreach ($infos as $info){
+      if($info->key === 'phone_number') $phone_number = $info->value;
+      elseif($info->key === 'email') $email = $info->value;
+      elseif ($info->key === 'address') $address = $info->value;
+      elseif ($info->key === 'postal_code')  $postal_code = $info->value;
+    }
+
+    return view('admin.site.contactUs', compact(['phone_number', 'email', 'address', 'postal_code']));
+  }
+
+
+
+  public function users(){
+    $students = array();
+    $users = User::orderBy('id' ,'desc')->paginate(25);
+    foreach ($users as $user){
+      if(UserHelper::isStudent($user)){
+        $students [] = $user;
+      }
+    }
+    return view('admin.user.users', compact('students'));
+  }
+
+
+  public function user($id){
+    $user = User::find($id);
+    $courses = $user->studentCourses;
+    $payments = $user->payments;
+    return view('admin.user.detail', compact(['user', 'courses', 'payments']));
+  }
+
 }

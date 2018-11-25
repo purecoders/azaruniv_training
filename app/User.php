@@ -64,15 +64,12 @@ class User extends Authenticatable
 
 
     public static function masters(){
-      $masters = array();
-      $users = User::all();
-      foreach ($users as $user){
-        if(UserHelper::isMaster($user)){
-          $masters[] = $user;
-        }
-      }
-
+      $role = Role::where('name', '=', 'master')->first();
+      $masters = $role->users;
       return $masters;
     }
+
+
+
 
 }

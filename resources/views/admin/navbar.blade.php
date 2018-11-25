@@ -32,7 +32,7 @@
                 <li class="dropdown mx-2">
                     <a class="nav-link" href="{{route('admin-users')}}" role="button" >
                         <i class="fal fa-users-class mt-1"></i>
-                        مدیریت کاربران
+                        مدیریت دانشجویان
                     </a>
                 </li>
                 <li class="dropdown mx-2">

@@ -11,7 +11,7 @@
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav nav-item nav-mega ">
                 <li class="dropdown mx-2">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarSite" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="" id="navbarSite" role="button" aria-haspopup="true" aria-expanded="false">
                         <i class="fal fa-globe mt-1"></i>
                          مدیریت سایت
                     </a>
@@ -36,7 +36,7 @@
                     </a>
                 </li>
                 <li class="dropdown mx-2">
-                    <a class="nav-link" href="#" id="navbarTicket" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link" href="{{route('admin-tickets')}}" id="navbarTicket" role="button">
                         <i class="fal fa-ticket mt-1"></i>
                         تیکت ها
                     </a>

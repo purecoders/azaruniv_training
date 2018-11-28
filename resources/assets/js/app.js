@@ -307,6 +307,62 @@ $(document).ready(function () {
 
 
 })
+window.excelReport=function(elm){
+    var sheetname = $("#chainnames").children(":selected").text();
+     var tableId=$(elm).parent().siblings().children(":first").attr('id')
+    console.log(tableId)
+    tableToExcel(tableId,sheetname);
+}
+$(document).on('click','#exportreptoexcelfile',function(event){
+    //working great with Arabic without filename
+    console.log(event)
+    var sheetname = $("#chainnames").children(":selected").text();
+    tableToExcel('students',sheetname);
+
+});
+
+var tableToExcel = (function() {
+    var uri = 'data:application/vnd.ms-excel;base64,'
+        , template = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"><head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>{worksheet}</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--><meta http-equiv="content-type" content="text/plain; charset=UTF-8"/></head><body><table border="2px"><tr>{table}</table></body></html>'
+        , base64 = function(s) { return window.btoa(unescape(encodeURIComponent(s))) }
+        , format = function(s, c) { return s.replace(/{(\w+)}/g, function(m, p) { return c[p]; }) }
+    return function(table, name) {
+        var tableId=table
+        if (!table.nodeType) table = document.getElementById(table)
+        var orginalTable=table.innerHTML
+
+        for(var j = 0 ; j < table.rows.length ; j++)
+        {
+            if(j==0){
+                table.rows[j].cells[0].width=200
+                table.rows[j].cells[1].width=200
+                table.rows[j].cells[2].width=200
+            }
+            try{
+            table.rows[j].deleteCell(4)
+            table.rows[j].deleteCell(3)
+
+            }catch (err){
+
+            }
+        }
+        table.innerHTML=table.innerHTML.replace('/تومان/g','')
+        var ctx = {worksheet: name || 'Worksheet', table: table.innerHTML}
+        table.innerHTML=orginalTable
+        // window.location.href = uri + base64(format(template, ctx))
+        var dt = new Date();
+        var day = dt.getDate();
+        var month = dt.getMonth() + 1;
+        var year = dt.getFullYear();
+        var postfix = day + "." + month + "." + year;
+        var result = uri + base64(format(template, ctx));
+        var a = document.createElement('a');
+        a.href = result;
+        a.download = name+tableId + ' _ ' + postfix + '.xls';
+        a.click();
+        return true;
+    }
+})()
 
 
 

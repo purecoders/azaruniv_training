@@ -602,6 +602,36 @@ footer .nav-list a:hover {
   border-radius: .25rem;
 }
 
+.user-ticket-container .admin-chat-user-item {
+  color: #060851;
+  -webkit-transition: background-color .2s;
+  transition: background-color .2s;
+}
+
+.user-ticket-container .admin-chat-user-item:hover {
+  background-color: #eeeeee !important;
+}
+
+.user-ticket-container .admin-chat-view-sidebar {
+  max-height: 500px;
+  overflow-y: scroll;
+}
+
+.user-ticket-container a {
+  text-decoration: none;
+  color: #cd2e41;
+}
+
+.user-ticket-container .admin-chat-view-user {
+  text-decoration: none;
+  color: #060851;
+}
+
+.user-ticket-container .admin-chat-view-user div {
+  padding-top: 0 !important;
+  padding-bottom: .25rem !important;
+}
+
 .user-ticket-container .chat-view-container {
   max-height: 400px;
   overflow-y: scroll;

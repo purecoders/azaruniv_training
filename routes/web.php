@@ -86,6 +86,9 @@ Route::get('/admin-slider', function () {
 Route::get('/admin-contact-us', function () {
     return view('admin.site.contactUs');
 })->middleware('auth')->name('admin-contact-us');
+Route::get('/admin-tickets', function () {
+    return view('admin.site.tickets');
+})->middleware('auth')->name('admin-tickets');
 
 Route::get('/admin-users', function () {
     return view('admin.user.users');
@@ -93,6 +96,9 @@ Route::get('/admin-users', function () {
 Route::get('/admin-user-detail', function () {
     return view('admin.user.detail');
 })->middleware('auth')->name('admin-user-detail');
+Route::get('/admin-users-all', function () {
+    return view('admin.user.all');
+})->middleware('auth')->name('admin-users-all');
 
 
 

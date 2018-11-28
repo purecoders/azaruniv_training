@@ -110,9 +110,13 @@
         </div>
         <div class="red-divider"></div>
         <div class="col-10 m-auto">
-            <h6 class="m-1 my-3">لیست دانشجو های این دوره</h6>
+            <div class="d-flex justify-content-between align-items-center">
+                <h6 class="m-1 my-3">لیست دانشجو های این دوره</h6>
+                <button  class="btn btn-sm btn-blue" onclick="excelReport(this)"><i class="fal fa-file-excel mr-1"></i>ذخیره فایل اکسل</button>
+            </div>
             <div class="table-responsive">
-            <table class="table table-striped">
+                {{--set id by course name--}}
+            <table id="لیست دانشجو های کلاس زبان" class="table table-striped">
                 <thead>
                 <tr>
                     <th scope="col">ردیف</th>
@@ -168,12 +172,14 @@
         </div>
         <div class="mb-3 red-divider"></div>
         <div class="mt-3 col-10 m-auto">
-            <div class="d-flex justify-content-between align-items-center">
+            <div class="d-flex justify-content-between align-items-center flex-wrap ">
                 <h6 class="m-1 my-3">پرداخت های این دوره</h6>
-                <h6 class="course-price p-2">مجموع : 108000 تومان</h6>
+                <button class="btn btn-sm btn-blue m-1" onclick="excelReport(this)"><i class="fal fa-file-excel mr-1"></i>ذخیره فایل اکسل</button>
+                <h6 class="course-price p-sm-2 m-1">مجموع : 108000 تومان</h6>
             </div>
             <div class="table-responsive">
-                <table class="table table-striped">
+                {{--set id by course name--}}
+                <table id="پرداخت های دوره زبان" id="tableToExcel" class="table table-striped ">
                     <thead>
                     <tr>
                         <th scope="col">ردیف</th>

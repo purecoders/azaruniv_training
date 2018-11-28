@@ -21,9 +21,9 @@
                                 <span class="mx-2">پویا آکلیون</span>
                             </div>
                             <div class="col-md-6">
-                                <spna><i class="fal fa-book"></i></spna>
-                                <span>رشته تحصیلی:</span>
-                                <span class="mx-2">فناوری اطلاعات</span>
+                                <spna><i class="fal fa-envelope"></i></spna>
+                                <span>ایمیل:</span>
+                                <span class="mx-2">test@gmail.com</span>
                             </div>
                         </div>
 
@@ -34,9 +34,7 @@
                                 <span class="mx-2">09388584677</span>
                             </div>
                             <div class="col-md-6">
-                                <spna><i class="fal fa-graduation-cap"></i></spna>
-                                <span>شماره دانشجویی:</span>
-                                <span class="mx-2">931831208</span>
+
                             </div>
                         </div>
 
@@ -59,7 +57,7 @@
         </div>
 
         <div class="red-divider"></div>
-        <h6 class="mt-4">دوره های این کاربر</h6>
+        <h6 class="mt-4">دوره های این استاد</h6>
         <div class="mt-1 d-flex flex-wrap">
             <div class="m-1 admin-course-container d-flex flex-column">
                 <div class="row">
@@ -136,45 +134,26 @@
 
                 </div>
             </div>
+        </div>
+        <div class="red-divider mt-2">
 
         </div>
-
-        <div class="red-divider mt-3"></div>
-        <h6 class="mt-4">پرداخت های این کاربر</h6>
-
-        <div class="col-6 table-responsive">
-            <table class="table table-striped">
-                <thead>
-                <tr>
-                    <th scope="col">ردیف</th>
-                    <th scope="col">مبلغ</th>
-                    <th scope="col">بابت</th>
-                    <th scope="col">تاریخ</th>
-
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>56000 تومان</td>
-                    <td>دوره زبان خارجه</td>
-                    <td>1397/12/50</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>56000 تومان</td>
-                    <td>دوره زبان خارجه</td>
-                    <td>1397/12/50</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>56000 تومان</td>
-                    <td>دوره زبان خارجه</td>
-                    <td>1397/12/50</td>
-                </tr>
-
-                </tbody>
-            </table>
+        <div>
+            <h6 class="mt-3">رزومه </h6>
+            <div class="col-8 p-2">
+                <p class="bg-light p-2" style="border-radius: .25rem">
+                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها
+                    و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و
+                    کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و
+                    آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه
+                    ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که
+                    تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی
+                    دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
+                </p>
+            </div>
+            <a href="" class="btn btn-sm btn-blue"><i class="fal fa-download"></i> دانلود مدارک</a>
         </div>
+
+
     </div>
 @endsection

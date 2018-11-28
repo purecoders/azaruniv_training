@@ -15,6 +15,7 @@
                     <th scope="col">ردیف</th>
                     <th scope="col">اسم کامل</th>
                     <th scope="col">شماره تلفن</th>
+                    <th scope="col">رشته تحصیلی</th>
                     <th scope="col">عکس</th>
                     <th scope="col">جزئیات</th>
                 </tr>
@@ -24,6 +25,7 @@
                     <th scope="row">1</th>
                     <td>Mark</td>
                     <td>09388584677</td>
+                    <td>فناوری اطلاعات</td>
                     <td>
                         <div class="student-img-container">
                             <img src="{{asset('img/master.jpg')}}" alt="">
@@ -37,6 +39,7 @@
                     <th scope="row">2</th>
                     <td>Jacob</td>
                     <td>09388584677</td>
+                    <td>فناوری اطلاعات</td>
                     <td>
                         <div class="student-img-container">
                             <img src="{{asset('img/master.jpg')}}" alt="">
@@ -50,6 +53,7 @@
                     <th scope="row">3</th>
                     <td>Larry</td>
                     <td>09388584677</td>
+                    <td>فناوری اطلاعات</td>
                     <td>
                         <div class="student-img-container">
                             <img src="{{asset('img/master.jpg')}}" alt="">

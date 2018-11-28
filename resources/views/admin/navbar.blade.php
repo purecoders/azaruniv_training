@@ -24,7 +24,7 @@
                     </div>
                 </li>
                 <li class="dropdown mx-2">
-                    <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link" href="{{route('admin-professor')}}" role="button"   aria-expanded="false">
                         <i class="fal fa-chalkboard-teacher mt-1"></i>
                         مدیریت اساتید
                     </a>

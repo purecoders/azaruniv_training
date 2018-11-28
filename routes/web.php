@@ -90,6 +90,13 @@ Route::get('/admin-tickets', function () {
     return view('admin.site.tickets');
 })->middleware('auth')->name('admin-tickets');
 
+Route::get('/admin-professor', function () {
+    return view('admin.professor.professor');
+})->middleware('auth')->name('admin-professor');
+Route::get('/admin-professor-detail', function () {
+    return view('admin.professor.detail');
+})->middleware('auth')->name('admin-professor-detail');
+
 Route::get('/admin-users', function () {
     return view('admin.user.users');
 })->middleware('auth')->name('admin-users');

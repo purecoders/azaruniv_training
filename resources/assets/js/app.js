@@ -339,8 +339,8 @@ var tableToExcel = (function() {
                 table.rows[j].cells[2].width=200
             }
             try{
+            table.rows[j].deleteCell(5)
             table.rows[j].deleteCell(4)
-            table.rows[j].deleteCell(3)
 
             }catch (err){
 

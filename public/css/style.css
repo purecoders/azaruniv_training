@@ -820,6 +820,11 @@ footer .nav-list a:hover {
   height: 100%;
 }
 
+.admin-course-container a {
+  text-decoration: none;
+  color: #060851;
+}
+
 .table td {
   padding: .25rem;
 }

@@ -9,15 +9,15 @@
                 <div class="d-flex flex-column admin-chat-view-sidebar">
 
                     <div class="admin-chat-user-item mt-1">
-                        <div class="d-flex justify-content-end ">
+                        <div class="d-flex justify-content-between">
+                            <span class="new-ticket position-relative ml-1">6</span>
                             <a href="#" class="mr-2">پروفایل</a>
-
                         </div>
                         <a class="admin-chat-view-user  " href="#">
                             <div class="p-sm-2 text-center  border-bottom border-light">
                                 <div class="d-flex align-items-center">
-                                    <i class="fal fa-user-circle admin-chat-view-user-img mr-2"></i>
-                                    <span class="admin-chat-view-user-name mr-auto ">پویا</span>
+                                    <i class="fal fa-chalkboard-teacher  admin-chat-view-user-img mr-2"></i>
+                                    <span class="admin-chat-view-user-name mr-auto ">استاد پویا</span>
                                     <div class="d-flex flex-column align-items-end justify-content-around">
                                         <span class="text-muted mt-auto">12:34 PM </span>
                                     </div>
@@ -192,8 +192,29 @@
                     <div class="chat-view d-flex w-50 alert alert-info">
 
                         <div class="d-flex flex-column justify-content-start align-items-center">
+                            <i class="fal fa-chalkboard-teacher img-chat-view"></i>
+                            <b><span>استاد</span></b>
+                        </div>
+                        <p class="ml-2">
+                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
+                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
+                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت سبسیب س
+                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
+                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
+                        </p>
+                        <div class="ml-auto d-flex flex-column justify-content-end">
+                            <div class="d-flex flex-row-reverse align-items-center">
+                                <span class="jDate">2018-10-16</span>
+                                <span><i class="fal fa-check-double mr-1"></i></span>
+                            </div>
+
+                        </div>
+                    </div> <!-- professor chat view card -->
+                    <div class="chat-view d-flex w-50 alert alert-info">
+
+                        <div class="d-flex flex-column justify-content-start align-items-center">
                             <i class="fal fa-user img-chat-view"></i>
-                            <b><span>شما</span></b>
+                            <b><span>کاربر</span></b>
                         </div>
                         <p class="ml-2">
                             لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت

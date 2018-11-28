@@ -35,10 +35,11 @@
                         مدیریت کاربران
                     </a>
                 </li>
-                <li class="dropdown mx-2">
-                    <a class="nav-link" href="{{route('admin-tickets')}}" id="navbarTicket" role="button">
+                <li class="navbar-ticket dropdown mx-2">
+                    <a class="nav-link navbar-ticket-a" href="{{route('admin-tickets')}}" id="navbarTicket" role="button">
                         <i class="fal fa-ticket mt-1"></i>
                         تیکت ها
+                        <span class="new-ticket">4</span>
                     </a>
                 </li>
             </ul>

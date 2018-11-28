@@ -765,6 +765,30 @@ footer{
     }
   }
 }
+.navbar-ticket{
+  min-width: 120px;
+
+  .navbar-ticket-a{
+    position: relative;
+  }
+}
+.new-ticket{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  min-height: 20px;
+  min-width: 20px;
+  padding-left: 0.03rem;
+  padding-right: 0.03rem;
+  text-align: center;
+
+  margin-left: .1rem;
+  margin-top: .4rem;
+  border-radius: 50%;
+  color: #ffffff;
+  background-color: rgb(202, 47, 60);
+}
+
 
 
 input[type=number]::-webkit-inner-spin-button,

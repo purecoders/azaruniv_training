@@ -1,0 +1,227 @@
+/*****************************************************
+This program was produced by the
+CodeWizardAVR V2.05.3 Standard
+Automatic Program Generator
+© Copyright 1998-2011 Pavel Haiduc, HP InfoTech s.r.l.
+http://www.hpinfotech.com
+
+Project : 
+Version : 
+Date    : 11/27/2018
+Author  : Mohsen
+Company : 
+Comments: 
+
+
+Chip type               : ATmega32A
+Program type            : Application
+AVR Core Clock frequency: 11.000000 MHz
+Memory model            : Small
+External RAM size       : 0
+Data Stack size         : 512
+*****************************************************/
+
+#include <mega32a.h>
+#include <delay.h>
+
+
+// Declare your global variables here
+int delay_time_millis = 2;
+
+void show(int num1, int num2, int num3, int num4){
+
+    //common cathode 
+    
+    
+    
+    //led1
+    switch(num1){
+        case 0: PORTA = 0x3f; PORTB = 0xfe; break; //0x3f
+        case 1: PORTA = 0x06; PORTB = 0xfe; break; //0x06  
+        case 2: PORTA = 0x5b; PORTB = 0xfe; break; //0x5b
+        case 3: PORTA = 0x4f; PORTB = 0xfe; break; //0x4f
+        case 4: PORTA = 0x66; PORTB = 0xfe; break; //0x66
+        case 5: PORTA = 0x6d; PORTB = 0xfe; break; //0x6d
+        case 6: PORTA = 0x7d; PORTB = 0xfe; break; //0x7d
+        case 7: PORTA = 0x07; PORTB = 0xfe; break; //0x07
+        case 8: PORTA = 0x7f; PORTB = 0xfe; break; //0x7f
+        case 9: PORTA = 0x6f; PORTB = 0xfe; break; //0x6f
+        default: PORTA = 0x00; PORTB = 0xfe; break;//0x00
+    }                      
+                        
+    delay_ms(delay_time_millis);    
+            
+    
+    
+    //led2
+     switch(num2){
+        case 0: PORTA = 0x3f; PORTB = 0xfd; break; //0x3f
+        case 1: PORTA = 0x06; PORTB = 0xfd; break; //0x06  
+        case 2: PORTA = 0x5b; PORTB = 0xfd; break; //0x5b
+        case 3: PORTA = 0x4f; PORTB = 0xfd; break; //0x4f
+        case 4: PORTA = 0x66; PORTB = 0xfd; break; //0x66
+        case 5: PORTA = 0x6d; PORTB = 0xfd; break; //0x6d
+        case 6: PORTA = 0x7d; PORTB = 0xfd; break; //0x7d
+        case 7: PORTA = 0x07; PORTB = 0xfd; break; //0x07
+        case 8: PORTA = 0x7f; PORTB = 0xfd; break; //0x7f
+        case 9: PORTA = 0x6f; PORTB = 0xfd; break; //0x6f
+        default: PORTA = 0x00; PORTB = 0xfd; break;//0x00
+    }                      
+                        
+    delay_ms(delay_time_millis);
+    
+    
+           
+    //led3
+     switch(num3){
+        case 0: PORTA = 0x3f; PORTB = 0xfb; break; //0x3f
+        case 1: PORTA = 0x06; PORTB = 0xfb; break; //0x06  
+        case 2: PORTA = 0x5b; PORTB = 0xfb; break; //0x5b
+        case 3: PORTA = 0x4f; PORTB = 0xfb; break; //0x4f
+        case 4: PORTA = 0x66; PORTB = 0xfb; break; //0x66
+        case 5: PORTA = 0x6d; PORTB = 0xfb; break; //0x6d
+        case 6: PORTA = 0x7d; PORTB = 0xfb; break; //0x7d
+        case 7: PORTA = 0x07; PORTB = 0xfb; break; //0x07
+        case 8: PORTA = 0x7f; PORTB = 0xfb; break; //0x7f
+        case 9: PORTA = 0x6f; PORTB = 0xfb; break; //0x6f
+        default: PORTA = 0x00; PORTB = 0xfb; break;//0x00
+    }                      
+                        
+    delay_ms(delay_time_millis);
+    
+          
+    
+    //led4
+     switch(num4){
+        case 0: PORTA = 0x3f; PORTB = 0xf7; break; //0x3f
+        case 1: PORTA = 0x06; PORTB = 0xf7; break; //0x06  
+        case 2: PORTA = 0x5b; PORTB = 0xf7; break; //0x5b
+        case 3: PORTA = 0x4f; PORTB = 0xf7; break; //0x4f
+        case 4: PORTA = 0x66; PORTB = 0xf7; break; //0x66
+        case 5: PORTA = 0x6d; PORTB = 0xf7; break; //0x6d
+        case 6: PORTA = 0x7d; PORTB = 0xf7; break; //0x7d
+        case 7: PORTA = 0x07; PORTB = 0xf7; break; //0x07
+        case 8: PORTA = 0x7f; PORTB = 0xf7; break; //0x7f
+        case 9: PORTA = 0x6f; PORTB = 0xf7; break; //0x6f
+        default: PORTA = 0x00; PORTB = 0xf7; break;//0x00
+    }                      
+                        
+    delay_ms(delay_time_millis);
+    
+                   
+    
+                                 
+    
+    
+                 
+
+}
+
+void main(void)
+{
+// Declare your local variables here
+
+// Input/Output Ports initialization
+// Port A initialization
+// Func7=Out Func6=Out Func5=Out Func4=Out Func3=Out Func2=Out Func1=Out Func0=Out 
+// State7=0 State6=0 State5=0 State4=0 State3=0 State2=0 State1=0 State0=0 
+PORTA=0x00;
+DDRA=0xFF;
+
+// Port B initialization
+// Func7=In Func6=In Func5=In Func4=In Func3=Out Func2=Out Func1=Out Func0=Out 
+// State7=T State6=T State5=T State4=T State3=0 State2=0 State1=0 State0=0 
+PORTB=0x00;
+DDRB=0x0F;
+
+// Port C initialization
+// Func7=In Func6=In Func5=In Func4=In Func3=In Func2=In Func1=In Func0=In 
+// State7=T State6=T State5=T State4=T State3=T State2=T State1=T State0=T 
+PORTC=0x00;
+DDRC=0x00;
+
+// Port D initialization
+// Func7=In Func6=In Func5=In Func4=In Func3=In Func2=In Func1=In Func0=In 
+// State7=T State6=T State5=T State4=T State3=T State2=T State1=T State0=T 
+PORTD=0x00;
+DDRD=0x00;
+
+// Timer/Counter 0 initialization
+// Clock source: System Clock
+// Clock value: Timer 0 Stopped
+// Mode: Normal top=0xFF
+// OC0 output: Disconnected
+TCCR0=0x00;
+TCNT0=0x00;
+OCR0=0x00;
+
+// Timer/Counter 1 initialization
+// Clock source: System Clock
+// Clock value: Timer1 Stopped
+// Mode: Normal top=0xFFFF
+// OC1A output: Discon.
+// OC1B output: Discon.
+// Noise Canceler: Off
+// Input Capture on Falling Edge
+// Timer1 Overflow Interrupt: Off
+// Input Capture Interrupt: Off
+// Compare A Match Interrupt: Off
+// Compare B Match Interrupt: Off
+TCCR1A=0x00;
+TCCR1B=0x00;
+TCNT1H=0x00;
+TCNT1L=0x00;
+ICR1H=0x00;
+ICR1L=0x00;
+OCR1AH=0x00;
+OCR1AL=0x00;
+OCR1BH=0x00;
+OCR1BL=0x00;
+
+// Timer/Counter 2 initialization
+// Clock source: System Clock
+// Clock value: Timer2 Stopped
+// Mode: Normal top=0xFF
+// OC2 output: Disconnected
+ASSR=0x00;
+TCCR2=0x00;
+TCNT2=0x00;
+OCR2=0x00;
+
+// External Interrupt(s) initialization
+// INT0: Off
+// INT1: Off
+// INT2: Off
+MCUCR=0x00;
+MCUCSR=0x00;
+
+// Timer(s)/Counter(s) Interrupt(s) initialization
+TIMSK=0x00;
+
+// USART initialization
+// USART disabled
+UCSRB=0x00;
+
+// Analog Comparator initialization
+// Analog Comparator: Off
+// Analog Comparator Input Capture by Timer/Counter 1: Off
+ACSR=0x80;
+SFIOR=0x00;
+
+// ADC initialization
+// ADC disabled
+ADCSRA=0x00;
+
+// SPI initialization
+// SPI disabled
+SPCR=0x00;
+
+// TWI initialization
+// TWI disabled
+TWCR=0x00;
+
+while (1)
+      {       
+         show(1,2,3,4); 
+      }
+}

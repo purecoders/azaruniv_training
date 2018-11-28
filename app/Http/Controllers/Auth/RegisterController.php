@@ -54,7 +54,7 @@ class RegisterController extends Controller
             'is_male' => 'required|numeric|max:1|min:0',
             'email' => 'required|string|email|max:255|unique:users',
             'mobile' => 'required|string|max:20',
-//            'student_number' => '',
+            'major' => 'required|string|max:100',
             'national_code' => 'required|string|max:12|min:3',
             'password' => 'required|string|min:6|confirmed',
         ]);
@@ -71,6 +71,7 @@ class RegisterController extends Controller
          $user = User::create([
             'name' => $data['name'],
             'is_male' => $data['is_male'],
+            'major' => $data['major'],
             'email' => $data['email'],
             'mobile' => $data['mobile'],
             'student_number' => $data['student_number'],
@@ -95,7 +96,7 @@ class RegisterController extends Controller
 
          return $user;
 
-
-
     }
+
+
 }

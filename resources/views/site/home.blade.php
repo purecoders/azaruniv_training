@@ -4,28 +4,19 @@
         <div class="swiper-wrapper">
             @foreach($sliders as $slider)
             <div class="swiper-slide">
-                {{--<img src="{{asset('img/slide5.jpg')}}">--}}
-                <img src="{{asset($slider->photo->path)}}">
-                <div class="title" id="title_#">{{$slider->title}}</div>
+                @if(strlen($slider->on_click) < 3)
+                    <img src="{{asset($slider->photo->path)}}">
+                    <div class="title" id="title_#">{{$slider->title}}</div>
+                @else
+                    <a class="w-100" href="{{$slider->on_click}}">
+                        <img src="{{asset($slider->photo->path)}}">
+                        <div class="title" id="title_#">{{$slider->title}}</div>
+                    </a>
+                @endif
             </div>
 
             @endforeach
 
-
-            {{--<div class="swiper-slide">--}}
-                {{--<img src="{{asset('img/slide5.jpg')}}">--}}
-                {{--<div class="title" id="title_#">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت</div>--}}
-            {{--</div>--}}
-            {{--<div class="swiper-slide">--}}
-                {{--<img src="{{asset('img/slide5.jpg')}}">--}}
-                {{--<div class="title" id="title_#">کلاس های بورس از اول بهمن ماه شروع خواهد شد</div>--}}
-            {{--</div>--}}
-            {{--<div class="swiper-slide">--}}
-                {{--<img src="{{asset('img/slide5.jpg')}}">--}}
-                {{--<div class="title" id="title_#">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت لورم ایپسوم متن--}}
-                    {{--ساختگی با تولید سادگی نامفهوم از صنعت--}}
-                {{--</div>--}}
-            {{--</div>--}}
 
 
         </div>
@@ -39,16 +30,16 @@
     <div class="container my-5">
         <ul class="nav nav-tabs d-flex tab-container-header " id="myTab" role="tablist">
             <li class="nav-item flex-grow-1 text-center">
-                <a class="nav-link active" id="news-tab" data-toggle="tab" href="#news" role="tab" aria-controls="news"
+                <a class="nav-link" id="news-tab" data-toggle="tab" href="#news" role="tab" aria-controls="news"
                    aria-selected="true">اخبار مرکز</a>
             </li>
             <li class="nav-item flex-grow-1 text-center">
-                <a class="nav-link" id="event-tab" data-toggle="tab" href="#event" role="tab"
+                <a class="nav-link active" id="event-tab" data-toggle="tab" href="#event" role="tab"
                    aria-controls="event" aria-selected="false">رویداد ها و دوره ها</a>
             </li>
         </ul>
         <div class="tab-content" id="myTabContent">
-            <div class="tab-pane fade show active" id="news" role="tabpanel" aria-labelledby="news-tab">
+            <div class="tab-pane fade " id="news" role="tabpanel" aria-labelledby="news-tab">
                 <div class="container tab-container p-2 pt-3 ">
                     <div class="row">
 
@@ -126,7 +117,7 @@
 
                 </div>
             </div>
-            <div class="tab-pane fade" id="event" role="tabpanel" aria-labelledby="event-tab">
+            <div class="tab-pane fade show active" id="event" role="tabpanel" aria-labelledby="event-tab">
                 <div class="container tab-container p-2 pt-3">
                     <div class="row">
 
@@ -153,7 +144,7 @@
                                     <div class="tab-card-title mx-2 d-flex flex-column">
                                         <h5><a href="{{route('course.show', ['id'=>$course1->id])}}" class="text-blue hover-link">{{$course1->title}}</a></h5>
                                         <p class="mt-3">
-                                            {{$course1->description}}
+                                            {{strip_tags($course1->description)}}
                                         </p>
                                         <a href="#" class="course-price">{{number_format($course1->cost)}} تومان </a>
                                     </div>
@@ -177,7 +168,7 @@
                                         <div class="tab-card-title mx-2 d-flex flex-column">
                                             <h5><a href="{{route('course.show', ['id'=>$course2->id])}}" class="text-blue hover-link">{{$course2->title}}</a></h5>
                                             <p class="mt-3">
-                                                {{$course2->description}}
+                                                {{strip_tags($course2->description)}}
                                             </p>
                                             <a href="#" class="course-price">{{number_format($course2->cost)}} تومان </a>
                                         </div>

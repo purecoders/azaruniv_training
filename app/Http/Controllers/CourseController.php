@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Course;
+use App\Http\Controllers\helper\PersianDate;
+use App\Http\Controllers\helper\PersianNumber;
 use App\Http\Controllers\helper\UserHelper;
 use App\Http\Controllers\helpers\FileHelper;
 use App\Photo;
@@ -42,8 +44,8 @@ class CourseController extends Controller
         'cost'     =>'required|numeric',
         'capacity'     =>'required|numeric|max:1000|min:1',
         'gender'     =>'required|string|max:20|min:1',
-        'start_date'     =>'required|date',
-        'finish_date'     =>'required|date',
+        'start_date'     =>'required|string',
+        'finish_date'     =>'required|string',
         'image'       =>'required|image',
       ]);
 
@@ -59,6 +61,7 @@ class CourseController extends Controller
 
 
 
+      $persianDate = new PersianDate();
       $course = Course::create([
         'master_id' => $request->master_id,
         'category_id' => $request->category_id,
@@ -67,8 +70,8 @@ class CourseController extends Controller
         'cost' => $request->cost,
         'capacity' => $request->capacity,
         'gender' => $request->gender,
-        'start_date' => $request->start_date,
-        'finish_date' => $request->finish_date,
+        'start_date' => $persianDate->date_to(PersianNumber::persianToLatin($request->start_date)),
+        'finish_date' => $persianDate->date_to(PersianNumber::persianToLatin($request->finish_date)),
 //        'is_open'     => $request->is_open,
         'is_open'     => 1,
       ]);
@@ -109,8 +112,8 @@ class CourseController extends Controller
         'cost'     =>'required|numeric',
         'capacity'     =>'required|numeric|max:1000|min:1',
         'gender'     =>'required|string|max:20|min:1',
-        'start_date'     =>'required|date',
-        'finish_date'     =>'required|date',
+        'start_date'     =>'required|string',
+        'finish_date'     =>'required|string',
 //        'is_open'     =>'required|numeric|min:0|max:1',
 //        'image'       =>'image',
       ]);
@@ -128,7 +131,7 @@ class CourseController extends Controller
         $image->move($dir, $image_name);
       }
 
-
+      $persianDate = new PersianDate();
       $course = Course::find($id);
       $course->master_id = $request->master_id;
       $course->category_id = $request->category_id;
@@ -137,8 +140,8 @@ class CourseController extends Controller
       $course->cost = $request->cost;
       $course->capacity = $request->capacity;
       $course->gender= $request->gender;
-      $course->start_date = $request->start_date;
-      $course->finish_date = $request->finish_date;
+      $course->start_date = $persianDate->date_to(PersianNumber::persianToLatin($request->start_date));
+      $course->finish_date = $persianDate->date_to(PersianNumber::persianToLatin($request->finish_date));
       $course->is_open = 1;
       $course->save();
 
@@ -157,7 +160,7 @@ class CourseController extends Controller
       }
 
 
-      return redirect(route('course.show', $course->id));
+      return redirect(route('admin-course', $course->id));
 
     }
 

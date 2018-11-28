@@ -29,7 +29,7 @@ class SliderController extends Controller
     {
       $this->validate($request,[
         'title'       =>'required|string|max:250',
-        'on_click' =>'required|max:250',
+//        'on_click' =>'required|max:250',
         'image'       =>'required',
       ]);
 
@@ -54,6 +54,8 @@ class SliderController extends Controller
         'path' => $file_path,
         'url' => env('APP_URL') . '/'. $file_path,
       ]);
+
+      return redirect('/admin-slider');
 
 
 
@@ -82,7 +84,7 @@ class SliderController extends Controller
     {
       $slider = Slider::find($id);
       $slider->delete();
-      //return view
+      return redirect('/admin-slider');
     }
 
 

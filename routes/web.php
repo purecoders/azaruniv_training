@@ -3,6 +3,9 @@
 
 
 
+
+
+
 //auth
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('dashboard-home');
@@ -27,6 +30,16 @@ Route::resource('course', 'CourseController', [
     'update' => 'course.update',
   ]
 ]);
+
+Route::resource('slider', 'SliderController', [
+  'names' => [
+    'show' => 'slider.show',
+    'store' => 'slider.store',
+    'destroy' => 'slider.destroy',
+    'update' => 'slider.update',
+  ]
+]);
+
 Route::get('/arcposts', 'PostController@archivePosts')->name('arcposts');
 Route::get('/arccourses', 'CourseController@archiveCourses')->name('arccourses');
 Route::get('/category/{id}/courses', 'SiteIndexPageController@categoryCourses')->name('course-category');

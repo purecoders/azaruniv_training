@@ -40,16 +40,23 @@ class AdminDashboardController extends Controller
 
   public function course($id){
     $course = Course::find($id);
+    $payments = $course->payments;
+    $paymentsSum = 0;
+    foreach ($payments as $payment){
+      if($payment->is_success == 1) {
+        $paymentsSum += $payment->amount;
+      }
+    }
     $categories = Category::all();
     $masters = User::masters();
     $students = $course->students;
 
-    return view('admin.site.course', compact(['course', 'categories', 'masters', 'students']));
+    return view('admin.site.course', compact(['course', 'categories', 'masters', 'students', 'payments', 'paymentsSum']));
   }
 
 
   public function sliders(){
-    $sliders = Slider::all();
+    $sliders = Slider::orderBy('id', 'desc')->get();
     return view('admin.site.slider', compact('sliders'));
   }
 

@@ -47,13 +47,13 @@
                         <div class="row">
                             <legend class="col-form-label col-sm-2 pt-0">زمان شروع دوره</legend>
                             <div class="col-sm-4">
-                                {{--<input value="{{date('Y-m-d')}}" type="text" name="start_date" class="form-control start-day">--}}
-                                <input value="{{$course->start_date}}" type="text" name="start_date" >
+                                {{--<input value="{{$course->start_date}}" type="text" name="start_date" class="jDate" >--}}
+                                <input value="{{$course->start_date}}" type="text" name="start_date" class="form-control start-day">
                             </div>
                             <legend class="col-form-label col-sm-2 pt-1">زمان پایان دوره</legend>
                             <div class="col-sm-4">
-                                <input value="{{$course->finish_date}}" type="text" name="finish_date">
-                                {{--<input value="{{date('Y-m-d')}}" type="text" name="finish_date" class="form-control start-day">--}}
+                                {{--<input value="{{$course->finish_date}}" type="text" name="finish_date" class="jDate">--}}
+                                <input value="{{$course->finish_date}}" type="text" name="finish_date" class="form-control start-day">
                             </div>
 
                         </div>
@@ -120,7 +120,8 @@
                 <thead>
                 <tr>
                     <th scope="col">ردیف</th>
-                    <th scope="col">اسم کامل</th>
+                    <th scope="col">نام و نام خانوادگی</th>
+                    <th scope="col">کد ملی</th>
                     <th scope="col">شماره تلفن</th>
                     <th scope="col">عکس</th>
                     <th scope="col">جزئیات</th>
@@ -133,6 +134,7 @@
                     <tr>
                         <th scope="row">{{++$i}}</th>
                         <td>{{$student->name}}</td>
+                        <td>{{$student->national_code}}</td>
                         <td>{{$student->mobile}}</td>
                         <td>
                             <div class="student-img-container">
@@ -149,6 +151,64 @@
             </table>
             </div>
         </div>
+
+
+
+
+
+
+
+
+        <div class="mb-3 red-divider"></div>
+        <div class="mt-3 col-10 m-auto">
+            <div class="d-flex justify-content-between align-items-center">
+                <h6 class="m-1 my-3">پرداخت های این دوره</h6>
+                <h6 class="course-price p-2"> مجموع : {{number_format($paymentsSum)}} تومان </h6>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th scope="col">ردیف</th>
+                        <th scope="col">مبلغ</th>
+                        <th scope="col">واریز شده توسط</th>
+                        <th scope="col">کد ملی</th>
+                        <th scope="col">وضعیت پرداخت</th>
+                        <th scope="col">تاریخ</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @php($i = 0)
+                    @foreach($payments as $payment)
+                     @if($payment->is_success == 1)
+                         <tr>
+                             <th scope="row">{{++$i}}</th>
+                             <td>{{number_format($payment->amount)}} تومان </td>
+                             <td>{{$payment->user->name}}</td>
+                             <td>{{$payment->user->national_code}}</td>
+                             <td>موفق</td>
+                             <td class="jDate">{{$payment->created_at}}</td>
+                         </tr>
+                    @else
+                         <tr style="background-color: rgba(255,26,0,0.79)">
+                             <th scope="row">{{++$i}}</th>
+                             <td>{{number_format($payment->amount)}} تومان </td>
+                             <td>{{$payment->user->name}}</td>
+                             <td>{{$payment->user->national_code}}</td>
+                             <td>ناموفق</td>
+                             <td class="jDate">{{$payment->created_at}}</td>
+                         </tr>
+                    @endif
+                    @endforeach
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+
+
     </div>
 
     <script>

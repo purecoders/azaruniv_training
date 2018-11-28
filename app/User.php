@@ -2,7 +2,6 @@
 
 namespace App;
 
-use App\Http\Controllers\helper\UserHelper;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -14,7 +13,7 @@ class User extends Authenticatable
 
 
     protected $fillable = [
-        'name', 'is_male', 'email', 'mobile', 'student_number', 'national_code', 'password'
+        'name', 'is_male', 'major', 'email', 'mobile', 'student_number', 'national_code', 'password'
     ];
 
 

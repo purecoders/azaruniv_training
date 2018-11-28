@@ -100,9 +100,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('course-category',['id'=>2]) }}">زبان های خارجه</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('course-category',['id'=>3]) }}">دوره های مجازی</a>
-                    </li>
+                    {{--<li class="nav-item">--}}
+                        {{--<a class="nav-link" href="{{ route('course-category',['id'=>3]) }}">دوره های مجازی</a>--}}
+                    {{--</li>--}}
 
                     <li class="nav-item">
                         <a id="contactUsBtn" class="nav-link" href="#contactUs">ارتباط با ما</a>

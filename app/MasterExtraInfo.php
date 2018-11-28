@@ -10,7 +10,7 @@ class MasterExtraInfo extends Model
     use SoftDeletes;
 
     protected $fillable = [
-      'master_id', 'content'
+      'master_id', 'content', 'docs_path'
     ];
 
 }

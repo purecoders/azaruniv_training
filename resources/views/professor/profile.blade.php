@@ -70,11 +70,20 @@
         <div class="col-12">
             <h6>ارسال رزومه</h6>
             {{--<form class="col-8 m-auto" action="{{route('professor-update-cv')}}" method="post"   onsubmit="return checkForm()">--}}
-            <form class="col-8 m-auto" action="{{route('professor-update-cv')}}" method="post"   >
+            <form class="col-8 m-auto" action="{{route('professor-update-cv')}}" method="post"  enctype="multipart/form-data" >
                 <div class="form-group">
-                    <label for="professorMassage">ارسال رزومه</label>
+                    <label for="professorMassage"> رزومه (رزومه شما در کنار دوره هایتان نمایش داده خواهد شد)</label>
                     <textarea  name="inputfield"  class="form-control" id="professorMassage" rows="3" placeholder="رزومه خود را وارد کنید...">{{$cv->content}}</textarea>
                 </div>
+
+                <div class="form-group">
+                    <label for="professorMassage"> مستندات (این فایل فقط به مدیریت ارسال می شود)</label>
+                    @if(strlen($cv->docs_path) > 2)
+                      <a class="btn btn-sm btn-blue" href="{{$cv->docs_path}}">مشاهده</a><br>
+                    @endif
+                    <input type="file"  name="docs"  class="form-control" id="professorMassage"></input>
+                </div>
+
                 {{csrf_field()}}
                 <button type="submit" class="btn btn-blue"><i class="fal fa-paper-plane mr-2"></i>ویرایش</button>
             </form>

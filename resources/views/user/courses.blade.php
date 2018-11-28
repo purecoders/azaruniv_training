@@ -22,7 +22,7 @@
                     <div class="h-100 tab-card-title mx-2 d-flex flex-column justify-content-between">
                         <h5><a href="{{route('course.show', ['id'=>$course->id])}}" class="test text-blue hover-link">{{$course->title}}</a></h5>
                         <p class="mt-3">
-                            {{$course->description}}
+                            {{strip_tags($course->description)}}
                         </p>
                         <div class=" d-flex justify-content-around " style="font-size: .8em">
                             <div>

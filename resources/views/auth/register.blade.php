@@ -51,6 +51,23 @@
 
 
 
+
+                            <div class="form-group row">
+                                <label for="major" class="col-md-4 col-form-label text-md-right">رشته تحصیلی</label>
+
+                                <div class="col-md-6">
+                                    <input id="major" type="text" class="form-control{{ $errors->has('major') ? ' is-invalid' : '' }}" name="major" value="{{ old('major') }}" required autofocus>
+
+                                    @if ($errors->has('major'))
+                                        <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('major') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+
+
+
                             <div class="form-group row">
                                 <label for="email" class="col-md-4 col-form-label text-md-right">آدرس ایمیل</label>
 

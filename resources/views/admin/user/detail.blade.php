@@ -104,7 +104,7 @@
                     <th scope="col">ردیف</th>
                     <th scope="col">مبلغ(تومان)</th>
                     <th scope="col">بابت</th>
-                    <th scope="col">وضعیت</th>
+                    <th scope="col">وضعیت پرداخت</th>
                     <th scope="col">تاریخ</th>
 
                 </tr>
@@ -125,7 +125,7 @@
 
 
                     @else
-                        <tr style="background-color: #ff1a00">
+                        <tr style="background-color: rgba(255,26,0,0.79)">
                             <th scope="row">{{++$i}}</th>
                             <td>{{number_format($payment->amount)}}</td>
                             <td>دوره زبان خارجه</td>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Course;
 use App\Http\Controllers\helpers\FileHelper;
+use App\MasterExtraInfo;
 use App\Message;
 use App\Photo;
 use App\Ticket;
@@ -79,6 +80,13 @@ class MasterDashboardController extends Controller
     public function profile(){
       $user = Auth::user();
       $cv = $user->masterInfo;
+      if($cv === null){
+        $cv = MasterExtraInfo::create([
+          'master_id' => $user->id,
+          'content' => ' ',
+          'docs_path' => '',
+        ]);
+      }
       return view('professor.profile', compact(['user', 'cv']));
     }
 
@@ -132,12 +140,31 @@ class MasterDashboardController extends Controller
     public function updateCv(Request $request){
       $this->validate($request,[
         'inputfield' =>'required|string|max:6000',
+        'docs' =>'file',
       ]);
 
-      $content = $request->inputfield;
       $user = Auth::user();
+
+      $content = $request->inputfield;
+      $file = $request->file('docs');
+      $hasFile = false;
+      if($file !== null){
+        $hasFile = true;
+        $file_extension = $file->getClientOriginalExtension();
+        $dir = FileHelper::getFileDirName('files/master_docs');
+//        $file_name = FileHelper::getFileNewName();
+        $file_name = $user->name;
+        $file_full_name = $file_name . '.' . $file_extension;
+        $file_path = $dir . '/' . $file_name . '.' . $file_extension;
+        $file->move($dir, $file_full_name);
+      }
+
+
       $cv = $user->masterInfo;
       $cv->content = $content;
+      if($hasFile == true){
+        $cv->docs_path = $file_path;
+      }
       $cv->save();
 
       return redirect(route('professor-profile'));

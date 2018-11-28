@@ -48,13 +48,13 @@
                         <div class="row">
                             <legend class="col-form-label col-sm-2 pt-0">زمان شروع دوره</legend>
                             <div class="col-sm-4">
-{{--                                <input value="{{date('Y-m-d')}}" type="text" name="start_date" class="form-control start-day">--}}
-                                <input value="{{date('Y-m-d')}}" type="text" name="start_date" >
+                                <input  type="text" name="start_date" class="form-control start-day">
+{{--                                <input value="{{date('Y-m-d')}}" type="text" name="start_date" >--}}
                             </div>
                             <legend class="col-form-label col-sm-2 pt-1">زمان پایان دوره</legend>
                             <div class="col-sm-4">
-{{--                                <input value="{{date('Y-m-d')}}" type="text" name="finish_date" class="form-control start-day">--}}
-                                <input value="{{date('Y-m-d')}}" type="text" name="finish_date" >
+                                <input  type="text" name="finish_date" class="form-control start-day">
+                                {{--<input value="{{date('Y-m-d')}}" type="text" name="finish_date" >--}}
                             </div>
 
                         </div>
@@ -149,13 +149,16 @@
                         </div>
                     </div>
                     <div class="col-sm-8">
+                        <div class="d-flex justify-content-between align-items-center">
                         <h6>{{$course->title}}</h6>
+                            <span class="btn-sm course-price align-self-start ">{{number_format($course->cost)}} تومان </span>
+                        </div>
                         <p>
-                            {{$course->description}}.
+                            {{strip_tags($course->description)}}.
                         </p>
                     </div>
                 </div>
-                <div class="d-flex mt-3 justify-content-around align-items-center flex-wrap">
+                <div class="d-flex mt-3 justify-content-between align-items-center flex-wrap">
                     <span><i class="fal fa-users-class"></i> {{$course->students()->count()}}</span>
                     <span><i class="fal fa-chalkboard-teacher"></i> {{$course->master->name}}</span>
                     <a href="{{route('admin-course', ['id' => $course->id])}}" class="btn btn-sm btn-blue"><i class="fal fa-cog mr-1 "></i>مدیریت دوره</a>

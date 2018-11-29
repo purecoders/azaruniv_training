@@ -22,11 +22,11 @@
                                 <span>نام و نام خانوادگی:</span>
                                 <span class="mx-2">{{$user->name}}</span>
                             </div>
-                            {{--<div class="col-md-6">--}}
-                                {{--<spna><i class="fal fa-birthday-cake"></i></spna>--}}
-                                {{--<span>سن:</span>--}}
-                                {{--<span class="mx-2">23</span>--}}
-                            {{--</div>--}}
+                            <div class="col-md-6">
+                                <spna><i class="fal fa-book"></i></spna>
+                                <span>رشته تحصیلی:</span>
+                                <span class="mx-2">{{$user->major}}</span>
+                            </div>
                         </div>
 
                         <div class="row">
@@ -65,20 +65,25 @@
 
         <div class="red-divider"></div>
         <h6 class="mt-4">دوره های این کاربر</h6>
-        <div class="mt-1 d-flex flex-wrap">
+        <div class="mt-1 d-flex flex-wrap align-items-start">
 
             @foreach($courses as $course)
                 <div class="m-1 admin-course-container d-flex flex-column">
                     <div class="row">
                         <div class="col-sm-4">
-                            <div class="admin-course-img-container">
-                                <img src="{{asset($course->coverImage->path)}}" alt="">
-                            </div>
+                            {{--<div class="admin-course-img-container">--}}
+                                {{--<img src="{{asset($course->coverImage->path)}}" alt="">--}}
+                            {{--</div>--}}
+                            <a href="{{route('admin-course', $course->id)}}">
+                                <div class="admin-course-img-container">
+                                    <img src="{{asset($course->coverImage->path)}}" alt="">
+                                </div>
+                            </a>
                         </div>
                         <div class="col-sm-8">
-                            <h6>{{$course->title}}</h6>
+                            <a href="{{route('admin-course', $course->id)}}"><h6>{{$course->title}}</h6></a>
                             <p>
-                                {{$course->description}}
+                                {{strip_tags($course->description)}}
                             </p>
                         </div>
                     </div>
@@ -128,7 +133,7 @@
                         <tr style="background-color: rgba(255,26,0,0.79)">
                             <th scope="row">{{++$i}}</th>
                             <td>{{number_format($payment->amount)}}</td>
-                            <td>دوره زبان خارجه</td>
+                            <td>{{$payment->course->title}}</td>
                             <td>ناموفق</td>
                             <td class="jDate">{{$payment->created_at}}</td>
                         </tr>

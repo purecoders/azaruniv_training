@@ -3,7 +3,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class=" col-md-8">
-                <h6 class="mb-3">دوره جدید</h6>
+                <h6 class="mb-3">افزودن دوره جدید</h6>
 
                 <form action="{{route('course.store')}}" method="post" enctype="multipart/form-data">
                     <div class="form-group row">
@@ -61,7 +61,7 @@
                     </div>
                     <div class="form-group">
                         <div class="row">
-                            <legend class="col-form-label col-sm-2 pt-0">استاد دوره</legend>
+                            <legend class="col-form-label col-sm-2 pt-0">مدرس دوره</legend>
                             <div class="col-sm-5">
                                 <select class="form-control" name="master_id">
                                     @foreach($masters as $master)

@@ -52,7 +52,7 @@
 
 .btn-blue:focus, .btn-blue.focus {
   -webkit-box-shadow: 0 0 0 0.2rem rgba(43, 67, 118, 0.3);
-          box-shadow: 0 0 0 0.2rem rgba(43, 67, 118, 0.3);
+  box-shadow: 0 0 0 0.2rem rgba(43, 67, 118, 0.3);
 }
 
 .btn-blue.disabled, .btn-blue:disabled {
@@ -71,7 +71,7 @@
 .btn-blue:not(:disabled):not(.disabled):active:focus, .btn-blue:not(:disabled):not(.disabled).active:focus,
 .show > .btn-blue.dropdown-toggle:focus {
   -webkit-box-shadow: 0 0 0 0.2rem rgba(43, 67, 118, 0.5);
-          box-shadow: 0 0 0 0.2rem rgba(43, 67, 118, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(43, 67, 118, 0.5);
 }
 
 body {
@@ -87,7 +87,7 @@ body {
   width: 100%;
   background-color: #233761;
   -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
-          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
 #mainNavbar.navbar-custom li > a {
@@ -448,6 +448,11 @@ footer .nav-list a:hover {
   background-color: rgba(0, 0, 0, 0.05);
 }
 
+.no-shadow {
+  -webkit-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0) !important;
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0) !important;
+}
+
 .red-divider {
   height: 1px;
   background-color: #cd2e41;
@@ -540,6 +545,11 @@ footer .nav-list a:hover {
   color: #060851 !important;
 }
 
+.admin-nav-active {
+  background-color: #fff;
+  color: #233761 !important;
+}
+
 .user-info-container {
   border: 1px solid #eeeeee;
   border-radius: .25rem;
@@ -567,8 +577,8 @@ footer .nav-list a:hover {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   z-index: 500;
 }
 
@@ -600,6 +610,36 @@ footer .nav-list a:hover {
 .user-ticket-container {
   border: 1px solid #a7a7a7;
   border-radius: .25rem;
+}
+
+.user-ticket-container .admin-chat-user-item {
+  color: #060851;
+  -webkit-transition: background-color .2s;
+  transition: background-color .2s;
+}
+
+.user-ticket-container .admin-chat-user-item:hover {
+  background-color: #eeeeee !important;
+}
+
+.user-ticket-container .admin-chat-view-sidebar {
+  max-height: 500px;
+  overflow-y: scroll;
+}
+
+.user-ticket-container a {
+  text-decoration: none;
+  color: #cd2e41;
+}
+
+.user-ticket-container .admin-chat-view-user {
+  text-decoration: none;
+  color: #060851;
+}
+
+.user-ticket-container .admin-chat-view-user div {
+  padding-top: 0 !important;
+  padding-bottom: .25rem !important;
 }
 
 .user-ticket-container .chat-view-container {
@@ -658,10 +698,16 @@ footer .nav-list a:hover {
   width: 100%;
   background-color: #233761;
   -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
-          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
   border-radius: .25rem;
   padding: 0.25rem .75rem;
   padding-bottom: 0;
+}
+
+#adminNavbar .dropdown-item.active, #adminNavbar .dropdown-item:active {
+  color: #fff;
+  text-decoration: none;
+  background-color: transparent;
 }
 
 #adminNavbar li.dropdown:hover > .dropdown-menu {
@@ -671,7 +717,7 @@ footer .nav-list a:hover {
 }
 
 #adminNavbar li > a {
-  color: #ccc !important;
+  color: #ccc;
 }
 
 #adminNavbar .navbar-nav > li.dropdown:hover > a,
@@ -683,10 +729,10 @@ footer .nav-list a:hover {
 
 #adminNavbar .dropdown-menu {
   -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
   -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: start;
+  -ms-flex-pack: start;
+  justify-content: start;
   margin-top: -1px;
   border-top: 0px;
   border-top-left-radius: 0;
@@ -781,13 +827,22 @@ footer .nav-list a:hover {
 }
 
 .admin-course-container .admin-course-img-container {
-  height: 100%;
   width: 100%;
 }
 
 .admin-course-container .admin-course-img-container img {
   width: 100%;
   height: 100%;
+}
+
+.admin-course-container a {
+  text-decoration: none;
+  color: #060851;
+}
+
+.admin-course-container a.btn {
+  text-decoration: none;
+  color: #e1e1e1;
 }
 
 .table td {
@@ -805,6 +860,30 @@ footer .nav-list a:hover {
   height: 100%;
   width: 100%;
   border-radius: 50%;
+}
+
+.navbar-ticket {
+  min-width: 120px;
+}
+
+.navbar-ticket .navbar-ticket-a {
+  position: relative;
+}
+
+.new-ticket {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  min-height: 20px;
+  min-width: 20px;
+  padding-left: 0.03rem;
+  padding-right: 0.03rem;
+  text-align: center;
+  margin-left: .1rem;
+  margin-top: .4rem;
+  border-radius: 50%;
+  color: #ffffff;
+  background-color: #ca2f3c;
 }
 
 input[type=number]::-webkit-inner-spin-button,

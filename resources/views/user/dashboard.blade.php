@@ -16,6 +16,11 @@
                             پروفایل
                            </a></li>
 
+                    <li id="userCardNavOffer" class="nav-item "><a id="card-nav-cv" class="nav-link text-white" href="{{route('user-course-offer')}}">
+                            <i class="fal fa-lightbulb mr-1"></i>
+                            پیشنهاد دوره
+                        </a></li>
+
                     
                     <li id="userCardNavTickets" class="nav-item "><a  class="nav-link text-white"
                                                                       href="{{route('user-tickets')}}">

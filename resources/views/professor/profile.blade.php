@@ -30,11 +30,11 @@
                                 <span>نام و نام خانوادگی:</span>
                                 <span class="mx-2">{{$user->name}}</span>
                             </div>
-                            {{--<div class="col-md-6">--}}
-                                {{--<spna><i class="fal fa-birthday-cake"></i></spna>--}}
-                                {{--<span>سن:</span>--}}
-                                {{--<span class="mx-2">23</span>--}}
-                            {{--</div>--}}
+                            <div class="col-md-6">
+                                <spna><i class="fal fa-envelope"></i></spna>
+                                <span>ایمیل:</span>
+                                <span class="mx-2">{{$user->email}}</span>
+                            </div>
                         </div>
 
                         <div class="row">
@@ -43,19 +43,21 @@
                                 <span>شماره تلفن:</span>
                                 <span class="mx-2">{{$user->mobile}}</span>
                             </div>
-                            {{--<div class="col-md-6">--}}
-                                {{--<spna><i class="fal fa-graduation-cap"></i></spna>--}}
-                                {{--<span>شماره دانشجویی:</span>--}}
-                                {{--<span class="mx-2">931831208</span>--}}
-                            {{--</div>--}}
+                            <div class="col-md-6">
+                                <div>
+                                    <span><i class="fal fa-id-card"></i></span>
+                                    <span>شماره ملی:</span>
+                                    <span class="mx-2">{{$user->national_code}}</span>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="d-flex flex-wr  ap">
-                            <div>
-                                <span><i class="fal fa-id-card"></i></span>
-                                <span>شماره ملی:</span>
-                                <span class="mx-2">{{$user->national_code}}</span>
-                            </div>
+                            {{--<div>--}}
+                                {{--<span><i class="fal fa-id-card"></i></span>--}}
+                                {{--<span>شماره ملی:</span>--}}
+                                {{--<span class="mx-2">{{$user->national_code}}</span>--}}
+                            {{--</div>--}}
 
                         </div>
                     </div>
@@ -77,9 +79,9 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="professorMassage"> مستندات (این فایل فقط به مدیریت ارسال می شود)</label>
+                    <label for="professorMassage"> مدارک (این فایل فقط به مدیریت ارسال می شود)</label>
                     @if(strlen($cv->docs_path) > 2)
-                      <a class="btn btn-sm btn-blue" href="{{$cv->docs_path}}">مشاهده</a><br>
+                      <a class="btn btn-sm btn-blue" href="{{$cv->docs_path}}" download>دانلود</a><br>
                     @endif
                     <input type="file"  name="docs"  class="form-control" id="professorMassage"></input>
                 </div>
@@ -90,4 +92,41 @@
         </div>
     </div>
     </div>
+
+
+    <div class="mt-3 red-divider"></div>
+    <div class="row mt-3">
+        <div class="col-12">
+            <h6>تغییر رمز عبور</h6>
+            <form class="col-6" action="{{route('professor-change-password')}}" method="post" onsubmit="return checkChangePasswordForm(this)">
+                <div class="form-group row">
+                    <label for="password" class="col-sm-5 col-form-label">رمز عبور قبلی</label>
+                    <div class="col-sm-7">
+                        <input type="password" name="old_password" class="form-control {{ $errors->has('old_password') ? ' is-invalid' : '' }}" id="password" placeholder="رمز عبور قبلی را وارد کنید">
+                        @if ($errors->has('old_password'))
+                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('old_password') }}</strong>
+                                    </span>
+                        @endif
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="newPassword" class="col-sm-5 col-form-label">رمز عبور جدید</label>
+                    <div class="col-sm-7">
+                        <input name="new_password" type="password" class="form-control" id="newPassword" placeholder="رمز عبور جدید را وارد کنید">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="newPasswordConfirm" class="col-sm-5 col-form-label">تکرار رمز عبور جدید </label>
+                    <div class="col-sm-7">
+                        <input type="password" class="form-control" id="newPasswordConfirm" placeholder=" تکرار رمز عبور جدید را وارد کنید">
+                    </div>
+                </div>
+                @csrf
+                <button type="submit"  class="btn btn-sm btn-blue"><i class="fal fa-edit mr-1"></i>تغییر</button>
+            </form>
+        </div>
+    </div>
+    </div>
+
 @endsection

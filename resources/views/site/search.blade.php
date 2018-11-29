@@ -23,7 +23,7 @@
 
                                 <div class="d-flex justify-content-around " style="font-size: .8em">
                                     <div>
-                                        <span class=""><i class="fal fa-chalkboard-teacher"></i>استاد مربوطه</span>
+                                        <span class=""><i class="fal fa-chalkboard-teacher"></i>مدرس</span>
                                         <span class="mx-1">{{$course->master->name}}</span>
                                     </div>
                                     <div>

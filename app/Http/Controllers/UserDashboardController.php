@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use App\Course;
 use App\Http\Controllers\helpers\FileHelper;
 use App\Photo;
+use App\RecommendedCourse;
 use App\Ticket;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Hash;
 use Intervention\Image\ImageManagerStatic as Image;
 
 
@@ -117,6 +119,41 @@ class UserDashboardController extends Controller
 
     return redirect(route('user-profile'));
   }
+
+    public function changePassword(Request $request){
+      $this->validate($request,[
+        'new_password' => 'required|string|min:6',
+        'old_password' => 'required|string|min:6',
+      ]);
+
+      $user = Auth::user();
+      if(Hash::check($request->old_password, $user->password)){
+        $user->password = Hash::make($request->new_password);
+        $user->save();
+      }
+
+      return redirect(route('user-profile'));
+    }
+
+
+    public function offerCourse(){
+      return view('user.offer');
+    }
+
+    public function recommendCourse(Request $request){
+      $this->validate($request,[
+        'new_offer' => 'required|string|max:52',
+      ]);
+
+      $user = Auth::user();
+
+      $recommend = RecommendedCourse::create([
+        'user_id' => $user->id,
+        'name' => $request->new_offer,
+      ]);
+
+      return redirect(route('user-course-offer'));
+    }
 
 
 

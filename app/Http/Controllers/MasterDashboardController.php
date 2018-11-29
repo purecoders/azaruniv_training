@@ -11,6 +11,7 @@ use App\Ticket;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Hash;
 use Intervention\Image\ImageManagerStatic as Image;
 
 class MasterDashboardController extends Controller
@@ -163,7 +164,7 @@ class MasterDashboardController extends Controller
       $cv = $user->masterInfo;
       $cv->content = $content;
       if($hasFile == true){
-        $cv->docs_path = $file_path;
+        $cv->docs_path = env('APP_URL') . '/' . $file_path;
       }
       $cv->save();
 
@@ -203,6 +204,26 @@ class MasterDashboardController extends Controller
       ]);
 
       return redirect(route('professor-tickets'));
+    }
+
+
+    public function changePassword(Request $request){
+      $this->validate($request,[
+        'new_password' => 'required|string|min:6',
+        'old_password' => 'required|string|min:6',
+      ]);
+
+      $user = Auth::user();
+      if(Hash::check($request->old_password, $user->password)){
+        $user->password = Hash::make($request->new_password);
+        $user->save();
+        $message = 'رمز شما با موفقیت بروزرسانی شد';
+      }else{
+        $message = 'رمز فعلی وارد شده اشتباه می باشد';
+      }
+
+
+      return redirect(route('professor-profile'));
     }
 
 

@@ -5,11 +5,17 @@ namespace App\Http\Controllers;
 use App\Category;
 use App\Course;
 use App\Http\Controllers\helper\UserHelper;
+use App\MasterExtraInfo;
+use App\Photo;
 use App\Post;
+use App\RecommendedCourse;
+use App\Role;
 use App\SiteInfo;
 use App\Slider;
+use App\Ticket;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class AdminDashboardController extends Controller
@@ -83,7 +89,10 @@ class AdminDashboardController extends Controller
         $students [] = $user;
       }
     }
-    return view('admin.user.users', compact('students'));
+
+    $recommends = RecommendedCourse::orderBy('id', 'desc')->paginate(50);
+
+    return view('admin.user.users', compact(['students', 'recommends']));
   }
 
 
@@ -103,6 +112,95 @@ class AdminDashboardController extends Controller
     $user->save();
 
     return redirect('/admin-user-detail/' . $id);
+  }
+
+
+  public function tickets(){
+    $users_id = DB::select("SELECT DISTINCT user_id FROM tickets ORDER BY id DESC");
+    foreach ($users_id as $user_id){
+      $users = User::withTrashed()->find($user_id);
+    }
+
+    return view('admin.site.tickets');
+  }
+
+
+
+  public function allUsers(){
+    $students = array();
+    $users = User::orderBy('id' ,'asc')->get();
+    foreach ($users as $user){
+      if(UserHelper::isStudent($user)){
+        $students [] = $user;
+      }
+    }
+
+    return view('admin.user.all', compact('students'));
+  }
+
+  public function professors(){
+    $role = Role::where('name' , '=' ,'master')->first();
+    $masters = $role->users;
+    return view('admin.professor.professors', compact('masters'));
+  }
+
+  public function professorDetail($id){
+    $master = User::find($id);
+    $courses = $master->masterCourses;
+    $cv = $master->masterInfo;
+
+    return view('admin.professor.detail', compact(['master', 'courses', 'cv']));
+  }
+
+
+  public function registerProfessor(Request $request){
+    $this->validate($request,[
+      'name' => 'required|string|max:255',
+      'is_male' => 'required|numeric|max:1|min:0',
+      'email' => 'required|string|email|max:255|unique:users',
+      'mobile' => 'required|string|max:20',
+//      'major' => 'required|string|max:100',
+      'national_code' => 'required|string|max:12|min:3',
+      'password' => 'required|string|min:6',
+    ]);
+
+    $user = User::create([
+      'name' => $request->name,
+      'is_male' => $request->is_male,
+      'major' => $request->major,
+      'email' => $request->email,
+      'mobile' => $request->mobile,
+      'student_number' => $request->student_number,
+      'national_code' => $request->national_code,
+      'password' => Hash::make($request->password),
+    ]);
+
+    //add master role
+    $masterRole = Role::where('name', '=', 'master')->first();
+    DB::insert("INSERT INTO user_role (user_id, role_id) VALUES ('$user->id', '$masterRole->id')");
+
+    //add cv
+    $cv = MasterExtraInfo::create([
+      'master_id' => $user->id,
+      'content' => 'خالی',
+      'docs_path' => '',
+    ]);
+    //add master image
+    if($request->is_male == 1){
+      $file_path = Photo::MASTER_MALE_AVATAR_PATH;
+    }else{
+      $file_path = Photo::MASTER_FEMALE_AVATAR_PATH;
+    }
+
+    $photo = Photo::create([
+      'imageable_id' => $user->id,
+      'imageable_type' => 'App\User',
+      'path' => $file_path,
+      'url' => env('APP_URL') . '/'. $file_path,
+    ]);
+
+    return redirect(route('admin-professor-detail', $user->id));
+
   }
 
 }

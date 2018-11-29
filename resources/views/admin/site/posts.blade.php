@@ -3,7 +3,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class=" col-md-8">
-                <h6 class="mb-3">خبر جدید</h6>
+                <h6 class="mb-3">افزودن خبر جدید</h6>
                 <form method="post" action="{{route('post.store')}}" enctype="multipart/form-data">
                     <div class="form-group row">
                         <label for="postTitle" class="col-sm-2 col-form-label">عنوان خبر</label>

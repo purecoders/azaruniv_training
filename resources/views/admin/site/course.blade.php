@@ -114,15 +114,19 @@
         </div>
         <div class="red-divider"></div>
         <div class="col-10 m-auto">
-            <h6 class="m-1 my-3">لیست دانشجو های این دوره</h6>
+            <div class="d-flex justify-content-between align-items-center">
+                <h6 class="m-1 my-3">لیست دانشجو های این دوره</h6>
+                <button  class="btn btn-sm btn-blue" onclick="excelReport(this)"><i class="fal fa-file-excel mr-1"></i>ذخیره فایل اکسل</button>
+            </div>
             <div class="table-responsive">
-            <table class="table table-striped">
+            <table id="اسامی_{{$course->title}}" class="table table-striped">
                 <thead>
                 <tr>
                     <th scope="col">ردیف</th>
                     <th scope="col">نام و نام خانوادگی</th>
                     <th scope="col">کد ملی</th>
                     <th scope="col">شماره تلفن</th>
+                    <th scope="col">رشته تحصیلی</th>
                     <th scope="col">عکس</th>
                     <th scope="col">جزئیات</th>
                 </tr>
@@ -136,6 +140,7 @@
                         <td>{{$student->name}}</td>
                         <td>{{$student->national_code}}</td>
                         <td>{{$student->mobile}}</td>
+                        <td>{{$student->major}}</td>
                         <td>
                             <div class="student-img-container">
                                 <img src="{{asset($student->photo->path)}}" alt="">
@@ -161,12 +166,13 @@
 
         <div class="mb-3 red-divider"></div>
         <div class="mt-3 col-10 m-auto">
-            <div class="d-flex justify-content-between align-items-center">
+            <div class="d-flex justify-content-between align-items-center flex-wrap ">
                 <h6 class="m-1 my-3">پرداخت های این دوره</h6>
-                <h6 class="course-price p-2"> مجموع : {{number_format($paymentsSum)}} تومان </h6>
+                <button class="btn btn-sm btn-blue m-1" onclick="excelReport(this)"><i class="fal fa-file-excel mr-1"></i>ذخیره فایل اکسل</button>
+                <h6 class="course-price p-sm-2 m-1"> مجموع : {{number_format($paymentsSum)}} تومان </h6>
             </div>
             <div class="table-responsive">
-                <table class="table table-striped">
+                <table id="پرداختهای_{{$course->title}}"  class="table table-striped ">
                     <thead>
                     <tr>
                         <th scope="col">ردیف</th>

@@ -11,7 +11,7 @@
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav nav-item nav-mega ">
                 <li class="dropdown mx-2">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarSite" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a id="adminNavSite" class="nav-link dropdown-toggle " href="" id="navbarSite" role="button" aria-haspopup="true" aria-expanded="false">
                         <i class="fal fa-globe mt-1"></i>
                          مدیریت سایت
                     </a>
@@ -24,21 +24,25 @@
                     </div>
                 </li>
                 <li class="dropdown mx-2">
-                    <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a id="adminNavProfessors" class="nav-link" href="{{route('admin-professors')}}" role="button"   aria-expanded="false">
                         <i class="fal fa-chalkboard-teacher mt-1"></i>
                         مدیریت اساتید
                     </a>
                 </li>
-                <li class="dropdown mx-2">
-                    <a class="nav-link" href="{{route('admin-users')}}" role="button" >
+                <li  class="dropdown mx-2">
+                    <a id="adminNavUsers" class="nav-link" href="{{route('admin-users')}}" role="button" >
                         <i class="fal fa-users-class mt-1"></i>
                         مدیریت دانشجویان
                     </a>
                 </li>
-                <li class="dropdown mx-2">
-                    <a class="nav-link" href="#" id="navbarTicket" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <li class="navbar-ticket dropdown mx-2">
+                    <a id="adminNavTickets" class="nav-link navbar-ticket-a" href="{{route('admin-tickets')}}" id="navbarTicket" role="button">
                         <i class="fal fa-ticket mt-1"></i>
                         مدیریت پیام ها
+                        @php
+                            $newTicketsCount = \App\Ticket::where('is_user_sent', '=', 1)->where('is_seen', '=', 0)->count();
+                        @endphp
+                        <span class="new-ticket">{{$newTicketsCount}}</span>
                     </a>
                 </li>
             </ul>

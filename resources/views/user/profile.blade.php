@@ -29,11 +29,9 @@
                                 <span>نام و نام خانوادگی:</span>
                                 <span class="mx-2">{{$user->name}}</span>
                             </div>
-                            {{--<div class="col-md-6">--}}
-                                {{--<spna><i class="fal fa-birthday-cake"></i></spna>--}}
-                                {{--<span>سن:</span>--}}
-                                {{--<span class="mx-2">23</span>--}}
-                            {{--</div>--}}
+                            <spna><i class="fal fa-book"></i></spna>
+                            <span>رشته تحصیلی:</span>
+                            <span class="mx-2">{{$user->major}}</span>
                         </div>
 
                         <div class="row">
@@ -67,7 +65,34 @@
     <div class="mt-3 red-divider"></div>
     <div class="row mt-3">
         <div class="col-12">
-            <h6>فرم نظر سنجی</h6>
+            <h6>تغییر رمز عبور</h6>
+            <form class="col-6" action="{{route('user-change-password')}}" method="post" onsubmit="return checkChangePasswordForm(this)">
+                <div class="form-group row">
+                    <label for="password" class="col-sm-5 col-form-label">رمز عبور قبلی</label>
+                    <div class="col-sm-7">
+                        <input type="password" name="old_password" class="form-control {{ $errors->has('old_password') ? ' is-invalid' : '' }}" id="password" placeholder="رمز عبور قبلی را وارد کنید">
+                        @if ($errors->has('old_password'))
+                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('old_password') }}</strong>
+                                    </span>
+                        @endif
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="newPassword" class="col-sm-5 col-form-label">رمز عبور جدید</label>
+                    <div class="col-sm-7">
+                        <input type="password" class="form-control" id="newPassword" placeholder="رمز عبور جدید را وارد کنید" name="new_password">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="newPasswordConfirm" class="col-sm-5 col-form-label">تکرار رمز عبور جدید </label>
+                    <div class="col-sm-7">
+                        <input  type="password" class="form-control" id="newPasswordConfirm" placeholder=" تکرار رمز عبور جدید را وارد کنید">
+                    </div>
+                </div>
+                @csrf
+                <button type="submit"  class="btn btn-sm btn-blue"><i class="fal fa-edit mr-1"></i>تغییر</button>
+            </form>
         </div>
     </div>
     </div>

@@ -448,6 +448,11 @@ footer .nav-list a:hover {
   background-color: rgba(0, 0, 0, 0.05);
 }
 
+.no-shadow {
+  -webkit-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0) !important;
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0) !important;
+}
+
 .red-divider {
   height: 1px;
   background-color: #cd2e41;
@@ -538,6 +543,11 @@ footer .nav-list a:hover {
 
 .active > a {
   color: #060851 !important;
+}
+
+.admin-nav-active {
+  background-color: #fff;
+  color: #233761 !important;
 }
 
 .user-info-container {
@@ -694,6 +704,12 @@ footer .nav-list a:hover {
   padding-bottom: 0;
 }
 
+#adminNavbar .dropdown-item.active, #adminNavbar .dropdown-item:active {
+  color: #fff;
+  text-decoration: none;
+  background-color: transparent;
+}
+
 #adminNavbar li.dropdown:hover > .dropdown-menu {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -701,7 +717,7 @@ footer .nav-list a:hover {
 }
 
 #adminNavbar li > a {
-  color: #ccc !important;
+  color: #ccc;
 }
 
 #adminNavbar .navbar-nav > li.dropdown:hover > a,
@@ -823,6 +839,11 @@ footer .nav-list a:hover {
 .admin-course-container a {
   text-decoration: none;
   color: #060851;
+}
+
+.admin-course-container a.btn {
+  text-decoration: none;
+  color: #e1e1e1;
 }
 
 .table td {

@@ -1,8 +1,18 @@
 @extends('layouts.app')
 @section('content')
-    <div >
+    <div>
         <h3 style="font-size: 1.5em">آشنایی با بازار بورس</h3>
         <p class="text" style="white-space: pre-wrap">
+            {{--<p dir="rtl"><em>متن ايتاليک</em></p>--}}
+            {{--<p dir="rtl"><strong>متن بولد</strong></p>--}}
+            {{--<p dir="rtl"><em><strong>متن بولد و ايتاليک</strong></em></p>--}}
+            {{--<p dir="rtl">تمامي متن هاي بالا راست چين اند(اين متن معمولي است)</p>--}}
+            {{--<p dir="rtl"><a href="http://google.com">اين يک لينک است</a></p>--}}
+            {{--<ul dir="rtl">--}}
+                {{--<li>this is li1</li>--}}
+                {{--<li>this is li2</li>--}}
+            {{--</ul>--}}
+
             به اطلاع آن دسته از دانشجویان متقاضی شرکت در دوره آمادگی آزمون زبان دانشگاه می رساند که ششمین دوره آمادگی آزمون زبان دانشگاه علامه طباطبائی در تاریخ ۱۳۹۷/۰۴/۱۴ روز های پنج شنبه و جمعه شروع می شود.
 
             طول دوره: ۸۰ ساعت
@@ -23,7 +33,7 @@
         <div class="master-container card mb-3">
             <div class="card-body row p-3 ">
                 <div class="col-sm-3 col-md-3 col-xl-2 master-img-container ">
-                <img class="master-img" src="{{asset('img/master.jpg')}}" alt="">
+                    <img class="master-img" src="{{asset('img/master.jpg')}}" alt="">
                 </div>
                 <div class="col-sm-8 col-md-8 col-xl-9 d-flex flex-column justify-content-around">
                     <span class=""><i class="fal fa-chalkboard-teacher"></i> استاد مدرس </span>
@@ -33,7 +43,7 @@
             </div>
         </div>
         <div class="d-flex justify-content-between flex-wrap">
-        <a href="{{route('register')}}" class="btn btn-success "><i class="fal fa-plus"></i> ثبت نام در این دوره</a>
+            <a href="{{route('register')}}" class="btn btn-success "><i class="fal fa-plus"></i> ثبت نام در این دوره</a>
             <span href="#" class="course-price align-self-start mt-1">38000 تومان</span>
         </div>
     </div>

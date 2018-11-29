@@ -32,9 +32,11 @@
                                 <span class="mx-2">پویا آکلیون</span>
                             </div>
                             <div class="col-md-6">
-                                <spna><i class="fal fa-birthday-cake"></i></spna>
-                                <span>سن:</span>
-                                <span class="mx-2">23</span>
+
+                                    <spna><i class="fal fa-envelope"></i></spna>
+                                    <span>ایمیل:</span>
+                                    <span class="mx-2">test@gmail.com</span>
+
                             </div>
                         </div>
 
@@ -45,18 +47,17 @@
                                 <span class="mx-2">09388584677</span>
                             </div>
                             <div class="col-md-6">
-                                <spna><i class="fal fa-graduation-cap"></i></spna>
-                                <span>شماره دانشجویی:</span>
-                                <span class="mx-2">931831208</span>
+                                <div>
+                                    <span><i class="fal fa-id-card"></i></span>
+                                    <span>شماره ملی:</span>
+                                    <span class="mx-2">2820188796</span>
+                                </div>
                             </div>
+
                         </div>
 
                         <div class="d-flex flex-wr  ap">
-                            <div>
-                                <span><i class="fal fa-id-card"></i></span>
-                                <span>شماره ملی:</span>
-                                <span class="mx-2">2820188796</span>
-                            </div>
+
 
                         </div>
                     </div>
@@ -77,6 +78,40 @@
                 </div>
                 {{csrf_field()}}
                 <button type="submit" class="btn btn-blue"><i class="fal fa-paper-plane mr-2"></i>ارسال</button>
+            </form>
+        </div>
+    </div>
+    </div>
+
+    <div class="mt-3 red-divider"></div>
+    <div class="row mt-3">
+        <div class="col-12">
+            <h6>تغییر رمز عبور</h6>
+            <form class="col-6" action="" onsubmit="return checkChangePasswordForm(this)">
+                <div class="form-group row">
+                    <label for="password" class="col-sm-5 col-form-label">رمز عبور قبلی</label>
+                    <div class="col-sm-7">
+                        <input type="password" name="old_passowrd" class="form-control {{ $errors->has('old_password') ? ' is-invalid' : '' }}" id="password" placeholder="رمز عبور قبلی را وارد کنید">
+                        @if ($errors->has('old_passowrd'))
+                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('old_passowrd') }}</strong>
+                                    </span>
+                        @endif
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="newPassword" class="col-sm-5 col-form-label">رمز عبور جدید</label>
+                    <div class="col-sm-7">
+                        <input type="password" class="form-control" id="newPassword" placeholder="رمز عبور جدید را وارد کنید">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="newPasswordConfirm" class="col-sm-5 col-form-label">تکرار رمز عبور جدید </label>
+                    <div class="col-sm-7">
+                        <input type="password" class="form-control" id="newPasswordConfirm" placeholder=" تکرار رمز عبور جدید را وارد کنید">
+                    </div>
+                </div>
+                <button type="submit"  class="btn btn-sm btn-blue"><i class="fal fa-edit mr-1"></i>تغییر</button>
             </form>
         </div>
     </div>

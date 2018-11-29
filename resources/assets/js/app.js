@@ -138,7 +138,7 @@ $(document).ready(function () {
         }
     }
 
-    if(pageUrl.includes('professor-courses')){
+    if(pageUrl.includes('professor-course')){
         try{
             $('#professorCardNavCourse').addClass('active')
         }catch (err){
@@ -153,6 +153,33 @@ $(document).ready(function () {
     }else if(pageUrl.includes('professor-tickets')){
         try{
             $('#professorCardNavTickets').addClass('active')
+        }catch (err){
+
+        }
+    }
+
+    if(pageUrl.includes('admin-courses') || pageUrl.includes('admin-courses') || pageUrl.includes('admin-posts') || pageUrl.includes('admin-slider') || pageUrl.includes('admin-contact-us')){
+        try{
+            $('#adminNavSite').addClass('admin-nav-active')
+        }catch (err){
+
+        }
+    }else if(pageUrl.includes('admin-users')){
+        try{
+            $('#adminNavUsers').addClass('admin-nav-active')
+        }catch (err){
+
+        }
+    }else if(pageUrl.includes('admin-tickets')){
+        try{
+            $('#adminNavTickets').addClass('admin-nav-active')
+        }catch (err){
+
+        }
+    }
+    else if(pageUrl.includes('admin-professor')){
+        try{
+            $('#adminNavProfessors').addClass('admin-nav-active')
         }catch (err){
 
         }
@@ -206,24 +233,28 @@ $(document).ready(function () {
         }
     }
 
-
-    window.checkForm=function()
-    {
-        //validation fails if the input is blank
-        if($('#professorMassage').val() == "") {
-            alert("خطا: متن پیام خالی است!");
-            $('#professorMassage').focus();
-            return false;
-        }
-
-        // regular expression to match only alphanumeric characters and spaces
+    window.checkForm=function (elm) {
         var re = /^[\w ]+$/;
+        var inputs=$(elm).find(':input')
+        for(var i=0;i<inputs.length-1;i++){
+            if($(inputs[i]).val()==""){
+                confirm("خطا: فیلد مورد نظر نمی تواند خالی باشد!");
+                $(inputs[i]).focus();
+                return false;
+            }
+            if(!re.test($(inputs[i]).val())) {
+                alert("خطا: !");
+                $('#professorMassage').focus();
+                return false;
+            }
+        }
+        return true
+    }
+    window.checkProfessorMessageForm=function(elm)
+    {
 
-        // validation fails if the input doesn't match our regular expression
-        if(!re.test($('#professorMassage').val())) {
-            alert("خطا: !");
-            $('#professorMassage').focus();
-            return false;
+        if(!checkForm(elm)){
+            return false
         }
         if(confirm("این پیام را ارسال کن")){
             return true
@@ -232,8 +263,19 @@ $(document).ready(function () {
         }
 
     }
-    // $('.normal-example').persianDatepicker();
-
+    window.checkChangePasswordForm=function(elm)
+    {
+       var inputs=$(elm).find(':input')
+       if(!checkForm(elm)){
+           return false
+       }
+       if($(inputs[1]).val()!=$(inputs[2]).val()){
+           confirm("خطا: رمز های وارد شده یکسان نمی باشد!");
+           $(inputs[1]).focus();
+           return false;
+       }
+       return true
+    }
 
     function readSlideURL1(input) {
 

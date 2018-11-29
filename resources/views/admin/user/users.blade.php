@@ -82,5 +82,42 @@
                 </li>
             </ul>
         </nav>
+        <div class="red-divider"></div>
+        <div class="container-fluid">
+            <h6 class="mt-3">دوره های پیشنهادی کاربران</h6>
+            <div class="container table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th scope="col">ردیف</th>
+                        <th scope="col">کاربر</th>
+                        <th scope="col">دوره پیشنهادی</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>پویا</td>
+                        <td>دوره زبان</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>پویا</td>
+                        <td>دوره زبان</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>پویا</td>
+                        <td>دوره زبان</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">4</th>
+                        <td>پویا</td>
+                        <td>دوره زبان</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 @endsection

@@ -67,6 +67,10 @@ Route::get('/professor-tickets', function () {
     return view('professor.tickets');
 })->middleware('auth')->name('professor-tickets');
 
+Route::get('/professor-course-students', function () {
+    return view('professor.courseStudents');
+})->middleware('auth')->name('professor-course-students');
+
 
 Route::get('/admin-dashboard', function () {
     return view('admin.dashboard');
@@ -90,9 +94,9 @@ Route::get('/admin-tickets', function () {
     return view('admin.site.tickets');
 })->middleware('auth')->name('admin-tickets');
 
-Route::get('/admin-professor', function () {
-    return view('admin.professor.professor');
-})->middleware('auth')->name('admin-professor');
+Route::get('/admin-professors', function () {
+    return view('admin.professor.professors');
+})->middleware('auth')->name('admin-professors');
 Route::get('/admin-professor-detail', function () {
     return view('admin.professor.detail');
 })->middleware('auth')->name('admin-professor-detail');

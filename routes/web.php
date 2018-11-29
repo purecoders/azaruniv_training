@@ -42,6 +42,11 @@ Route::get('/user-profile', function () {
     return view('user.profile');
 })->middleware('auth')->name('user-profile');
 
+Route::get('/user-course-offer', function () {
+    return view('user.offer');
+})->middleware('auth')->name('user-course-offer');
+
+
 Route::get('/user-tickets', function () {
     return view('user.tickets');
 })->middleware('auth')->name('user-tickets');

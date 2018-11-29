@@ -3,7 +3,7 @@
     <div class="container-fluid">
         <h6 class="mb-3">ثبت نام استاد</h6>
         <div class="col-5">
-            <form>
+            <form onsubmit="return checkRegisterAdminForm(this)">
                 <div class="form-group row">
                     <label for="professorName" class="col-sm-4 col-form-label">نام و نام خانوادگی</label>
                     <div class="col-sm-8">
@@ -14,7 +14,7 @@
                 <div class="form-group row">
                     <label for="professorEmail" class="col-sm-4 col-form-label">ایمیل</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" id="professorEmail"
+                        <input type="email" class="form-control" id="professorEmail"
                                placeholder="ایمیل استاد را وارد کنید">
                     </div>
                 </div>

@@ -58,7 +58,7 @@
 
         <div class="red-divider"></div>
         <h6 class="mt-4">دوره های این استاد</h6>
-        <div class="mt-1 d-flex flex-wrap">
+        <div class="mt-1 d-flex flex-wrap align-items-start">
             <div class="m-1 admin-course-container d-flex flex-column">
                 <div class="row">
                     <div class="col-sm-4">

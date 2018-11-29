@@ -130,6 +130,12 @@ $(document).ready(function () {
         }catch (err){
 
         }
+    }else if(pageUrl.includes('user-course-offer')){
+        try{
+            $('#userCardNavOffer').addClass('active')
+        }catch (err){
+
+        }
     }else if(pageUrl.includes('user-tickets')){
         try{
             $('#userCardNavTickets').addClass('active')
@@ -234,7 +240,7 @@ $(document).ready(function () {
     }
 
     window.checkForm=function (elm) {
-        var re = /^[\w ]+$/;
+        // var re = /^[\w ]+$/;
         var inputs=$(elm).find(':input')
         for(var i=0;i<inputs.length-1;i++){
             if($(inputs[i]).val()==""){
@@ -242,11 +248,11 @@ $(document).ready(function () {
                 $(inputs[i]).focus();
                 return false;
             }
-            if(!re.test($(inputs[i]).val())) {
-                alert("خطا: !");
-                $('#professorMassage').focus();
-                return false;
-            }
+            // if(!re.test($(inputs[i]).val())) {
+            //     alert("خطا: !");
+            //     $('#professorMassage').focus();
+            //     return false;
+            // }
         }
         return true
     }
@@ -275,6 +281,19 @@ $(document).ready(function () {
            return false;
        }
        return true
+    }
+    window.checkRegisterAdminForm=function(elm)
+    {
+        var inputs=$(elm).find(':input')
+        if(!checkForm(elm)){
+            return false
+        }
+        if($(inputs[5]).val()!=$(inputs[6]).val()){
+            confirm("خطا: رمز های وارد شده یکسان نمی باشد!");
+            $(inputs[1]).focus();
+            return false;
+        }
+        return true
     }
 
     function readSlideURL1(input) {

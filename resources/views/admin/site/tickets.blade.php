@@ -8,9 +8,9 @@
                 </div>
                 <div class="d-flex flex-column admin-chat-view-sidebar">
 
-                    <div class="admin-chat-user-item mt-1">
+                    <div class="admin-chat-user-item mt-1 active">
                         <div class="d-flex justify-content-between">
-                            <span class="new-ticket position-relative ml-1">6</span>
+                            <span class="new-ticket position-relative ml-1 d-hide">6</span>
                             <a href="#" class="mr-2">پروفایل</a>
                         </div>
                         <a class="admin-chat-view-user  " href="#">

@@ -4,9 +4,13 @@
     @include('include.head')
 
 </head>
+<div class="d-flex justify-content-around mt-5">
+    <h6>آموزش های تخصصی دانشگاه شهید مدنی آذربایجان</h6>
+    <h6>لیست کلاسی دوره زبان</h6>
+</div>
 <body style="background-color: #ffffff">
 <div class="rtl container mt-3">
-    <div class="d-flex justify-content-around align-items-center">
+    <div class="d-flex justify-content-around align-items-center no-print">
         <a href="{{route('professor-course')}}" class="btn btn-sm btn-blue"><i class="fal fa-arrow-alt-right mr-1"></i>بازگشت</a>
         <button class="btn btn-sm btn-blue" onclick="window.print()"><i class="fal fa-print"></i> پرینت</button>
     </div>

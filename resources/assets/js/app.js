@@ -400,16 +400,13 @@ var tableToExcel = (function() {
                 try {
                     table.rows[j].cells[4].width=180
                 }catch (err){}
-                // console.log(table.rows[j].cells[5])
-                console.log(table.rows[j].cells[6])
             }
-                // $("table:first tr td:last-child");
-                table.rows[j].deleteCell(5)
-                table.rows[j].deleteCell(5)
 
-
-
-
+            var lastIndex=$(table.rows[j]).children(":last").index()
+            if(lastIndex>=5){
+                table.rows[j].deleteCell(lastIndex)
+                table.rows[j].deleteCell(lastIndex-1)
+            }
         }
         // table.innerHTML=table.innerHTML.replace('/تومان/g','')
         var ctx = {worksheet: name || 'Worksheet', table: table.innerHTML}

@@ -600,6 +600,9 @@ footer{
   }
 }
 .user-ticket-container{
+  .active{
+    background-color: #eeeeee !important;
+  }
   .admin-chat-user-item{
     color: $lightBlue;
     transition: background-color .2s;

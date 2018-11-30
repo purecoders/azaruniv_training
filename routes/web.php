@@ -28,6 +28,10 @@ Route::get('/search', function () {
     return view('site.search');
 })->name('search');
 
+Route::get('/course-purchase', function () {
+    return view('site.coursePurchase');
+})->name('course-purchase');
+
 
 
 Route::get('/user-dashboard', function () {

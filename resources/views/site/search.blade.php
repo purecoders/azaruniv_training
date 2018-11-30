@@ -40,7 +40,7 @@
         <div class="red-divider"></div>
         <!-- if search did not match show this card -->
         <div class="mt-3 card p-3  text-center">
-            <p class="text-blue" style="font-size: 1.4em">متاسفانه هیج موردی پیدا نشد!</p>
+            <p class="text-blue" style="font-size: 1.4em">متاسفانه هیچ موردی پیدا نشد!</p>
             <i class="fal fa-frown text-blue" style="font-size: 3em"></i>
         </div>
 

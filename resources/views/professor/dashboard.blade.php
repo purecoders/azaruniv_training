@@ -11,7 +11,7 @@
                             کلاس های من
                         </a></li>
 
-                    <li id="professorCardNavProfile" class="nav-item "><a id="card-nav-cv" class="nav-link text-white" href="{{route('professor-profile')}}">
+                    <li id="professorCardNavProfile" class="nav-item "><a  class="nav-link text-white" href="{{route('professor-profile')}}">
                             <i class="fal fa-file mr-1"></i>
                             پروفایل و رزومه
                         </a></li>

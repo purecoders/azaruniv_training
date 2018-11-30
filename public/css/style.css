@@ -109,6 +109,9 @@ body {
 
 #mainNavbar.navbar-custom li > a {
   color: #ccc !important;
+  border-radius: .25rem;
+  -webkit-transition: background-color .2s,color .2s;
+  transition: background-color .2s,color .2s;
 }
 
 #mainNavbar.navbar-custom li > a:hover {
@@ -766,6 +769,8 @@ footer .nav-list a:hover {
 
 #adminNavbar li > a {
   color: #ccc;
+  -webkit-transition: background-color .2s,color .2s;
+  transition: background-color .2s,color .2s;
 }
 
 #adminNavbar .navbar-nav > li.dropdown:hover > a,

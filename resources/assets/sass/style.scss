@@ -73,6 +73,8 @@ body{
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
   li>a{
     color: #ccc !important;
+    border-radius: .25rem;
+    transition: background-color .2s,color .2s;
   }
   li>a:hover{
     background-color: #fff;
@@ -690,6 +692,7 @@ footer{
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
   li>a{
     color: #ccc;
+    transition: background-color .2s,color .2s;
   }
   .navbar-nav > li.dropdown:hover > a,
   .navbar-nav > li.dropdown:hover > a:hover,

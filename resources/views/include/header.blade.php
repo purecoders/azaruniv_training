@@ -108,12 +108,12 @@
                         </li>
                     @else
                         <li class="nav-item">
-                            <a class="nav-link btn sign-btn " href="{{ route('user-courses') }}">
+                            <a class="nav-link btn btn-sm sign-btn " href="{{ route('user-courses') }}">
                                 <i class="fal fa-tachometer mr-1"></i>
                                 پنل کاربری</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link btn sign-btn "onclick="event.preventDefault();
+                            <a class="nav-link btn btn-sm sign-btn "onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                 <i class="fal fa-sign-out-alt mr-1"></i>
                                 خروج</a>

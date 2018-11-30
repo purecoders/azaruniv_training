@@ -83,6 +83,10 @@ body {
   background-color: #060851;
 }
 
+.d-hide {
+  visibility: hidden !important;
+}
+
 .rules {
   list-style-type: decimal;
   padding-right: .75rem;
@@ -963,4 +967,15 @@ input[type=number]::-webkit-outer-spin-button {
   body {
     font-size: 0.9em;
   }
+}
+
+@media print {
+  .no-print, .no-print * {
+    display: none !important;
+  }
+}
+
+@page {
+  size: auto;
+  margin: 0mm;
 }

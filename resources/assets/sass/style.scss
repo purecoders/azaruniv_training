@@ -53,6 +53,9 @@ body{
 .logo-container{
   background-color: $lightBlue;
 }
+.d-hide{
+  visibility: hidden !important;
+}
 .rules{
   list-style-type: decimal;
   padding-right: .75rem;
@@ -890,3 +893,11 @@ input[type=number]::-webkit-outer-spin-button {
   }
 
 }
+@media print
+{
+  .no-print, .no-print *
+  {
+    display: none !important;
+  }
+}
+@page { size: auto;  margin: 0mm; }

@@ -88,7 +88,8 @@ class MasterDashboardController extends Controller
           'docs_path' => '',
         ]);
       }
-      return view('professor.profile', compact(['user', 'cv']));
+      $change_password_status = null;
+      return view('professor.profile', compact(['user', 'cv', 'change_password_status']));
     }
 
 
@@ -176,13 +177,12 @@ class MasterDashboardController extends Controller
       $user = Auth::user();
 
       //set seen to tickets
-      $tickets = $user->tickets()->where('is_user_sent', '=', '0')
-        ->where('is_seen', '=', '0')->get();
+      $tickets = $user->tickets()->where('is_user_sent', '=', '0')->where('is_seen', '=', '0')->get();
       foreach ($tickets as $ticket){
         $ticket->is_seen = 1;
         $ticket->save();
       }
-      $tickets = $user->tickets()->take(50)->get();
+      $tickets = $user->tickets()->take(100)->get();
 
       return view('professor.tickets', compact('tickets'));
     }
@@ -217,13 +217,34 @@ class MasterDashboardController extends Controller
       if(Hash::check($request->old_password, $user->password)){
         $user->password = Hash::make($request->new_password);
         $user->save();
-        $message = 'رمز شما با موفقیت بروزرسانی شد';
+        $change_password_status = 1;
       }else{
-        $message = 'رمز فعلی وارد شده اشتباه می باشد';
+        $change_password_status = 0;
       }
 
+      $user = Auth::user();
+      $cv = $user->masterInfo;
+      if($cv === null){
+        $cv = MasterExtraInfo::create([
+          'master_id' => $user->id,
+          'content' => ' ',
+          'docs_path' => '',
+        ]);
+      }
 
-      return redirect(route('professor-profile'));
+      return view('professor.profile', compact(['user', 'cv', 'change_password_status']));
+    }
+
+
+
+    public function courseStudents($id){
+      $user = Auth::user();
+      $course = Course::find($id);
+      if($course->master_id != $user->id ){
+        return redirect(route('professor-courses'));
+      }
+      $students = $course->students;
+      return view('professor.courseStudents', compact(['course', 'students']));
     }
 
 

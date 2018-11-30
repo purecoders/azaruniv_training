@@ -83,6 +83,23 @@ body {
   background-color: #060851;
 }
 
+.d-hide {
+  visibility: hidden !important;
+}
+
+.rules {
+  list-style-type: decimal;
+  padding-right: .75rem;
+}
+
+.rules li {
+  margin-bottom: .25rem;
+  padding: 1rem;
+  background-color: #eeeeee;
+  border-radius: .25rem;
+  cursor: pointer;
+}
+
 #mainNavbar.navbar-custom {
   width: 100%;
   background-color: #233761;
@@ -92,6 +109,9 @@ body {
 
 #mainNavbar.navbar-custom li > a {
   color: #ccc !important;
+  border-radius: .25rem;
+  -webkit-transition: background-color .2s,color .2s;
+  transition: background-color .2s,color .2s;
 }
 
 #mainNavbar.navbar-custom li > a:hover {
@@ -301,10 +321,26 @@ a.hover-link:hover {
 }
 
 .tab-img-link {
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
-  padding: .7rem;
+  display: block;
+  padding: .3rem;
+  border-radius: 0.25rem;
+  border: 1px solid #eeeeee;
+}
+
+#coursesList .tab-img-link {
+  max-height: 160px;
+  display: block;
+  padding: .3rem;
+  border-radius: 0.25rem;
+  border: 1px solid #eeeeee;
+}
+
+.tab-container .tab-img-link {
+  max-height: -webkit-fit-content;
+  max-height: -moz-fit-content;
+  max-height: fit-content;
+  display: block;
+  padding: .3rem;
   border-radius: 0.25rem;
   border: 1px solid #eeeeee;
 }
@@ -326,6 +362,17 @@ a.hover-link:hover {
 .tab-card-img:hover {
   -webkit-transform: scale(0.8);
   transform: scale(1.05);
+}
+
+.tab-card-title {
+  padding-top: 1rem;
+}
+
+.card-desc {
+  min-height: 6em !important;
+  max-height: 6em !important;
+  margin-bottom: 20px;
+  overflow: hidden;
 }
 
 #coursesList .tab-card-img {
@@ -612,6 +659,10 @@ footer .nav-list a:hover {
   border-radius: .25rem;
 }
 
+.user-ticket-container .active {
+  background-color: #eeeeee !important;
+}
+
 .user-ticket-container .admin-chat-user-item {
   color: #060851;
   -webkit-transition: background-color .2s;
@@ -718,6 +769,8 @@ footer .nav-list a:hover {
 
 #adminNavbar li > a {
   color: #ccc;
+  -webkit-transition: background-color .2s,color .2s;
+  transition: background-color .2s,color .2s;
 }
 
 #adminNavbar .navbar-nav > li.dropdown:hover > a,
@@ -845,6 +898,18 @@ footer .nav-list a:hover {
   color: #e1e1e1;
 }
 
+.admin-course-container p {
+  min-height: 6em !important;
+  max-height: 6em !important;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.admin-course-card-header {
+  margin-top: .5rem;
+  margin-bottom: .5rem;
+}
+
 .table td {
   padding: .25rem;
 }
@@ -876,12 +941,10 @@ footer .nav-list a:hover {
   left: 0px;
   min-height: 20px;
   min-width: 20px;
-  padding-left: 0.03rem;
-  padding-right: 0.03rem;
   text-align: center;
   margin-left: .1rem;
   margin-top: .4rem;
-  border-radius: 50%;
+  border-radius: 20%;
   color: #ffffff;
   background-color: #ca2f3c;
 }
@@ -894,6 +957,13 @@ input[type=number]::-webkit-outer-spin-button {
   margin: 0;
 }
 
+.sever-alert {
+  z-index: 9999;
+  position: fixed;
+  top: 60px;
+  right: 0;
+}
+
 @media only screen and (max-width: 768px) {
   body {
     font-size: 0.8em;
@@ -904,4 +974,15 @@ input[type=number]::-webkit-outer-spin-button {
   body {
     font-size: 0.9em;
   }
+}
+
+@media print {
+  .no-print, .no-print * {
+    display: none !important;
+  }
+}
+
+@page {
+  size: auto;
+  margin: 0mm;
 }

@@ -3,17 +3,17 @@
     <div id="carousel" class="swiper-container" dir="rtl">
         <div class="swiper-wrapper">
             @foreach($sliders as $slider)
-            <div class="swiper-slide">
-                @if(strlen($slider->on_click) < 3)
-                    <img src="{{asset($slider->photo->path)}}">
-                    <div class="title" id="title_#">{{$slider->title}}</div>
-                @else
-                    <a class="w-100" href="{{$slider->on_click}}">
+                <div class="swiper-slide">
+                    @if(strlen($slider->on_click) < 3)
                         <img src="{{asset($slider->photo->path)}}">
                         <div class="title" id="title_#">{{$slider->title}}</div>
-                    </a>
-                @endif
-            </div>
+                    @else
+                        <a class="w-100" href="{{$slider->on_click}}">
+                            <img src="{{asset($slider->photo->path)}}">
+                            <div class="title" id="title_#">{{$slider->title}}</div>
+                        </a>
+                    @endif
+                </div>
 
             @endforeach
 
@@ -61,21 +61,25 @@
 
                         <div class="col-md-6">
                             @foreach($posts1 as $post1)
-                            <div class="card  border-0">
-                                <div class="card-body d-flex">
-                                    <a class="tab-img-link" href="{{route('post.show', ['id'=>$post1->id])}}">
-                                        <img class="tab-card-img" src="{{$post1->photo->path}}" alt="">
-                                    </a>
-                                    <div class="tab-card-title mx-2 d-flex flex-column">
-                                        <h5><a href="{{route('post.show', ['id'=>$post1->id])}}" class="text-blue hover-link">{{$post1->title}}</a></h5>
-                                        <p class="mt-3">
-                                           {{$post1->content}}
-                                        </p>
+                                <div class="card  border-0">
+                                    <div class="card-body row ">
+                                        <div class="col-xl-6 px-xl-0">
+                                            <a class="tab-img-link" href="{{route('post.show', ['id'=>$post1->id])}}">
+                                                <img class="tab-card-img d-inline-block" src="{{asset($post1->photo->path)}}" alt="">
+                                            </a>
+                                        </div>
+                                        <div class="col-xl-6 px-xl-2">
+                                            <div class="tab-card-title mx-2 d-flex flex-column  pt-xl-0">
+                                                <h5><a href="{{route('post.show', ['id'=>$post1->id])}}" class="text-blue hover-link">{{$post1->title}}</a></h5>
+                                                <p class="card-desc mt-3">
+                                                    {{strip_tags($post1->content)}}
+                                                </p>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
 
-                            </div>
-                            <hr>
+                                </div>
+                                <hr>
                             @endforeach
                         </div>
 
@@ -84,17 +88,22 @@
                         <div class="col-md-6">
                             @foreach($posts2 as $post2)
                                 <div class="card  border-0">
-                                    <div class="card-body d-flex">
-                                        <a class="tab-img-link" href="{{route('post.show', ['id'=>$post2->id])}}">
-                                            <img class="tab-card-img" src="{{$post2->photo->path}}" alt="">
-                                        </a>
-                                        <div class="tab-card-title mx-2 d-flex flex-column">
-                                            <h5><a href="{{route('post.show', ['id'=>$post2->id])}}" class="text-blue hover-link">{{$post2->title}}</a></h5>
-                                            <p class="mt-3">
-                                                {{$post2->content}}
-                                            </p>
+                                    <div class="card-body row ">
+                                        <div class="col-xl-6 px-xl-0">
+                                            <a class="tab-img-link" href="{{route('post.show', ['id'=>$post2->id])}}">
+                                                <img class="tab-card-img d-inline-block" src="{{asset($post2->photo->path)}}" alt="">
+                                            </a>
+                                        </div>
+                                        <div class="col-xl-6 px-xl-2">
+                                            <div class="tab-card-title mx-2 d-flex flex-column  pt-xl-0">
+                                                <h5><a href="{{route('post.show', ['id'=>$post2->id])}}" class="text-blue hover-link">{{$post2->title}}</a></h5>
+                                                <p class="card-desc mt-3">
+                                                    {{strip_tags($post2->content)}}
+                                                </p>
+                                            </div>
                                         </div>
                                     </div>
+
                                 </div>
                                 <hr>
                             @endforeach
@@ -136,60 +145,64 @@
 
                         <div class="col-md-6">
                             @foreach($courses1 as $course1)
-                            <div class="card  border-0">
-                                <div class="card-body d-flex">
-                                    <a class="tab-img-link" href="{{route('course.show', ['id'=>$course1->id])}}">
-                                        <img class="tab-card-img" src="{{$course1->coverImage->path}}" alt="">
-                                    </a>
-                                    <div class="tab-card-title mx-2 d-flex flex-column">
-                                        <h5><a href="{{route('course.show', ['id'=>$course1->id])}}" class="text-blue hover-link">{{$course1->title}}</a></h5>
-                                        <p class="mt-3">
-                                            {{strip_tags($course1->description)}}
-                                        </p>
-                                        <a href="#" class="course-price">{{number_format($course1->cost)}} تومان </a>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <hr>
-                            @endforeach
-
-                        </div>
-
-
-
-                        <div class="col-md-6">
-                            @foreach($courses2 as $course2)
                                 <div class="card  border-0">
-                                    <div class="card-body d-flex">
-                                        <a class="tab-img-link" href="{{route('course.show', ['id'=>$course2->id])}}">
-                                            <img class="tab-card-img" src="{{$course2->coverImage->path}}" alt="">
+                                    <div class="col-xl-6 px-xl-0">
+                                        <a class="tab-img-link" href="{{route('course.show', ['id'=>$course1->id])}}">
+                                            <img class="tab-card-img d-inline-block" src="{{asset($course1->coverImage->path)}}" alt="">
                                         </a>
-                                        <div class="tab-card-title mx-2 d-flex flex-column">
-                                            <h5><a href="{{route('course.show', ['id'=>$course2->id])}}" class="text-blue hover-link">{{$course2->title}}</a></h5>
-                                            <p class="mt-3">
-                                                {{strip_tags($course2->description)}}
-                                            </p>
-                                            <a href="#" class="course-price">{{number_format($course2->cost)}} تومان </a>
-                                        </div>
                                     </div>
-
+                                    <div class="col-xl-6 px-xl-2">
+                                        <div class="tab-card-title mx-2 d-flex flex-column  pt-xl-0">
+                                            <h5><a href="{{route('course.show', ['id'=>$course1->id])}}" class="text-blue hover-link">{{$course1->title}}</a></h5>
+                                            <p class="card-desc mt-3">
+                                                {{strip_tags($course1->description)}}
+                                            </p>
+                                        </div>
+                                        <a href="{{route('course.show', ['id'=>$course1->id])}}" class="course-price">{{number_format($course1->cost)}} تومان </a>
+                                    </div>
                                 </div>
-                                <hr>
-                            @endforeach
-                        </div>
 
-
+                        <hr>
+                        @endforeach
 
                     </div>
-                    <div class="d-flex justify-content-end">
-                        <a href="{{route('arccourses')}}" class="hover-link">
-                            <span class="">آرشیو <i class="fal fa-share"></i> </span>
-                        </a>
-                    </div>
+
+
+
+                    <div class="col-md-6">
+                        @foreach($courses2 as $course2)
+                            <div class="card  border-0">
+                                <div class="col-xl-6 px-xl-0">
+                                    <a class="tab-img-link" href="{{route('course.show', ['id'=>$course2->id])}}">
+                                        <img class="tab-card-img d-inline-block" src="{{asset($course2->coverImage->path)}}" alt="">
+                                    </a>
+                                </div>
+                                <div class="col-xl-6 px-xl-2">
+                                    <div class="tab-card-title mx-2 d-flex flex-column  pt-xl-0">
+                                        <h5><a href="{{route('course.show', ['id'=>$course2->id])}}" class="text-blue hover-link">{{$course2->title}}</a></h5>
+                                        <p class="card-desc mt-3">
+                                            {{strip_tags($course2->description)}}
+                                        </p>
+                                    </div>
+                                    <a href="{{route('course.show', ['id'=>$course2->id])}}" class="course-price">{{number_format($course2->cost)}} تومان </a>
+                                </div>
+                            </div>
+
+                    <hr>
+                    @endforeach
                 </div>
+
+
+
+            </div>
+            <div class="d-flex justify-content-end">
+                <a href="{{route('arccourses')}}" class="hover-link">
+                    <span class="">آرشیو <i class="fal fa-share"></i> </span>
+                </a>
             </div>
         </div>
+    </div>
+    </div>
     </div>
 
 @endsection

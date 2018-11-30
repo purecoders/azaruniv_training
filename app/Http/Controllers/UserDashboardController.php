@@ -40,7 +40,8 @@ class UserDashboardController extends Controller
 
 
     public function profile(){
-      return view('user.profile');
+      $change_password_status = null;
+      return view('user.profile', compact('change_password_status'));
     }
 
     public function tickets(){
@@ -61,7 +62,7 @@ class UserDashboardController extends Controller
 
     public function sendTicket(Request $request){
     $this->validate($request,[
-      'text' => 'required|string|max:3000',
+      'text' => 'required|string|max:3000|min:1',
     ]);
 
     $user = Auth::user();
@@ -130,10 +131,15 @@ class UserDashboardController extends Controller
       if(Hash::check($request->old_password, $user->password)){
         $user->password = Hash::make($request->new_password);
         $user->save();
+        $change_password_status = 1;
+      }else{
+        $change_password_status = 0;
       }
 
-      return redirect(route('user-profile'));
+      return view('user.profile', compact('change_password_status'));
     }
+
+
 
 
     public function offerCourse(){

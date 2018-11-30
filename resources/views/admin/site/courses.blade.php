@@ -149,9 +149,13 @@
                         </div>
                     </div>
                     <div class="col-sm-8">
-                        <div class="d-flex justify-content-between align-items-center">
+                        <div class="d-flex justify-content-between align-items-center admin-course-card-header my-md-0">
                         <h6>{{$course->title}}</h6>
-                            <span class="btn-sm course-price align-self-start ">{{number_format($course->cost)}} تومان </span>
+                            @if($course->cost == 0)
+                                <span class="btn-sm course-price align-self-start ">رایگان</span>
+                            @else
+                                <span class="btn-sm course-price align-self-start ">{{number_format($course->cost)}} تومان </span>
+                            @endif
                         </div>
                         <p>
                             {{strip_tags($course->description)}}.

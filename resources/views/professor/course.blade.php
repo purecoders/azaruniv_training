@@ -9,7 +9,9 @@
                     <h5>{{$course->title}}</h5>
                     <div class="p-3">
                         <p>
-                            {{$course->description}}
+                            @php
+                            echo $course->description;
+                            @endphp
                         </p>
                         <div class="red-divider"></div>
                         <div>
@@ -36,7 +38,7 @@
                     <div class="d-flex justify-content-around align-items-center mb-1">
                         <h6> دانشجو ها</h6>
                         {{--<button class=" btn btn-sm btn-blue"><i class="fal fa-print"></i>  پرینت لیست کلاس</button>--}}
-                        <a href="{{route('professor-course-students')}}" class=" btn btn-sm btn-blue"><i class="fal fa-print"></i>  پرینت لیست کلاسی</a>
+                        <a href="{{route('professor-course-students', $course->id)}}" class=" btn btn-sm btn-blue"><i class="fal fa-print"></i>  پرینت لیست کلاسی</a>
                     </div>
                     <div class="red-divider"></div>
                     <ul class="students-list nav-list d-flex flex-column p-1 mt-2">

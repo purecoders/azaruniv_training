@@ -158,6 +158,21 @@
                                 </div>
                             </div>
 
+
+                            <div class="form-group row">
+                                <label for="rules" class="col-md-4 col-form-label text-md-right">قوانین</label>
+                                <div class="col-md-6 ">
+                                    <div class="form-check ml-3">
+                                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" required>
+                                        <label class="form-check-label" for="defaultCheck1">
+                                            قوانین را قبول می کنم
+                                            <a href="#" data-toggle="modal" data-target="#rulesModal"> (مشاهده قوانین)</a>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" formnovalidate  class="btn btn-success"><i class="fal fa-user-plus"></i> ثبت نام</button>
@@ -167,6 +182,32 @@
                     </div>
                 </div>
             </div>
+
+
+            <div class="modal fade" id="rulesModal" tabindex="-1" role="dialog" aria-labelledby="rulesModalTitle" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="rulesModalTitle">قوانین سایت</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body rtl">
+                            <ul class="rules">
+                                <li>حضور غیاب در دوره طبق قوانین آموزشی خواهد بود.</li>
+                                <li> در صورت که در دوره های رایگان ثبت نام کنید و در کلاس شرکت نکنید یک امتیاز منفی می گیرید، در صورت گرفتن داشتن دو امتیاز منفی از سیستم حذف می شوید و کد ملی شما مسدود می گردد.</li>
+                                <li>در صورتی که در دوره های رایگان ثبت نام کنید و حضور نداشته باشید هزینه دوره هنگام تسویه حساب اخذ خواهد شد.</li>
+                            </ul>
+                        </div>
+                        <div class=" modal-footer">
+                            <button type="button"  class="btn btn-sm btn-secondary mr-auto" data-dismiss="modal">بستن</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
         </div>
     </div>
 @endsection

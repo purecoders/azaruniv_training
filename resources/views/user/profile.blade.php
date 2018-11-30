@@ -96,4 +96,26 @@
         </div>
     </div>
     </div>
+
+
+    @if($change_password_status !== null)
+        @if($change_password_status == 1)
+            <div class=" sever-alert alert alert-success alert-dismissible fade show" role="alert">
+                تغییر رمز عبور با موفیقت انجام شد
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        @else
+            <div class=" sever-alert alert alert-danger alert-dismissible fade show" role="alert">
+                رمز عبور تغییر نیافت.رمز عبور فعلی وارد شده صحیح نمی باشد
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        @endif
+    @endif
+
+
+
 @endsection

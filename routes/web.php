@@ -5,13 +5,10 @@ use App\Ticket;
 use Illuminate\Support\Facades\DB;
 
 Route::get('test', function (){
-  $users_id = DB::select("SELECT DISTINCT user_id FROM  
-(SELECT id,user_id FROM tickets ORDER BY id DESC)");
-  foreach ($users_id as $item){
-    echo $item->user_id . '<br>';
-  }
-//  print_r($users_id);
-//  $users_id = Ticket::orderBy('id', 'desc')->get(['user_id']);
+  $originaldate = date("Y-m-d H:i:s");
+  $converted = DateTime::createFromFormat("Y-m-d H:i:s", $originaldate);
+  $converted2months = $converted->sub(new DateInterval("P2M"));
+  dd($converted2months);
 });
 
 
@@ -54,6 +51,7 @@ Route::get('/arcposts', 'PostController@archivePosts')->name('arcposts');
 Route::get('/arccourses', 'CourseController@archiveCourses')->name('arccourses');
 Route::get('/category/{id}/courses', 'SiteIndexPageController@categoryCourses')->name('course-category');
 Route::post('/search', 'SiteIndexPageController@search')->name('search');
+Route::get('/course-purchase/{id}', 'SiteIndexPageController@coursePurchase')->name('course-purchase');
 
 
 
@@ -82,11 +80,7 @@ Route::post('/professor-change-password', 'MasterDashboardController@changePassw
 Route::post('/professor-update-cv', 'MasterDashboardController@updateCv')->name('professor-update-cv');
 Route::get('/professor-tickets', 'MasterDashboardController@tickets')->name('professor-tickets');
 Route::post('/professor-send-ticket', 'MasterDashboardController@sendTicket')->name('professor-send-ticket');
-
-
-Route::get('/professor-course-students', function () {
-  return view('professor.courseStudents');
-})->middleware('auth')->name('professor-course-students');
+Route::get('/professor-course-students/{id}', 'MasterDashboardController@courseStudents')->name('professor-course-students');
 
 
 
@@ -102,9 +96,13 @@ Route::get('/admin-users', 'AdminDashboardController@users')->name('admin-users'
 Route::get('/admin-user-detail/{id}', 'AdminDashboardController@user')->name('admin-user-detail');
 Route::get('/admin-reset-password/{id}', 'AdminDashboardController@resetPassword')->name('admin-reset-password');
 Route::get('/admin-tickets', 'AdminDashboardController@tickets')->name('admin-tickets');
+Route::get('/admin-user-tickets/{id}', 'AdminDashboardController@userTickets')->name('admin-user-tickets');
+Route::post('/admin-send-ticket', 'AdminDashboardController@sendTicket')->name('admin-send-ticket');
 Route::get('/admin-users-all', 'AdminDashboardController@allUsers')->name('admin-users-all');
 Route::get('/admin-professors', 'AdminDashboardController@professors')->name('admin-professors');
 Route::get('/admin-professor-detail/{id}', 'AdminDashboardController@professorDetail')->name('admin-professor-detail');
 Route::post('/admin-register-professor', 'AdminDashboardController@registerProfessor')->name('admin-register-professor');
+Route::post('/admin-send-student-public-message', 'AdminDashboardController@studentPublicMessage')->name('admin-send-student-public-message');
+Route::post('/admin-send-professor-public-message', 'AdminDashboardController@professorPublicMessage')->name('admin-send-professor-public-message');
 
 

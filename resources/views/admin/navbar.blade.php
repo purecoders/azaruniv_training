@@ -42,7 +42,11 @@
                         @php
                             $newTicketsCount = \App\Ticket::where('is_user_sent', '=', 1)->where('is_seen', '=', 0)->count();
                         @endphp
-                        <span class="new-ticket">{{$newTicketsCount}}</span>
+                        @if($newTicketsCount > 0)
+                            <span class="new-ticket">{{$newTicketsCount}}</span>
+                        @else
+                            <span class="new-ticket d-hide">{{$newTicketsCount}}</span>
+                        @endif
                     </a>
                 </li>
             </ul>

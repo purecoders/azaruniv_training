@@ -52,7 +52,11 @@
                             </div>
                             <div class="col-md-6">
 
-                                <a href="{{route('admin-reset-password', ['id' => $user->id])}}" class="btn btn-sm btn-blue align-self-center">بازیابی رمز عبور</a>
+                                <a href="{{route('admin-reset-password', ['id' => $user->id])}}" class="btn btn-sm btn-blue align-self-center mt-1">بازیابی رمز عبور</a>
+
+                                <form class="d-inline-block" action="" onsubmit="return confirm('آیا از حذف این کاربر مطمئن هستید')">
+                                    <button type="submit" class="btn btn-sm btn-danger align-self-center mt-1" >حذف کاربر</button>
+                                </form>
                                 <br>
                                 <span style="color: #fe4219">با کلیک روی دکمه بالا رمز حساب دانشجو به کد ملی تغییر می یابد</span>
                             </div>
@@ -102,7 +106,7 @@
         <div class="red-divider mt-3"></div>
         <h6 class="mt-4">پرداخت های این کاربر</h6>
 
-        <div class="col-6 table-responsive">
+        <div class="col-x1-6 table-responsive">
             <table class="table table-striped">
                 <thead>
                 <tr>

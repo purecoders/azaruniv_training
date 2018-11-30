@@ -34,8 +34,12 @@
         </div>
 
         <div class="d-flex justify-content-between flex-wrap">
-            <a href="#" class="btn btn-success "><i class="fal fa-plus"></i> ثبت نام در این دوره</a>
-            <span href="#" class="course-price align-self-start mt-1">{{number_format($course->cost)}} تومان </span>
+            <a href="{{route('course-purchase', $course->id)}}" class="btn btn-success "><i class="fal fa-plus"></i> ثبت نام در این دوره</a>
+            @if($course->cost == 0)
+                <span href="{{route('course-purchase', $course->id)}}" class="course-price align-self-start mt-1">رایگان</span>
+            @else
+                <span href="{{route('course-purchase', $course->id)}}" class="course-price align-self-start mt-1">{{number_format($course->cost)}} تومان </span>
+            @endif
         </div>
 
     </div>

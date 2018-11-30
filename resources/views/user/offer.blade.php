@@ -15,7 +15,7 @@
             <div class="form-group row">
                 <label for="newOffer" class="col-sm-5 col-form-label">اسم دوره</label>
                 <div class="col-sm-7">
-                    <input type="text" name="new_offer" class="form-control" id="newOffer" placeholder="اسم دوره مورد نظر خود را وارد کنید (حداکثر 50 کاراکتر)">
+                    <input type="text" name="new_offer" class="form-control" id="newOffer" placeholder="حداکثر 50 کاراکتر">
                 </div>
             </div>
             @csrf

@@ -69,6 +69,13 @@ class User extends Authenticatable
     }
 
 
+    public function newSendedTickets(){
+      return $this->hasMany('App\Ticket')
+        ->where('is_user_sent', '=', 1)
+        ->where('is_seen', '=', 0);
+    }
+
+
 
 
 }

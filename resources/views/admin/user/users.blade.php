@@ -67,9 +67,35 @@
         </nav>
 
 
-        <div class="red-divider"></div>
+
+        {{--<div class="red-divider"></div>--}}
+
+
+        {{--<hr>--}}
+        <div class="red-divider mt-3"></div>
+        <div class="mt-3">
+            <h6>ارسال پیام برای تمامی دانشجویان</h6>
+            <i class="fal fa-bullhorn float-right fa-flip-horizontal mt-5"
+               style="font-size: 4em;color: rgba(6,8,81,0.45);"></i>
+            <div class="col-xl-10 col-md-12">
+                <form method="post" action="{{route('admin-send-student-public-message')}}" onsubmit="return confirm('این پیام را برای همه ی دانشجویان ارسال کن')">
+                    <div class="form-group row pt-4">
+                        {{--<label for="messageText" class="col-sm-2 col-form-label">متن پیام</label>--}}
+                        <div class="col-sm-12 ">
+                        <textarea type="text" class="form-control" id="messageText"
+                                  name="text" placeholder="متن پیام را وارد کنید" rows="5"></textarea>
+                        </div>
+                    </div>
+                    @csrf
+                    <button class="btn btn-sm btn-blue mt-2"><i class="fal fa-paper-plane"></i> ارسال</button>
+                </form>
+            </div>
+        </div>
+        <div class="red-divider mt-3"></div>
+
+
         <div class="container-fluid">
-            <h6 class="mt-3">دوره های پیشنهادی کاربران</h6>
+            <h6 class="mt-3">دوره های پیشنهادی دانشجویان در 2 ماه اخیر</h6>
             <div class="container table-responsive">
                 <table class="table table-striped">
                     <thead>

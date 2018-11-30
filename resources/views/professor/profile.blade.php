@@ -54,9 +54,9 @@
 
                         <div class="d-flex flex-wr  ap">
                             {{--<div>--}}
-                                {{--<span><i class="fal fa-id-card"></i></span>--}}
-                                {{--<span>شماره ملی:</span>--}}
-                                {{--<span class="mx-2">{{$user->national_code}}</span>--}}
+                            {{--<span><i class="fal fa-id-card"></i></span>--}}
+                            {{--<span>شماره ملی:</span>--}}
+                            {{--<span class="mx-2">{{$user->national_code}}</span>--}}
                             {{--</div>--}}
 
                         </div>
@@ -81,7 +81,7 @@
                 <div class="form-group">
                     <label for="professorMassage"> مدارک (این فایل فقط به مدیریت ارسال می شود)</label>
                     @if(strlen($cv->docs_path) > 2)
-                      <a class="btn btn-sm btn-blue" href="{{$cv->docs_path}}" download>دانلود</a><br>
+                        <a class="btn btn-sm btn-blue" href="{{$cv->docs_path}}" download>دانلود</a><br>
                     @endif
                     <input type="file"  name="docs"  class="form-control" id="professorMassage"></input>
                 </div>
@@ -128,5 +128,24 @@
         </div>
     </div>
     </div>
+
+
+    @if($change_password_status !== null)
+        @if($change_password_status == 1)
+            <div class=" sever-alert alert alert-success alert-dismissible fade show" role="alert">
+                تغییر رمز عبور با موفیقت انجام شد
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        @else
+            <div class=" sever-alert alert alert-danger alert-dismissible fade show" role="alert">
+                رمز عبور تغییر نیافت.رمز عبور فعلی وارد شده صحیح نمی باشد
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        @endif
+    @endif
 
 @endsection

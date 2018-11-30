@@ -116,6 +116,25 @@
             </div>
         </div>
 
+
+        <div class="red-divider "></div><br>
+        <h6>ارسال پیام برای تمامی اساتید</h6>
+        <i class="fal fa-bullhorn float-right fa-flip-horizontal mt-5"
+           style="font-size: 4em;color: rgba(6,8,81,0.45);"></i>
+        <div class="col-xl-10 col-md-12">
+            <form method="post" action="{{route('admin-send-professor-public-message')}}" onsubmit="return confirm('این پیام را برای همه ی اساتید ارسال کن')">
+                <div class="form-group row pt-4">
+                    {{--<label for="messageText" class="col-sm-2 col-form-label">متن پیام</label>--}}
+                    <div class="col-sm-12 ">
+                        <textarea type="text" class="form-control" id="messageText"
+                                  name="text" placeholder="متن پیام را وارد کنید" rows="5"></textarea>
+                    </div>
+                </div>
+                @csrf
+                <button class="btn btn-sm btn-blue mt-2" type="submit"><i class="fal fa-paper-plane"></i> ارسال</button>
+            </form>
+        </div>
+
     </div>
 
 @endsection

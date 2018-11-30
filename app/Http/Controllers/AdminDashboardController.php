@@ -14,6 +14,8 @@ use App\SiteInfo;
 use App\Slider;
 use App\Ticket;
 use App\User;
+use DateInterval;
+use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -90,7 +92,15 @@ class AdminDashboardController extends Controller
       }
     }
 
-    $recommends = RecommendedCourse::orderBy('id', 'desc')->paginate(50);
+    //get recent two month records
+    $originaldate = date("Y-m-d H:i:s");
+    $converted = DateTime::createFromFormat("Y-m-d H:i:s", $originaldate);
+    $converted2months = $converted->sub(new DateInterval("P2M"));
+    $recommends = RecommendedCourse::orderBy('id', 'desc')
+      ->where('created_at', '>=', $converted2months)
+      ->get();
+
+
 
     return view('admin.user.users', compact(['students', 'recommends']));
   }
@@ -116,12 +126,57 @@ class AdminDashboardController extends Controller
 
 
   public function tickets(){
-    $users_id = DB::select("SELECT DISTINCT user_id FROM tickets ORDER BY id DESC");
+    $users_id = DB::select("SELECT  user_id FROM  tickets GROUP BY user_id ORDER BY MAX(id) DESC ");
+    $users = array();
     foreach ($users_id as $user_id){
-      $users = User::withTrashed()->find($user_id);
+      $users [] = User::withTrashed()->find($user_id->user_id);
     }
 
-    return view('admin.site.tickets');
+    $tickets = null;
+    $user_id = 0;
+
+    return view('admin.site.tickets', compact(['users', 'tickets', 'user_id']));
+  }
+
+
+  public function userTickets($id){
+    $user = User::find($id);
+    $users_id = DB::select("SELECT  user_id FROM  tickets GROUP BY user_id ORDER BY MAX(id) DESC ");
+    $users = array();
+    foreach ($users_id as $user_id){
+      $users [] = User::withTrashed()->find($user_id->user_id);
+    }
+
+
+    $tickets = $user->tickets()->where('is_user_sent', '=', '1')
+      ->where('is_seen', '=', '0')->get();
+    foreach ($tickets as $ticket) {
+      $ticket->is_seen = 1;
+      $ticket->save();
+    }
+
+    $tickets = $user->tickets()->orderBy('id', 'asc')->get();
+    $user_id = $user->id;
+
+    return view('admin.site.tickets', compact(['users', 'tickets', 'user_id']));
+  }
+
+
+  public function sendTicket(Request $request){
+    $this->validate($request,[
+      'text' => 'required|string|max:3000|min:1',
+      'user_id' => 'required|numeric',
+    ]);
+
+    $ticket = Ticket::create([
+      'user_id' => $request->user_id,
+      'is_user_sent' => 0,
+      'text' => $request->text,
+      'is_seen' => 0,
+    ]);
+
+    return redirect(route('admin-user-tickets', $request->user_id));
+
   }
 
 
@@ -201,6 +256,49 @@ class AdminDashboardController extends Controller
 
     return redirect(route('admin-professor-detail', $user->id));
 
+  }
+
+
+
+  public function studentPublicMessage(Request $request){
+    $this->validate($request,[
+      'text' => 'required|string|max:3000|min:1',
+    ]);
+
+    $users = User::orderBy('id' ,'desc')->get();
+    foreach ($users as $user){
+      if(UserHelper::isStudent($user)){
+        Ticket::create([
+          'user_id' => $user->id,
+          'is_user_sent' => 0,
+          'text' => $request->text,
+          'is_seen' => 0,
+        ]);
+      }
+    }
+
+    return redirect(route('admin-users'));
+  }
+
+
+  public function professorPublicMessage(Request $request) {
+    $this->validate($request, [
+      'text' => 'required|string|max:3000|min:1',
+    ]);
+
+    $role = Role::where('name', '=', 'master')->first();
+    $masters = $role->users;
+
+    foreach ($masters as $master) {
+      Ticket::create([
+        'user_id' => $master->id,
+        'is_user_sent' => 0,
+        'text' => $request->text,
+        'is_seen' => 0,
+      ]);
+    }
+
+    return redirect(route('admin-professors'));
   }
 
 }

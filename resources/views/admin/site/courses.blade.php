@@ -193,12 +193,17 @@
                         </div>
                     </div>
                     <div class="col-sm-8">
-                        <div class="d-flex justify-content-between align-items-center">
+                        <div class="d-flex justify-content-between align-items-center admin-course-card-header my-md-0">
                         <h6>دوره زبان</h6>
                             <span class="btn-sm course-price align-self-start ">36000 تومان</span>
                         </div>
                         <p>
                             مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته
+                            اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
+                            اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
+                            اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
+                            اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
+                            اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
                             اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
                         </p>
                     </div>

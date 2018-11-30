@@ -48,65 +48,95 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="card  border-0">
-                                <div class="card-body d-flex">
-                                    <a class="tab-img-link" href="{{route('post')}}">
-                                        <img class="tab-card-img" src="{{asset('img/slide5.jpg')}}" alt="">
-                                    </a>
-                                    <div class="tab-card-title mx-2 d-flex flex-column">
-                                        <h5><a href="{{route('post')}}" class="text-blue hover-link">رویداد کسب کار خودتو بساز</a></h5>
-                                        <p class="mt-3">
-                                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
-                                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت...
-                                        </p>
+                                <div class="card-body row ">
+                                    <div class="col-xl-6 px-xl-0">
+                                        <a class="tab-img-link" href="#">
+                                            <img class="tab-card-img d-inline-block" src="{{asset('img/slide6.jpg')}}" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="col-xl-6 px-xl-2">
+                                        <div class="tab-card-title mx-2 d-flex flex-column  pt-xl-0">
+                                            <h5><a href="{{route('course')}}" class="text-blue hover-link">رویداد کسب کار خودتو بساز</a></h5>
+                                            <p class="card-desc mt-3">
+                                                لورم ایپسوم متن ساختگی با تولید سادگی نام
+                                                لورم ایپسوم متن ساختگی با تولید سادگی نام
+                                                لورم ایپسوم متن ساختگی با تولید سادگی نام
+                                                لورم ایپسوم متن ساختگی با تولید سادگی نام
+                                                لورم ایپسوم متن ساختگی با تولید سادگی نام
+
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
-
                             </div>
                             <hr>
                             <div class="card  border-0">
-                                <div class="card-body d-flex">
-                                    <a class="tab-img-link" href="#">
-                                        <img class="tab-card-img" src="{{asset('img/slide5.jpg')}}" alt="">
-                                    </a>
-                                    <div class="tab-card-title mx-2 d-flex flex-column">
-                                        <h5><a href="#" class="text-blue hover-link">رویداد کسب کار خودتو بساز</a></h5>
-                                        <p class="mt-3">
-                                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
-                                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت...
-                                        </p>
+                                <div class="card-body row ">
+                                    <div class="col-xl-6 px-xl-0">
+                                        <a class="tab-img-link" href="#">
+                                            <img class="tab-card-img d-inline-block" src="{{asset('img/slide6.jpg')}}" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="col-xl-6 px-xl-2">
+                                        <div class="tab-card-title mx-2 d-flex flex-column  pt-xl-0">
+                                            <h5><a href="{{route('course')}}" class="text-blue hover-link">رویداد کسب کار خودتو بساز</a></h5>
+                                            <p class="card-desc mt-3">
+                                                لورم ایپسوم متن ساختگی با تولید سادگی نام
+                                                لورم ایپسوم متن ساختگی با تولید سادگی نام
+                                                لورم ایپسوم متن ساختگی با تولید سادگی نام
+                                                لورم ایپسوم متن ساختگی با تولید سادگی نام
+                                                لورم ایپسوم متن ساختگی با تولید سادگی نام
+
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="card  border-0">
-                                <div class="card-body d-flex">
-                                    <a class="tab-img-link" href="#">
-                                        <img class="tab-card-img" src="{{asset('img/slide5.jpg')}}" alt="">
-                                    </a>
-                                    <div class="tab-card-title mx-2 d-flex flex-column">
-                                        <h5><a href="#" class="text-blue hover-link">رویداد کسب کار خودتو بساز</a></h5>
-                                        <p class="mt-3">
-                                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
-                                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت...
-                                        </p>
+                                <div class="card-body row ">
+                                    <div class="col-xl-6 px-xl-0">
+                                        <a class="tab-img-link" href="#">
+                                            <img class="tab-card-img d-inline-block" src="{{asset('img/slide6.jpg')}}" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="col-xl-6 px-xl-2">
+                                        <div class="tab-card-title mx-2 d-flex flex-column  pt-xl-0">
+                                            <h5><a href="{{route('course')}}" class="text-blue hover-link">رویداد کسب کار خودتو بساز</a></h5>
+                                            <p class="card-desc mt-3">
+                                                لورم ایپسوم متن ساختگی با تولید سادگی نام
+                                                لورم ایپسوم متن ساختگی با تولید سادگی نام
+                                                لورم ایپسوم متن ساختگی با تولید سادگی نام
+                                                لورم ایپسوم متن ساختگی با تولید سادگی نام
+                                                لورم ایپسوم متن ساختگی با تولید سادگی نام
+
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
 
                             </div>
                             <hr>
                             <div class="card  border-0">
-                                <div class="card-body d-flex">
-                                    <a class="tab-img-link" href="#">
-                                        <img class="tab-card-img" src="{{asset('img/slide5.jpg')}}" alt="">
-                                    </a>
-                                    <div class="tab-card-title mx-2 d-flex flex-column">
-                                        <h5><a href="#" class="text-blue hover-link">رویداد کسب کار خودتو بساز</a></h5>
-                                        <p class="mt-3">
-                                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
-                                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت...
-                                        </p>
+                                <div class="card-body row ">
+                                    <div class="col-xl-6 px-xl-0">
+                                        <a class="tab-img-link" href="#">
+                                            <img class="tab-card-img d-inline-block" src="{{asset('img/slide6.jpg')}}" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="col-xl-6 px-xl-2">
+                                        <div class="tab-card-title mx-2 d-flex flex-column  pt-xl-0">
+                                            <h5><a href="{{route('course')}}" class="text-blue hover-link">رویداد کسب کار خودتو بساز</a></h5>
+                                            <p class="card-desc mt-3">
+                                                لورم ایپسوم متن ساختگی با تولید سادگی نام
+                                                لورم ایپسوم متن ساختگی با تولید سادگی نام
+                                                لورم ایپسوم متن ساختگی با تولید سادگی نام
+                                                لورم ایپسوم متن ساختگی با تولید سادگی نام
+                                                لورم ایپسوم متن ساختگی با تولید سادگی نام
+
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -127,36 +157,50 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="card  border-0">
-                                <div class="card-body d-flex">
+                                <div class="card-body row ">
+                                    <div class="col-xl-6 px-xl-0">
                                     <a class="tab-img-link" href="#">
-                                        <img class="tab-card-img" src="{{asset('img/slide6.jpg')}}" alt="">
+                                        <img class="tab-card-img d-inline-block" src="{{asset('img/slide6.jpg')}}" alt="">
                                     </a>
-                                    <div class="tab-card-title mx-2 d-flex flex-column">
+                                    </div>
+                                    <div class="col-xl-6 px-xl-2">
+                                    <div class="tab-card-title mx-2 d-flex flex-column  pt-xl-0">
                                         <h5><a href="{{route('course')}}" class="text-blue hover-link">رویداد کسب کار خودتو بساز</a></h5>
-                                        <p class="mt-3">
-                                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
-                                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
+                                        <p class="card-desc mt-3">
+                                            لورم ایپسوم متن ساختگی با تولید سادگی نام
+                                            لورم ایپسوم متن ساختگی با تولید سادگی نام
+                                            لورم ایپسوم متن ساختگی با تولید سادگی نام
+                                            لورم ایپسوم متن ساختگی با تولید سادگی نام
+                                            لورم ایپسوم متن ساختگی با تولید سادگی نام
 
                                         </p>
                                         <a href="#" class="course-price">62000 تومان</a>
+                                    </div>
                                     </div>
                                 </div>
 
                             </div>
                             <hr>
                             <div class="card  border-0">
-                                <div class="card-body d-flex">
-                                    <a class="tab-img-link" href="#">
-                                        <img class="tab-card-img" src="{{asset('img/slide5.jpg')}}" alt="">
-                                    </a>
-                                    <div class="tab-card-title mx-2 d-flex flex-column">
-                                        <h5><a href="#" class="text-blue hover-link">رویداد کسب کار خودتو بساز</a></h5>
-                                        <p class="mt-3">
-                                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
-                                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
+                                <div class="card-body row ">
+                                    <div class="col-xl-6 px-xl-0">
+                                        <a class="tab-img-link" href="#">
+                                            <img class="tab-card-img d-inline-block" src="{{asset('img/slide6.jpg')}}" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="col-xl-6 px-xl-2">
+                                        <div class="tab-card-title mx-2 d-flex flex-column  pt-xl-0">
+                                            <h5><a href="{{route('course')}}" class="text-blue hover-link">رویداد کسب کار خودتو بساز</a></h5>
+                                            <p class="card-desc mt-3">
+                                                لورم ایپسوم متن ساختگی با تولید سادگی نام
+                                                لورم ایپسوم متن ساختگی با تولید سادگی نام
+                                                لورم ایپسوم متن ساختگی با تولید سادگی نام
+                                                لورم ایپسوم متن ساختگی با تولید سادگی نام
+                                                لورم ایپسوم متن ساختگی با تولید سادگی نام
 
-                                        </p>
-                                        <a href="#" class="course-price">12000 تومان</a>
+                                            </p>
+                                            <a href="#" class="course-price">62000 تومان</a>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -164,36 +208,50 @@
                         </div>
                         <div class="col-md-6">
                             <div class="card  border-0">
-                                <div class="card-body d-flex">
-                                    <a class="tab-img-link" href="#">
-                                        <img class="tab-card-img" src="{{asset('img/slide5.jpg')}}" alt="">
-                                    </a>
-                                    <div class="tab-card-title mx-2 d-flex flex-column">
-                                        <h5><a href="#" class="text-blue hover-link">رویداد کسب کار خودتو بساز</a></h5>
-                                        <p class="mt-3">
-                                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
-                                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
+                                <div class="card-body row ">
+                                    <div class="col-xl-6 px-xl-0">
+                                        <a class="tab-img-link" href="#">
+                                            <img class="tab-card-img d-inline-block" src="{{asset('img/slide6.jpg')}}" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="col-xl-6 px-xl-2">
+                                        <div class="tab-card-title mx-2 d-flex flex-column  pt-xl-0">
+                                            <h5><a href="{{route('course')}}" class="text-blue hover-link">رویداد کسب کار خودتو بساز</a></h5>
+                                            <p class="card-desc mt-3">
+                                                لورم ایپسوم متن ساختگی با تولید سادگی نام
+                                                لورم ایپسوم متن ساختگی با تولید سادگی نام
+                                                لورم ایپسوم متن ساختگی با تولید سادگی نام
+                                                لورم ایپسوم متن ساختگی با تولید سادگی نام
+                                                لورم ایپسوم متن ساختگی با تولید سادگی نام
 
-                                        </p>
-                                        <a href="#" class="course-price">25000 تومان</a>
+                                            </p>
+                                            <a href="#" class="course-price">62000 تومان</a>
+                                        </div>
                                     </div>
                                 </div>
 
                             </div>
                             <hr>
                             <div class="card  border-0">
-                                <div class="card-body d-flex">
-                                    <a class="tab-img-link" href="#">
-                                        <img class="tab-card-img" src="{{asset('img/slide6.jpg')}}" alt="">
-                                    </a>
-                                    <div class="tab-card-title mx-2 d-flex flex-column">
-                                        <h5><a href="#" class="text-blue hover-link">رویداد کسب کار خودتو بساز</a></h5>
-                                        <p class="mt-3">
-                                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
-                                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
+                                <div class="card-body row ">
+                                    <div class="col-xl-6 px-xl-0">
+                                        <a class="tab-img-link" href="#">
+                                            <img class="tab-card-img d-inline-block" src="{{asset('img/slide6.jpg')}}" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="col-xl-6 px-xl-2">
+                                        <div class="tab-card-title mx-2 d-flex flex-column  pt-xl-0">
+                                            <h5><a href="{{route('course')}}" class="text-blue hover-link">رویداد کسب کار خودتو بساز</a></h5>
+                                            <p class="card-desc mt-3">
+                                                لورم ایپسوم متن ساختگی با تولید سادگی نام
+                                                لورم ایپسوم متن ساختگی با تولید سادگی نام
+                                                لورم ایپسوم متن ساختگی با تولید سادگی نام
+                                                لورم ایپسوم متن ساختگی با تولید سادگی نام
+                                                لورم ایپسوم متن ساختگی با تولید سادگی نام
 
-                                        </p>
-                                        <a href="#" class="course-price">36000 تومان</a>
+                                            </p>
+                                            <a href="#" class="course-price">62000 تومان</a>
+                                        </div>
                                     </div>
                                 </div>
 

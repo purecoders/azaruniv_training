@@ -170,7 +170,7 @@ $(document).ready(function () {
         }catch (err){
 
         }
-    }else if(pageUrl.includes('admin-users')){
+    }else if(pageUrl.includes('admin-user')){
         try{
             $('#adminNavUsers').addClass('admin-nav-active')
         }catch (err){
@@ -371,7 +371,6 @@ $(document).ready(function () {
 window.excelReport=function(elm){
     var sheetname = $("#chainnames").children(":selected").text();
      var tableId=$(elm).parent().siblings().children(":first").attr('id')
-    console.log(tableId)
     tableToExcel(tableId,sheetname);
 }
 $(document).on('click','#exportreptoexcelfile',function(event){
@@ -392,22 +391,27 @@ var tableToExcel = (function() {
         if (!table.nodeType) table = document.getElementById(table)
         var orginalTable=table.innerHTML
 
-        for(var j = 0 ; j < table.rows.length ; j++)
+        for(var j = 0 ; j <table.rows.length ; j++)
         {
-            if(j==0){
-                table.rows[j].cells[0].width=200
-                table.rows[j].cells[1].width=200
-                table.rows[j].cells[2].width=200
+            if(j==3){
+                table.rows[j].cells[1].width=180
+                table.rows[j].cells[2].width=180
+                table.rows[j].cells[3].width=180
+                try {
+                    table.rows[j].cells[4].width=180
+                }catch (err){}
+                // console.log(table.rows[j].cells[5])
+                console.log(table.rows[j].cells[6])
             }
-            try{
-            table.rows[j].deleteCell(5)
-            table.rows[j].deleteCell(4)
+                // $("table:first tr td:last-child");
+                table.rows[j].deleteCell(5)
+                table.rows[j].deleteCell(5)
 
-            }catch (err){
 
-            }
+
+
         }
-        table.innerHTML=table.innerHTML.replace('/تومان/g','')
+        // table.innerHTML=table.innerHTML.replace('/تومان/g','')
         var ctx = {worksheet: name || 'Worksheet', table: table.innerHTML}
         table.innerHTML=orginalTable
         // window.location.href = uri + base64(format(template, ctx))

@@ -49,7 +49,11 @@
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <a href="" class="btn btn-sm btn-blue align-self-center">ریست رمز عبور</a>
+                                <a href="" class="btn btn-sm btn-blue align-self-center mt-1">ریست رمز عبور</a>
+                                <form class="d-inline-block" action="" onsubmit="return confirm('آیا از حذف این کاربر مطمئن هستید')">
+
+                                <button type="submit" class="btn btn-sm btn-danger align-self-center mt-1" >حذف کاربر</button>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -142,7 +146,7 @@
         <div class="red-divider mt-3"></div>
         <h6 class="mt-4">پرداخت های این کاربر</h6>
 
-        <div class="col-6 table-responsive">
+        <div class="col-xl-6 table-responsive">
             <table class="table table-striped">
                 <thead>
                 <tr>

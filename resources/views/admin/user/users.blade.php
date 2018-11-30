@@ -83,8 +83,13 @@
             </ul>
         </nav>
         <div class="red-divider"></div>
-        <div class="container-fluid">
-            <h6 class="mt-3">دوره های پیشنهادی کاربران</h6>
+        <div class="container mt-3">
+            <div class="d-flex justify-content-between">
+                <h6 class="mt-3">دوره های پیشنهادی کاربران</h6>
+                <form action="" onsubmit="return confirm('آیا از ارسال درخواست پیشنهاد دوره مطمئن هستید؟')">
+                    <button type="submit" class="btn btn-sm btn-blue">ارسال درخواست پیشنهاد دوره</button>
+                </form>
+            </div>
             <div class="container table-responsive">
                 <table class="table table-striped">
                     <thead>

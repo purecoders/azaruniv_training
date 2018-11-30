@@ -26,7 +26,8 @@
                         </a>
                     </div>
                     <div class="admin-chat-user-item mt-1">
-                        <div class="d-flex justify-content-end ">
+                        <div class="d-flex justify-content-between ">
+                            <span class="new-ticket position-relative ml-1">6</span>
                             <a href="#" class="mr-2">پروفایل</a>
 
                         </div>

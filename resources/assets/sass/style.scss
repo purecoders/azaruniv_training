@@ -274,6 +274,25 @@ a.hover-link:hover{
   border-radius: 0.25rem;
   border: 1px solid #eeeeee;
 }
+#coursesList{
+  .tab-img-link{
+    max-height: 160px;
+    display: block;
+    padding: .3rem;
+    border-radius: 0.25rem;
+    border: 1px solid #eeeeee;
+  }
+}
+
+.tab-container{
+  .tab-img-link{
+    max-height:fit-content;
+    display: block;
+    padding: .3rem;
+    border-radius: 0.25rem;
+    border: 1px solid #eeeeee;
+  }
+}
 .heading-primary{
   font-size: 1.3em;
 }

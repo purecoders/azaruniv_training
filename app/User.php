@@ -11,8 +11,16 @@ class User extends Authenticatable
     use Notifiable;
     use SoftDeletes;
 
+  public function delete(){
+    $this->user_course()->delete();
+    $this->tickets()->delete();
+    $this->recommendedCourses()->delete();
 
-    protected $fillable = [
+    parent::delete();
+  }
+
+
+  protected $fillable = [
         'name', 'is_male', 'major', 'email', 'mobile', 'student_number', 'national_code', 'password'
     ];
 
@@ -26,6 +34,10 @@ class User extends Authenticatable
 
     public function studentCourses(){
       return $this->belongsToMany('App\Course', 'user_courses', 'student_id', 'course_id');
+    }
+
+    public function user_course(){
+      return $this->hasMany('App\UserCourse' , 'student_id');
     }
 
 
@@ -73,6 +85,11 @@ class User extends Authenticatable
       return $this->hasMany('App\Ticket')
         ->where('is_user_sent', '=', 1)
         ->where('is_seen', '=', 0);
+    }
+
+
+    public function recommendedCourses(){
+      return $this->hasMany('App\RecommendedCourse');
     }
 
 

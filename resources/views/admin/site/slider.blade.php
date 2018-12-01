@@ -9,7 +9,7 @@
                     <label for="slideTitle" class="col-sm-2 col-form-label">عنوان اسلاید</label>
                     <div class="col-sm-4">
                         <input type="text" class="form-control" id="postTitle"
-                               placeholder="عنوان اسلاید را وارد کنید" name="title">
+                               placeholder="عنوان اسلاید را وارد کنید" name="title" required>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -22,7 +22,7 @@
                 <div class="form-group row">
                     <label for="slideImg" class="col-sm-2 col-form-label">تصویر</label>
                     <div class="col-sm-4">
-                        <input name="image" type="file" accept="image/jpeg/png" id="slideImg">
+                        <input name="image" type="file" accept="image/jpeg/png" id="slideImg" required>
                     </div>
                 </div>
 

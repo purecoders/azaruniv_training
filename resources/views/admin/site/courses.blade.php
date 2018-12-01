@@ -10,7 +10,7 @@
                         <label for="postTitle" class="col-sm-2 col-form-label">عنوان دوره</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="postTitle"
-                                   placeholder="عنوان دوره را وارد کنید..." name="title">
+                                   placeholder="عنوان دوره را وارد کنید..." name="title" required>
                         </div>
                     </div>
 
@@ -18,7 +18,7 @@
                         <div class="row">
                             <legend class="col-form-label col-sm-2 pt-0">تصویر</legend>
                             <div class="col-sm-10">
-                                <input type="file" name="image" accept="image/*"/>
+                                <input type="file" name="image" accept="image/*" required/>
                             </div>
                         </div>
                     </div>
@@ -26,7 +26,7 @@
                         <div class="row">
                             <legend class="col-form-label col-sm-2 pt-0">قیمت دوره</legend>
                             <div class="col-sm-3">
-                                <input class="form-control d-inline" type="number" name="cost"/>
+                                <input class="form-control d-inline" type="number" name="cost" required/>
                             </div>
                             <div class="col-sm-2 pt-2"><span>تومان</span></div>
                         </div>
@@ -35,7 +35,7 @@
                         <div class="row">
                             <legend class="col-form-label col-sm-2 pt-0">دسته دوره</legend>
                             <div class="col-sm-5">
-                                <select class="form-control" name="category_id">
+                                <select class="form-control" name="category_id" required>
                                     @foreach($categories as $category)
                                         <option value="{{$category->id}}">{{$category->name}}</option>
                                     @endforeach
@@ -48,12 +48,12 @@
                         <div class="row">
                             <legend class="col-form-label col-sm-2 pt-0">زمان شروع دوره</legend>
                             <div class="col-sm-4">
-                                <input  type="text" name="start_date" class="form-control start-day">
+                                <input  type="text" name="start_date" class="form-control start-day" required>
 {{--                                <input value="{{date('Y-m-d')}}" type="text" name="start_date" >--}}
                             </div>
                             <legend class="col-form-label col-sm-2 pt-1">زمان پایان دوره</legend>
                             <div class="col-sm-4">
-                                <input  type="text" name="finish_date" class="form-control start-day">
+                                <input  type="text" name="finish_date" class="form-control start-day" required>
                                 {{--<input value="{{date('Y-m-d')}}" type="text" name="finish_date" >--}}
                             </div>
 
@@ -63,7 +63,7 @@
                         <div class="row">
                             <legend class="col-form-label col-sm-2 pt-0">مدرس دوره</legend>
                             <div class="col-sm-5">
-                                <select class="form-control" name="master_id">
+                                <select class="form-control" name="master_id" required>
                                     @foreach($masters as $master)
                                         <option value="{{$master->id}}">{{$master->name}}</option>
                                     @endforeach
@@ -76,7 +76,7 @@
                         <div class="row">
                             <legend class="col-form-label col-sm-2 pt-0">ظرفیت دوره</legend>
                             <div class="col-sm-3">
-                                <input class="form-control d-inline" type="number" name="capacity"/>
+                                <input class="form-control d-inline" type="number" name="capacity" required/>
                             </div>
                         </div>
                     </div>
@@ -84,7 +84,7 @@
                         <div class="row">
                             <legend class="col-form-label col-sm-2 pt-0">جنسیت</legend>
                             <div class="col-sm-5" >
-                                <select class="form-control" name="gender">
+                                <select class="form-control" name="gender" required>
                                     <option value="coeducational">مشترک</option>
                                     <option value="male">مرد</option>
                                     <option value="female">زن</option>
@@ -97,8 +97,8 @@
                         <div class="col-sm-2">توضیحات دوره</div>
                         <div class="col-sm-10">
                             <textarea name="course_content" class="form-control rtl "
-                                      placeholder="محتوای خبر را وارد کنید"
-                                      rows="15"></textarea>
+                                      placeholder="توضیحات دوره را وارد کنید"
+                                      rows="15" required></textarea>
                         </div>
                     </div>
                     {{csrf_field()}}

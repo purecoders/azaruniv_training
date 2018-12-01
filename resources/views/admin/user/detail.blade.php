@@ -52,13 +52,20 @@
                             </div>
                             <div class="col-md-6">
 
-                                <a href="{{route('admin-reset-password', ['id' => $user->id])}}" class="btn btn-sm btn-blue align-self-center mt-1">بازیابی رمز عبور</a>
-
-                                <form class="d-inline-block" action="" onsubmit="return confirm('آیا از حذف این کاربر مطمئن هستید')">
+                                <a href="{{route('admin-reset-password', ['id' => $user->id])}}" class="btn btn-sm btn-blue align-self-center mt-1" onclick="return confirm('آیا از تغییر رمزدانشجو به کد ملی او مطمئن هستید؟')">بازیابی رمز عبور</a>
+                                {{--<br>--}}
+                                {{--<span style="color: #fe4219">با کلیک روی دکمه بالا رمز حساب دانشجو به کد ملی تغییر می یابد</span>--}}
+                                {{--<br>--}}
+                                <form class="d-inline-block" method="post" action="{{route('admin-remove-student', $user->id)}}" onsubmit="return confirm('آیا از حذف این کاربر مطمئن هستید؟ (دانشجو دیگر امکان ورود به سیستم را نخواهد داشت)')">
+                                    @csrf
+                                    <input type="hidden" name="_method" value="DELETE">
                                     <button type="submit" class="btn btn-sm btn-danger align-self-center mt-1" >حذف کاربر</button>
                                 </form>
-                                <br>
-                                <span style="color: #fe4219">با کلیک روی دکمه بالا رمز حساب دانشجو به کد ملی تغییر می یابد</span>
+
+                                {{--<br>--}}
+                                {{--<span style="color: #fe4219">با کلیک روی دکمه بالا دانشجو به کلی از سیستم حذف می شود</span>--}}
+                                {{--<br>--}}
+
                             </div>
                         </div>
                     </div>

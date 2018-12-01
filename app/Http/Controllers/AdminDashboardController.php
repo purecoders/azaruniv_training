@@ -96,11 +96,7 @@ class AdminDashboardController extends Controller
     $originaldate = date("Y-m-d H:i:s");
     $converted = DateTime::createFromFormat("Y-m-d H:i:s", $originaldate);
     $converted2months = $converted->sub(new DateInterval("P2M"));
-    $recommends = RecommendedCourse::orderBy('id', 'desc')
-      ->where('created_at', '>=', $converted2months)
-      ->get();
-
-
+    $recommends = RecommendedCourse::orderBy('id', 'desc')->where('created_at', '>=', $converted2months)->get();
 
     return view('admin.user.users', compact(['students', 'recommends']));
   }
@@ -299,6 +295,14 @@ class AdminDashboardController extends Controller
     }
 
     return redirect(route('admin-professors'));
+  }
+
+
+
+  public  function removeStudent($id){
+    $user = User::find($id);
+    $user->delete();
+    return redirect(route('admin-users'));
   }
 
 }

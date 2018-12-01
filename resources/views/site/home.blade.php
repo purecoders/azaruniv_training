@@ -158,7 +158,11 @@
                                                 {{strip_tags($course1->description)}}
                                             </p>
                                         </div>
-                                        <a href="{{route('course.show', ['id'=>$course1->id])}}" class="course-price">{{number_format($course1->cost)}} تومان </a>
+                                        @if($course1->cost == 0)
+                                            <a href="{{route('course.show', ['id'=>$course1->id])}}" class="course-price">رایگان</a>
+                                        @else
+                                            <a href="{{route('course.show', ['id'=>$course1->id])}}" class="course-price">{{number_format($course1->cost)}} تومان </a>
+                                        @endif
                                     </div>
                                 </div>
 

@@ -1,14 +1,20 @@
 <?php
 
 
+use App\Http\Controllers\helper\MyCrypt;
 use App\Ticket;
 use Illuminate\Support\Facades\DB;
 
 Route::get('test', function (){
-  $originaldate = date("Y-m-d H:i:s");
-  $converted = DateTime::createFromFormat("Y-m-d H:i:s", $originaldate);
-  $converted2months = $converted->sub(new DateInterval("P2M"));
-  dd($converted2months);
+  $key = md5('123');
+  //Take first 8 bytes of $key and append them to the end of $key.
+  $key .= substr($key, 0, 8);
+  echo 'key = ' . "$key" . '<br>';
+
+  $enc = MyCrypt::encrypt_pkcs7('Mohsen');
+  echo 'encrypted = ' . $enc . '<br>';
+  echo 'decrypted = ' . MyCrypt::decrypt_pkcs7($enc) . '<br>';
+  echo base64_encode('mohsen') . '<br>' . base64_decode('bW9oc2Vu');
 });
 
 
@@ -104,5 +110,6 @@ Route::get('/admin-professor-detail/{id}', 'AdminDashboardController@professorDe
 Route::post('/admin-register-professor', 'AdminDashboardController@registerProfessor')->name('admin-register-professor');
 Route::post('/admin-send-student-public-message', 'AdminDashboardController@studentPublicMessage')->name('admin-send-student-public-message');
 Route::post('/admin-send-professor-public-message', 'AdminDashboardController@professorPublicMessage')->name('admin-send-professor-public-message');
+Route::delete('/admin-remove-student/{id}', 'AdminDashboardController@removeStudent')->name('admin-remove-student');
 
 

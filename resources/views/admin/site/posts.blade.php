@@ -9,7 +9,7 @@
                         <label for="postTitle" class="col-sm-2 col-form-label">عنوان خبر</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="postTitle"
-                                   placeholder="عنوان خبر را وارد کنید..." name="title">
+                                   placeholder="عنوان خبر را وارد کنید..." name="title" required>
                         </div>
                     </div>
 
@@ -17,7 +17,7 @@
                         <div class="row">
                             <legend class="col-form-label col-sm-2 pt-0">تصویر</legend>
                             <div class="col-sm-10">
-                                <input type="file" name="image" accept="image/*"/>
+                                <input type="file" name="image" accept="image/*" required/>
                             </div>
                         </div>
                     </fieldset>
@@ -25,7 +25,7 @@
                         <div class="col-sm-2">محتوای خبر</div>
                         <div class="col-sm-10">
                             <textarea name="post_content" class="form-control rtl " placeholder="محتوای خبر را وارد کنید"
-                                      rows="15"></textarea>
+                                      rows="15" required></textarea>
                         </div>
                     </div>
 

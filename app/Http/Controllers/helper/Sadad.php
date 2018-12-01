@@ -1,124 +1,112 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Mohsen
- * Date: 11/30/2018
- * Time: 7:05 PM
- */
-
-namespace App\Http\Controllers\helper;
-
-/*
-کد جهت ارسال به درگاه پرداخت
-*/
-use SoapClient;
-
-$sadad = new Sadad([
-  'merchant_id'     => '???',
-  'terminal_id'     => '???',
-  'transaction_key' => '???'
-]);
-
-
-$request_key = $sadad->request(1, 1000, 'http://localhost/???.php');
-
-
-// بررسی $request_key و انتقال کاربر به درگاه پرداخت
-// ذخیره اطلاعات مورد نیاز مثل مبلغ، شماره سفارش و ... در دیتابیس
-$sadad->redirect();
-
-
-/*
-کد جهت بررسی صحت تراکنش
-*/
-if ($sadad->verify($request_key, 1, 1000)) {
-  // تراکنش موفق بود
-  // ذخیره اطلاعات مورد نیاز در دیتابیس
-} else {
-  // تراکنش ناموفق بود
-}
 
 
 class Sadad {
 
   private $merchant_id;
   private $terminal_id;
-  private $transaction_key;
-  private $form;
-  private $ref_no;
+  private $terminal_key;
+  private $payment_identity;
+  private $start_pay_url = 'https://sadad.shaparak.ir/api/v0/PaymentByIdentity/PaymentRequest';
+  private $redirect_url = 'https://sadad.shaparak.ir/VPG/Purchase?Token=';
+  private $verify_pay_url ='https://sadad.shaparak.ir/VPG/api/v0/Advice/Verify';
 
 
-  private $wsdl_url = 'https://sadad.shaparak.ir/services/MerchantUtility.asmx?wsdl';
-
-
-  public function __construct($params)
-  {
-    $this->merchant_id     = $params['merchant_id'];
-    $this->terminal_id     = $params['terminal_id'];
-    $this->transaction_key = $params['transaction_key'];
+  public function __construct($merchant_id, $terminal_id, $terminal_key, $payment_identity) {
+    $this->merchant_id = $merchant_id;
+    $this->terminal_id = $terminal_id;
+    $this->terminal_key = $terminal_key;
+    $this->payment_identity = $payment_identity;
   }
 
 
-  public function request($order_id, $amount, $callback)
-  {
-    $client = new SoapClient($this->wsdl_url);
-
-
-    $result = $client->PaymentUtility(
-      $this->merchant_id,
-      $amount,
-      $order_id,
-      $this->transaction_key,
-      $this->terminal_id,
-      $callback);
-
-
-    $this->form = $result['PaymentUtilityResult'];
-    return $result['RequestKey'];
-  }
-
-
-  public function redirect()
-  {
-    echo $this->form.'</form>';
-    echo '<script>window.onload=document.forms[0].submit();</script>';
-  }
-
-
-  public function verify($request_key, $order_id, $amount)
-  {
-    $client = new SoapClient($this->wsdl_url);
-
-
-    $result = $client->CheckRequestStatus(
-      $order_id,
-      $this->merchant_id,
-      $this->terminal_id,
-      $this->transaction_key,
-      $request_key,
-      $amount);
-
-
-    if ( ! empty($result) && isset($result['CheckRequestStatusResult']))
-    {
-      if ($result['CheckRequestStatusResult'] === 0)
-      {
-        $this->ref_no = $result['RetrivalRefNo'];
-        return TRUE;
-      }
-      else
-      {
-        return FALSE;
-      }
+  public function request($amount, $order_id, $call_back_url, $local_date_time = null){
+    if(is_null($local_date_time)){
+      $local_date_time = date("m/d/Y g:i:s a");
     }
 
+    $sign_data = $this->encrypt_pkcs7("$this->terminal_id;$order_id;$amount", "$this->terminal_key");
 
-    return FALSE;
+    $data = array('TerminalId' => $this->terminal_id,
+      'MerchantId' => $this->merchant_id,
+      'Amount' => $amount,
+      'SignData' => $sign_data,
+      'ReturnUrl' => $call_back_url,
+      'LocalDateTime' => $local_date_time,
+      'OrderId' => $order_id);
+
+    $str_data = json_encode($data);
+    $response = $this->callApi($this->start_pay_url, $str_data);
+    $response_data = json_decode($response);
+
+    return $response_data;
+    //$response_data->ResCode ?== 0 => success   &&  $response_data->Token && $response_data->Description
   }
 
 
-  public function get_ref_no()
-  {
-    return $this->ref_no;
+
+  public function redirect($token){
+    $url = $this->redirect_url . $token;
+    header("Location:$url");
   }
+
+
+  public function verify($token, $response_code){
+    //get below data from your call_back_url
+//    $order_id=$_POST["OrderId"];
+//    $token=$_POST["token"];
+//    $response_code=$_POST["ResCode"];
+
+    $verify_data = array('Token'=>$token, 'SignData' => $this->encrypt_pkcs7($token, $this->terminal_key));
+    $str_data = json_encode($verify_data);
+    $response = $this->callApi($this->verify_pay_url, $str_data);
+    $response_data = json_decode($response);
+
+    return $response_data;
+
+    /*
+      if($response_data->ResCode!=-1 && $response_code==0)
+{
+	//Save $arrres->RetrivalRefNo,$arrres->SystemTraceNo,$arrres->OrderId to DataBase
+	echo "شماره سفارش:".$OrderId."<br>"."شماره پیگیری : ".$arrres->SystemTraceNo."<br>"."شماره مرجع:".
+	$arrres->RetrivalRefNo."<br> اطلاعات بالا را جهت پیگیری های بعدی یادداشت نمایید."."<br>";
+}
+else
+	echo "تراکنش نا موفق بود در صورت کسر مبلغ از حساب شما حداکثر پس از 72 ساعت مبلغ به حسابتان برمی گردد.";	*/
+
+
+  }
+
+
+
+  private function callApi($url, $data = false){
+    $curl = curl_init($url);
+    curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "POST");
+    curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type: application/json','Content-Length: ' . strlen($data)));
+    $result = curl_exec($curl);
+    curl_close($curl);
+    return $result;
+  }
+
+
+
+  private function encrypt_pkcs7($str, $key){
+    $key = base64_decode($key);
+    $ciphertext = OpenSSL_encrypt($str,"DES-EDE3", $key, OPENSSL_RAW_DATA);
+    return base64_encode($ciphertext);
+  }
+
+
+  private static function decrypt_pkcs7($encrypted, $key){
+    $key = base64_decode($key);
+    $encrypted = base64_decode($encrypted);
+    $text = OpenSSL_decrypt($encrypted,"DES-EDE3", $key, OPENSSL_RAW_DATA);
+    return $text;
+  }
+
+
+
+
 }

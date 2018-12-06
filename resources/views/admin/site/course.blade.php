@@ -30,6 +30,16 @@
                             <div class="col-sm-2 pt-2"><span>تومان</span></div>
                         </div>
                     </div>
+
+                    <div class="form-group">
+                        <div class="row">
+                            <legend class="col-form-label col-sm-2 pt-0">مدت زمان دوره (ساعت)</legend>
+                            <div class="col-sm-3">
+                                <input class="form-control d-inline" type="number" name="duration" value="{{$course->duration}}" required/>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="form-group">
                         <div class="row">
                             <legend class="col-form-label col-sm-2 pt-0">دسته دوره</legend>

@@ -33,7 +33,7 @@ class User extends Authenticatable
 
 
     public function studentCourses(){
-      return $this->belongsToMany('App\Course', 'user_courses', 'student_id', 'course_id');
+      return $this->belongsToMany('App\Course', 'user_courses', 'student_id', 'course_id')->orderBy('id', 'desc');
     }
 
     public function user_course(){
@@ -42,7 +42,7 @@ class User extends Authenticatable
 
 
     public function masterCourses(){
-      return $this->hasMany('App\Course', 'master_id');
+      return $this->hasMany('App\Course', 'master_id')->orderBy('id', 'desc');
     }
 
 

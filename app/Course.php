@@ -11,7 +11,7 @@ class Course extends Model
 
 
     protected $fillable = [
-      'master_id', 'category_id', 'title', 'description', 'cost', 'gender', 'capacity', 'start_date', 'finish_date', 'is_open'
+      'master_id', 'category_id', 'title', 'description', 'cost', 'duration', 'gender', 'capacity', 'start_date', 'finish_date', 'is_open'
     ];
 
 

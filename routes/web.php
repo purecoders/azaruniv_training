@@ -6,6 +6,15 @@ use App\Ticket;
 use Illuminate\Support\Facades\DB;
 
 Route::get('test', function (){
+//  return base64_encode('7zn8DrAPzLIoVOwstLltktJSpeNH/us3');
+  return utf8_decode(base64_decode('=okC+oxkdFSfci7cYlkXc31NYjtiA3LOgrjqgaayMJLY'));
+
+
+  $input = base64_decode(('=okC+oxkdFSfci7cYlkXc31NYjtiA3LOgrjqgaayMJLY'));//$BB6B>8l8@B,;n(B - testing
+  $input_encoding = 'iso-2022-ir';
+  echo iconv($input_encoding, 'UTF-8', $input);
+
+
   $key = md5('123');
   //Take first 8 bytes of $key and append them to the end of $key.
   $key .= substr($key, 0, 8);
@@ -102,7 +111,7 @@ Route::get('/admin-users', 'AdminDashboardController@users')->name('admin-users'
 Route::get('/admin-user-detail/{id}', 'AdminDashboardController@user')->name('admin-user-detail');
 Route::get('/admin-reset-password/{id}', 'AdminDashboardController@resetPassword')->name('admin-reset-password');
 Route::get('/admin-tickets', 'AdminDashboardController@tickets')->name('admin-tickets');
-Route::get('/admin-user-tickets/{id}', 'AdminDashboardController@userTickets')->name('admin-user-tickets');
+Route::get('/admin-tickets-user/{id}', 'AdminDashboardController@userTickets')->name('admin-user-tickets');
 Route::post('/admin-send-ticket', 'AdminDashboardController@sendTicket')->name('admin-send-ticket');
 Route::get('/admin-users-all', 'AdminDashboardController@allUsers')->name('admin-users-all');
 Route::get('/admin-professors', 'AdminDashboardController@professors')->name('admin-professors');

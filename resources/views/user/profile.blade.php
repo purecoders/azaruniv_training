@@ -101,7 +101,7 @@
     @if($change_password_status !== null)
         @if($change_password_status == 1)
             <div class=" sever-alert alert alert-success alert-dismissible fade show" role="alert">
-                تغییر رمز عبور با موفیقت انجام شد
+                 رمز عبور با موفیقت تغییر یافت
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>

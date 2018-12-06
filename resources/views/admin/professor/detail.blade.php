@@ -47,7 +47,7 @@
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <a href="" class="btn btn-sm btn-blue align-self-center">ریست رمز عبور</a>
+                                <a href="" class="btn btn-sm btn-blue align-self-center" onclick="return confirm('آیا از تغییر رمز این کاربر به کد ملی او مطمئن هستید؟')">بازیابی رمز عبور</a>
                             </div>
                         </div>
                     </div>

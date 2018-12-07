@@ -1,5 +1,6 @@
 <?php
 
+namespace App\Http\Controllers\helper;
 
 class Sadad {
 
@@ -8,6 +9,7 @@ class Sadad {
   private $terminal_key;
   private $payment_identity;
   private $start_pay_url = 'https://sadad.shaparak.ir/api/v0/PaymentByIdentity/PaymentRequest';
+//  private $start_pay_url = 'https://sadad.shaparak.ir/vpg/api/v0/Request/PaymentRequest';
   private $redirect_url = 'https://sadad.shaparak.ir/VPG/Purchase?Token=';
   private $verify_pay_url ='https://sadad.shaparak.ir/VPG/api/v0/Advice/Verify';
 
@@ -25,20 +27,25 @@ class Sadad {
       $local_date_time = date("m/d/Y g:i:s a");
     }
 
-    $sign_data = $this->encrypt_pkcs7("$this->terminal_id;$order_id;$amount", "$this->terminal_key");
+    $sign_data = $this->encrypt_pkcs7("$this->terminal_id;$order_id;$amount", $this->terminal_key);
 
-    $data = array('TerminalId' => $this->terminal_id,
+    $data = array(
       'MerchantId' => $this->merchant_id,
+      'TerminalId' => $this->terminal_id,
       'Amount' => $amount,
-      'SignData' => $sign_data,
-      'ReturnUrl' => $call_back_url,
+      'OrderId' => $order_id,
       'LocalDateTime' => $local_date_time,
-      'OrderId' => $order_id);
+      'ReturnUrl' => $call_back_url,
+      'SignData' => $sign_data,
+      'PaymentIdentity' => $this->payment_identity
+    );
+
+    return json_encode($data);
 
     $str_data = json_encode($data);
+
     $response = $this->callApi($this->start_pay_url, $str_data);
     $response_data = json_decode($response);
-
     return $response_data;
     //$response_data->ResCode ?== 0 => success   &&  $response_data->Token && $response_data->Description
   }
@@ -47,11 +54,12 @@ class Sadad {
 
   public function redirect($token){
     $url = $this->redirect_url . $token;
-    header("Location:$url");
+//    header("Location:$url");
+    return redirect($url);
   }
 
 
-  public function verify($token, $response_code){
+  public function verify($token){
     //get below data from your call_back_url
 //    $order_id=$_POST["OrderId"];
 //    $token=$_POST["token"];
@@ -90,17 +98,21 @@ else
     return $result;
   }
 
+  private function callApi2($url, $data = false){
+
+  }
+
 
 
   private function encrypt_pkcs7($str, $key){
-//    $key = base64_decode($key);
+    $key = base64_decode($key);
     $ciphertext = OpenSSL_encrypt($str,"DES-EDE3", $key, OPENSSL_RAW_DATA);
     return base64_encode($ciphertext);
   }
 
 
   private static function decrypt_pkcs7($encrypted, $key){
-//    $key = base64_decode($key);
+    $key = base64_decode($key);
     $encrypted = base64_decode($encrypted);
     $text = OpenSSL_decrypt($encrypted,"DES-EDE3", $key, OPENSSL_RAW_DATA);
     return $text;

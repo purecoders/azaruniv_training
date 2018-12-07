@@ -10,7 +10,7 @@ class Payment extends Model
     use SoftDeletes;
 
     protected $fillable = [
-      'course_id', 'user_id', 'amount', 'is_success', 'bank_receipt'
+      'course_id', 'user_id', 'amount', 'is_success', 'retrival_ref_no', 'system_trace_no'
     ];
 
   public function user(){

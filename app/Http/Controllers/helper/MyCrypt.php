@@ -18,7 +18,6 @@ class MyCrypt {
 
 
 
-  //the bank keys encoded with base_64.so we may decode it in function
   public static function encrypt_pkcs7($str, $key = null){
     if (is_null($key)){
       $key = self::generateKey();
@@ -31,7 +30,6 @@ class MyCrypt {
 
 
 
-  //the bank keys encoded with base_64.so we may decode it in function
   public static function decrypt_pkcs7($encrypted, $key = null){
     if (is_null($key)){
       $key = self::generateKey();

@@ -2,31 +2,51 @@
 
 
 use App\Http\Controllers\helper\MyCrypt;
+use App\Http\Controllers\helper\Sadad;
 use App\Ticket;
 use Illuminate\Support\Facades\DB;
 
 Route::get('test', function (){
+
+  $data = MyCrypt::encrypt_pkcs7(env('SADAD_TERMINAL_ID').';'.'1545'.';'.'10000', env('SADAD_TERMINAL_KEY'));
+  return $data;
+  $url = 'http://google.com';
+  return redirect("$url");
+  header("Location:$url");
+
+  $sadad = new Sadad(env('SADAD_MERCHANT_ID'), env('SADAD_TERMINAL_ID'),
+    env('SADAD_TERMINAL_KEY'), env('SADAD_PAYMENT_IDENTITY'));
+  $res = $sadad->request(1000, 154544, route('verify'));
+  return json_encode($res);
+  $res_code = $res->ResCode;
+  $token = $res->Token;
+  $desc = $res->Description;
+  echo "res_code =  <br>token = $token <br>desc = $desc";
 //  return base64_encode('7zn8DrAPzLIoVOwstLltktJSpeNH/us3');
-  return utf8_decode(base64_decode('=okC+oxkdFSfci7cYlkXc31NYjtiA3LOgrjqgaayMJLY'));
+//  return utf8_decode(base64_decode('=okC+oxkdFSfci7cYlkXc31NYjtiA3LOgrjqgaayMJLY'));
 
 
-  $input = base64_decode(('=okC+oxkdFSfci7cYlkXc31NYjtiA3LOgrjqgaayMJLY'));//$BB6B>8l8@B,;n(B - testing
-  $input_encoding = 'iso-2022-ir';
-  echo iconv($input_encoding, 'UTF-8', $input);
+//  return base64_decode(env('SADAD_TERMINAL_KEY'));
+//
+//
+//
+//  $key = md5('123');
+//  //Take first 8 bytes of $key and append them to the end of $key.
+//  $key .= substr($key, 0, 8);
+//  echo 'key = ' . "$key" . '<br>';
+//
+//  $enc = MyCrypt::encrypt_pkcs7('Mohsen');
+//  echo 'encrypted = ' . $enc . '<br>';
+//  echo 'decrypted = ' . MyCrypt::decrypt_pkcs7($enc) . '<br>';
+//  echo base64_encode('mohsen') . '<br>' . base64_decode('bW9oc2Vu');
+})->name('test');
 
 
-  $key = md5('123');
-  //Take first 8 bytes of $key and append them to the end of $key.
-  $key .= substr($key, 0, 8);
-  echo 'key = ' . "$key" . '<br>';
-
-  $enc = MyCrypt::encrypt_pkcs7('Mohsen');
-  echo 'encrypted = ' . $enc . '<br>';
-  echo 'decrypted = ' . MyCrypt::decrypt_pkcs7($enc) . '<br>';
-  echo base64_encode('mohsen') . '<br>' . base64_decode('bW9oc2Vu');
-});
 
 
+Route::post('/verify',function (){
+
+})->name('verify');
 
 //auth
 Auth::routes();
@@ -67,6 +87,8 @@ Route::get('/arccourses', 'CourseController@archiveCourses')->name('arccourses')
 Route::get('/category/{id}/courses', 'SiteIndexPageController@categoryCourses')->name('course-category');
 Route::post('/search', 'SiteIndexPageController@search')->name('search');
 Route::get('/course-purchase/{id}', 'SiteIndexPageController@coursePurchase')->name('course-purchase');
+Route::get('/course-register/{id}', 'SiteIndexPageController@courseRegister')->name('course-register');
+Route::post('/course-verify-pay', 'SiteIndexPageController@courseVerifyPay')->name('course-verify-pay');
 
 
 

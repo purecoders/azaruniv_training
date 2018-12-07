@@ -34,28 +34,43 @@
 
                     </p>
 
+                    @php
+                        $userCourses = $user->studentCourses;
+                        $isRegistered = false;
+                        foreach ($userCourses as $userCourse){
+                            if ($userCourse->id == $course->id){
+                                $isRegistered = true;
+                                break;
+                            }
+                        }
+                    @endphp
 
-                    @if( \App\Http\Controllers\helper\UserHelper::isStudent($user))
-                        {{--check user gender--}}
-                        @if($user->is_male == 1 && $course->gender == 'female')
-                            <span  class="course-price  mt-3">این دوره مخصوص بانوان می باشد</span>
-                        @elseif($user->is_male == 0 && $course->gender == 'male'))
+                    @if(!$isRegistered)
+
+                        @if( \App\Http\Controllers\helper\UserHelper::isStudent($user))
+                            {{--check user gender--}}
+                            @if($user->is_male == 1 && $course->gender == 'female')
+                                <span  class="course-price  mt-3">این دوره مخصوص بانوان می باشد</span>
+                            @elseif($user->is_male == 0 && $course->gender == 'male'))
                             <span  class="course-price  mt-3">این دوره مخصوص آقایان می باشد</span>
-                        @else
-                            @if($course->students()->count() < $course->capacity)
-                                @if($course->is_open == 1)
-                                    {{--goto pay--}}
-                                    <a href="#" class="course-price  mt-3"> پرداخت و ثبت نام</a>
-                                @else
-                                    <span  class="course-price  mt-3">متاسفانه امکان ثبت نام وجود ندارد</span>
-                                @endif
-
                             @else
-                                <span  class="course-price  mt-3">متاسفانه ظرفیت دوره پر شده است</span>
+                                @if($course->students()->count() < $course->capacity)
+                                    @if($course->is_open == 1)
+                                        {{--goto pay--}}
+                                        <a href="{{route('course-register', $course->id)}}" class="course-price  mt-3"> پرداخت و ثبت نام</a>
+                                    @else
+                                        <span  class="course-price  mt-3">متاسفانه امکان ثبت نام وجود ندارد</span>
+                                    @endif
+
+                                @else
+                                    <span  class="course-price  mt-3">متاسفانه ظرفیت دوره پر شده است</span>
+                                @endif
                             @endif
+                        @else
+                            <span  class="course-price  mt-3">شما نمی توانید در این دوره ثبت نام کنید</span>
                         @endif
                     @else
-                        <span  class="course-price  mt-3">شما نمی توانید در این دوره ثبت نام کنید</span>
+                        <span  class="course-price  mt-3">شما قبلا در این دوره ثبت نام کرده اید</span>
                     @endif
                 </div>
             </div>

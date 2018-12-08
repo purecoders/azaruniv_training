@@ -74,6 +74,42 @@
           box-shadow: 0 0 0 0.2rem rgba(43, 67, 118, 0.5);
 }
 
+.btn-outline-blue {
+  color: #233761;
+  background-color: transparent;
+  background-image: none;
+  border-color: #233761;
+}
+
+.btn-outline-blue:hover {
+  color: #fff;
+  background-color: #233761;
+  border-color: #233761;
+}
+
+.btn-outline-blue:focus, .btn-outline-blue.focus {
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(43, 67, 118, 0.3);
+  box-shadow: 0 0 0 0.2rem rgba(43, 67, 118, 0.3);
+}
+
+.btn-outline-blue.disabled, .btn-outline-blue:disabled {
+  color: #233761;
+  background-color: transparent;
+}
+
+.btn-outline-blue:not(:disabled):not(.disabled):active, .btn-outline-blue:not(:disabled):not(.disabled).active,
+.show > .btn-outline-blue.dropdown-toggle {
+  color: #ffffff;
+  background-color: #233761;
+  border-color: #233761;
+}
+
+.btn-outline-blue:not(:disabled):not(.disabled):active:focus, .btn-outline-blue:not(:disabled):not(.disabled).active:focus,
+.show > .btn-outline-blue.dropdown-toggle:focus {
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(43, 67, 118, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(43, 67, 118, 0.5);
+}
+
 body {
   font-family: IRANSans;
   background-color: #eeeeee;
@@ -110,8 +146,8 @@ body {
 #mainNavbar.navbar-custom li > a {
   color: #ccc !important;
   border-radius: .25rem;
-  -webkit-transition: background-color .2s,color .2s;
-  transition: background-color .2s,color .2s;
+  -webkit-transition: background-color .2s, color .2s;
+  transition: background-color .2s, color .2s;
 }
 
 #mainNavbar.navbar-custom li > a:hover {
@@ -769,8 +805,8 @@ footer .nav-list a:hover {
 
 #adminNavbar li > a {
   color: #ccc;
-  -webkit-transition: background-color .2s,color .2s;
-  transition: background-color .2s,color .2s;
+  -webkit-transition: background-color .2s, color .2s;
+  transition: background-color .2s, color .2s;
 }
 
 #adminNavbar .navbar-nav > li.dropdown:hover > a,
@@ -861,8 +897,8 @@ footer .nav-list a:hover {
 .btn-delete {
   background-color: transparent;
   color: #cd2e41;
-  -webkit-transition: background-color .2s,color .2s;
-  transition: background-color .2s,color .2s;
+  -webkit-transition: background-color .2s, color .2s;
+  transition: background-color .2s, color .2s;
 }
 
 .btn-delete:hover {
@@ -985,4 +1021,24 @@ input[type=number]::-webkit-outer-spin-button {
 @page {
   size: auto;
   margin: 0mm;
+}
+
+.table-check {
+  vertical-align: middle !important;
+  padding: 0 !important;
+}
+
+.table-check input {
+  height: 1em;
+}
+
+.table-check input:hover {
+  cursor: pointer;
+}
+
+.table-check .form-control:focus {
+  border-color: transparent;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0) inset, 0 0 8px rgba(126, 239, 104, 0);
+          box-shadow: 0 1px 1px rgba(0, 0, 0, 0) inset, 0 0 8px rgba(126, 239, 104, 0);
+  outline: 0 none !important;
 }

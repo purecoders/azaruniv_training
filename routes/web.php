@@ -2,6 +2,7 @@
 
 
 use App\User;
+use Illuminate\Http\Request;
 
 Route::get('/', function () {
     return view('site.home');
@@ -102,6 +103,9 @@ Route::get('/admin-contact-us', function () {
 Route::get('/admin-tickets', function () {
     return view('admin.site.tickets');
 })->middleware('auth')->name('admin-tickets');
+Route::get('/admin-change-password', function () {
+    return view('admin.site.changePassword');
+})->middleware('auth')->name('admin-change-password');
 
 Route::get('/admin-professors', function () {
     return view('admin.professor.professors');
@@ -119,9 +123,20 @@ Route::get('/admin-user-detail', function () {
 Route::get('/admin-users-all', function () {
     return view('admin.user.all');
 })->middleware('auth')->name('admin-users-all');
+Route::get('/admin-user-print-certificate', function () {
+    return view('admin.user.certificatePrint');
+})->middleware('auth')->name('admin-user-print-certificate');
 
 
 
+Route::post('table-post',function(Request $request){
+//    return redirect('/admin-course');
+    $certs=$request->input('cert');
+    $users=$request->input('user_id');
+    $arr=['certs'=>$certs,'users'=>$users];
+    return $arr;
+
+})->name('table-post');
 
 Route::post('postt',function (){
    return "posted";

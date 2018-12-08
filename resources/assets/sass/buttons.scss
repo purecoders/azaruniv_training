@@ -31,3 +31,42 @@
 .show > .btn-blue.dropdown-toggle:focus {
   box-shadow: 0 0 0 0.2rem rgba(43, 67, 118, 0.5);
 }
+
+
+.btn-outline-blue {
+  color: $navbarColor;
+  background-color: transparent;
+  background-image: none;
+  border-color: $navbarColor;
+
+}
+
+.btn-outline-blue:hover {
+  color: #fff;
+  background-color: $navbarColor;
+  border-color: $navbarColor;
+}
+
+.btn-outline-blue:focus, .btn-outline-blue.focus {
+
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(43, 67, 118, 0.3);
+  box-shadow: 0 0 0 0.2rem rgba(43, 67, 118, 0.3);
+}
+
+.btn-outline-blue.disabled, .btn-outline-blue:disabled {
+  color: $navbarColor;
+  background-color: transparent;
+}
+
+.btn-outline-blue:not(:disabled):not(.disabled):active, .btn-outline-blue:not(:disabled):not(.disabled).active,
+.show > .btn-outline-blue.dropdown-toggle {
+  color: #ffffff;
+  background-color: $navbarColor;
+  border-color: $navbarColor;
+}
+
+.btn-outline-blue:not(:disabled):not(.disabled):active:focus, .btn-outline-blue:not(:disabled):not(.disabled).active:focus,
+.show > .btn-outline-blue.dropdown-toggle:focus {
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(43, 67, 118, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(43, 67, 118, 0.5);
+}

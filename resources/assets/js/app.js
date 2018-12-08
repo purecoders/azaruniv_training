@@ -365,6 +365,44 @@ $(document).ready(function () {
     $("#inputSlideImg4").change(function(){
         readSlideURL4(this)
     });
+    try{
+        $('.table-check').each(function () {
+            $(this).prop("checked",false)
+        })
+    }catch (err){
+
+    }
+
+    $("#allCheck").change(function () {
+        var checkBoxes=$(".table-check input")
+        if($(this).prop("checked")==true){
+            for(var i=0;i<=checkBoxes.length;i++){
+                $(checkBoxes[i]).prop("checked",true)
+                var hiddenInputs=$(checkBoxes[i]).prev()
+                $(hiddenInputs).prop('disabled',true)
+
+            }
+        }
+        if($(this).prop("checked")==false){
+            for(var i=0;i<=checkBoxes.length;i++){
+                $(checkBoxes[i]).prop("checked",false)
+                var hiddenInput=$(checkBoxes[i]).prev()
+                $(hiddenInput).prop('disabled',false)
+            }
+        }
+
+    })
+    $(".tableCheckBox").change(function () {
+        if($(this).prop("checked")==true){
+            var hiddenInput=$(this).prev()
+            $(hiddenInput).prop('disabled',true)
+        }
+        if($(this).prop("checked")==false){
+            var hiddenInput=$(this).prev()
+            $(hiddenInput).prop('disabled',false)
+        }
+
+    })
 
 
 })
@@ -403,7 +441,13 @@ var tableToExcel = (function() {
             }
 
             var lastIndex=$(table.rows[j]).children(":last").index()
-            if(lastIndex>=5){
+            var firstElm=$(table.rows[j]).children(":first")
+            if($(firstElm).attr("type")=="hidden"){
+                lastIndex=lastIndex-1
+                table.rows[j].deleteCell(lastIndex)
+                table.rows[j].deleteCell(lastIndex-1)
+                table.rows[j].deleteCell(lastIndex-2)
+            }else if(lastIndex>=5){
                 table.rows[j].deleteCell(lastIndex)
                 table.rows[j].deleteCell(lastIndex-1)
             }

@@ -19,8 +19,8 @@
                         <a class="dropdown-item" href="{{route('admin-posts')}}">اخبار</a>
                         <a class="dropdown-item" href="{{route('admin-courses')}}">دوره ها</a>
                         <a class="dropdown-item" href="{{route('admin-slider')}}">اسلایدر سایت</a>
-
                         <a class="dropdown-item" href="{{route('admin-contact-us')}}">ارتباط با ما</a>
+                        <a class="dropdown-item" href="{{route('admin-change-password')}}">تغییر رمز عبور</a>
                     </div>
                 </li>
                 <li class="dropdown mx-2">

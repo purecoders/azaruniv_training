@@ -138,9 +138,10 @@
         <div class="red-divider mt-2">
 
         </div>
-        <div>
-            <h6 class="mt-3">رزومه </h6>
-            <div class="col-8 p-2">
+        <div class="row">
+
+            <div class="col-xl-6 p-2">
+                <h6 class="my-3">رزومه </h6>
                 <p class="bg-light p-2" style="border-radius: .25rem">
                     لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها
                     و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و
@@ -150,10 +151,15 @@
                     تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی
                     دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
                 </p>
+                <a href="" class="btn btn-sm btn-blue"><i class="fal fa-download"></i> دانلود مدارک</a>
             </div>
-            <a href="" class="btn btn-sm btn-blue"><i class="fal fa-download"></i> دانلود مدارک</a>
+            <div class="col-xl-6">
+                <h6 class="mt-4 mb-3">ارسال پیام</h6>
+                <form action="" onsubmit="return confirm('آیا می خواهید این پیام ارسال شود؟')">
+                    <textarea class="form-control mb-2" rows="5" placeholder="متن پیام را وارد کنید..."></textarea>
+                    <input type="submit" class="btn btn-sm btn-blue mt-4" value="ارسال">
+                </form>
+            </div>
         </div>
-
-
     </div>
 @endsection

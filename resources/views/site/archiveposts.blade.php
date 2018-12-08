@@ -15,7 +15,7 @@
                 <div class="col-xl-8">
                     <div class="tab-card-title mx-2 d-flex flex-column justify-content-between">
                         <h5><a href="#" class="text-blue hover-link">رویداد کسب کار خودتو بساز</a></h5>
-                        <p class="mt-3">
+                        <p class="mt-3 card-desc">
                             لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
                             لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت...
                         </p>
@@ -46,7 +46,7 @@
                 <div class="col-xl-8">
                     <div class="tab-card-title mx-2 d-flex flex-column justify-content-between">
                         <h5><a href="#" class="text-blue hover-link">رویداد کسب کار خودتو بساز</a></h5>
-                        <p class="mt-3">
+                        <p class="mt-3 card-desc">
                             لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
                             لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت...
                         </p>
@@ -77,7 +77,7 @@
                 <div class="col-xl-8">
                     <div class="tab-card-title mx-2 d-flex flex-column justify-content-between">
                         <h5><a href="#" class="text-blue hover-link">رویداد کسب کار خودتو بساز</a></h5>
-                        <p class="mt-3">
+                        <p class="mt-3 card-desc">
                             لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
                             لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت...
                         </p>
@@ -108,7 +108,7 @@
                 <div class="col-xl-8">
                     <div class="tab-card-title mx-2 d-flex flex-column justify-content-between">
                         <h5><a href="#" class="text-blue hover-link">رویداد کسب کار خودتو بساز</a></h5>
-                        <p class="mt-3">
+                        <p class="mt-3 card-desc">
                             لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
                             لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت...
                         </p>
@@ -139,7 +139,7 @@
                 <div class="col-xl-8">
                     <div class="tab-card-title mx-2 d-flex flex-column justify-content-between">
                         <h5><a href="#" class="text-blue hover-link">رویداد کسب کار خودتو بساز</a></h5>
-                        <p class="mt-3">
+                        <p class="mt-3 card-desc">
                             لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
                             لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت...
                         </p>
@@ -170,9 +170,13 @@
                 <div class="col-xl-8">
                     <div class="tab-card-title mx-2 d-flex flex-column justify-content-between">
                         <h5><a href="#" class="text-blue hover-link">رویداد کسب کار خودتو بساز</a></h5>
-                        <p class="mt-3">
+                        <p class="mt-3 card-desc">
                             لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
                             لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت...
+                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت...
+                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت...
+                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت...
+
                         </p>
                         <div class="d-flex justify-content-around " style="font-size: .8em">
                             <div>

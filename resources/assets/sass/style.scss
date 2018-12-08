@@ -1,11 +1,14 @@
 // Iran Sans Font
-$iranSansFontPath:"../fonts/IranSans";
+$iranSansFontPath: "../fonts/IranSans";
 @font-face {
   font-family: IRANSans;
   font-style: normal;
   font-weight: bold;
   src: url('#{$iranSansFontPath}/eot/IRANSansWeb(FaNum)_Bold.eot');
-  src: url('#{$iranSansFontPath}/eot/IRANSansWeb(FaNum)_Bold.eot?#iefix') format('embedded-opentype'), /* IE6-8 */ url('#{$iranSansFontPath}/woff2/IRANSansWeb(FaNum)_Bold.woff2') format('woff2'), /* FF39+,Chrome36+, Opera24+*/ url('#{$iranSansFontPath}/woff/IRANSansWeb(FaNum)_Bold.woff') format('woff'), /* FF3.6+, IE9, Chrome6+, Saf5.1+*/ url('#{$iranSansFontPath}/ttf/IRANSansWeb(FaNum)_Bold.ttf') format('truetype');
+  src: url('#{$iranSansFontPath}/eot/IRANSansWeb(FaNum)_Bold.eot?#iefix') format('embedded-opentype'), /* IE6-8 */
+  url('#{$iranSansFontPath}/woff2/IRANSansWeb(FaNum)_Bold.woff2') format('woff2'), /* FF39+,Chrome36+, Opera24+*/
+  url('#{$iranSansFontPath}/woff/IRANSansWeb(FaNum)_Bold.woff') format('woff'), /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+  url('#{$iranSansFontPath}/ttf/IRANSansWeb(FaNum)_Bold.ttf') format('truetype');
 }
 
 @font-face {
@@ -13,7 +16,10 @@ $iranSansFontPath:"../fonts/IranSans";
   font-style: normal;
   font-weight: 500;
   src: url('#{$iranSansFontPath}/eot/IRANSansWeb(FaNum)_Medium.eot');
-  src: url('#{$iranSansFontPath}/eot/IRANSansWeb(FaNum)_Medium.eot?#iefix') format('embedded-opentype'), /* IE6-8 */ url('#{$iranSansFontPath}/woff2/IRANSansWeb(FaNum)_Medium.woff2') format('woff2'), /* FF39+,Chrome36+, Opera24+*/ url('#{$iranSansFontPath}/woff/IRANSansWeb(FaNum)_Medium.woff') format('woff'), /* FF3.6+, IE9, Chrome6+, Saf5.1+*/ url('#{$iranSansFontPath}/ttf/IRANSansWeb(FaNum)_Medium.ttf') format('truetype');
+  src: url('#{$iranSansFontPath}/eot/IRANSansWeb(FaNum)_Medium.eot?#iefix') format('embedded-opentype'), /* IE6-8 */
+  url('#{$iranSansFontPath}/woff2/IRANSansWeb(FaNum)_Medium.woff2') format('woff2'), /* FF39+,Chrome36+, Opera24+*/
+  url('#{$iranSansFontPath}/woff/IRANSansWeb(FaNum)_Medium.woff') format('woff'), /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+  url('#{$iranSansFontPath}/ttf/IRANSansWeb(FaNum)_Medium.ttf') format('truetype');
 }
 
 @font-face {
@@ -21,7 +27,10 @@ $iranSansFontPath:"../fonts/IranSans";
   font-style: normal;
   font-weight: 300;
   src: url('#{$iranSansFontPath}/eot/IRANSansWeb(FaNum)_Light.eot');
-  src: url('#{$iranSansFontPath}/eot/IRANSansWeb(FaNum)_Light.eot?#iefix') format('embedded-opentype'), /* IE6-8 */ url('#{$iranSansFontPath}/woff2/IRANSansWeb(FaNum)_Light.woff2') format('woff2'), /* FF39+,Chrome36+, Opera24+*/ url('#{$iranSansFontPath}/woff/IRANSansWeb(FaNum)_Light.woff') format('woff'), /* FF3.6+, IE9, Chrome6+, Saf5.1+*/ url('#{$iranSansFontPath}/ttf/IRANSansWeb(FaNum)_Light.ttf') format('truetype');
+  src: url('#{$iranSansFontPath}/eot/IRANSansWeb(FaNum)_Light.eot?#iefix') format('embedded-opentype'), /* IE6-8 */
+  url('#{$iranSansFontPath}/woff2/IRANSansWeb(FaNum)_Light.woff2') format('woff2'), /* FF39+,Chrome36+, Opera24+*/
+  url('#{$iranSansFontPath}/woff/IRANSansWeb(FaNum)_Light.woff') format('woff'), /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+  url('#{$iranSansFontPath}/ttf/IRANSansWeb(FaNum)_Light.ttf') format('truetype');
 }
 
 @font-face {
@@ -29,7 +38,10 @@ $iranSansFontPath:"../fonts/IranSans";
   font-style: normal;
   font-weight: 200;
   src: url('#{$iranSansFontPath}/eot/IRANSansWeb(FaNum)_UltraLight.eot');
-  src: url('#{$iranSansFontPath}/eot/IRANSansWeb(FaNum)_UltraLight.eot?#iefix') format('embedded-opentype'), /* IE6-8 */ url('#{$iranSansFontPath}/woff2/IRANSansWeb(FaNum)_UltraLight.woff2') format('woff2'), /* FF39+,Chrome36+, Opera24+*/ url('#{$iranSansFontPath}/woff/IRANSansWeb(FaNum)_UltraLight.woff') format('woff'), /* FF3.6+, IE9, Chrome6+, Saf5.1+*/ url('#{$iranSansFontPath}/ttf/IRANSansWeb(FaNum)_UltraLight.ttf') format('truetype');
+  src: url('#{$iranSansFontPath}/eot/IRANSansWeb(FaNum)_UltraLight.eot?#iefix') format('embedded-opentype'), /* IE6-8 */
+  url('#{$iranSansFontPath}/woff2/IRANSansWeb(FaNum)_UltraLight.woff2') format('woff2'), /* FF39+,Chrome36+, Opera24+*/
+  url('#{$iranSansFontPath}/woff/IRANSansWeb(FaNum)_UltraLight.woff') format('woff'), /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+  url('#{$iranSansFontPath}/ttf/IRANSansWeb(FaNum)_UltraLight.ttf') format('truetype');
 }
 
 @font-face {
@@ -37,29 +49,35 @@ $iranSansFontPath:"../fonts/IranSans";
   font-style: normal;
   font-weight: normal;
   src: url('#{$iranSansFontPath}/eot/IRANSansWeb(FaNum).eot');
-  src: url('#{$iranSansFontPath}/eot/IRANSansWeb(FaNum).eot?#iefix') format('embedded-opentype'), /* IE6-8 */ url('#{$iranSansFontPath}/woff2/IRANSansWeb(FaNum).woff2') format('woff2'), /* FF39+,Chrome36+, Opera24+*/ url('#{$iranSansFontPath}/woff/IRANSansWeb(FaNum).woff') format('woff'), /* FF3.6+, IE9, Chrome6+, Saf5.1+*/ url('#{$iranSansFontPath}/ttf/IRANSansWeb(FaNum).ttf') format('truetype');
+  src: url('#{$iranSansFontPath}/eot/IRANSansWeb(FaNum).eot?#iefix') format('embedded-opentype'), /* IE6-8 */
+  url('#{$iranSansFontPath}/woff2/IRANSansWeb(FaNum).woff2') format('woff2'), /* FF39+,Chrome36+, Opera24+*/
+  url('#{$iranSansFontPath}/woff/IRANSansWeb(FaNum).woff') format('woff'), /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+  url('#{$iranSansFontPath}/ttf/IRANSansWeb(FaNum).ttf') format('truetype');
 }
+
 // styles begins
 
 //colors
 @import 'variables';
 @import "buttons";
 
-body{
+body {
   font-family: IRANSans;
   background-color: #eeeeee;
 }
 
-.logo-container{
+.logo-container {
   background-color: $lightBlue;
 }
-.d-hide{
+
+.d-hide {
   visibility: hidden !important;
 }
-.rules{
+
+.rules {
   list-style-type: decimal;
   padding-right: .75rem;
-  li{
+  li {
     margin-bottom: .25rem;
     padding: 1rem;
     background-color: #eeeeee;
@@ -67,48 +85,51 @@ body{
     cursor: pointer;
   }
 }
+
 #mainNavbar.navbar-custom {
   width: 100%;
   background-color: $navbarColor;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
-  li>a{
+  li > a {
     color: #ccc !important;
     border-radius: .25rem;
-    transition: background-color .2s,color .2s;
+    transition: background-color .2s, color .2s;
   }
-  li>a:hover{
+  li > a:hover {
     background-color: #fff;
-    color:$navbarColor !important;
+    color: $navbarColor !important;
   }
-  .sign-btn{
+  .sign-btn {
     background-color: #fff;
     color: #000 !important;
-    i{
-      color:$red;
+    i {
+      color: $red;
     }
   }
 
-   @media (max-width: 768px) {
-     .nav-item {
-       margin-right: 0;
-       margin-left: 0;
-       margin-bottom: .25rem;
-     }
-   }
+  @media (max-width: 768px) {
+    .nav-item {
+      margin-right: 0;
+      margin-left: 0;
+      margin-bottom: .25rem;
+    }
+  }
 
 }
-.nav-top{
+
+.nav-top {
   background-color: $navbarColor;
   min-height: 35px;
 }
-.nav-top-new-container{
+
+.nav-top-new-container {
   background: #b34e11;
   //display: inline-block;
   padding: .3rem;
   color: #fff;
   border: 1px dotted #1d2124;
-  &:after{
-    margin-right: 5px ;
+  &:after {
+    margin-right: 5px;
     top: 9px;
     border: solid transparent;
     content: " ";
@@ -116,25 +137,28 @@ body{
     width: 0;
     position: absolute;
     pointer-events: none;
-    border-color: rgba(194,225,245,0);
+    border-color: rgba(194, 225, 245, 0);
     border-right-color: #FF6825;
     border-width: 4px;
   }
 }
-#top-nav .nav-link{
+
+#top-nav .nav-link {
   height: 100% !important;
   padding-bottom: 0 !important;
   padding-top: 0 !important;
 }
-#top-nav{
-  a:hover{
+
+#top-nav {
+  a:hover {
     background-color: $red;
   }
-  .nav-item:hover{
-  background-color: $red;
+  .nav-item:hover {
+    background-color: $red;
   }
 }
-.home-carousel img{
+
+.home-carousel img {
   width: 100%;
   height: 400px;
 
@@ -144,6 +168,7 @@ body{
   width: 100%;
   height: 100%;
 }
+
 #carousel .swiper-slide {
   text-align: center;
   font-size: 18px;
@@ -162,7 +187,7 @@ body{
   -ms-flex-align: center;
   -webkit-align-items: center;
   align-items: center;
-  img{
+  img {
     width: 100%;
     max-height: 450px;
   }
@@ -180,23 +205,22 @@ body{
     margin-bottom: 50px;
     //transition: visibility 1s fade_in($red,0.5);
   }
-  @media only screen and(max-width:426px) {
-    .title{
+  @media only screen and(max-width: 426px) {
+    .title {
       height: 50px;
       font-size: 4vw;
       padding: .7rem;
-      top:0px;
+      top: 0px;
       width: 100%;
       right: 0px;
-      bottom:0px;
+      bottom: 0px;
       margin: 0;
       max-height: 100px;
     }
   }
 }
 
-
-.divider{
+.divider {
   width: 100%;
   height: 50px;
   background: #fff url('http://localhost/azaruniv_training/img/diagonal.png') repeat scroll center center;
@@ -204,83 +228,93 @@ body{
   padding-bottom: 10px;
   padding-top: 10px;
 }
-#headerSearch{
-    .search{
-      -webkit-border-radius: .25rem;
-      -moz-border-radius: .25rem;
-      border-radius: .25rem;
-    }
-    button.btn-default{
-      border: 0;
-      background: transparent;
-      position: absolute;
-      top: 0;
-      left: 0;
-      color: #CCC;
-      z-index: 3;
-      .fa-search{
-        vertical-align: middle;
-      }
-    }
-    .input-group-btn{
-      width: 1%;
-      white-space: nowrap;
+
+#headerSearch {
+  .search {
+    -webkit-border-radius: .25rem;
+    -moz-border-radius: .25rem;
+    border-radius: .25rem;
+  }
+  button.btn-default {
+    border: 0;
+    background: transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #CCC;
+    z-index: 3;
+    .fa-search {
       vertical-align: middle;
     }
+  }
+  .input-group-btn {
+    width: 1%;
+    white-space: nowrap;
+    vertical-align: middle;
+  }
 }
-#todayDate{
+
+#todayDate {
   font-size: .9em;
   color: #fcfcfc;
 }
-.text-blue{
-  color:$navbarColor !important;
+
+.text-blue {
+  color: $navbarColor !important;
 }
-.bg-blue{
+
+.bg-blue {
   background-color: $navbarColor !important;
 }
-.bg-light-blue{
+
+.bg-light-blue {
   background-color: $lightBlue !important;
 }
-.footer-top{
+
+.footer-top {
   height: 10px;
   width: 100%;
 }
 
-a.hover-link:hover{
+a.hover-link:hover {
   text-decoration: none;
   color: $red !important;
 }
-.tab-container{
+
+.tab-container {
   border: 1px solid $red;
   border-top: 0px;
   min-height: 200px;
   background-color: white;
 }
-.tab-container-header{
-  border:1px solid $red;
+
+.tab-container-header {
+  border: 1px solid $red;
   border-radius: .25rem;
 
   border-bottom: 0px;
-  .nav-item{
-    a{
+  .nav-item {
+    a {
 
-    color: #fff;
+      color: #fff;
     }
-    a.active{
+    a.active {
       color: $red;
     }
     background-color: $lightBlue;
 
   }
 }
-.tab-img-link{
+
+.tab-img-link {
   display: block;
   padding: .3rem;
   border-radius: 0.25rem;
   border: 1px solid #eeeeee;
 }
-#coursesList{
-  .tab-img-link{
+
+#coursesList {
+  .tab-img-link {
     max-height: 160px;
     display: block;
     padding: .3rem;
@@ -289,19 +323,21 @@ a.hover-link:hover{
   }
 }
 
-.tab-container{
-  .tab-img-link{
-    max-height:fit-content;
+.tab-container {
+  .tab-img-link {
+    max-height: fit-content;
     display: block;
     padding: .3rem;
     border-radius: 0.25rem;
     border: 1px solid #eeeeee;
   }
 }
-.heading-primary{
+
+.heading-primary {
   font-size: 1.3em;
 }
-.tab-card-img{
+
+.tab-card-img {
 
   width: 100%;
   height: 190px !important;
@@ -310,7 +346,7 @@ a.hover-link:hover{
   -ms-transition: transform .3s;
   -o-transition: transform .3s;
   transition: transform .3s;
-  &:hover{
+  &:hover {
     -webkit-transform: scale(.8);
     -moz-transform: scale(.8);
     -ms-transform: scale(.8);
@@ -318,36 +354,40 @@ a.hover-link:hover{
     transform: scale(1.05);
   }
 }
-.tab-card-title{
+
+.tab-card-title {
   padding-top: 1rem;
 }
-.card-desc{
+
+.card-desc {
   min-height: 6em !important;
   max-height: 6em !important;
   margin-bottom: 20px;
   overflow: hidden;
 }
-#coursesList{
-  .tab-card-img{
-  height: 150px !important;
+
+#coursesList {
+  .tab-card-img {
+    height: 150px !important;
   }
 }
-footer{
-  .nav-list{
 
-    a,li{
+footer {
+  .nav-list {
+
+    a, li {
       padding: .25rem;
     }
-    a{
+    a {
       display: block;
     }
-    a:hover{
+    a:hover {
       background-color: rgba(0, 0, 0, 0.2) !important;
     }
   }
 }
 
-.route-container{
+.route-container {
   padding: .25rem;
   background-color: white;
   border: 1px solid rgb(186, 186, 186);
@@ -355,7 +395,8 @@ footer{
   height: 35px;
 
 }
-.course-price{
+
+.course-price {
   text-decoration: none;
   padding: .25rem .5rem;
   background-color: rgba(32, 116, 22, 0.69);
@@ -364,15 +405,16 @@ footer{
   color: #fff;
   min-width: 100px;
   transition: background-color .2s;
-  &:hover{
+  &:hover {
     color: #fff;
     text-decoration: none;
     background-color: rgba(41, 135, 28, 0.69);
   }
 
 }
-.course-list a{
-  &:hover{
+
+.course-list a {
+  &:hover {
     color: #fff;
     cursor: pointer;
     text-decoration: none;
@@ -380,36 +422,37 @@ footer{
   }
 }
 
-.content-container{
+.content-container {
   background-color: #ffffff;
-  -webkit-box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.30);
-  -moz-box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.30);
-  box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.30);
+  -webkit-box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.30);
+  -moz-box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.30);
+  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.30);
   border-radius: .25rem;
   @media (min-width: 576px) {
     padding-right: 3rem !important;
     padding-left: 3rem !important;
   }
 }
-.news-container{
+
+.news-container {
   background-color: #ffffff;
-  -webkit-box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.30);
-  -moz-box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.30);
-  box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.30);
+  -webkit-box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.30);
+  -moz-box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.30);
+  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.30);
   border-radius: .25rem;
   padding-right: 3rem !important;
   padding-left: 3rem !important;
-  .nav-list{
+  .nav-list {
     margin-bottom: 0;
     list-style: none;
-    li{
+    li {
       margin: 0;
       padding: 0;
       display: block;
       position: relative;
 
     }
-    a{
+    a {
       transition: background 0.1s;
       border-bottom: 1px solid #EDEDDE;
       padding: 8px 0;
@@ -417,7 +460,7 @@ footer{
       color: #666;
       font-size: 0.9em;
       text-decoration: none;
-      &:before{
+      &:before {
         content: "";
         display: inline-block;
         width: 0;
@@ -433,7 +476,7 @@ footer{
       }
     }
   }
-  a{
+  a {
     padding: .25rem;
     color: $navbarColor;
     font-size: .9em;
@@ -442,116 +485,126 @@ footer{
     }
   }
 }
-.no-shadow{
-  -webkit-box-shadow: 0px 0px 0px 0px rgba(0,0,0,0) !important;
-  -moz-box-shadow: 0px 0px 0px 0px rgba(0,0,0,0) !important;
-  box-shadow: 0px 0px 0px 0px rgba(0,0,0,0) !important;
+
+.no-shadow {
+  -webkit-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0) !important;
+  -moz-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0) !important;
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0) !important;
 }
-.red-divider{
+
+.red-divider {
   height: 1px;
   background-color: $red;
 }
-.grey-divider{
+
+.grey-divider {
   height: 1px;
   border-radius: 2px;
   margin: .25rem;
   background-color: rgba(43, 67, 118, 0.31);
 }
-.content-img-container{
+
+.content-img-container {
   width: 80%;
   margin: auto;
   border: 1px solid #eeeeee;
   border-radius: .25rem;
   padding: .25rem;
 }
-.content-img{
+
+.content-img {
   width: 100%;
 }
-.master-img-container{
+
+.master-img-container {
   width: 40%;
   border: 1px solid #eeeeee;
   padding: .25rem;
 }
-.master-img{
+
+.master-img {
   width: 100%;
   height: 100px;
 }
 
-
-
 .scrolltop {
-  display:none;
-  width:100%;
-  margin:0 auto;
-  position:fixed;
-  bottom:20px;
-  right:10px;
+  display: none;
+  width: 100%;
+  margin: 0 auto;
+  position: fixed;
+  bottom: 20px;
+  right: 10px;
 }
+
 .scroll {
-  position:absolute;
-  right:20px;
-  bottom:20px;
-  background:#b2b2b2;
-  background:rgba(178,178,178,0.7);
-  padding:20px;
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  background: #b2b2b2;
+  background: rgba(178, 178, 178, 0.7);
+  padding: 20px;
   text-align: center;
   margin: 0 0 0 0;
-  cursor:pointer;
+  cursor: pointer;
   transition: 0.5s;
   -moz-transition: 0.5s;
   -webkit-transition: 0.5s;
   -o-transition: 0.5s;
 }
+
 .scroll:hover {
-  background:rgba(178,178,178,1.0);
+  background: rgba(178, 178, 178, 1.0);
   transition: 0.5s;
   -moz-transition: 0.5s;
   -webkit-transition: 0.5s;
   -o-transition: 0.5s;
 }
+
 .scroll:hover .fa {
-  padding-top:-10px;
+  padding-top: -10px;
 }
+
 .scroll .fa {
-  font-size:30px;
-  margin-top:-5px;
-  margin-left:1px;
+  font-size: 30px;
+  margin-top: -5px;
+  margin-left: 1px;
   transition: 0.5s;
   -moz-transition: 0.5s;
   -webkit-transition: 0.5s;
   -o-transition: 0.5s;
 }
 
-
-.active{
+.active {
   background-color: #ffffff;
 
   border: 1px solid #ffffff;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
-  a{
+  a {
 
   }
 
 }
-.active > a{
+
+.active > a {
   color: $lightBlue !important;
 }
 
-.admin-nav-active{
+.admin-nav-active {
   background-color: #fff;
-  color:$navbarColor !important;
+  color: $navbarColor !important;
 
 }
 
-.user-info-container{
+.user-info-container {
   border: 1px solid #eeeeee;
   -webkit-border-radius: .25rem;
   -moz-border-radius: .25rem;
   border-radius: .25rem;
 }
-.user-img-container{
+
+.user-img-container {
   position: relative;
   max-width: 100%;
   height: 150px;
@@ -559,7 +612,7 @@ footer{
   -webkit-border-radius: .25rem;
   -moz-border-radius: .25rem;
   border-radius: .25rem;
-  img{
+  img {
     height: 100%;
     width: 100%;
     -webkit-border-radius: .25rem;
@@ -583,7 +636,7 @@ footer{
   font-size: 2rem;
   font-weight: bold;
 
-  &:hover{
+  &:hover {
     cursor: pointer !important;
     color: #1e1e1e;
   }
@@ -596,35 +649,36 @@ footer{
   left: 0;
   top: 0;
   opacity: 0;
-  &:hover{
+  &:hover {
     cursor: pointer !important;
     color: #1e1e1e;
   }
 }
-.user-ticket-container{
-  .active{
+
+.user-ticket-container {
+  .active {
     background-color: #eeeeee !important;
   }
-  .admin-chat-user-item{
+  .admin-chat-user-item {
     color: $lightBlue;
     transition: background-color .2s;
-    &:hover{
+    &:hover {
       background-color: #eeeeee !important;
     }
   }
-  .admin-chat-view-sidebar{
+  .admin-chat-view-sidebar {
     max-height: 500px;
     overflow-y: scroll;
   }
-  a{
+  a {
     text-decoration: none;
     color: $red;
   }
 
-  .admin-chat-view-user{
+  .admin-chat-view-user {
     text-decoration: none;
     color: $lightBlue;
-    div{
+    div {
       padding-top: 0 !important;
       padding-bottom: .25rem !important;
     }
@@ -634,51 +688,55 @@ footer{
   -webkit-border-radius: .25rem;
   -moz-border-radius: .25rem;
   border-radius: .25rem;
-  .chat-view-container{
-  max-height: 400px;
-  overflow-y: scroll;
+  .chat-view-container {
+    max-height: 400px;
+    overflow-y: scroll;
   }
 }
-.chat-view{
+
+.chat-view {
   padding-left: .25rem;
-  .jDate{
+  .jDate {
     font-size: .8em;
   }
 }
-.jDate{
+
+.jDate {
   font-size: 1em;
 }
-.students-list{
+
+.students-list {
   max-height: 500px;
   overflow-y: scroll;
   list-style-type: none;
-  li{
+  li {
     margin-bottom: .5rem;
     min-height: 45px;
     transition: background-color .3s;
-    &:hover{
-      cursor:  default;
+    &:hover {
+      cursor: default;
       background-color: #eeeeee;
     }
   }
-  .student-img-container{
+  .student-img-container {
     background-color: #d6d6d6;
     height: 40px;
     width: 40px;
     border-radius: 50%;
 
-    img{
+    img {
       height: 100%;
       width: 100%;
       border-radius: 50%;
     }
   }
 }
-.professor-course{
+
+.professor-course {
   min-height: 600px;
 }
 
-#adminNavbar{
+#adminNavbar {
   .dropdown-item.active, .dropdown-item:active {
     color: #fff;
     text-decoration: none;
@@ -690,37 +748,37 @@ footer{
   width: 100%;
   background-color: $navbarColor;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
-  li>a{
+  li > a {
     color: #ccc;
-    transition: background-color .2s,color .2s;
+    transition: background-color .2s, color .2s;
   }
   .navbar-nav > li.dropdown:hover > a,
   .navbar-nav > li.dropdown:hover > a:hover,
   .navbar-nav > li.dropdown:hover > a:focus {
-     background-color: #fff;
-     color:$navbarColor !important;
+    background-color: #fff;
+    color: $navbarColor !important;
   }
-  .dropdown-menu{
+  .dropdown-menu {
     flex-wrap: wrap;
     justify-content: start;
     margin-top: -1px;
     border-top: 0px;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
-    a{
+    a {
       width: auto;
     }
-    a:hover{
+    a:hover {
       color: $red;
     }
   }
-  @media(max-width: 767px){
+  @media(max-width: 767px) {
     li.dropdown:hover > .dropdown-menu {
       display: block;
     }
-    .dropdown-menu{
-      margin-top:0px ;
-      a{
+    .dropdown-menu {
+      margin-top: 0px;
+      a {
         width: 100%;
       }
     }
@@ -730,8 +788,7 @@ footer{
   border-radius: .25rem;
 
   padding: 0.25rem .75rem;
-  padding-bottom:0 ;
-
+  padding-bottom: 0;
 
   nav-mega {
     width: 100%;
@@ -767,90 +824,96 @@ footer{
   }
 
 }
-.admin-news-container{
+
+.admin-news-container {
   max-height: 600px !important;
   overflow-y: scroll;
-  .nav-list{
+  .nav-list {
 
-    li{
+    li {
       border-bottom: 1px solid #EDEDDE;
     }
-    a{
+    a {
       display: inline-block;
     }
   }
 
 }
-.btn-delete{
+
+.btn-delete {
   background-color: transparent;
   color: $red;
-  transition: background-color .2s,color .2s;
-  &:hover{
+  transition: background-color .2s, color .2s;
+  &:hover {
     background-color: rgba(255, 66, 82, 0.91);
     color: #eeeeee;
   }
 }
 
-.admin-course-container{
+.admin-course-container {
   padding: .5rem;
   min-height: 200px;
   width: 400px;
   background-color: #ffffff;
   border: 1px solid #eeeeee;
   border-radius: .25rem;
-  .admin-course-img-container{
+  .admin-course-img-container {
 
     width: 100%;
-    img{
+    img {
       width: 100%;
       height: 100%;
     }
   }
-  a{
+  a {
     text-decoration: none;
     color: $lightBlue;
 
   }
-  a.btn{
+  a.btn {
     text-decoration: none;
     color: #e1e1e1;
   }
-  p{
+  p {
     min-height: 6em !important;
     max-height: 6em !important;
     margin-bottom: 20px;
     overflow: hidden;
   }
 }
-.admin-course-card-header{
+
+.admin-course-card-header {
   margin-top: .5rem;
   margin-bottom: .5rem;
 }
-.table{
-  td{
+
+.table {
+  td {
     padding: .25rem;
   }
-  .student-img-container{
+  .student-img-container {
     background-color: #d6d6d6;
     height: 45px;
     width: 45px;
     border-radius: 50%;
 
-    img{
+    img {
       height: 100%;
       width: 100%;
       border-radius: 50%;
     }
   }
 }
-.navbar-ticket{
+
+.navbar-ticket {
   min-width: 120px;
 
-  .navbar-ticket-a{
+  .navbar-ticket-a {
     position: relative;
   }
 }
-.new-ticket{
+
+.new-ticket {
   position: absolute;
   top: 0px;
   left: 0px;
@@ -867,8 +930,6 @@ footer{
   background-color: rgb(202, 47, 60);
 }
 
-
-
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
@@ -877,7 +938,7 @@ input[type=number]::-webkit-outer-spin-button {
   margin: 0;
 }
 
-.sever-alert{
+.sever-alert {
   z-index: 9999;
   position: fixed;
   top: 60px;
@@ -892,6 +953,7 @@ input[type=number]::-webkit-outer-spin-button {
   }
 
 }
+
 @media only screen and (max-width: 1061px) and (min-width: 768px) {
 
   body {
@@ -899,11 +961,32 @@ input[type=number]::-webkit-outer-spin-button {
   }
 
 }
-@media print
-{
-  .no-print, .no-print *
-  {
+
+@media print {
+  .no-print, .no-print * {
     display: none !important;
   }
 }
-@page { size: auto;  margin: 0mm; }
+
+@page {
+  size: auto;
+  margin: 0mm;
+}
+
+.table-check {
+  vertical-align: middle !important;
+  padding: 0 !important;
+  input {
+    height: 1em;
+    &:hover{
+      cursor: pointer;
+    }
+  }
+  .form-control:focus {
+    border-color: transparent;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0) inset, 0 0 8px rgba(126, 239, 104, 0);
+    outline: 0 none !important;
+  }
+
+}
+

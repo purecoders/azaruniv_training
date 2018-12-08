@@ -50,9 +50,12 @@
                             </div>
                             <div class="col-md-6">
                                 <a href="" class="btn btn-sm btn-blue align-self-center mt-1">ریست رمز عبور</a>
-                                <form class="d-inline-block" action="" onsubmit="return confirm('آیا از حذف این کاربر مطمئن هستید')">
+                                <form class="d-inline-block" action=""
+                                      onsubmit="return confirm('آیا از حذف این کاربر مطمئن هستید')">
 
-                                <button type="submit" class="btn btn-sm btn-danger align-self-center mt-1" >حذف کاربر</button>
+                                    <button type="submit" class="btn btn-sm btn-danger align-self-center mt-1">حذف
+                                        کاربر
+                                    </button>
                                 </form>
                             </div>
                         </div>
@@ -64,121 +67,141 @@
 
         <div class="red-divider"></div>
         <h6 class="mt-4">دوره های این کاربر</h6>
-        <div class="mt-1 d-flex flex-wrap align-items-start">
-            <div class="m-1 admin-course-container d-flex flex-column">
-                <div class="row">
-                    <div class="col-sm-4">
-                        <a href="{{route('admin-course')}}">
-                            <div class="admin-course-img-container">
-                                <img src="{{asset('img/1.jpg')}}" alt="">
-                            </div>
-                        </a>
+        <div class="mt-3 d-flex flex-wrap align-items-start">
+            <div>
+                <a href="{{route('admin-user-print-certificate')}}" class="ml-1 btn btn-sm btn-outline-blue">پرینت گواهی</a>
+                <div class="m-1 admin-course-container d-flex flex-column">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <a href="{{route('admin-course')}}">
+                                <div class="admin-course-img-container">
+                                    <img src="{{asset('img/1.jpg')}}" alt="">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-8">
+                            <a href="{{route('admin-course')}}">
+                                دوره زبان
+                            </a>
+                            <p>
+                                مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته
+                                اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
+                            </p>
+                        </div>
                     </div>
-                    <div class="col-sm-8">
-                        <a href="{{route('admin-course')}}">
-                            دوره زبان
-                        </a>
-                        <p>
-                            مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته
-                            اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
-                        </p>
-                    </div>
-                </div>
-                <div class="d-flex mt-3 justify-content-around align-items-center flex-wrap">
-                    <span><i class="fal fa-users-class"></i> 24</span>
-                    <span><i class="fal fa-chalkboard-teacher"></i> پویا آکلیون</span>
+                    <div class="d-flex mt-3 justify-content-around align-items-center flex-wrap">
+                        <span><i class="fal fa-users-class"></i> 24</span>
+                        <span><i class="fal fa-chalkboard-teacher"></i> پویا آکلیون</span>
 
+                    </div>
                 </div>
             </div>
-            <div class="m-1 admin-course-container d-flex flex-column">
-                <div class="row">
-                    <div class="col-sm-4">
-                        <a href="{{route('admin-course')}}">
-                            <div class="admin-course-img-container">
-                                <img src="{{asset('img/1.jpg')}}" alt="">
-                            </div>
-                        </a>
+            <div>
+                <button class="ml-1 btn btn-sm btn-outline-blue d-hide">پرینت گواهی</button>
+                <div class="m-1 admin-course-container d-flex flex-column">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <a href="{{route('admin-course')}}">
+                                <div class="admin-course-img-container">
+                                    <img src="{{asset('img/1.jpg')}}" alt="">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-8">
+                            <a href="{{route('admin-course')}}">
+                                دوره زبان
+                            </a>
+                            <p>
+                                مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته
+                                اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
+                            </p>
+                        </div>
                     </div>
-                    <div class="col-sm-8">
-                        <a href="{{route('admin-course')}}">
-                            دوره زبان
-                        </a>
-                        <p>
-                            مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته
-                            اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
-                        </p>
-                    </div>
-                </div>
-                <div class="d-flex mt-3 justify-content-around align-items-center flex-wrap">
-                    <span><i class="fal fa-users-class"></i> 24</span>
-                    <span><i class="fal fa-chalkboard-teacher"></i> پویا آکلیون</span>
+                    <div class="d-flex mt-3 justify-content-around align-items-center flex-wrap">
+                        <span><i class="fal fa-users-class"></i> 24</span>
+                        <span><i class="fal fa-chalkboard-teacher"></i> پویا آکلیون</span>
 
+                    </div>
                 </div>
             </div>
-            <div class="m-1 admin-course-container d-flex flex-column">
-                <div class="row">
-                    <div class="col-sm-4">
-                        <a href="{{route('admin-course')}}">
-                            <div class="admin-course-img-container">
-                                <img src="{{asset('img/1.jpg')}}" alt="">
-                            </div>
-                        </a>
+            <div>
+                <button class="ml-1 btn btn-sm btn-outline-blue">پرینت گواهی</button>
+                <div class="m-1 admin-course-container d-flex flex-column">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <a href="{{route('admin-course')}}">
+                                <div class="admin-course-img-container">
+                                    <img src="{{asset('img/1.jpg')}}" alt="">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-8">
+                            <a href="{{route('admin-course')}}">
+                                دوره زبان
+                            </a>
+                            <p>
+                                مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته
+                                اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
+                            </p>
+                        </div>
                     </div>
-                    <div class="col-sm-8">
-                        <a href="{{route('admin-course')}}">
-                            دوره زبان
-                        </a>
-                        <p>
-                            مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته
-                            اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
-                        </p>
-                    </div>
-                </div>
-                <div class="d-flex mt-3 justify-content-around align-items-center flex-wrap">
-                    <span><i class="fal fa-users-class"></i> 24</span>
-                    <span><i class="fal fa-chalkboard-teacher"></i> پویا آکلیون</span>
+                    <div class="d-flex mt-3 justify-content-around align-items-center flex-wrap">
+                        <span><i class="fal fa-users-class"></i> 24</span>
+                        <span><i class="fal fa-chalkboard-teacher"></i> پویا آکلیون</span>
 
+                    </div>
                 </div>
             </div>
+
 
         </div>
 
         <div class="red-divider mt-3"></div>
-        <h6 class="mt-4">پرداخت های این کاربر</h6>
+        <div class="row">
+            <div class="col-xl-6 ">
+                <h6 class="mt-4 mb-3">پرداخت های این کاربر</h6>
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th scope="col">ردیف</th>
+                            <th scope="col">مبلغ</th>
+                            <th scope="col">بابت</th>
+                            <th scope="col">تاریخ</th>
 
-        <div class="col-xl-6 table-responsive">
-            <table class="table table-striped">
-                <thead>
-                <tr>
-                    <th scope="col">ردیف</th>
-                    <th scope="col">مبلغ</th>
-                    <th scope="col">بابت</th>
-                    <th scope="col">تاریخ</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>56000 تومان</td>
+                            <td>دوره زبان خارجه</td>
+                            <td>1397/12/50</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>56000 تومان</td>
+                            <td>دوره زبان خارجه</td>
+                            <td>1397/12/50</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>56000 تومان</td>
+                            <td>دوره زبان خارجه</td>
+                            <td>1397/12/50</td>
+                        </tr>
 
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>56000 تومان</td>
-                    <td>دوره زبان خارجه</td>
-                    <td>1397/12/50</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>56000 تومان</td>
-                    <td>دوره زبان خارجه</td>
-                    <td>1397/12/50</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>56000 تومان</td>
-                    <td>دوره زبان خارجه</td>
-                    <td>1397/12/50</td>
-                </tr>
-
-                </tbody>
-            </table>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-xl-6">
+                <h6 class="mt-4 mb-3">ارسال پیام</h6>
+                <form action="" onsubmit="return confirm('آیا می خواهید این پیام ارسال شود؟')">
+                    <textarea class="form-control mb-2" rows="5" placeholder="متن پیام را وارد کنید..."></textarea>
+                    <input type="submit" class="btn btn-sm btn-blue mt-4" value="ارسال">
+                </form>
+            </div>
         </div>
     </div>
 @endsection

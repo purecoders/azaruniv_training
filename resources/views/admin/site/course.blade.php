@@ -6,6 +6,23 @@
                 <h6 class="mb-3">ویرایش دوره</h6>
                 <form>
                     <div class="form-group row">
+                        <label for="postTitle" class="col-sm-2 col-form-label">وضعیت</label>
+                        <div class="col-sm-10">
+                            <div class="form-check">
+
+                                <label class="form-check-label">
+                                    {{--radio buttons name must be same--}}
+                                    <input type="radio" name="active" class="form-check-input" value="1" checked> فعال
+                                </label>
+                                <label class="form-check-label">
+                                    <input type="radio" name="active" class="form-check-input" value="0"> غیر فعال
+                                </label>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
                         <label for="postTitle" class="col-sm-2 col-form-label">عنوان دوره</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="postTitle"
@@ -112,77 +129,115 @@
         <div class="col-10 m-auto">
             <div class="d-flex justify-content-between align-items-center">
                 <h6 class="m-1 my-3">لیست دانشجو های این دوره</h6>
-                <button  class="btn btn-sm btn-blue" onclick="excelReport(this)"><i class="fal fa-file-excel mr-1"></i>ذخیره فایل اکسل</button>
+                <button class="btn btn-sm btn-blue" onclick="excelReport(this)"><i class="fal fa-file-excel mr-1"></i>ذخیره
+                    فایل اکسل
+                </button>
             </div>
             <div class="table-responsive">
                 {{--set id by course name--}}
-            <table id="لیست دانشجو های کلاس زبان" class="table table-striped">
-                <thead>
-                <tr>
-                    <th scope="col">ردیف</th>
-                    <th scope="col">نام و نام خانوادگی</th>
-                    <th scope="col">کد ملی</th>
-                    <th scope="col">شماره تلفن</th>
-                    <th scope="col">رشته تحصیلی</th>
-                    <th scope="col">عکس</th>
-                    <th scope="col">جزئیات</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>2820188796</td>
-                    <td>09388584677</td>
-                    <td>فناوری اطلاعات</td>
-                    <td>
-                        <div class="student-img-container">
-                            <img src="{{asset('img/master.jpg')}}" alt="">
-                        </div>
-                    </td>
-                    <td>
-                        <a href="" class="btn btn-sm btn-blue mt-2">مشاهده جزئیات</a>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>2820188796</td>
-                    <td>09388584677</td>
-                    <td>فناوری اطلاعات</td>
-                    <td>
-                        <div class="student-img-container">
-                            <img src="{{asset('img/master.jpg')}}" alt="">
-                        </div>
-                    </td>
-                    <td>
-                        <a href="" class="btn btn-sm btn-blue mt-2">مشاهده جزئیات</a>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>2820188796</td>
-                    <td>09388584677</td>
-                    <td>فناوری اطلاعات</td>
-                    <td>
-                        <div class="student-img-container">
-                            <img src="{{asset('img/master.jpg')}}" alt="">
-                        </div>
-                    </td>
-                    <td>
-                        <a href="" class="btn btn-sm btn-blue mt-2">مشاهده جزئیات</a>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
+                    <table id="لیست دانشجو های کلاس زبان" class="table table-striped">
+                        <thead>
+                        <tr>
+                            <input type="hidden">
+                            <th scope="col">ردیف</th>
+                            <th scope="col">نام و نام خانوادگی</th>
+                            <th scope="col">کد ملی</th>
+                            <th scope="col">شماره تلفن</th>
+                            <th scope="col">رشته تحصیلی</th>
+                            <th scope="col">عکس</th>
+                            <th scope="col">جزئیات</th>
+                            <th scope="col">
+                                <span class="flex-grow-1 ">ارسال گواهی</span>
+                                <label class="mb-0" for="allCheck">
+                                    <span style="font-size:0.95em">همه</span>
+                                    <input type="checkbox" name="test" id="allCheck">
+                                </label>
+
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <input type="hidden" form="certForm" name="user_id[]" value="1">
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>2820188796</td>
+                            <td>09388584677</td>
+                            <td>فناوری اطلاعات</td>
+                            <td>
+                                <div class="student-img-container">
+                                    <img src="{{asset('img/master.jpg')}}" alt="">
+                                </div>
+                            </td>
+                            <td>
+                                <a href="" class="btn btn-sm btn-blue mt-2">مشاهده جزئیات</a>
+                            </td>
+                            <td class="table-check">
+                                <input type="hidden" name="cert[]" form="certForm" value="0"/>
+                                <input class="form-control tableCheckBox" form="certForm" type="checkbox" name="cert[]" value="1"/>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <input type="hidden" form="certForm" name="user_id[]" value="2">
+                            <th scope="row">2</th>
+                            <td>Jacob</td>
+                            <td>2820188796</td>
+                            <td>09388584677</td>
+                            <td>فناوری اطلاعات</td>
+                            <td>
+                                <div class="student-img-container">
+                                    <img src="{{asset('img/master.jpg')}}" alt="">
+                                </div>
+                            </td>
+                            <td>
+                                <a href="" class="btn btn-sm btn-blue mt-2">مشاهده جزئیات</a>
+                            </td>
+                            <td class="table-check">
+                                <input type="hidden" name="cert[]" form="certForm" value="0"/>
+                                <input class="form-control tableCheckBox" form="certForm" type="checkbox" name="cert[]" value="1"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <input type="hidden" form="certForm" name="user_id[]" value="3">
+                            <th scope="row">3</th>
+                            <td>Larry</td>
+                            <td>2820188796</td>
+                            <td>09388584677</td>
+                            <td>فناوری اطلاعات</td>
+                            <td>
+                                <div class="student-img-container">
+                                    <img src="{{asset('img/master.jpg')}}" alt="">
+                                </div>
+                            </td>
+                            <td>
+                                <a href="" class="btn btn-sm btn-blue mt-2">مشاهده جزئیات</a>
+                            </td>
+                            <td class="table-check">
+                                <input type="hidden" name="cert[]" form="certForm" value="0"/>
+                                <input class="form-control tableCheckBox" type="checkbox" name="cert[]" value="1" form="certForm"/>
+                            </td>
+                        </tr>
+
+                        </tbody>
+
+                    </table>
+                <form action="{{route('table-post')}}"  onsubmit="return confirm('آیا از ارسال گواهی به دانشجویان انتخاب شده مطمئن هستید؟')" method="POST" id="certForm">
+                    @csrf
+                    <input name="_method" type="hidden" value="POST">
+                    <button type="submit" class="btn btn-sm btn-blue float-left mb-2">ارسال گواهی</button>
+                </form>
+
+
             </div>
         </div>
         <div class="mb-3 red-divider"></div>
         <div class="mt-3 col-10 m-auto">
             <div class="d-flex justify-content-between align-items-center flex-wrap ">
                 <h6 class="m-1 my-3">پرداخت های این دوره</h6>
-                <button class="btn btn-sm btn-blue m-1" onclick="excelReport(this)"><i class="fal fa-file-excel mr-1"></i>ذخیره فایل اکسل</button>
+                <button class="btn btn-sm btn-blue m-1" onclick="excelReport(this)"><i
+                            class="fal fa-file-excel mr-1"></i>ذخیره فایل اکسل
+                </button>
                 <h6 class="course-price p-sm-2 m-1">مجموع : 108000 تومان</h6>
             </div>
             <div class="table-responsive">
@@ -202,7 +257,7 @@
                         <td>36000 تومان</td>
                         <td>پویا آکلیون</td>
                         <td>
-                           1397/09/04
+                            1397/09/04
                         </td>
                     </tr>
                     <tr>

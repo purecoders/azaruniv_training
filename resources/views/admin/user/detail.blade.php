@@ -76,34 +76,43 @@
 
         <div class="red-divider"></div>
         <h6 class="mt-4">دوره های این کاربر</h6>
-        <div class="mt-1 d-flex flex-wrap align-items-start">
+        <div class="mt-3 d-flex flex-wrap align-items-start">
 
             @foreach($courses as $course)
-                <div class="m-1 admin-course-container d-flex flex-column">
-                    <div class="row">
-                        <div class="col-sm-4">
-                            {{--<div class="admin-course-img-container">--}}
-                                {{--<img src="{{asset($course->coverImage->path)}}" alt="">--}}
-                            {{--</div>--}}
-                            <a href="{{route('admin-course', $course->id)}}">
-                                <div class="admin-course-img-container">
-                                    <img src="{{asset($course->coverImage->path)}}" alt="">
+
+
+                        <div>
+                                <a href="{{route('admin-user-print-certificate', ['user_id' => $user->id, 'course_id' => $course->id])}}" class="ml-1 btn btn-sm btn-outline-blue">پرینت گواهی</a>
+                            <div class="m-1 admin-course-container d-flex flex-column">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <a href="{{route('admin-course', $course->id)}}">
+                                            <div class="admin-course-img-container">
+                                                <img src="{{asset($course->coverImage->path)}}" alt="">
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <a href="{{route('admin-course', $course->id)}}">
+                                            {{$course->title}}
+                                        </a>
+                                        <p>
+                                            {{strip_tags($course->description)}}
+                                        </p>
+                                    </div>
                                 </div>
-                            </a>
-                        </div>
-                        <div class="col-sm-8">
-                            <a href="{{route('admin-course', $course->id)}}"><h6>{{$course->title}}</h6></a>
-                            <p>
-                                {{strip_tags($course->description)}}
-                            </p>
-                        </div>
-                    </div>
+
+
+
+
+
                     <div class="d-flex mt-3 justify-content-around align-items-center flex-wrap">
                         <span><i class="fal fa-users-class"></i> {{$course->students()->count()}}</span>
                         <span><i class="fal fa-chalkboard-teacher"></i> {{$course->master->name}}</span>
 
                     </div>
                 </div>
+            </div>
             @endforeach
 
 
@@ -111,8 +120,12 @@
         </div>
 
         <div class="red-divider mt-3"></div>
-        <h6 class="mt-4">پرداخت های این کاربر</h6>
 
+
+        <div class="row">
+            <div class="col-xl-6 ">
+
+        <h6 class="mt-4">پرداخت های این کاربر</h6>
         <div class="col-x1-6 table-responsive">
             <table class="table table-striped">
                 <thead>
@@ -126,6 +139,11 @@
                 </tr>
                 </thead>
                 <tbody>
+
+
+
+
+
 
 
                 @php($i = 0)
@@ -155,6 +173,18 @@
 
                 </tbody>
             </table>
+        </div>
+            </div>
+
+            <div class="col-xl-6">
+                <h6 class="mt-4 mb-3">ارسال پیام</h6>
+                <form action="{{route('admin-user-send-message')}}" method="post" onsubmit="return confirm('آیا می خواهید این پیام ارسال شود؟')">
+                    <textarea name="text" class="form-control mb-2" rows="5" placeholder="متن پیام را وارد کنید..."></textarea>
+                    <input type="hidden" name="user_id" value="{{$user->id}}">
+                    <input type="submit" class="btn btn-sm btn-blue mt-4" value="ارسال">
+                    @csrf
+                </form>
+            </div>
         </div>
     </div>
 @endsection

@@ -11,6 +11,7 @@ namespace App\Http\Controllers\helper;
 
 class PersianNumber {
   public static function persianToLatin($string){
+
     $chars = array();
     $chars[0] = '۰';
     $chars[1] = '۱';
@@ -42,5 +43,44 @@ class PersianNumber {
     }
 
     return $latinString;
+  }
+
+
+
+
+  public static function latinToPersian($string){
+    $chars = array();
+    $chars[0] = '۰';
+    $chars[1] = '۱';
+    $chars[2] = '۲';
+    $chars[3] = '۳';
+    $chars[4] = '۴';
+    $chars[5] = '۵';
+    $chars[6] = '۶';
+    $chars[7] = '۷';
+    $chars[8] = '۸';
+    $chars[9] = '۹';
+
+    $persianString = '';
+
+    for ($i = 0 ; $i < strlen($string) ; $i++){
+
+      switch (mb_substr($string, $i, 1, 'utf-8')){
+        case '0' : $persianString .= $chars[0]; break;
+        case '1' : $persianString .= $chars[1]; break;
+        case '2' : $persianString .= $chars[2]; break;
+        case '3' : $persianString .= $chars[3]; break;
+        case '4' : $persianString .= $chars[4]; break;
+        case '5' : $persianString .= $chars[5]; break;
+        case '6' : $persianString .= $chars[6]; break;
+        case '7' : $persianString .= $chars[7]; break;
+        case '8' : $persianString .= $chars[8]; break;
+        case '9' : $persianString .= $chars[9]; break;
+        default : $persianString .= mb_substr($string, $i, 1, 'utf-8');break;
+      }
+    }
+
+
+    return $persianString;
   }
 }

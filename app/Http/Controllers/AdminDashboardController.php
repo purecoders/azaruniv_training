@@ -14,9 +14,11 @@ use App\SiteInfo;
 use App\Slider;
 use App\Ticket;
 use App\User;
+use App\UserCourse;
 use DateInterval;
 use DateTime;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
@@ -305,4 +307,105 @@ class AdminDashboardController extends Controller
     return redirect(route('admin-users'));
   }
 
+
+  public function changePasswordPage(){
+    $message = null;
+    $is_success = null;
+    return view('admin.site.changePassword', compact(['message', 'is_success']));
+  }
+
+  public function changePassword(Request $request){
+    $this->validate($request, [
+      'old_password' => 'required|string|max:100|min:6',
+      'new_password' => 'required|string|max:100|min:6',
+      'new_password_repeat' => 'required|string|max:100|min:6',
+    ]);
+
+
+    $user = Auth::user();
+    if(Hash::check($request->old_password, $user->password)){
+      if($request->new_password == $request->new_password_repeat){
+        $user->password = Hash::make($request->new_password);
+        $user->save();
+        $message = 'رمز شما با موفقیت تغییر یافت';
+        $is_success = 1;
+      }else{
+        $message = 'رمز های جدید با همدیگر مطابقت ندارند';
+        $is_success = 0;
+      }
+    }else{
+      $message = 'رمز فعلی شما اشتباه میباشد';
+      $is_success = 0;
+    }
+
+
+    return view('admin.site.changePassword', compact(['message', 'is_success']));
+
+  }
+
+
+  public function professorSendMessage(Request $request){
+    $this->validate($request,[
+      'text' => 'required|string|max:3000|min:1',
+      'user_id' => 'required|numeric',
+    ]);
+
+    $ticket = Ticket::create([
+      'user_id' => $request->user_id,
+      'is_user_sent' => 0,
+      'text' => $request->text,
+      'is_seen' => 0,
+    ]);
+
+    return redirect(route('admin-professor-detail', $request->user_id));
+  }
+
+
+  public function userSendMessage(Request $request){
+    $this->validate($request,[
+      'text' => 'required|string|max:3000|min:1',
+      'user_id' => 'required|numeric',
+    ]);
+
+    $ticket = Ticket::create([
+      'user_id' => $request->user_id,
+      'is_user_sent' => 0,
+      'text' => $request->text,
+      'is_seen' => 0,
+    ]);
+
+    return redirect(route('admin-user-detail', $request->user_id));
+  }
+
+
+  public function userCertificatePrint($user_id, $course_id){
+    $user = User::find($user_id);
+    $course = Course::find($course_id);
+    return view('admin.user.certificatePrint', compact(['user', 'course']));
+  }
+
+
+  public function userExportCertificate(Request $request){
+    $this->validate($request,[
+      'cert' => 'required',
+      'user_id' => 'required',
+      'course_id' => 'required',
+    ]);
+
+    $certs = $request->input('cert');
+    $users = $request->input('user_id');
+    $course_id = $request->input('course_id');
+
+    for ($i = 0 ; $i < sizeof($users) ; $i++){
+      $user_course = UserCourse::where('course_id', '=', $course_id)->where('student_id', '=', $users[$i])->first();
+      if($certs[$i] == 1){
+        $user_course->has_certificate = 1;
+      }else{
+        $user_course->has_certificate = 0;
+      }
+      $user_course->save();
+    }
+
+    return redirect(route('admin-course', $course_id));
+  }
 }

@@ -4,9 +4,11 @@
 use App\Http\Controllers\helper\MyCrypt;
 use App\Http\Controllers\helper\Sadad;
 use App\Ticket;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 Route::get('test', function (){
+
 
   $data = MyCrypt::encrypt_pkcs7(env('SADAD_TERMINAL_ID').';'.'1545'.';'.'10000', env('SADAD_TERMINAL_KEY'));
   return $data;
@@ -142,5 +144,14 @@ Route::post('/admin-register-professor', 'AdminDashboardController@registerProfe
 Route::post('/admin-send-student-public-message', 'AdminDashboardController@studentPublicMessage')->name('admin-send-student-public-message');
 Route::post('/admin-send-professor-public-message', 'AdminDashboardController@professorPublicMessage')->name('admin-send-professor-public-message');
 Route::delete('/admin-remove-student/{id}', 'AdminDashboardController@removeStudent')->name('admin-remove-student');
+Route::get('/admin-change-password-page', 'AdminDashboardController@changePasswordPage')->name('admin-change-password-page');
+Route::post('/admin-change-password', 'AdminDashboardController@changePassword')->name('admin-change-password');
+Route::post('/admin-professor-send-message', 'AdminDashboardController@professorSendMessage')->name('admin-professor-send-message');
+Route::post('/admin-user-send-message', 'AdminDashboardController@userSendMessage')->name('admin-user-send-message');
+
+
+Route::get('/admin-user-print-certificate/{user_id}/{course_id}', 'AdminDashboardController@userCertificatePrint')->name('admin-user-print-certificate');
+
+Route::post('table-post','AdminDashboardController@userExportCertificate')->name('table-post');
 
 

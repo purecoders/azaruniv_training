@@ -97,15 +97,27 @@
         <div class="red-divider mt-2">
 
         </div>
-        <div>
-            <h6 class="mt-3">رزومه </h6>
-            <div class="col-8 p-2">
+        <div class="row">
+            <div class="col-xl-6 p-2">
+                <h6 class="my-3">رزومه </h6>
                 <p class="bg-light p-2" style="border-radius: .25rem">
                    {{$cv->content}}
                 </p>
+                @if(strlen($cv->docs_path) > 2)
+                    <a href="{{$cv->docs_path}}" download class="btn btn-sm btn-blue"><i class="fal fa-download"></i> دانلود مدارک</a>
+                @endif
+            </div>
+            <div class="col-xl-6">
+                <h6 class="mt-4 mb-3">ارسال پیام</h6>
+                <form action="{{route('admin-professor-send-message')}}" method="post" onsubmit="return confirm('آیا می خواهید این پیام ارسال شود؟')">
+                    <textarea name="text" class="form-control mb-2" rows="5" placeholder="متن پیام را وارد کنید..."></textarea>
+                    <input type="hidden" name="user_id" value="{{$master->id}}">
+                    <input type="submit" class="btn btn-sm btn-blue mt-4" value="ارسال">
+                    @csrf
+                </form>
             </div>
             @if(strlen($cv->docs_path) > 2)
-            <a href="{{$cv->docs_path}}" download class="btn btn-sm btn-blue"><i class="fal fa-download"></i> دانلود مدارک</a>
+
             @endif
         </div>
 

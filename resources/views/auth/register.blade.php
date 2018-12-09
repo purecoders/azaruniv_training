@@ -19,7 +19,7 @@
                                 <label for="name" class="col-md-4 col-form-label text-md-right">نام و نام خانوادگی</label>
 
                                 <div class="col-md-6">
-                                    <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
+                                    <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required />
 
                                     @if ($errors->has('name'))
                                         <span class="invalid-feedback" role="alert">
@@ -37,7 +37,7 @@
                                 <label for="is_male" class="col-md-4 col-form-label text-md-right">جنسیت</label>
 
                                 <div class="col-md-6">
-                                    <select class="form-control form-control-sm{{ $errors->has('isMale') ? ' is-invalid' : '' }}" name="is_male" value="{{ old('is_male') }}" required autofocus>
+                                    <select class="form-control form-control-sm{{ $errors->has('isMale') ? ' is-invalid' : '' }}" name="is_male" value="{{ old('is_male') }}" required />
                                         <option value="1">مرد</option>
                                         <option value="0">زن</option>
                                     </select>
@@ -56,7 +56,7 @@
                                 <label for="major" class="col-md-4 col-form-label text-md-right">رشته تحصیلی</label>
 
                                 <div class="col-md-6">
-                                    <input id="major" type="text" class="form-control{{ $errors->has('major') ? ' is-invalid' : '' }}" name="major" value="{{ old('major') }}" required autofocus>
+                                    <input id="major" type="text" class="form-control{{ $errors->has('major') ? ' is-invalid' : '' }}" name="major" value="{{ old('major') }}" required />
 
                                     @if ($errors->has('major'))
                                         <span class="invalid-feedback" role="alert">
@@ -72,7 +72,7 @@
                                 <label for="email" class="col-md-4 col-form-label text-md-right">آدرس ایمیل</label>
 
                                 <div class="col-md-6">
-                                    <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
+                                    <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required/>
 
                                     @if ($errors->has('email'))
                                         <span class="invalid-feedback" role="alert">
@@ -90,7 +90,7 @@
                                 <label for="mobile" class="col-md-4 col-form-label text-md-right">شماره موبایل</label>
 
                                 <div class="col-md-6">
-                                    <input id="mobile" type="tel" class="form-control{{ $errors->has('mobile') ? ' is-invalid' : '' }}" name="mobile" value="{{ old('mobile') }}" required autofocus>
+                                    <input id="mobile" type="tel" class="form-control{{ $errors->has('mobile') ? ' is-invalid' : '' }}" name="mobile" value="{{ old('mobile') }}" required />
 
                                     @if ($errors->has('mobile'))
                                         <span class="invalid-feedback" role="alert">
@@ -107,7 +107,7 @@
                                 <label for="student_number" class="col-md-4 col-form-label text-md-right">شماره دانشجویی</label>
 
                                 <div class="col-md-6">
-                                    <input  id="student_number" placeholder="اگر دانشجو هستید این قسمت را پر کنید" type="number" class="form-control{{ $errors->has('student_number') ? ' is-invalid' : '' }}" name="student_number" value="{{ old('student_number') }}" required autofocus>
+                                    <input  id="student_number" placeholder="اگر دانشجو هستید این قسمت را پر کنید" type="number" class="form-control{{ $errors->has('student_number') ? ' is-invalid' : '' }}" name="student_number" value="{{ old('student_number') }}"  />
 
                                     @if ($errors->has('student_number'))
                                         <span class="invalid-feedback" role="alert">
@@ -123,7 +123,7 @@
                                 <label for="national_code" class="col-md-4 col-form-label text-md-right">کد ملی</label>
 
                                 <div class="col-md-6">
-                                    <input id="national_code" type="number" class="form-control{{ $errors->has('national_code') ? ' is-invalid' : '' }}" name="national_code" value="{{ old('national_code') }}" required autofocus>
+                                    <input id="national_code" type="number" class="form-control{{ $errors->has('national_code') ? ' is-invalid' : '' }}" name="national_code" value="{{ old('national_code') }}" required />
 
                                     @if ($errors->has('national_code'))
                                         <span class="invalid-feedback" role="alert">
@@ -140,7 +140,7 @@
                                 <label for="password" class="col-md-4 col-form-label text-md-right">رمز عبور</label>
 
                                 <div class="col-md-6">
-                                    <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+                                    <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required/>
 
                                     @if ($errors->has('password'))
                                         <span class="invalid-feedback" role="alert">
@@ -154,7 +154,7 @@
                                 <label for="password-confirm" class="col-md-4 col-form-label text-md-right">تکرار رمز</label>
 
                                 <div class="col-md-6">
-                                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required/>
                                 </div>
                             </div>
 
@@ -163,7 +163,7 @@
                                 <label for="rules" class="col-md-4 col-form-label text-md-right">قوانین</label>
                                 <div class="col-md-6 ">
                                     <div class="form-check ml-3">
-                                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" required>
+                                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" required/>
                                         <label class="form-check-label" for="defaultCheck1">
                                             قوانین را قبول می کنم
                                             <a href="#" data-toggle="modal" data-target="#rulesModal"> (مشاهده قوانین)</a>
@@ -175,7 +175,7 @@
 
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
-                                    <button type="submit" formnovalidate  class="btn btn-success"><i class="fal fa-user-plus"></i> ثبت نام</button>
+                                    <button type="submit"   class="btn btn-success"><i class="fal fa-user-plus"></i> ثبت نام</button>
                                 </div>
                             </div>
                         </form>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\helper;
 
+
 class Sadad {
 
   private $merchant_id;
@@ -40,7 +41,7 @@ class Sadad {
       'PaymentIdentity' => $this->payment_identity
     );
 
-    return json_encode($data);
+//    return json_encode($data);
 
     $str_data = json_encode($data);
 

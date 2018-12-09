@@ -5,6 +5,24 @@
             <div class=" col-md-10 m-auto">
                 <h6 class="mb-3">ویرایش دوره</h6>
                 <form action="{{route('course.update', $course->id)}}" method="post" enctype="multipart/form-data">
+
+                    <div class="form-group row">
+                        <label for="postTitle" class="col-sm-2 col-form-label">وضعیت ثبت نام برای دانشجویان</label>
+                        <div class="col-sm-10">
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    {{--radio buttons name must be same--}}
+                                    <input type="radio" name="is_open" class="form-check-input" value="1" @if($course->is_open == 1) checked @endif> فعال
+                                </label>
+                                <label class="form-check-label">
+                                    <input type="radio" name="is_open" class="form-check-input" value="0" @if($course->is_open == 0) checked @endif> غیر فعال
+                                </label>
+                            </div>
+                        </div>
+
+
+                    </div>
+
                     <div class="form-group row">
                         <label for="postTitle" class="col-sm-2 col-form-label">عنوان دوره</label>
                         <div class="col-sm-10">
@@ -132,6 +150,7 @@
             <table id="اسامی_{{$course->title}}" class="table table-striped">
                 <thead>
                 <tr>
+                    <input type="hidden">
                     <th scope="col">ردیف</th>
                     <th scope="col">نام و نام خانوادگی</th>
                     <th scope="col">کد ملی</th>
@@ -139,6 +158,15 @@
                     <th scope="col">رشته تحصیلی</th>
                     <th scope="col">عکس</th>
                     <th scope="col">جزئیات</th>
+
+                    <th scope="col">
+                        <span class="flex-grow-1 "> ارسال گواهی </span>
+                        <label class="mb-0" for="allCheck">
+                            <span style="font-size:0.95em">همه </span>
+                            <input type="checkbox" name="test" id="allCheck">
+                        </label>
+                    </th>
+
                 </tr>
                 </thead>
                 <tbody>
@@ -146,6 +174,7 @@
                 @php($i=0)
                 @foreach($students as $student)
                     <tr>
+                        <input type="hidden" form="certForm" name="user_id[]" value="{{$student->id}}">
                         <th scope="row">{{++$i}}</th>
                         <td>{{$student->name}}</td>
                         <td>{{$student->national_code}}</td>
@@ -159,11 +188,23 @@
                         <td>
                             <a href="{{route('admin-user-detail', ['id' => $student->id])}}" class="btn btn-sm btn-blue mt-2">مشاهده جزئیات</a>
                         </td>
+
+                        <td class="table-check">
+                            <input type="hidden" name="cert[]" form="certForm" value="0" />
+                            <input class="form-control tableCheckBox" form="certForm" type="checkbox" name="cert[]" value="1"  @if($student->hasCertificate($course->id)) checked @endif/>
+                        </td>
+
                     </tr>
                 @endforeach
 
                 </tbody>
             </table>
+                <form action="{{route('table-post')}}"  onsubmit="return confirm('آیا از ارسال گواهی به دانشجویان انتخاب شده مطمئن هستید؟')" method="POST" id="certForm">
+                    @csrf
+                    <input name="course_id" type="hidden" value="{{$course->id}}">
+                    <input name="_method" type="hidden" value="POST">
+                    <button type="submit" class="btn btn-sm btn-blue float-left mb-2">  ارسال گواهی ها</button>
+                </form>
             </div>
         </div>
 

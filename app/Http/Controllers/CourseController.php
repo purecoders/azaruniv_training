@@ -116,7 +116,7 @@ class CourseController extends Controller
         'gender'     =>'required|string|max:20|min:1',
         'start_date'     =>'required|string',
         'finish_date'     =>'required|string',
-//        'is_open'     =>'required|numeric|min:0|max:1',
+        'is_open'     =>'required|numeric|min:0|max:1',
 //        'image'       =>'image',
       ]);
 
@@ -144,7 +144,7 @@ class CourseController extends Controller
       $course->gender= $request->gender;
       $course->start_date = $persianDate->date_to(PersianNumber::persianToLatin($request->start_date));
       $course->finish_date = $persianDate->date_to(PersianNumber::persianToLatin($request->finish_date));
-      $course->is_open = 1;
+      $course->is_open = $request->is_open;
       $course->save();
 
 

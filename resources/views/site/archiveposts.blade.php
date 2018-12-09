@@ -17,7 +17,7 @@
                 <div class="col-xl-8">
                     <div class="tab-card-title mx-2 d-flex flex-column justify-content-between">
                         <h5><a href="{{route('post.show', ['id'=>$post->id])}}" class="text-blue hover-link">{{$post->title}}</a></h5>
-                        <p class="mt-3">
+                        <p class="mt-3 card-desc">
                             @php
                                 echo $post->content;
                             @endphp

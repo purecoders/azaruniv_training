@@ -104,10 +104,9 @@ class SiteIndexPageController extends Controller
         env('SADAD_TERMINAL_KEY'), env('SADAD_PAYMENT_IDENTITY'));
 
       $response = $sadad->request($order->amount, $order->id, route('course-verify-pay'));
-      return $response;
 
       if($response->ResCode != 0){
-        //$description = $response->Description;
+        $description = $response->Description;
         //return failed pay page
       }else{
         $sadad->redirect($response->Token);
@@ -151,7 +150,7 @@ class SiteIndexPageController extends Controller
           'system_trace_no' => $system_trace_no,
         ]);
 
-        //return view
+        //return success view
 
       }else{
         //failed
@@ -165,7 +164,7 @@ class SiteIndexPageController extends Controller
           'system_trace_no' => $system_trace_no,
         ]);
 
-        //return view
+        //return fail view
       }
 
 

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\helper;
 
 
+use GuzzleHttp\Client;
+
 class Sadad {
 
   private $merchant_id;
@@ -41,13 +43,24 @@ class Sadad {
       'PaymentIdentity' => $this->payment_identity
     );
 
-//    return json_encode($data);
+
 
     $str_data = json_encode($data);
 
-    $response = $this->callApi($this->start_pay_url, $str_data);
-    $response_data = json_decode($response);
-    return $response_data;
+//    $str_data = '{
+//"MerchantId":"000000140330464",
+//"TerminalId":"24049433",
+//"Amount":"10000",
+//"OrderId":"1545",
+//"LocalDateTime":"12/07/2018 3:06:29 pm",
+//"ReturnUrl":"http://azaruniv-training.ud/verify",
+//"SignData":"DXbNuFo6VAIHM5BoVC+OG2S6Yx4y+WHS",
+//"PaymentIdentity":"329074654120007000000000000063"
+//}';
+
+    $response = $this->callApi($this->start_pay_url, $str_data);//
+    $response = json_decode($response);
+    return $response;
     //$response_data->ResCode ?== 0 => success   &&  $response_data->Token && $response_data->Description
   }
 
@@ -100,7 +113,30 @@ else
   }
 
   private function callApi2($url, $data = false){
+//    $str_data = '{
+//    "MerchantId":"000000140330464",
+//    "TerminalId":"24049433",
+//    "Amount":"10000",
+//    "OrderId":"1545",
+//    "LocalDateTime":"12/07/2018 3:06:29 pm",
+//    "ReturnUrl":"http://azaruniv-training.ud/verify",
+//    "SignData":"DXbNuFo6VAIHM5BoVC+OG2S6Yx4y+WHS",
+//    "PaymentIdentity":"329074654120007000000000000063"
+//    }';
+    $client = new Client(['headers' => ['Content-Type' => 'application/json' ,'Content-Length' => strlen($data)]]);
+//    $client = new Client(['headers' => ['Content-Type' => 'application/json']]);
+//    $res = $client->post($url, [
+//      ['headers' => ['Content-Type' => 'application/json']],
+//      $str_data,
+//      'http_errors' => false,
+//    ]);
 
+
+    $res = $client->request('POST', $url, [
+      'json' => $data,
+      'http_errors' => false
+    ]);
+    return json_decode((string)$res->getBody());
   }
 
 

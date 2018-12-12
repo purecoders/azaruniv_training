@@ -10,37 +10,15 @@ use Illuminate\Support\Facades\DB;
 Route::get('test', function (){
 
 
-  $data = MyCrypt::encrypt_pkcs7(env('SADAD_TERMINAL_ID').';'.'1545'.';'.'10000', env('SADAD_TERMINAL_KEY'));
-  return $data;
-  $url = 'http://google.com';
-  return redirect("$url");
-  header("Location:$url");
-
   $sadad = new Sadad(env('SADAD_MERCHANT_ID'), env('SADAD_TERMINAL_ID'),
     env('SADAD_TERMINAL_KEY'), env('SADAD_PAYMENT_IDENTITY'));
-  $res = $sadad->request(1000, 154544, route('verify'));
-  return json_encode($res);
+  $res = $sadad->request(10000, 1545, route('verify'));
+//  return $res;
   $res_code = $res->ResCode;
   $token = $res->Token;
   $desc = $res->Description;
-  echo "res_code =  <br>token = $token <br>desc = $desc";
-//  return base64_encode('7zn8DrAPzLIoVOwstLltktJSpeNH/us3');
-//  return utf8_decode(base64_decode('=okC+oxkdFSfci7cYlkXc31NYjtiA3LOgrjqgaayMJLY'));
+  echo "res_code = $res_code . <br>token = $token <br>desc = $desc";
 
-
-//  return base64_decode(env('SADAD_TERMINAL_KEY'));
-//
-//
-//
-//  $key = md5('123');
-//  //Take first 8 bytes of $key and append them to the end of $key.
-//  $key .= substr($key, 0, 8);
-//  echo 'key = ' . "$key" . '<br>';
-//
-//  $enc = MyCrypt::encrypt_pkcs7('Mohsen');
-//  echo 'encrypted = ' . $enc . '<br>';
-//  echo 'decrypted = ' . MyCrypt::decrypt_pkcs7($enc) . '<br>';
-//  echo base64_encode('mohsen') . '<br>' . base64_decode('bW9oc2Vu');
 })->name('test');
 
 
@@ -148,8 +126,6 @@ Route::get('/admin-change-password-page', 'AdminDashboardController@changePasswo
 Route::post('/admin-change-password', 'AdminDashboardController@changePassword')->name('admin-change-password');
 Route::post('/admin-professor-send-message', 'AdminDashboardController@professorSendMessage')->name('admin-professor-send-message');
 Route::post('/admin-user-send-message', 'AdminDashboardController@userSendMessage')->name('admin-user-send-message');
-
-
 Route::get('/admin-user-print-certificate/{user_id}/{course_id}', 'AdminDashboardController@userCertificatePrint')->name('admin-user-print-certificate');
 
 Route::post('table-post','AdminDashboardController@userExportCertificate')->name('table-post');

@@ -150,7 +150,7 @@
                                 <span class="flex-grow-1 ">ارسال گواهی</span>
                                 <label class="mb-0" for="allCheck">
                                     <span style="font-size:0.95em">همه</span>
-                                    <input type="checkbox" name="test" id="allCheck">
+                                    <input type="checkbox" name="test" id="allCheck" onclick="checkAll(this)">
                                 </label>
 
                             </th>
@@ -242,12 +242,14 @@
             </div>
             <div class="table-responsive">
                 {{--set id by course name--}}
-                <table id="پرداخت های دوره زبان" id="tableToExcel" class="table table-striped ">
+                <table id="پرداخت های دوره زبان" id="tableToExcel" class="table table-striped course-payment ">
                     <thead>
                     <tr>
                         <th scope="col">ردیف</th>
                         <th scope="col">مبلغ</th>
                         <th scope="col">واریز شده توسط</th>
+                        <th scope="col">کد ملی</th>
+                        <th scope="col">وضعیت پرداخت</th>
                         <th scope="col">تاریخ</th>
                     </tr>
                     </thead>
@@ -256,14 +258,18 @@
                         <th scope="row">1</th>
                         <td>36000 تومان</td>
                         <td>پویا آکلیون</td>
+                        <td>2820188796</td>
+                        <td>موفق</td>
                         <td>
                             1397/09/04
                         </td>
                     </tr>
-                    <tr>
+                    <tr class="fail-table-row">
                         <th scope="row">2</th>
                         <td>36000 تومان</td>
                         <td>پویا آکلیون</td>
+                        <td>2820188796</td>
+                        <td>ناموفق</td>
                         <td>
                             1397/09/04
                         </td>
@@ -272,6 +278,8 @@
                         <th scope="row">3</th>
                         <td>36000 تومان</td>
                         <td>پویا آکلیون</td>
+                        <td>2820188796</td>
+                        <td>موفق</td>
                         <td>
                             1397/09/04
                         </td>

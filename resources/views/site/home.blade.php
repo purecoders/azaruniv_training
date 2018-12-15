@@ -5,20 +5,20 @@
 
             <div class="swiper-slide">
                 <a class="w-100" href="{{route('user-courses')}}">
-                    <img src="{{asset('img/slide5.jpg')}}">
+                    <img src="{{asset('img/hero1.jpg')}}">
                     <div class="title" id="title_#">کلاس های بورس از اول بهمن ماه شروع خواهد شد</div>
                 </a>
             </div>
             <div class="swiper-slide">
-                <img src="{{asset('img/slide5.jpg')}}">
+                <img src="{{asset('img/hero1.jpg')}}">
                 <div class="title" id="title_#">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت</div>
             </div>
             <div class="swiper-slide">
-                <img src="{{asset('img/slide5.jpg')}}">
+                <img src="{{asset('img/hero1.jpg')}}">
                 <div class="title" id="title_#">کلاس های بورس از اول بهمن ماه شروع خواهد شد</div>
             </div>
             <div class="swiper-slide">
-                <img src="{{asset('img/slide5.jpg')}}">
+                <img src="{{asset('img/hero1.jpg')}}">
                 <div class="title" id="title_#">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت لورم ایپسوم متن
                     ساختگی با تولید سادگی نامفهوم از صنعت
                 </div>

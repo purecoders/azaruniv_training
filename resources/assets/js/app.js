@@ -3,7 +3,6 @@ require('./bootstrap')
 import 'slick-carousel'
 
 
-
 const JDate = require('jalali-date')
 
 
@@ -34,10 +33,10 @@ $(document).ready(function () {
             clickable: true,
         },
         loop: true,
-        // autoplay: {
-        //     delay: 2500,
-        //     disableOnInteraction: false,
-        // },
+        autoplay: {
+            delay: 2500,
+            disableOnInteraction: false,
+        },
         navigation: {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',
@@ -62,20 +61,20 @@ $(document).ready(function () {
         postedDate = postedDate.replace(/-/g, ',')
         const jPosteddate = new JDate(new Date(postedDate));
         $('.posted-date').html(jPosteddate.format('dddd DD MMMM YYYY'))
-    }catch (err){
+    } catch (err) {
 
     }
-    try{
+    try {
         var gDates = $('.jDate')
-        for(var i=0;i<gDates.length;i++){
-            var gDate=$(gDates[i]).html()
-            gDate=gDate.replace(/-/g, ',')
+        for (var i = 0; i < gDates.length; i++) {
+            var gDate = $(gDates[i]).html()
+            gDate = gDate.replace(/-/g, ',')
             var jDate = new JDate(new Date(gDate));
             $(gDates[i]).html(jDate.format('YY/MM/DD'))
         }
 
 
-    }catch (err){
+    } catch (err) {
 
     }
 
@@ -112,100 +111,102 @@ $(document).ready(function () {
     })
     try {
 
-    $("#charViewContainer").animate({scrollTop:$(".the-end").offset().top})
-    }catch (err){
+        $("#charViewContainer").animate({scrollTop: $(".the-end").offset().top})
+    } catch (err) {
 
     }
 
     var pageUrl = window.location.href
-    if(pageUrl.includes('user-courses')){
-        try{
+    if (pageUrl.includes('user-courses')) {
+        try {
             $('#userCardNavCourse').addClass('active')
-        }catch (err){
+        } catch (err) {
 
         }
-    }else if(pageUrl.includes('user-profile')){
-        try{
+    } else if (pageUrl.includes('user-profile')) {
+        try {
             $('#userCardNavProfile').addClass('active')
-        }catch (err){
+        } catch (err) {
 
         }
-    }else if(pageUrl.includes('user-course-offer')){
-        try{
+    } else if (pageUrl.includes('user-course-offer')) {
+        try {
             $('#userCardNavOffer').addClass('active')
-        }catch (err){
+        } catch (err) {
 
         }
-    }else if(pageUrl.includes('user-tickets')){
-        try{
+    } else if (pageUrl.includes('user-tickets')) {
+        try {
             $('#userCardNavTickets').addClass('active')
-        }catch (err){
+        } catch (err) {
 
         }
     }
 
-    if(pageUrl.includes('professor-course')){
-        try{
+    if (pageUrl.includes('professor-course')) {
+        try {
             $('#professorCardNavCourse').addClass('active')
-        }catch (err){
+        } catch (err) {
 
         }
-    }else if(pageUrl.includes('professor-profile')){
-        try{
+    } else if (pageUrl.includes('professor-profile')) {
+        try {
             $('#professorCardNavProfile').addClass('active')
-        }catch (err){
+        } catch (err) {
 
         }
-    }else if(pageUrl.includes('professor-tickets')){
-        try{
+    } else if (pageUrl.includes('professor-tickets')) {
+        try {
             $('#professorCardNavTickets').addClass('active')
-        }catch (err){
+        } catch (err) {
 
         }
     }
 
-    if(pageUrl.includes('admin-courses') || pageUrl.includes('admin-courses') || pageUrl.includes('admin-posts') || pageUrl.includes('admin-slider') || pageUrl.includes('admin-contact-us')){
-        try{
+    if (pageUrl.includes('admin-courses') || pageUrl.includes('admin-courses') || pageUrl.includes('admin-posts') || pageUrl.includes('admin-slider') || pageUrl.includes('admin-contact-us')) {
+        try {
             $('#adminNavSite').addClass('admin-nav-active')
-        }catch (err){
+        } catch (err) {
 
         }
-    }else if(pageUrl.includes('admin-user')){
-        try{
+    } else if (pageUrl.includes('admin-user')) {
+        try {
             $('#adminNavUsers').addClass('admin-nav-active')
-        }catch (err){
+        } catch (err) {
 
         }
-    }else if(pageUrl.includes('admin-tickets')){
-        try{
+    } else if (pageUrl.includes('admin-tickets')) {
+        try {
             $('#adminNavTickets').addClass('admin-nav-active')
-        }catch (err){
+        } catch (err) {
 
         }
     }
-    else if(pageUrl.includes('admin-professor')){
-        try{
+    else if (pageUrl.includes('admin-professor')) {
+        try {
             $('#adminNavProfessors').addClass('admin-nav-active')
-        }catch (err){
+        } catch (err) {
 
         }
     }
 
     function checkImageLoad() {
-        var profileImg=$('#profileImage')
-        if($(profileImg).attr("src")=='#'){
+        var profileImg = $('#profileImage')
+        if ($(profileImg).attr("src") == '#') {
             $('#profileImage').addClass('d-none')
             // $('#imgUploadBtnContainer').removeClass('d-none')
 
-        }else{
-            $('#imgTitle').css('color','rgba(0,0,0,0)')
-            $('.fa-plus-circle').css('color','rgba(0,0,0,0)')
+        } else {
+            $('#imgTitle').css('color', 'rgba(0,0,0,0)')
+            $('.fa-plus-circle').css('color', 'rgba(0,0,0,0)')
 
             // $('#imgUploadBtnContainer').addClass('d-none')
             $('#profileImage').removeClass('d-none')
         }
     }
+
     checkImageLoad()
+
     function readURL(input) {
         if (input.files && input.files[0]) {
             var reader = new FileReader();
@@ -217,33 +218,33 @@ $(document).ready(function () {
             reader.readAsDataURL(input.files[0]);
         }
         $('#profileImage').removeClass('d-none')
-        $('#imgTitle').css('color','rgba(0,0,0,0)')
-        $('.fa-plus-circle').css('color','rgba(0,0,0,0)')
+        $('#imgTitle').css('color', 'rgba(0,0,0,0)')
+        $('.fa-plus-circle').css('color', 'rgba(0,0,0,0)')
 
     }
 
-    $("#inputProfileImg").change(function(){
+    $("#inputProfileImg").change(function () {
         readURL(this)
     });
-    $("#profileImg").change(function(){
+    $("#profileImg").change(function () {
         checkImageLoad()
     });
 
     function performClick(elemId) {
         console.log("sfsdfdf")
         var elem = document.getElementById(elemId);
-        if(elem && document.createEvent) {
+        if (elem && document.createEvent) {
             var evt = document.createEvent("MouseEvents");
             evt.initEvent("click", true, false);
             elem.dispatchEvent(evt);
         }
     }
 
-    window.checkForm=function (elm) {
+    window.checkForm = function (elm) {
         // var re = /^[\w ]+$/;
-        var inputs=$(elm).find(':input')
-        for(var i=0;i<inputs.length-1;i++){
-            if($(inputs[i]).val()==""){
+        var inputs = $(elm).find(':input')
+        for (var i = 0; i < inputs.length - 1; i++) {
+            if ($(inputs[i]).val() == "") {
                 confirm("خطا: فیلد مورد نظر نمی تواند خالی باشد!");
                 $(inputs[i]).focus();
                 return false;
@@ -256,39 +257,36 @@ $(document).ready(function () {
         }
         return true
     }
-    window.checkProfessorMessageForm=function(elm)
-    {
+    window.checkProfessorMessageForm = function (elm) {
 
-        if(!checkForm(elm)){
+        if (!checkForm(elm)) {
             return false
         }
-        if(confirm("این پیام را ارسال کن")){
+        if (confirm("این پیام را ارسال کن")) {
             return true
-        }else{
+        } else {
             return false
         }
 
     }
-    window.checkChangePasswordForm=function(elm)
-    {
-       var inputs=$(elm).find(':input')
-       if(!checkForm(elm)){
-           return false
-       }
-       if($(inputs[1]).val()!=$(inputs[2]).val()){
-           confirm("خطا: رمز های وارد شده یکسان نمی باشد!");
-           $(inputs[1]).focus();
-           return false;
-       }
-       return true
-    }
-    window.checkRegisterAdminForm=function(elm)
-    {
-        var inputs=$(elm).find(':input')
-        if(!checkForm(elm)){
+    window.checkChangePasswordForm = function (elm) {
+        var inputs = $(elm).find(':input')
+        if (!checkForm(elm)) {
             return false
         }
-        if($(inputs[5]).val()!=$(inputs[6]).val()){
+        if ($(inputs[1]).val() != $(inputs[2]).val()) {
+            confirm("خطا: رمز های وارد شده یکسان نمی باشد!");
+            $(inputs[1]).focus();
+            return false;
+        }
+        return true
+    }
+    window.checkRegisterAdminForm = function (elm) {
+        var inputs = $(elm).find(':input')
+        if (!checkForm(elm)) {
+            return false
+        }
+        if ($(inputs[5]).val() != $(inputs[6]).val()) {
             confirm("خطا: رمز های وارد شده یکسان نمی باشد!");
             $(inputs[1]).focus();
             return false;
@@ -312,7 +310,7 @@ $(document).ready(function () {
         // $('.fa-plus-circle').css('color','rgba(0,0,0,0)')
     }
 
-    $("#inputSlideImg1").change(function(){
+    $("#inputSlideImg1").change(function () {
         readSlideURL1(this)
     });
 
@@ -329,7 +327,7 @@ $(document).ready(function () {
         }
     }
 
-    $("#inputSlideImg2").change(function(){
+    $("#inputSlideImg2").change(function () {
         readSlideURL2(this)
     });
 
@@ -345,7 +343,7 @@ $(document).ready(function () {
         }
     }
 
-    $("#inputSlideImg3").change(function(){
+    $("#inputSlideImg3").change(function () {
         readSlideURL3(this)
     });
 
@@ -362,99 +360,91 @@ $(document).ready(function () {
         }
     }
 
-    $("#inputSlideImg4").change(function(){
+    $("#inputSlideImg4").change(function () {
         readSlideURL4(this)
     });
-    try{
+    try {
         $('.table-check').each(function () {
-            $(this).prop("checked",false)
+            $(this).prop("checked", false)
         })
-    }catch (err){
+    } catch (err) {
 
     }
 
-    $("#allCheck").change(function () {
-        var checkBoxes=$(".table-check input")
-        if($(this).prop("checked")==true){
-            for(var i=0;i<=checkBoxes.length;i++){
-                $(checkBoxes[i]).prop("checked",true)
-                var hiddenInputs=$(checkBoxes[i]).prev()
-                $(hiddenInputs).prop('disabled',true)
-
-            }
-        }
-        if($(this).prop("checked")==false){
-            for(var i=0;i<=checkBoxes.length;i++){
-                $(checkBoxes[i]).prop("checked",false)
-                var hiddenInput=$(checkBoxes[i]).prev()
-                $(hiddenInput).prop('disabled',false)
-            }
-        }
-
-    })
     $(".tableCheckBox").change(function () {
-        if($(this).prop("checked")==true){
-            var hiddenInput=$(this).prev()
-            $(hiddenInput).prop('disabled',true)
+        if ($(this).prop("checked") == true) {
+            var hiddenInput = $(this).prev()
+            $(hiddenInput).prop('disabled', true)
         }
-        if($(this).prop("checked")==false){
-            var hiddenInput=$(this).prev()
-            $(hiddenInput).prop('disabled',false)
+        if ($(this).prop("checked") == false) {
+            var hiddenInput = $(this).prev()
+            $(hiddenInput).prop('disabled', false)
         }
 
     })
 
 
 })
-window.excelReport=function(elm){
+window.excelReport = function (elm) {
     var sheetname = $("#chainnames").children(":selected").text();
-     var tableId=$(elm).parent().siblings().children(":first").attr('id')
-    tableToExcel(tableId,sheetname);
+    var tableId = $(elm).parent().siblings().children(":first").attr('id')
+    tableToExcel(tableId, sheetname);
 }
-$(document).on('click','#exportreptoexcelfile',function(event){
+$(document).on('click', '#exportreptoexcelfile', function (event) {
     //working great with Arabic without filename
     console.log(event)
     var sheetname = $("#chainnames").children(":selected").text();
-    tableToExcel('students',sheetname);
+    tableToExcel('students', sheetname);
 
 });
 
-var tableToExcel = (function() {
+var tableToExcel = (function () {
     var uri = 'data:application/vnd.ms-excel;base64,'
-        , template = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"><head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>{worksheet}</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--><meta http-equiv="content-type" content="text/plain; charset=UTF-8"/></head><body><table border="2px"><tr>{table}</table></body></html>'
-        , base64 = function(s) { return window.btoa(unescape(encodeURIComponent(s))) }
-        , format = function(s, c) { return s.replace(/{(\w+)}/g, function(m, p) { return c[p]; }) }
-    return function(table, name) {
-        var tableId=table
+        ,
+        template = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"><head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>{worksheet}</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--><meta http-equiv="content-type" content="text/plain; charset=UTF-8"/></head><body><table border="2px"><tr>{table}</table></body></html>'
+        , base64 = function (s) {
+            return window.btoa(unescape(encodeURIComponent(s)))
+        }
+        , format = function (s, c) {
+            return s.replace(/{(\w+)}/g, function (m, p) {
+                return c[p];
+            })
+        }
+    return function (table, name) {
+        var tableId = table
         if (!table.nodeType) table = document.getElementById(table)
-        var orginalTable=table.innerHTML
-
-        for(var j = 0 ; j <table.rows.length ; j++)
-        {
-            if(j==3){
-                table.rows[j].cells[1].width=180
-                table.rows[j].cells[2].width=180
-                table.rows[j].cells[3].width=180
+        var orginalTable = table.innerHTML
+        var lastColValid = false
+        if ($(table).hasClass('course-payment')) {
+            lastColValid = true
+        }
+        for (var j = 0; j < table.rows.length; j++) {
+            if (j == 3) {
+                table.rows[j].cells[1].width = 180
+                table.rows[j].cells[2].width = 180
+                table.rows[j].cells[3].width = 180
                 try {
-                    table.rows[j].cells[4].width=180
-                }catch (err){}
+                    table.rows[j].cells[4].width = 180
+                } catch (err) {
+                }
             }
-
-            var lastIndex=$(table.rows[j]).children(":last").index()
-            var firstElm=$(table.rows[j]).children(":first")
-            if($(firstElm).attr("type")=="hidden"){
-                lastIndex=lastIndex-1
-                table.rows[j].deleteCell(lastIndex)
-                table.rows[j].deleteCell(lastIndex-1)
-                table.rows[j].deleteCell(lastIndex-2)
-            }else if(lastIndex>=5){
-                table.rows[j].deleteCell(lastIndex)
-                table.rows[j].deleteCell(lastIndex-1)
+            if (!lastColValid) {
+                var lastIndex = $(table.rows[j]).children(":last").index()
+                var firstElm = $(table.rows[j]).children(":first")
+                if ($(firstElm).attr("type") == "hidden") {
+                    lastIndex = lastIndex - 1
+                    table.rows[j].deleteCell(lastIndex)
+                    table.rows[j].deleteCell(lastIndex - 1)
+                    table.rows[j].deleteCell(lastIndex - 2)
+                } else if (lastIndex >= 5) {
+                    table.rows[j].deleteCell(lastIndex)
+                    table.rows[j].deleteCell(lastIndex - 1)
+                }
             }
         }
         // table.innerHTML=table.innerHTML.replace('/تومان/g','')
         var ctx = {worksheet: name || 'Worksheet', table: table.innerHTML}
-        table.innerHTML=orginalTable
+        table.innerHTML = orginalTable
         // window.location.href = uri + base64(format(template, ctx))
         var dt = new Date();
         var day = dt.getDate();
@@ -464,11 +454,33 @@ var tableToExcel = (function() {
         var result = uri + base64(format(template, ctx));
         var a = document.createElement('a');
         a.href = result;
-        a.download = name+tableId + ' _ ' + postfix + '.xls';
+        a.download = name + tableId + ' _ ' + postfix + '.xls';
         a.click();
         return true;
     }
 })()
+
+window.checkAll=function(elm) {
+    console.log('okkk')
+    var checkBoxes = $(".table-check input")
+    if ($(elm).prop("checked") == true) {
+        for (var i = 0; i <= checkBoxes.length; i++) {
+            $(checkBoxes[i]).prop("checked", true)
+            var hiddenInputs = $(checkBoxes[i]).prev()
+            $(hiddenInputs).prop('disabled', true)
+
+        }
+    }
+    if ($(elm).prop("checked") == false) {
+        for (var i = 0; i <= checkBoxes.length; i++) {
+            $(checkBoxes[i]).prop("checked", false)
+            var hiddenInput = $(checkBoxes[i]).prev()
+            $(hiddenInput).prop('disabled', false)
+        }
+    }
+
+
+}
 
 
 

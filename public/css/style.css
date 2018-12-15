@@ -1042,6 +1042,11 @@ input[type=number]::-webkit-outer-spin-button {
   }
 }
 
+.fail-table-row {
+  background-color: #ff7778;
+  color: black;
+}
+
 @media only screen and (max-width: 768px) {
   body {
     font-size: 0.8em;

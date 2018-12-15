@@ -985,6 +985,10 @@ input[type=number]::-webkit-outer-spin-button {
     width: 300px;
   }
 }
+.fail-table-row{
+  background-color: rgb(255, 119, 120);
+  color:black;
+}
 @media only screen and (max-width: 768px) {
 
   body {

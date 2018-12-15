@@ -244,8 +244,8 @@ body {
 }
 
 #carousel .swiper-slide .title {
-  background-color: rgba(0, 0, 0, 0.65);
-  bottom: 20px;
+  background-color: rgba(0, 0, 0, 0);
+  bottom: 100px;
   right: 20px;
   float: right;
   position: absolute;
@@ -255,6 +255,9 @@ body {
   font-size: 1.2em;
   padding: 1rem;
   margin-bottom: 50px;
+  -webkit-transition: bottom .8s ease,background-color .8s ease,visibility .2s;
+  transition: bottom .8s ease,background-color .8s ease,visibility .2s;
+  visibility: hidden;
 }
 
 @media only screen and (max-width: 426px) {
@@ -269,6 +272,12 @@ body {
     margin: 0;
     max-height: 100px;
   }
+}
+
+#carousel .swiper-slide-active .title {
+  visibility: visible;
+  background-color: rgba(0, 0, 0, 0.65);
+  bottom: 20px;
 }
 
 .divider {
@@ -998,6 +1007,39 @@ input[type=number]::-webkit-outer-spin-button {
   position: fixed;
   top: 60px;
   right: 0;
+}
+
+.response-table {
+  border-style: dashed;
+  min-width: 400px;
+}
+
+.response-table thead tr {
+  background-color: #4BB543;
+  color: #272d35;
+}
+
+.response-table tbody th {
+  width: 150px;
+}
+
+@media only screen and (max-width: 576px) {
+  .response-table {
+    min-width: 200px;
+  }
+  .response-table tbody th {
+    width: 100px;
+  }
+}
+
+.fail-message {
+  width: 400px;
+}
+
+@media only screen and (max-width: 576px) {
+  .fail-message {
+    width: 300px;
+  }
 }
 
 @media only screen and (max-width: 768px) {

@@ -56,6 +56,13 @@ Route::get('/user-tickets', function () {
     return view('user.tickets');
 })->middleware('auth')->name('user-tickets');
 
+Route::get('/user-payment-success', function () {
+    return view('user.paymentSuccess');
+})->middleware('auth')->name('user-payment-success');
+
+Route::get('/user-payment-failed', function () {
+    return view('user.paymentFailed');
+})->middleware('auth')->name('user-payment-failed');
 
 Route::get('/professor-dashboard', function () {
     return view('professor.dashboard');

@@ -29,16 +29,16 @@
                 <h4 class="heading-primary">پیوند ها</h4>
                 <ul class="nav nav-list  d-flex flex-column">
                     <li><a class="text-light hover-link" title="مرکز رشد و فناوری دانشگاه شهید مدنی آذربایجان"
-                           href="#">مرکز رشد و فناوری دانشگاه شهید مدنی آذربایجان</a></li>
+                           href="http://research.azaruniv.ac.ir/">معاونت پژوهش و فناوری</a></li>
                     <li><a class="text-light hover-link" title="مرکز ارتباط با صنعت دانشگاه"
-                           href="#">مرکز ارتباط با صنعت دانشگاه</a></li>
+                           href="http://sanat.azaruniv.ac.ir/">مرکز ارتباط با صنعت دانشگاه</a></li>
                 </ul>
             </div>
 
             <div class="col-md-4">
-                <h4 class="heading-primary">پیوند ها خارجی</h4>
+                <h4 class="heading-primary">پیوند های خارجی</h4>
                 <ul class="nav nav-list d-flex flex-column">
-                    <li><a class="text-light hover-link" title="دانشگاه تبریز" href="#">دانشگاه تبریز</a></li>
+                    <li><a class="text-light hover-link" title="دانشگاه تبریز" href="http://www.tabrizu.ac.ir">دانشگاه تبریز</a></li>
                 </ul>
             </div>
         </div>

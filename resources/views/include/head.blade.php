@@ -15,10 +15,10 @@
 <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
 
 <!-- Styles -->
-<link href="{{ asset('css/app.css') }}" rel="stylesheet">
+<link href="{{ asset('css/app.min.css') }}" rel="stylesheet">
 <link href="{{ asset('css/swiper.min.css') }}" rel="stylesheet">
-<link href="{{ asset('css/style.css') }}" rel="stylesheet">
-<link href="{{ asset('css/all.css') }}" rel="stylesheet">
+<link href="{{ asset('css/style.min.css') }}" rel="stylesheet">
+<link href="{{ asset('css/all.min.css') }}" rel="stylesheet">
 
 <link rel="stylesheet" href="{{asset('css/persian-datepicker.min.css')}}">
 
@@ -29,6 +29,6 @@
 <script src="{{ asset('js/swiper.min.js') }}" defer></script>
 <script src="{{ asset('js/bundle.js') }}" defer></script>
 
-<script src="{{asset('js/ckeditor/ckeditor.js')}}"></script>
+
 
 

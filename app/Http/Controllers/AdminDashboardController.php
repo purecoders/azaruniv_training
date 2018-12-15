@@ -86,13 +86,7 @@ class AdminDashboardController extends Controller
 
 
   public function users(){
-    $students = array();
-    $users = User::orderBy('id' ,'desc')->paginate(25);
-    foreach ($users as $user){
-      if(UserHelper::isStudent($user)){
-        $students [] = $user;
-      }
-    }
+    $users = User::orderBy('id' ,'desc')->paginate(30);
 
     //get recent two month records
     $originaldate = date("Y-m-d H:i:s");
@@ -100,7 +94,7 @@ class AdminDashboardController extends Controller
     $converted2months = $converted->sub(new DateInterval("P2M"));
     $recommends = RecommendedCourse::orderBy('id', 'desc')->where('created_at', '>=', $converted2months)->get();
 
-    return view('admin.user.users', compact(['students', 'recommends']));
+    return view('admin.user.users', compact(['users', 'recommends']));
   }
 
 
@@ -408,4 +402,7 @@ class AdminDashboardController extends Controller
 
     return redirect(route('admin-course', $course_id));
   }
+
+
+
 }

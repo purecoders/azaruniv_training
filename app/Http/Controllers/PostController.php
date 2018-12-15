@@ -97,7 +97,7 @@ class PostController extends Controller
 
 
     public function archivePosts(){
-      $posts = Post::orderBy('id', 'desc')->paginate(6);
+      $posts = Post::orderBy('id', 'desc')->paginate(20);
       return view('site.archiveposts', compact('posts'));
     }
 }

@@ -10,34 +10,34 @@
                     <label for="professorName" class="col-sm-4 col-form-label">نام و نام خانوادگی</label>
                     <div class="col-sm-8">
                         <input type="text" class="form-control" id="professorName"
-                               placeholder="نام و نام خانوادگی استاد را وارد کنید" name="name">
+                               placeholder="نام و نام خانوادگی استاد را وارد کنید" name="name" required>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="professorEmail" class="col-sm-4 col-form-label">ایمیل</label>
                     <div class="col-sm-8">
                         <input type="email" class="form-control" id="professorEmail"
-                               placeholder="ایمیل استاد را وارد کنید" name="email">
+                               placeholder="ایمیل استاد را وارد کنید" name="email" required>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="professorMobile" class="col-sm-4 col-form-label">موبایل</label>
                     <div class="col-sm-8">
                         <input type="number" class="form-control" id="professorMobile"
-                               placeholder="شماره تلفن همراه استاد را وارد کنید" name="mobile">
+                               placeholder="شماره تلفن همراه استاد را وارد کنید" name="mobile" required>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="professorCode" class="col-sm-4 col-form-label">کد ملی</label>
                     <div class="col-sm-8">
                         <input type="number" class="form-control" id="professorCode"
-                               placeholder="کد ملی استاد را وارد کنید" name="national_code">
+                               placeholder="کد ملی استاد را وارد کنید" name="national_code" required>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="professorSex" class="col-sm-4 col-form-label">جنسیت</label>
                     <div class="col-sm-8">
-                        <select id="professorSex" class="form-control" name="is_male" id="">
+                        <select id="professorSex" class="form-control" name="is_male" id="" required>
                             <option value="1">مرد</option>
                             <option value="0">زن</option>
                         </select>
@@ -47,14 +47,14 @@
                     <label for="professorPassword" class="col-sm-4 col-form-label">رمز عبور</label>
                     <div class="col-sm-8">
                         <input type="password" class="form-control" id="professorPassword"
-                               placeholder="رمز عبور استاد را وارد کنید" name="password">
+                               placeholder="رمز عبور استاد را وارد کنید" name="password" required>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="professorPasswordConfirm" class="col-sm-4 col-form-label">تکرار رمز عبور</label>
                     <div class="col-sm-8">
                         <input type="password" class="form-control" id="professorPasswordConfirm"
-                               placeholder="تکرار رمز عبور استاد را وارد کنید" name="password_confirmation">
+                               placeholder="تکرار رمز عبور استاد را وارد کنید" name="password_confirmation" required>
                     </div>
                 </div>
 

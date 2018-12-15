@@ -83,7 +83,8 @@
         <span>دکتر بهزاد سلطانی</span>
     </p>
     <p class="footer-content d-flex justify-content-around">
-        <span class="title-one">معاون پژوهش و فناوری</span>
+        {{--<span class="title-one">معاون پژوهش و فناوری</span>--}}
+        <span>معاون پژوهش و فناوری</span>
         <span>مدیر امور فناوری</span>
     </p>
 </div>

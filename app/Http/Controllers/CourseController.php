@@ -69,6 +69,7 @@ class CourseController extends Controller
         'title' => $request->title,
         'description' => $request->course_content,
         'cost' => $request->cost,
+        'duration' => $request->duration,
         'capacity' => $request->capacity,
         'gender' => $request->gender,
         'start_date' => $persianDate->date_to(PersianNumber::persianToLatin($request->start_date)),
@@ -175,7 +176,7 @@ class CourseController extends Controller
 
 
     public function archiveCourses(){
-      $courses = Course::orderBy('id', 'desc')->paginate(6);
+      $courses = Course::orderBy('id', 'desc')->paginate(20);
       return view('site.archivecourses', compact('courses'));
     }
 

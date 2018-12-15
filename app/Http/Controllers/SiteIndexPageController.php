@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Course;
+use App\Http\Controllers\helper\MyCrypt;
 use App\Http\Controllers\helper\Sadad;
 use App\Order;
 use App\Payment;
@@ -26,8 +27,8 @@ class SiteIndexPageController extends Controller
 
   public function show(){
       $sliders = Slider::orderBy('id', 'desc')->get();
-      $courses = Course::orderBy('id', 'desc')->take(20)->get();
-      $posts = Post::orderBy('id', 'desc')->take(10)->get();
+      $courses = Course::orderBy('id', 'desc')->take(12)->get();
+      $posts = Post::orderBy('id', 'desc')->take(12)->get();
       return view('site.home', compact(['sliders', 'courses', 'posts']));
     }
 
@@ -88,7 +89,11 @@ class SiteIndexPageController extends Controller
           'has_certificate' => 0,
         ]);
 
-        return redirect(route('user-courses'));
+        $description = 'ثبت نام با موفقیت انجام شد.';
+        $retrival_ref_no = ' ';
+        $system_trace_no = ' ';
+        $amount = 0;
+        return view('user.paymentSuccess', compact(['description', 'retrival_ref_no', 'system_trace_no', 'amount']));
       }
 
 
@@ -97,17 +102,21 @@ class SiteIndexPageController extends Controller
       $order = Order::create([
         'user_id' => $user->id,
         'course_id' => $course->id,
-        'amount' => ($course->cost * 10),
+        'amount' => (int)($course->cost * 10),
       ]);
 
-      $sadad = new Sadad(env('SADAD_MERCHANT_ID'), env('SADAD_TERMINAL_ID'),
-        env('SADAD_TERMINAL_KEY'), env('SADAD_PAYMENT_IDENTITY'));
+      $sadad = new Sadad(
+        MyCrypt::decrypt_pkcs7(env('SADAD_MERCHANT_ID')),
+        MyCrypt::decrypt_pkcs7(env('SADAD_TERMINAL_ID')),
+        MyCrypt::decrypt_pkcs7(env('SADAD_TERMINAL_KEY')),
+        MyCrypt::decrypt_pkcs7(env('SADAD_PAYMENT_IDENTITY'))
+      );
 
       $response = $sadad->request($order->amount, $order->id, route('course-verify-pay'));
 
       if($response->ResCode != 0){
         $description = $response->Description;
-        //return failed pay page
+        return view('user.paymentFailed', compact('description'));
       }else{
         $sadad->redirect($response->Token);
       }
@@ -119,8 +128,12 @@ class SiteIndexPageController extends Controller
       $token = $request->Token;
       $pay_res_code = $request->ResCode;
 
-      $sadad = new Sadad(env('SADAD_MERCHANT_ID'), env('SADAD_TERMINAL_ID'),
-        env('SADAD_TERMINAL_KEY'), env('SADAD_PAYMENT_IDENTITY'));
+      $sadad = new Sadad(
+        MyCrypt::decrypt_pkcs7(env('SADAD_MERCHANT_ID')),
+        MyCrypt::decrypt_pkcs7(env('SADAD_TERMINAL_ID')),
+        MyCrypt::decrypt_pkcs7(env('SADAD_TERMINAL_KEY')),
+        MyCrypt::decrypt_pkcs7(env('SADAD_PAYMENT_IDENTITY'))
+      );
 
       $verify_response = $sadad->verify($token);
       $res_code = $verify_response->ResCode;
@@ -150,7 +163,7 @@ class SiteIndexPageController extends Controller
           'system_trace_no' => $system_trace_no,
         ]);
 
-        //return success view
+        return view('user.paymentSuccess', compact(['description', 'retrival_ref_no', 'system_trace_no', 'amount']));
 
       }else{
         //failed
@@ -164,7 +177,7 @@ class SiteIndexPageController extends Controller
           'system_trace_no' => $system_trace_no,
         ]);
 
-        //return fail view
+        return view('user.paymentFailed', compact('description'));
       }
 
 

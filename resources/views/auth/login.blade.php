@@ -61,9 +61,9 @@
                                 <div class="col-md-8 offset-md-4">
                                     <button type="submit"  class="btn btn-success"><i class="fal fa-sign-in mt-1"></i> ورود</button>
 
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        رمز خود را فراموش کرده اید کلیک کنید
-                                    </a>
+                                    {{--<a class="btn btn-link" href="{{ route('password.request') }}">--}}
+                                        {{--رمز خود را فراموش کرده اید کلیک کنید--}}
+                                    {{--</a>--}}
                                 </div>
                             </div>
                         </form>

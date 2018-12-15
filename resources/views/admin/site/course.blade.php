@@ -163,7 +163,7 @@
                         <span class="flex-grow-1 "> ارسال گواهی </span>
                         <label class="mb-0" for="allCheck">
                             <span style="font-size:0.95em">همه </span>
-                            <input type="checkbox" name="test" id="allCheck">
+                            <input type="checkbox" name="test" id="allCheck"  onclick="checkAll(this)">
                         </label>
                     </th>
 
@@ -190,8 +190,8 @@
                         </td>
 
                         <td class="table-check">
-                            <input type="hidden" name="cert[]" form="certForm" value="0" />
-                            <input class="form-control tableCheckBox" form="certForm" type="checkbox" name="cert[]" value="1"  @if($student->hasCertificate($course->id)) checked @endif/>
+                            <input type="hidden" name="cert[]" form="certForm" value="0" @if($student->hasCertificate($course->id)) disabled="true" @endif />
+                            <input class="form-control tableCheckBox" form="certForm" type="checkbox" name="cert[]" value="1"  @if($student->hasCertificate($course->id)) checked="true" @endif/>
                         </td>
 
                     </tr>
@@ -199,7 +199,7 @@
 
                 </tbody>
             </table>
-                <form action="{{route('table-post')}}"  onsubmit="return confirm('آیا از ارسال گواهی به دانشجویان انتخاب شده مطمئن هستید؟')" method="POST" id="certForm">
+                <form action="{{route('admin-export-certificate')}}"  onsubmit="return confirm('آیا از ارسال گواهی به دانشجویان انتخاب شده مطمئن هستید؟')" method="POST" id="certForm">
                     @csrf
                     <input name="course_id" type="hidden" value="{{$course->id}}">
                     <input name="_method" type="hidden" value="POST">
@@ -223,7 +223,7 @@
                 <h6 class="course-price p-sm-2 m-1"> مجموع : {{number_format($paymentsSum)}} تومان </h6>
             </div>
             <div class="table-responsive">
-                <table id="پرداختهای_{{$course->title}}"  class="table table-striped ">
+                <table id="پرداختهای_{{$course->title}}"  class="table table-striped course-payment">
                     <thead>
                     <tr>
                         <th scope="col">ردیف</th>
@@ -247,7 +247,7 @@
                              <td class="jDate">{{$payment->created_at}}</td>
                          </tr>
                     @else
-                         <tr style="background-color: rgba(255,26,0,0.79)">
+                         <tr class="fail-table-row">
                              <th scope="row">{{++$i}}</th>
                              <td>{{number_format($payment->amount)}} تومان </td>
                              <td>{{$payment->user->name}}</td>

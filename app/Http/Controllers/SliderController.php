@@ -42,9 +42,11 @@ class SliderController extends Controller
       $file_path = $dir . '/' . $file_name . '.'.$file_extension;
       $image->move($dir, $image_name);
 
+      if($request->on_click === null) $on_click = ' ';
+      else $on_click = $request->on_click;
       $slider = Slider::create([
         'title' => $request->title,
-        'on_click' => $request->on_click,
+        'on_click' => $on_click,
       ]);
 
 

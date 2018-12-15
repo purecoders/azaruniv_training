@@ -7,11 +7,35 @@ use App\Ticket;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
+
+Route::get('test1', function (){
+//  $description = 'ثبت نام با موفقیت انجام شد.';
+//  return view('user.paymentFailed', compact('description'));
+//  $description = 'ثبت نام با موفقیت انجام شد.';
+//  $retrival_ref_no = ' 645dfdf';
+//  $system_trace_no = '646545456564 ';
+//  $amount = 250000;
+//  return view('user.paymentSuccess', compact(['description', 'retrival_ref_no', 'system_trace_no', 'amount']));
+
+
+  $text = '329074654120007000000000000063';
+  $enc = MyCrypt::encrypt_pkcs7($text);
+  echo $enc ;
+//  echo 'dec = ' . MyCrypt::decrypt_pkcs7($enc);
+});
+
+
+
 Route::get('test', function (){
 
 
-  $sadad = new Sadad(env('SADAD_MERCHANT_ID'), env('SADAD_TERMINAL_ID'),
-    env('SADAD_TERMINAL_KEY'), env('SADAD_PAYMENT_IDENTITY'));
+  $sadad = new Sadad(
+    MyCrypt::decrypt_pkcs7(env('SADAD_MERCHANT_ID')),
+    MyCrypt::decrypt_pkcs7(env('SADAD_TERMINAL_ID')),
+    MyCrypt::decrypt_pkcs7(env('SADAD_TERMINAL_KEY')),
+    MyCrypt::decrypt_pkcs7(env('SADAD_PAYMENT_IDENTITY'))
+  );
+
   $res = $sadad->request(10000, 1545, route('verify'));
 //  return $res;
   $res_code = $res->ResCode;
@@ -27,6 +51,16 @@ Route::get('test', function (){
 Route::post('/verify',function (){
 
 })->name('verify');
+
+
+
+
+
+
+
+
+
+
 
 //auth
 Auth::routes();
@@ -86,6 +120,8 @@ Route::post('/user-recommend-course', 'UserDashboardController@recommendCourse')
 
 
 
+
+
 //master routes
 Route::get('/professor-dashboard', 'MasterDashboardController@show')->name('professor-dashboard');
 Route::get('/professor-courses', 'MasterDashboardController@courses')->name('professor-courses');
@@ -127,7 +163,6 @@ Route::post('/admin-change-password', 'AdminDashboardController@changePassword')
 Route::post('/admin-professor-send-message', 'AdminDashboardController@professorSendMessage')->name('admin-professor-send-message');
 Route::post('/admin-user-send-message', 'AdminDashboardController@userSendMessage')->name('admin-user-send-message');
 Route::get('/admin-user-print-certificate/{user_id}/{course_id}', 'AdminDashboardController@userCertificatePrint')->name('admin-user-print-certificate');
-
-Route::post('table-post','AdminDashboardController@userExportCertificate')->name('table-post');
+Route::post('/admin-export-certificate','AdminDashboardController@userExportCertificate')->name('admin-export-certificate');
 
 

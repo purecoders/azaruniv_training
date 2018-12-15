@@ -21,24 +21,26 @@
                 <tbody>
 
                 @php($i = 0)
-                @foreach($students as $student)
+                @foreach($users as $user)
+                    @if(\App\Http\Controllers\helper\UserHelper::isStudent($user))
                     <tr>
                         <th scope="row">{{++$i}}</th>
-                        <td>{{$student->name}}</td>
-                        <td>{{$student->national_code}}</td>
-                        <td>{{$student->mobile}}</td>
-                        <td>{{$student->major}}</td>
+                        <td>{{$user->name}}</td>
+                        <td>{{$user->national_code}}</td>
+                        <td>{{$user->mobile}}</td>
+                        <td>{{$user->major}}</td>
                         <td>
                             <div class="student-img-container">
-                                @if($student->photo !== null)
-                                    <img src="{{asset($student->photo->path)}}" alt="">
+                                @if($user->photo !== null)
+                                    <img src="{{asset($user->photo->path)}}" alt="">
                                 @endif
                             </div>
                         </td>
                         <td>
-                            <a href="{{route('admin-user-detail', ['id' => $student->id])}}" class="btn btn-sm btn-blue mt-2">مشاهده جزئیات</a>
+                            <a href="{{route('admin-user-detail', ['id' => $user->id])}}" class="btn btn-sm btn-blue mt-2">مشاهده جزئیات</a>
                         </td>
                     </tr>
+                    @endif
                 @endforeach
 
 
@@ -46,25 +48,32 @@
                 </tbody>
             </table>
         </div>
+
         <nav aria-label="Page navigation example">
             <ul class="pagination">
-                <li class="page-item">
-                    <a class="page-link text-blue" href="#" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                </li>
-                <li class="page-item"><a class="page-link text-blue" href="#">1</a></li>
-                <li class="page-item"><a class="page-link text-blue" href="#">2</a></li>
-                <li class="page-item"><a class="page-link text-blue" href="#">3</a></li>
-                <li class="page-item">
-                    <a class="page-link text-blue" href="#" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                </li>
+                {{$users->links()}}
             </ul>
         </nav>
+
+        {{--<nav aria-label="Page navigation example">--}}
+            {{--<ul class="pagination">--}}
+                {{--<li class="page-item">--}}
+                    {{--<a class="page-link text-blue" href="#" aria-label="Previous">--}}
+                        {{--<span aria-hidden="true">&laquo;</span>--}}
+                        {{--<span class="sr-only">Previous</span>--}}
+                    {{--</a>--}}
+                {{--</li>--}}
+                {{--<li class="page-item"><a class="page-link text-blue" href="#">1</a></li>--}}
+                {{--<li class="page-item"><a class="page-link text-blue" href="#">2</a></li>--}}
+                {{--<li class="page-item"><a class="page-link text-blue" href="#">3</a></li>--}}
+                {{--<li class="page-item">--}}
+                    {{--<a class="page-link text-blue" href="#" aria-label="Next">--}}
+                        {{--<span aria-hidden="true">&raquo;</span>--}}
+                        {{--<span class="sr-only">Next</span>--}}
+                    {{--</a>--}}
+                {{--</li>--}}
+            {{--</ul>--}}
+        {{--</nav>--}}
 
 
 

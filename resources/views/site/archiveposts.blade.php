@@ -18,9 +18,7 @@
                     <div class="tab-card-title mx-2 d-flex flex-column justify-content-between">
                         <h5><a href="{{route('post.show', ['id'=>$post->id])}}" class="text-blue hover-link">{{$post->title}}</a></h5>
                         <p class="mt-3 card-desc">
-                            @php
-                                echo $post->content;
-                            @endphp
+                            {{strip_tags($post->content)}}
 
                         </p>
 
@@ -39,19 +37,24 @@
 
 
 
-
-    <nav aria-label="Page navigation text-center ">
-        <ul class="pagination justify-content-center">
-            <li class="page-item disabled">
-                <a class="page-link" href="#" tabindex="-1">قبلی</a>
-            </li>
-            <li class="page-item"><a class="page-link hover-link nav-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link hover-link nav-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link hover-link nav-link" href="#">3</a></li>
-            <li class="page-item">
-                <a class="page-link" href="#">بعدی</a>
-            </li>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            {{$posts->links()}}
         </ul>
     </nav>
+
+    {{--<nav aria-label="Page navigation text-center ">--}}
+        {{--<ul class="pagination justify-content-center">--}}
+            {{--<li class="page-item disabled">--}}
+                {{--<a class="page-link" href="#" tabindex="-1">قبلی</a>--}}
+            {{--</li>--}}
+            {{--<li class="page-item"><a class="page-link hover-link nav-link" href="#">1</a></li>--}}
+            {{--<li class="page-item"><a class="page-link hover-link nav-link" href="#">2</a></li>--}}
+            {{--<li class="page-item"><a class="page-link hover-link nav-link" href="#">3</a></li>--}}
+            {{--<li class="page-item">--}}
+                {{--<a class="page-link" href="#">بعدی</a>--}}
+            {{--</li>--}}
+        {{--</ul>--}}
+    {{--</nav>--}}
 
 @endsection

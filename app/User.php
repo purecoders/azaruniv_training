@@ -97,13 +97,11 @@ class User extends Authenticatable
     public function hasCertificate($course_id){
       $userCourse = UserCourse::where('student_id', '=', $this->id)->where('course_id', '=', $course_id)->first();
       if($userCourse !== null){
-
         if($userCourse->has_certificate == 1){
           return true;
         }else{
           return false;
         }
-
       }else{
         return false;
       }

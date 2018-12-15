@@ -27,11 +27,8 @@
             <div class="col-xl-7">
                 <div class="tab-card-title d-flex flex-column justify-content-between pt-0">
                     <h5><a href="{{route('course.show', $course->id)}}" class="text-blue hover-link">{{$course->title}}</a></h5>
-                    <p class="" style="max-height: 6em;overflow: hidden">
-                        {{--@php--}}
-                        {{--echo $course->description;--}}
-                        {{--@endphp--}}
-
+                    <p class="card-desc" style="max-height: 6em;overflow: hidden">
+                        {{strip_tags($course->description)}}
                     </p>
 
                     @php

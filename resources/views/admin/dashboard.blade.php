@@ -1,6 +1,7 @@
 
 @extends('layouts.masterLayout')
 @section('content')
+    <script src="{{asset('js/ckeditor/ckeditor.js')}}"></script>
 <div class="container-fluid py-2 my-2 ">
     @include('include.route', ['site_route' => 'داشبورد مدیریت'])
     <h6 class="mb-2">بخش مدیریت </h6>

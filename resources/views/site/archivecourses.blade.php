@@ -19,9 +19,7 @@
                     <div class="tab-card-title mx-2 d-flex flex-column justify-content-between">
                         <h5><a href="{{route('course.show', ['id'=>$course->id])}}" class="text-blue hover-link">{{$course->title}}</a></h5>
                         <p class="mt-3 card-desc">
-                            @php
-                                echo $course->description;
-                            @endphp
+                            {{strip_tags($course->description)}}
                         </p>
 
 
@@ -52,17 +50,24 @@
 
     </div>
 
-    <nav aria-label="Page navigation text-center mt-1">
-        <ul class="pagination justify-content-start">
-            <li class="page-item disabled">
-                <a class="page-link" href="#" tabindex="-1">قبلی</a>
-            </li>
-            <li class="page-item"><a class="page-link hover-link nav-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link hover-link nav-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link hover-link nav-link" href="#">3</a></li>
-            <li class="page-item">
-                <a class="page-link" href="#">بعدی</a>
-            </li>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            {{$courses->links()}}
         </ul>
     </nav>
+
+
+    {{--<nav aria-label="Page navigation text-center mt-1">--}}
+        {{--<ul class="pagination justify-content-start">--}}
+            {{--<li class="page-item disabled">--}}
+                {{--<a class="page-link" href="#" tabindex="-1">قبلی</a>--}}
+            {{--</li>--}}
+            {{--<li class="page-item"><a class="page-link hover-link nav-link" href="#">1</a></li>--}}
+            {{--<li class="page-item"><a class="page-link hover-link nav-link" href="#">2</a></li>--}}
+            {{--<li class="page-item"><a class="page-link hover-link nav-link" href="#">3</a></li>--}}
+            {{--<li class="page-item">--}}
+                {{--<a class="page-link" href="#">بعدی</a>--}}
+            {{--</li>--}}
+        {{--</ul>--}}
+    {{--</nav>--}}
 @endsection

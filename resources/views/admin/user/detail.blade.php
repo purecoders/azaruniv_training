@@ -82,7 +82,9 @@
 
 
                         <div>
-                                <a href="{{route('admin-user-print-certificate', ['user_id' => $user->id, 'course_id' => $course->id])}}" class="ml-1 btn btn-sm btn-outline-blue">پرینت گواهی</a>
+                            @if($user->hasCertificate($course->id))
+                                <a href="{{route('admin-user-print-certificate', ['user_id' => $user->id, 'course_id' => $course->id])}}" class="ml-1 btn btn-sm btn-outline-blue">پرینت گواهی پایان دوره</a>
+                            @endif
                             <div class="m-1 admin-course-container d-flex flex-column">
                                 <div class="row">
                                     <div class="col-sm-4">
@@ -94,7 +96,7 @@
                                     </div>
                                     <div class="col-sm-8">
                                         <a href="{{route('admin-course', $course->id)}}">
-                                            {{$course->title}}
+                                            <b>{{$course->title}}</b>
                                         </a>
                                         <p>
                                             {{strip_tags($course->description)}}
@@ -159,7 +161,7 @@
 
 
                     @else
-                        <tr style="background-color: rgba(255,26,0,0.79)">
+                        <tr style="background-color: rgb(255,114,130)">
                             <th scope="row">{{++$i}}</th>
                             <td>{{number_format($payment->amount)}}</td>
                             <td>{{$payment->course->title}}</td>

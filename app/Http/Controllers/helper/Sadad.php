@@ -47,16 +47,7 @@ class Sadad {
 
     $str_data = json_encode($data);
 
-//    $str_data = '{
-//"MerchantId":"000000140330464",
-//"TerminalId":"24049433",
-//"Amount":"10000",
-//"OrderId":"1545",
-//"LocalDateTime":"12/07/2018 3:06:29 pm",
-//"ReturnUrl":"http://azaruniv-training.ud/verify",
-//"SignData":"DXbNuFo6VAIHM5BoVC+OG2S6Yx4y+WHS",
-//"PaymentIdentity":"329074654120007000000000000063"
-//}';
+
 
     $response = $this->callApi($this->start_pay_url, $str_data);//
     $response = json_decode($response);
@@ -113,23 +104,12 @@ else
   }
 
   private function callApi2($url, $data = false){
-//    $str_data = '{
-//    "MerchantId":"000000140330464",
-//    "TerminalId":"24049433",
-//    "Amount":"10000",
-//    "OrderId":"1545",
-//    "LocalDateTime":"12/07/2018 3:06:29 pm",
-//    "ReturnUrl":"http://azaruniv-training.ud/verify",
-//    "SignData":"DXbNuFo6VAIHM5BoVC+OG2S6Yx4y+WHS",
-//    "PaymentIdentity":"329074654120007000000000000063"
-//    }';
+
     $client = new Client(['headers' => ['Content-Type' => 'application/json' ,'Content-Length' => strlen($data)]]);
-//    $client = new Client(['headers' => ['Content-Type' => 'application/json']]);
-//    $res = $client->post($url, [
-//      ['headers' => ['Content-Type' => 'application/json']],
-//      $str_data,
-//      'http_errors' => false,
-//    ]);
+    $res = $client->post($url, [
+      $data,
+      'http_errors' => false,
+    ]);
 
 
     $res = $client->request('POST', $url, [

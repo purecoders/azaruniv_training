@@ -22,7 +22,7 @@ class UserController extends Controller
     $this->validate($request,[
       'name'       => 'required|string|min:2|max:60',
       'mobile' => 'required|string|email|max:20',
-      'national_code' => 'required|string|max:11|min:9',
+      'national_code' => 'required|string|max:11|min:9|unique:users',
     ]);
 
     $user = Auth::user();

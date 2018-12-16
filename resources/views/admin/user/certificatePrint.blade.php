@@ -70,7 +70,7 @@
         <span class="bolds"> (({{$course->title}})) </span>
         را به مدت
         <span class="bolds"> (({{\App\Http\Controllers\helper\PersianNumber::latinToPersian($course->duration)}})) </span>
-        ساعت ، د ر تاریخ
+        ساعت ، در تاریخ
         @php
             $date = new \App\Http\Controllers\helper\PersianDate();
             $date = $date->to_date($course->finish_date, 'Y/m/d')

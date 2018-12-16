@@ -35,7 +35,7 @@ class SiteIndexPageController extends Controller
 
     public function categoryCourses($id){
       $category = Category::find($id);
-      $courses = $category->courses;
+      $courses = $category->courses()->orderBy('id', 'desc')->get();
       return view('site.courses',compact(['courses', 'category']));
     }
 
@@ -82,7 +82,7 @@ class SiteIndexPageController extends Controller
       //register free courses
       if($course->cost == 0){
         $user_course = UserCourse::create([
-          'student_id' => Auth::user()->user_id,
+          'student_id' => $user->id,
           'course_id' => $course->id,
           'has_certificate' => 0,
         ]);
@@ -125,7 +125,7 @@ class SiteIndexPageController extends Controller
 
       //get below data from your call_back_url
 //    $order_id=$_POST["OrderId"];
-//    $token=$_POST["token"];
+//    $token=$_POST["Token"];
 //    $response_code=$_POST["ResCode"];
 
 
@@ -133,8 +133,7 @@ class SiteIndexPageController extends Controller
       $token = $request->Token;
       $pay_res_code = $request->ResCode;
 
-
-
+      $order = Order::find($order_id);
 
       if ($pay_res_code != 0){
         $description = 'تراکنش به دلایلی ناموفق بود لطفا دوباره امتحان کنید';
@@ -151,16 +150,15 @@ class SiteIndexPageController extends Controller
 
       $verify_response = $sadad->verify($token);
       $res_code = $verify_response->ResCode;
-      $amount = $verify_response->Amount;
-      $description = $verify_response->Description;
-      $retrival_ref_no = $verify_response->RetrivalRefNo;
-      $system_trace_no = $verify_response->SystemTraceNo;
-      $order_id = $verify_response->OrderId;
+      if ($res_code == 0) {
+        $amount = $verify_response->Amount;
+        $description = $verify_response->Description;
+        $retrival_ref_no = $verify_response->RetrivalRefNo;
+        $system_trace_no = $verify_response->SystemTraceNo;
+        $order_id = $verify_response->OrderId;
+      }
 
-
-      $order = Order::find($order_id);
-
-      if($pay_res_code == 0 && $res_code == 0 && $amount == $order->amount){
+      if($pay_res_code == 0 && $res_code == 0){
         //success
 
         $user_course = UserCourse::create([
@@ -182,16 +180,7 @@ class SiteIndexPageController extends Controller
 
       }else{
         //failed
-
-        $payment = Payment::create([
-          'course_id' => $order->course_id,
-          'user_id' => $order->user_id,
-          'amount' => (int)($order->amount/10),
-          'is_success' => 0,
-          'retrival_ref_no' => $retrival_ref_no,
-          'system_trace_no' => $system_trace_no,
-        ]);
-
+        $description = 'تراکنش نا موفق بود در صورت کسر مبلغ از حساب شما حداکثر پس از 72 ساعت مبلغ به حسابتان برمی گردد';
         return view('user.paymentFailed', compact('description'));
       }
 

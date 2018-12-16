@@ -75,15 +75,6 @@ class Sadad {
 
     return $response_data;
 
-    /*
-      if($response_data->ResCode!=-1 && $response_code==0)
-{
-	//Save $arrres->RetrivalRefNo,$arrres->SystemTraceNo,$arrres->OrderId to DataBase
-	echo "شماره سفارش:".$OrderId."<br>"."شماره پیگیری : ".$arrres->SystemTraceNo."<br>"."شماره مرجع:".
-	$arrres->RetrivalRefNo."<br> اطلاعات بالا را جهت پیگیری های بعدی یادداشت نمایید."."<br>";
-}
-else
-	echo "تراکنش نا موفق بود در صورت کسر مبلغ از حساب شما حداکثر پس از 72 ساعت مبلغ به حسابتان برمی گردد.";	*/
 
 
   }
@@ -101,21 +92,7 @@ else
     return $result;
   }
 
-  private function callApi2($url, $data = false){
 
-    $client = new Client(['headers' => ['Content-Type' => 'application/json' ,'Content-Length' => strlen($data)]]);
-    $res = $client->post($url, [
-      $data,
-      'http_errors' => false,
-    ]);
-
-
-    $res = $client->request('POST', $url, [
-      'json' => $data,
-      'http_errors' => false
-    ]);
-    return json_decode((string)$res->getBody());
-  }
 
 
 

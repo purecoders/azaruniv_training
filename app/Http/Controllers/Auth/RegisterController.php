@@ -55,7 +55,7 @@ class RegisterController extends Controller
             'email' => 'required|string|email|max:255|unique:users',
             'mobile' => 'required|string|max:20',
             'major' => 'required|string|max:100',
-            'national_code' => 'required|string|max:12|min:3',
+            'national_code' => 'required|string|max:12|min:3|unique:users',
             'password' => 'required|string|min:6|confirmed',
         ]);
     }
@@ -90,7 +90,7 @@ class RegisterController extends Controller
           'imageable_id' => $user->id,
           'imageable_type' => 'App\User',
           'path' => $file_path,
-          'url' => env('APP_URL') . '/'. $file_path,
+          'url' => url('/') . '/'. $file_path,
         ]);
 
 

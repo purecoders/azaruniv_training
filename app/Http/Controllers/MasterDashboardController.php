@@ -130,7 +130,7 @@ class MasterDashboardController extends Controller
         'imageable_id' => $user->id,
         'imageable_type' => 'App\User',
         'path' => $file_path,
-        'url' => env('APP_URL') . '/'. $file_path,
+        'url' => url('/') . '/'. $file_path,
       ]);
 
       return redirect(route('professor-profile'));
@@ -165,7 +165,8 @@ class MasterDashboardController extends Controller
       $cv = $user->masterInfo;
       $cv->content = $content;
       if($hasFile == true){
-        $cv->docs_path = env('APP_URL') . '/' . $file_path;
+//        $cv->docs_path = url('/') . '/' . $file_path;
+        $cv->docs_path = $file_path;
       }
       $cv->save();
 

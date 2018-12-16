@@ -115,7 +115,7 @@ class UserDashboardController extends Controller
       'imageable_id' => $user->id,
       'imageable_type' => 'App\User',
       'path' => $file_path,
-      'url' => env('APP_URL') . '/'. $file_path,
+      'url' => url('/') . '/'. $file_path,
     ]);
 
     return redirect(route('user-profile'));

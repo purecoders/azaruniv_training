@@ -83,7 +83,7 @@ class CourseController extends Controller
         'imageable_id' => $course->id,
         'imageable_type' => 'App\Course',
         'path' => $file_path,
-        'url' => env('APP_URL') . '/'. $file_path,
+        'url' => url('/') . '/'. $file_path,
       ]);
 
       return redirect('admin-courses');
@@ -158,7 +158,7 @@ class CourseController extends Controller
           'imageable_id' => $course->id,
           'imageable_type' => 'App\Course',
           'path' => $file_path,
-          'url' => env('APP_URL') . '/' . $file_path,
+          'url' => url('/') . '/' . $file_path,
         ]);
       }
 

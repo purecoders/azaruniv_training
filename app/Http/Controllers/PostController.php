@@ -60,7 +60,7 @@ class PostController extends Controller
         'imageable_id' => $post->id,
         'imageable_type' => 'App\Post',
         'path' => $file_path,
-        'url' => env('APP_URL') . '/'. $file_path,
+        'url' => url('/') . '/'. $file_path,
       ]);
 
       return redirect('/admin-posts');

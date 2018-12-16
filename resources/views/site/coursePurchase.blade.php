@@ -54,7 +54,11 @@
                                 @if($course->students()->count() < $course->capacity)
                                     @if($course->is_open == 1)
                                         {{--goto pay--}}
-                                        <a href="{{route('course-register', $course->id)}}" class="course-price  mt-3"> پرداخت و ثبت نام</a>
+                                        @if($course->cost == 0)
+                                            <a href="{{route('course-register', $course->id)}}" class="course-price  mt-3"> ثبت نام</a>
+                                        @else
+                                            <a href="{{route('course-register', $course->id)}}" class="course-price  mt-3"> پرداخت و ثبت نام</a>
+                                        @endif
                                     @else
                                         <span  class="course-price  mt-3">متاسفانه امکان ثبت نام وجود ندارد</span>
                                     @endif

@@ -92,17 +92,16 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav mr-auto ">
-
-
+                    @php
+                        $categories = \App\Category::all();
+                    @endphp
+                    @foreach($categories as $category)
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('course-category',['id'=>1]) }}">دوره های حضوری</a>
+                        <a class="nav-link" href="{{ route('course-category',['id'=>$category->id]) }}">{{$category->name}}</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('course-category',['id'=>2]) }}">زبان های خارجه</a>
-                    </li>
-                    {{--<li class="nav-item">--}}
-                        {{--<a class="nav-link" href="{{ route('course-category',['id'=>3]) }}">دوره های مجازی</a>--}}
-                    {{--</li>--}}
+                    @endforeach
+
+                    
 
                     <li class="nav-item">
                         <a id="contactUsBtn" class="nav-link" href="#contactUs">ارتباط با ما</a>

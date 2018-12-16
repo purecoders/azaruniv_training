@@ -3,26 +3,9 @@
 
 use App\Http\Controllers\helper\MyCrypt;
 use App\Http\Controllers\helper\Sadad;
-use App\Ticket;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 
-Route::get('test1', function (){
-//  $description = 'ثبت نام با موفقیت انجام شد.';
-//  return view('user.paymentFailed', compact('description'));
-//  $description = 'ثبت نام با موفقیت انجام شد.';
-//  $retrival_ref_no = ' 645dfdf';
-//  $system_trace_no = '646545456564 ';
-//  $amount = 250000;
-//  return view('user.paymentSuccess', compact(['description', 'retrival_ref_no', 'system_trace_no', 'amount']));
-
-
-  $text = '329074654120007000000000000063';
-  $enc = MyCrypt::encrypt_pkcs7($text);
-  echo $enc ;
-//  echo 'dec = ' . MyCrypt::decrypt_pkcs7($enc);
-});
 
 
 
@@ -53,6 +36,9 @@ Route::post('/verify',function (){
 })->name('verify');
 
 
+Route::get('/test3',function (){
+  return url('/');
+});
 
 
 

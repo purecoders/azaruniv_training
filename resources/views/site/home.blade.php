@@ -44,7 +44,7 @@
         </ul>
         <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade " id="news" role="tabpanel" aria-labelledby="news-tab">
-                <div class="container tab-container p-2 pt-3 ">
+                <div class="container tab-container p-xl-2 p-md-1 p-sm-0  pt-3 ">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="card  border-0">
@@ -153,7 +153,7 @@
                 </div>
             </div>
             <div class="tab-pane fade show active" id="event" role="tabpanel" aria-labelledby="event-tab">
-                <div class="container tab-container p-2 pt-3">
+                <div class="container tab-container p-xl-2 p-md-1 p-sm-0 pt-3">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="card  border-0">

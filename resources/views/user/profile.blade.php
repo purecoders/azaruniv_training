@@ -4,7 +4,7 @@
     <div class="container">
         <div class=" p-3">
             <div class="row">
-                <div class="col-sm-4 col-md-3 col-xl-2">
+                <div class="col-sm-4 col-md-3 col-xl-2 col-7">
                     <form action="" method="">
                         <div class="user-img-container d-flex justify-content-center align-items-center">
                             <img id="profileImage" src="{{asset('img/master.jpg')}}" alt="">
@@ -12,7 +12,7 @@
 
                         </div>
                         <div id="imgUploadBtnContainer" class="img-upload-btn-wrapper">
-                            <button class="btn btn-block mt-1 btn-outline-secondary"
+                            <button class="btn btn-block btn-sm mt-1 btn-outline-secondary"
                                     onclick="performClick('inputProfileImg')">انتخاب تصویر
                             </button>
                             {{--<div id="imgTitle">تصویر پروفایل</div>--}}
@@ -20,19 +20,19 @@
                             <input id="inputProfileImg" type="file" name="" accept="image/jpeg"/>
                         </div>
 
-                        <button type="submit" class="btn btn-block mt-1 btn-outline-secondary">ثبت تصویر</button>
+                        <button type="submit" class="btn btn-block btn-sm mt-1 btn-outline-secondary">ثبت تصویر</button>
                     </form>
                 </div>
                 <div class="col-sm-6 col-md-9 col-xl-10">
-                    <div class="d-flex flex-column h-100 justify-content-around">
+                    <div class="d-flex flex-column h-100 justify-content-around mt-3 m-md-0 ">
                         <div class="row">
-                            <div class="col-md-6">
-                                <spna><i class="fal fa-user"></i></spna>
+                            <div class="col-md-6 ">
+                                <span><i class="fal fa-user"></i></span>
                                 <span>نام و نام خانوادگی:</span>
-                                <span class="mx-2">پویا آکلیون</span>
+                                <span class="ml-auto">پویا آکلیون</span>
                             </div>
                             <div class="col-md-6">
-                                <spna><i class="fal fa-book"></i></spna>
+                                <span><i class="fal fa-book"></i></span>
                                 <span>رشته تحصیلی:</span>
                                 <span class="mx-2">فناوری اطلاعات</span>
                             </div>
@@ -40,12 +40,12 @@
 
                         <div class="row">
                             <div class="col-md-6">
-                                <spna><i class="fal fa-mobile"></i></spna>
+                                <span><i class="fal fa-mobile"></i></span>
                                 <span>شماره تلفن:</span>
                                 <span class="mx-2">09388584677</span>
                             </div>
                             <div class="col-md-6">
-                                <spna><i class="fal fa-graduation-cap"></i></spna>
+                                <span><i class="fal fa-graduation-cap "></i></span>
                                 <span>شماره دانشجویی:</span>
                                 <span class="mx-2">931831208</span>
                             </div>
@@ -70,10 +70,10 @@
     <div class="row mt-3">
         <div class="col-12">
             <h6>تغییر رمز عبور</h6>
-            <form class="col-6" action="" onsubmit="return checkChangePasswordForm(this)">
+            <form class="col-md-7 col-12" action="" onsubmit="return checkChangePasswordForm(this)">
                 <div class="form-group row">
                     <label for="password" class="col-sm-5 col-form-label">رمز عبور قبلی</label>
-                    <div class="col-sm-7">
+                    <div class="col-sm-7 ">
                         <input type="password" name="old_passowrd" class="form-control {{ $errors->has('old_password') ? ' is-invalid' : '' }}" id="password" placeholder="رمز عبور قبلی را وارد کنید">
                         @if ($errors->has('old_passowrd'))
                             <span class="invalid-feedback" role="alert">

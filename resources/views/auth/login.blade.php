@@ -3,7 +3,7 @@
 @section('content')
 <div class="container p-3 py-5 my-5 ">
     <div class="row justify-content-center">
-        <div class="col-md-8 mx-5">
+        <div class="col-md-8 ">
             <div class="card">
                 <div class="card-header">ورود</div>
 
@@ -42,7 +42,7 @@
                         <div class="form-group row">
                             <div class="col-md-6 offset-md-4">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                                    <input class="form-check-input m-0" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
                                     <label class="form-check-label" for="remember">
                                         مرا به خاطر بسپار

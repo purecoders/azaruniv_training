@@ -141,6 +141,11 @@ body {
     border-right-color: #FF6825;
     border-width: 4px;
   }
+  @media only screen and (max-width: 768px){
+    &:after{
+      display: none;
+    }
+  }
 }
 
 #top-nav .nav-link {
@@ -193,31 +198,45 @@ body {
   }
   .title {
     background-color: rgba(0, 0, 0, 0.0);
-    bottom: 100px;
+    bottom: 0;
     right: 20px;
     float: right;
     position: absolute;
     width: auto;
     z-index: 9999;
     color: #FFFFFF;
-    font-size: 1.2em;
+    font-size: 1em;
     padding: 1rem;
-    margin-bottom: 50px;
+    margin-bottom: 1em;
     transition: bottom .8s ease,background-color .8s ease,visibility .2s;
     //transition-delay: .1s;
     visibility: hidden;
   }
-  @media only screen and(max-width: 426px) {
+  @media only screen and(max-width: 768px) {
+    img{
+      min-height: 250px;
+    }
     .title {
-      height: 50px;
-      font-size: 4vw;
-      padding: .7rem;
+      font-size: .8em;
+      padding:.5rem;
+    }
+  }
+  @media only screen and(max-width: 426px) {
+    img{
+      min-height: 160px;
+    }
+    .title {
+      max-height: 30px;
+      overflow-y: hidden;
+      font-size: .7em;
+      padding: .25rem;
+      padding-top: .5rem;
       top: 0px;
       width: 100%;
       right: 0px;
       bottom: 0px;
       margin: 0;
-      max-height: 100px;
+
     }
   }
 }
@@ -228,6 +247,24 @@ body {
       background-color: rgba(0, 0, 0, 0.65);
       bottom: 20px;
     }
+  }
+  @media only screen and (max-width: 768px) {
+    .swiper-button-prev{
+      background-size:30px 30px !important;
+    }
+    .swiper-button-next{
+      background-size:30px 30px !important;
+    }
+
+  }
+  @media only screen and (max-width: 426px) {
+    .swiper-button-prev{
+      background-size:20px 20px !important;
+    }
+    .swiper-button-next{
+      background-size:20px 20px !important;
+    }
+
   }
 }
 .divider {
@@ -989,8 +1026,31 @@ input[type=number]::-webkit-outer-spin-button {
   background-color: rgb(255, 119, 120);
   color:black;
 }
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 576px) {
+  .top-news-container{
+    margin-top: .75em;
+  }
+  body {
+    font-size: 0.8em;
+  }
+  .card-body{
+    padding: .5rem !important;
+  }
+  .master-container{
+    .card-body{
+      padding: 1rem !important;
+    }
+  }
+  .chat-view{
+    width: 100% !important;
+  }
 
+}
+
+@media only screen and (max-width: 768px) {
+  .top-news-container{
+    margin-top: .75em;
+  }
   body {
     font-size: 0.8em;
   }

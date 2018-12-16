@@ -65,12 +65,10 @@ class Sadad {
 
 
   public function verify($token){
-    //get below data from your call_back_url
-//    $order_id=$_POST["OrderId"];
-//    $token=$_POST["token"];
-//    $response_code=$_POST["ResCode"];
 
-    $verify_data = array('Token'=>$token, 'SignData' => $this->encrypt_pkcs7($token, $this->terminal_key));
+    $verify_data = array(
+      'Token'=>$token, 'SignData' => $this->encrypt_pkcs7($token, $this->terminal_key)
+    );
     $str_data = json_encode($verify_data);
     $response = $this->callApi($this->verify_pay_url, $str_data);
     $response_data = json_decode($response);

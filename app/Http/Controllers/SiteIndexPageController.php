@@ -124,6 +124,13 @@ class SiteIndexPageController extends Controller
 
 
     public function courseVerifyPay(Request $request){
+
+      //get below data from your call_back_url
+//    $order_id=$_POST["OrderId"];
+//    $token=$_POST["token"];
+//    $response_code=$_POST["ResCode"];
+
+
       $order_id = $request->OrderId;
       $token = $request->Token;
       $pay_res_code = $request->ResCode;
@@ -157,7 +164,7 @@ class SiteIndexPageController extends Controller
         $payment = Payment::create([
           'course_id' => $order->course_id,
           'user_id' => $order->user_id,
-          'amount' => (int)($order->amount/10),
+          'amount' => (int)(($order->amount)/10),
           'is_success' => 1,
           'retrival_ref_no' => $retrival_ref_no,
           'system_trace_no' => $system_trace_no,

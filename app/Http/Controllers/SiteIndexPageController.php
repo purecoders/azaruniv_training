@@ -9,9 +9,7 @@ use App\Http\Controllers\helper\Sadad;
 use App\Order;
 use App\Payment;
 use App\Post;
-use App\SiteInfo;
 use App\Slider;
-use App\User;
 use App\UserCourse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -135,6 +133,15 @@ class SiteIndexPageController extends Controller
       $token = $request->Token;
       $pay_res_code = $request->ResCode;
 
+
+
+
+      if ($pay_res_code != 0){
+        $description = 'تراکنش به دلایلی ناموفق بود لطفا دوباره امتحان کنید';
+        return view('user.paymentFailed', compact('description'));
+      }
+
+
       $sadad = new Sadad(
         MyCrypt::decrypt_pkcs7(env('SADAD_MERCHANT_ID')),
         MyCrypt::decrypt_pkcs7(env('SADAD_TERMINAL_ID')),
@@ -149,6 +156,7 @@ class SiteIndexPageController extends Controller
       $retrival_ref_no = $verify_response->RetrivalRefNo;
       $system_trace_no = $verify_response->SystemTraceNo;
       $order_id = $verify_response->OrderId;
+
 
       $order = Order::find($order_id);
 

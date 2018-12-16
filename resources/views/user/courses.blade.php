@@ -19,8 +19,8 @@
 
                 </div>
                 <div class="col-xl-8">
-                    <div class="h-100 tab-card-title mx-2 d-flex flex-column justify-content-between pt-0">
-                        <div class="d-flex justify-content-between">
+                    <div class="h-100 tab-card-title mx-2 d-flex flex-column justify-content-between pt-md-0 pb-1">
+                        <div class="d-flex justify-content-between flex-wrap">
                             <h5><a href="{{route('course.show', ['id'=>$course->id])}}" class="test text-blue hover-link">{{$course->title}}</a></h5>
                             @if(\Illuminate\Support\Facades\Auth::user()->hasCertificate($course->id))
                                 <span class="alert alert-success">گواهی پایان دوره شما آماده است.برای دریافت به مدیریت مراجعه فرمایید.</span>

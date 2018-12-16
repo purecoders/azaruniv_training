@@ -3,7 +3,7 @@
         <div class="row h-100 align-items-center ">
             <div class="col-md-8 py-0">
                 <div class="row">
-                    <div class="col-md-4 py-0">
+                    <div class="col-md-5 py-0 text-center text-sm-center ">
                         <span class=" nav-top-new-container "> آخرین اخبار و اطلاعیه های مرکز</span>
                         @php
                             use App\Post;
@@ -11,7 +11,7 @@
                         @endphp
                     </div>
 
-                    <div class="col-md-8">
+                    <div class="top-news-container col-md-7">
                         <div dir=ltr class="text-white single-item text-center ">
                            @foreach($posts as $post)
                             <div><a class="text-white" href="{{route('post.show', ['id'=>$post->id])}}">{{$post->title}}</a></div>
@@ -21,7 +21,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 d-flex align-self-stretch">
+            <div class="col-md-4 d-flex align-self-stretch p-md-0">
                 <span class="flex-grow-1"></span>
                 {{--<span ><a class="link-wrapper" href="#">صفحه اصلی دانشگاه </a></span>--}}
                 {{--<span class="link-wrapper"><a class="" href="#">ارتباط با دانشگاه</a></span>--}}
@@ -48,7 +48,7 @@
             <img src="{{asset('img/logo.png')}}" alt="logo" class="p-2 px-4" style="height: 100px">
         </a>
         <div class="flex-grow-1"></div>
-        <div class="d-flex flex-column">
+        <div class="d-flex flex-column ml-auto">
             <div class="d-flex p-1 p-xl-5 ">
                 @php
                     date_default_timezone_set('Asia/Tehran');

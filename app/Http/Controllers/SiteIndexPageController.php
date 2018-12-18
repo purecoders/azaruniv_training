@@ -104,10 +104,10 @@ class SiteIndexPageController extends Controller
       ]);
 
       $sadad = new Sadad(
-        MyCrypt::decrypt_pkcs7(env('SADAD_MERCHANT_ID')),
-        MyCrypt::decrypt_pkcs7(env('SADAD_TERMINAL_ID')),
-        MyCrypt::decrypt_pkcs7(env('SADAD_TERMINAL_KEY')),
-        MyCrypt::decrypt_pkcs7(env('SADAD_PAYMENT_IDENTITY'))
+        env('SADAD_MERCHANT_ID'),
+        env('SADAD_TERMINAL_ID'),
+        env('SADAD_TERMINAL_KEY'),
+        env('SADAD_PAYMENT_IDENTITY')
       );
 
       $response = $sadad->request($order->amount, $order->id, route('course-verify-pay'));
@@ -142,10 +142,10 @@ class SiteIndexPageController extends Controller
 
 
       $sadad = new Sadad(
-        MyCrypt::decrypt_pkcs7(env('SADAD_MERCHANT_ID')),
-        MyCrypt::decrypt_pkcs7(env('SADAD_TERMINAL_ID')),
-        MyCrypt::decrypt_pkcs7(env('SADAD_TERMINAL_KEY')),
-        MyCrypt::decrypt_pkcs7(env('SADAD_PAYMENT_IDENTITY'))
+        env('SADAD_MERCHANT_ID'),
+        env('SADAD_TERMINAL_ID'),
+        env('SADAD_TERMINAL_KEY'),
+        env('SADAD_PAYMENT_IDENTITY')
       );
 
       $verify_response = $sadad->verify($token);

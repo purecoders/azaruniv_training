@@ -1,51 +1,6 @@
 <?php
 
 
-use App\Http\Controllers\helper\MyCrypt;
-use App\Http\Controllers\helper\Sadad;
-use Illuminate\Http\Request;
-
-
-
-
-
-Route::get('test', function (){
-
-
-  $sadad = new Sadad(
-    MyCrypt::decrypt_pkcs7(env('SADAD_MERCHANT_ID')),
-    MyCrypt::decrypt_pkcs7(env('SADAD_TERMINAL_ID')),
-    MyCrypt::decrypt_pkcs7(env('SADAD_TERMINAL_KEY')),
-    MyCrypt::decrypt_pkcs7(env('SADAD_PAYMENT_IDENTITY'))
-  );
-
-  $res = $sadad->request(10000, 1545, route('verify'));
-//  return $res;
-  $res_code = $res->ResCode;
-  $token = $res->Token;
-  $desc = $res->Description;
-  echo "res_code = $res_code . <br>token = $token <br>desc = $desc";
-
-})->name('test');
-
-
-
-
-Route::post('/verify',function (){
-
-})->name('verify');
-
-
-Route::get('/test3',function (){
-  return url('/');
-});
-
-
-
-
-
-
-
 
 
 //auth

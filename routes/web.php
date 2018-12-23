@@ -104,6 +104,15 @@ Route::get('/admin-course', function () {
 Route::get('/admin-slider', function () {
     return view('admin.site.slider');
 })->middleware('auth')->name('admin-slider');
+
+Route::get('/admin-rules', function () {
+    return view('admin.site.rules');
+})->middleware('auth')->name('admin-rules');
+
+Route::get('/admin-authorities', function () {
+    return view('admin.site.authorities');
+})->middleware('auth')->name('admin-authorities');
+
 Route::get('/admin-contact-us', function () {
     return view('admin.site.contactUs');
 })->middleware('auth')->name('admin-contact-us');

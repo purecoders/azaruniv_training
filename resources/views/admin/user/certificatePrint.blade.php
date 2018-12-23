@@ -79,8 +79,8 @@
         در دانشگاه شهید مدنی آذربایجان با موفقیت به پایان رسانده اند.
     </p>
     <p class="center-content d-flex justify-content-around">
-        <span>دکتر علی عجمی</span>
-        <span>دکتر بهزاد سلطانی</span>
+        <span>{{$authority2}}</span>
+        <span>{{$authority1}}</span>
     </p>
     <p class="footer-content d-flex justify-content-around">
         {{--<span class="title-one">معاون پژوهش و فناوری</span>--}}

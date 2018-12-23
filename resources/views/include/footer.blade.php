@@ -49,8 +49,7 @@
             <p class="wow fadeInRight" data-wow-duration="1s" dir="rtl">
                 طراحی و توسعه
                 توسط
-
-                <a target="#" class="text-success hover-link" href="https://www.ezitech.ir/">EziTech  </a>
+                <a target="#" class="text-success hover-link" href="https://www.ezitech.ir/">EziTech</a>
                 <span class="mx-4 ">|   تمامی حقوق برای دانشگاه شهید مدنی آذربایجان می باشد 1397</span>
 
             </p>

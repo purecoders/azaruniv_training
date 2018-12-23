@@ -105,5 +105,8 @@ Route::post('/admin-professor-send-message', 'AdminDashboardController@professor
 Route::post('/admin-user-send-message', 'AdminDashboardController@userSendMessage')->name('admin-user-send-message');
 Route::get('/admin-user-print-certificate/{user_id}/{course_id}', 'AdminDashboardController@userCertificatePrint')->name('admin-user-print-certificate');
 Route::post('/admin-export-certificate','AdminDashboardController@userExportCertificate')->name('admin-export-certificate');
-
-
+Route::get('/admin-rules', 'AdminDashboardController@rules')->name('admin-rules');
+Route::post('/admin-add-rule','AdminDashboardController@addRule')->name('admin-add-rule');
+Route::post('/admin-remove-rule','AdminDashboardController@removeRule')->name('admin-remove-rule');
+Route::get('/admin-authorities', 'AdminDashboardController@authorities')->name('admin-authorities');
+Route::post('/admin-edit-authorities', 'AdminDashboardController@editAuthorities')->name('admin-edit-authorities');

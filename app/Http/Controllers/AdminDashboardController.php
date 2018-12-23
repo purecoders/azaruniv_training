@@ -10,6 +10,7 @@ use App\Photo;
 use App\Post;
 use App\RecommendedCourse;
 use App\Role;
+use App\Rule;
 use App\SiteInfo;
 use App\Slider;
 use App\Ticket;
@@ -375,7 +376,10 @@ class AdminDashboardController extends Controller
   public function userCertificatePrint($user_id, $course_id){
     $user = User::find($user_id);
     $course = Course::find($course_id);
-    return view('admin.user.certificatePrint', compact(['user', 'course']));
+    $authority1 = SiteInfo::where('key' , '=', 'authority1')->first()->value;
+    $authority2 = SiteInfo::where('key' , '=', 'authority2')->first()->value;
+
+    return view('admin.user.certificatePrint', compact(['user', 'course', 'authority1', 'authority2']));
   }
 
 
@@ -403,6 +407,58 @@ class AdminDashboardController extends Controller
     return redirect(route('admin-course', $course_id));
   }
 
+
+
+  public function rules(){
+    $rules = Rule::all();
+    return view('admin.site.rules', compact('rules'));
+  }
+
+
+  public function addRule(Request $request){
+    $this->validate($request,[
+      'description' => 'required|string|max:3000|min:2',
+    ]);
+
+    $rule = Rule::create([
+      'description' => $request->description
+    ]);
+
+    return redirect(route('admin-rules'));
+
+  }
+
+
+  public function removeRule(Request $request){
+    $rule = Rule::find($request->id);
+    $rule->delete();
+    return redirect(route('admin-rules'));
+  }
+
+
+
+  public function authorities(){
+    $authority1 = SiteInfo::where('key' , '=', 'authority1')->first()->value;
+    $authority2 = SiteInfo::where('key' , '=', 'authority2')->first()->value;
+    return view('admin.site.authorities', compact(['authority1', 'authority2']));
+  }
+
+
+  public function editAuthorities(Request $request){
+    $this->validate($request,[
+      'authority1' => 'required|string|max:50|min:2',
+      'authority2' => 'required|string|max:50|min:2',
+    ]);
+
+    $authority1 = SiteInfo::where('key' , '=', 'authority1')->first();
+    $authority2 = SiteInfo::where('key' , '=', 'authority2')->first();
+    $authority1->value = $request->authority1;
+    $authority2->value = $request->authority2;
+    $authority1->save();
+    $authority2->save();
+
+    return redirect(route('admin-authorities'));
+  }
 
 
 }

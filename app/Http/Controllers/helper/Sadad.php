@@ -95,20 +95,23 @@ class Sadad {
 
 
 
+public function getRedirectUrl(){
+  return $this->redirect_url;
+}
 
-  private function encrypt_pkcs7($str, $key){
-    $key = base64_decode($key);
-    $ciphertext = OpenSSL_encrypt($str,"DES-EDE3", $key, OPENSSL_RAW_DATA);
-    return base64_encode($ciphertext);
-  }
+private function encrypt_pkcs7($str, $key){
+  $key = base64_decode($key);
+  $ciphertext = OpenSSL_encrypt($str,"DES-EDE3", $key, OPENSSL_RAW_DATA);
+  return base64_encode($ciphertext);
+}
 
 
-  private static function decrypt_pkcs7($encrypted, $key){
-    $key = base64_decode($key);
-    $encrypted = base64_decode($encrypted);
-    $text = OpenSSL_decrypt($encrypted,"DES-EDE3", $key, OPENSSL_RAW_DATA);
-    return $text;
-  }
+private static function decrypt_pkcs7($encrypted, $key){
+  $key = base64_decode($key);
+  $encrypted = base64_decode($encrypted);
+  $text = OpenSSL_decrypt($encrypted,"DES-EDE3", $key, OPENSSL_RAW_DATA);
+  return $text;
+}
 
 
 

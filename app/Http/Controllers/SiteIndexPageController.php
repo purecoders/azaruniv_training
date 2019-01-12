@@ -116,7 +116,7 @@ class SiteIndexPageController extends Controller
         $description = $response->Description;
         return view('user.paymentFailed', compact('description'));
       }else{
-        $sadad->redirect($response->Token);
+        return redirect($sadad->getRedirectUrl() . $response->Token);
       }
     }
 
@@ -130,7 +130,7 @@ class SiteIndexPageController extends Controller
 
 
       $order_id = $request->OrderId;
-      $token = $request->Token;
+      $token = $request->token;
       $pay_res_code = $request->ResCode;
 
       $order = Order::find($order_id);

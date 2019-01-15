@@ -136,7 +136,7 @@ class SiteIndexPageController extends Controller
       $order = Order::find($order_id);
 
       if ($pay_res_code != 0){
-        $description = 'تراکنش به دلایلی ناموفق بود لطفا دوباره امتحان کنید';
+        $description = 'تراکنش نا موفق بود در صورت کسر مبلغ از حساب شما حداکثر پس از 72 ساعت مبلغ به حسابتان برمی گردد';
         return view('user.paymentFailed', compact('description'));
       }
 

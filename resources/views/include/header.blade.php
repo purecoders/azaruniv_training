@@ -44,9 +44,17 @@
         </div>
     </div>
     <div class="logo-container d-flex align-content-center align-items-center flex-wrap">
+
+
+        {{--<div class="col-4  text-right d-flex flex-row justify-content-start	align-items-end p-2 align-self-end">--}}
+        <a href="{{route('home')}}" class="btn btn-light m-1 ml-4 mt-5"> <i class="fa fa-home"></i> صفحه اصلی</a>
+        {{--</div>--}}
+
         <a href="{{route('home')}}">
             <img src="{{asset('img/logo.png')}}" alt="logo" class="p-2 px-4" style="height: 100px">
         </a>
+
+
         <div class="flex-grow-1"></div>
         <div class="d-flex flex-column ml-auto">
             <div class="d-flex p-1 p-xl-5 ">

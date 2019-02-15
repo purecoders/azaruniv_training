@@ -13,8 +13,8 @@
 
                     <div class="top-news-container col-md-7">
                         <div dir=ltr class="text-white single-item text-center ">
-                           @foreach($posts as $post)
-                            <div><a class="text-white" href="{{route('post.show', ['id'=>$post->id])}}">{{$post->title}}</a></div>
+                            @foreach($posts as $post)
+                                <div><a class="text-white" href="{{route('post.show', ['id'=>$post->id])}}">{{$post->title}}</a></div>
                             @endforeach
 
                         </div>
@@ -29,12 +29,13 @@
                     <div class="collapse navbar-collapse h-100">
                         <ul class="navbar-nav h-100">
 
-                            <li class="nav-item pt-1">
-                                <a class="nav-link" href="http://www.azaruniv.ac.ir/">صفحه اصلی دانشگاه</a>
+                            @if(request()->path() !== '/')
+                            <li class=" pt-1">
+                                <a href="{{route('home')}}" class="btn btn-light mr-5 " style = " width : 200px;"> <i class="fa fa-home"></i>  بازگشت به صفحه اصلی </a>
+
                             </li>
-                            <li class="nav-item pt-1">
-                                <a class="nav-link " href="http://www.azaruniv.ac.ir/?PageID=6">ارتباط با دانشگاه</a>
-                            </li>
+                            @endif
+
                         </ul>
                     </div>
                 </nav>
@@ -47,7 +48,6 @@
 
 
         {{--<div class="col-4  text-right d-flex flex-row justify-content-start	align-items-end p-2 align-self-end">--}}
-        <a href="{{route('home')}}" class="btn btn-light m-1 ml-4 mt-5"> <i class="fa fa-home"></i> صفحه اصلی</a>
         {{--</div>--}}
 
         <a href="{{route('home')}}">
@@ -57,6 +57,7 @@
 
         <div class="flex-grow-1"></div>
         <div class="d-flex flex-column ml-auto">
+
             <div class="d-flex p-1 p-xl-5 ">
                 @php
                     date_default_timezone_set('Asia/Tehran');
@@ -77,6 +78,7 @@
                     </div>
                 </form>
             </div>
+
 
             @auth
                 <div class="text-white align-self-end mr-5 ">
@@ -104,12 +106,12 @@
                         $categories = \App\Category::all();
                     @endphp
                     @foreach($categories as $category)
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('course-category',['id'=>$category->id]) }}">{{$category->name}}</a>
-                    </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('course-category',['id'=>$category->id]) }}">{{$category->name}}</a>
+                        </li>
                     @endforeach
 
-                    
+
 
                     <li class="nav-item">
                         <a id="contactUsBtn" class="nav-link" href="#contactUs">ارتباط با ما</a>
@@ -120,9 +122,9 @@
                 <ul class="navbar-nav ml-auto">
                     <!-- Authentication Links -->
                     @guest
-                        <li class="nav-item">
-                                <a class="nav-link btn sign-btn " href="{{ route('dashboard-home') }}">
-                            {{--<a class="nav-link btn sign-btn " href="{{ route('register') }}">--}}
+                        <li class="nav-item mr-3">
+                            <a class="nav-link btn sign-btn " href="{{ route('dashboard-home') }}">
+                                {{--<a class="nav-link btn sign-btn " href="{{ route('register') }}">--}}
                                 <i class="fal fa-user mr-1"></i>
                                 ورود | ثبت نام</a>
                         </li>

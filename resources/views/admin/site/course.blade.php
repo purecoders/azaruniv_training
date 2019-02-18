@@ -64,7 +64,7 @@
                             <div class="col-sm-5">
                                 <select class="form-control" name="category_id" required>
                                     @foreach($categories as $category)
-                                        <option value="{{$category->id}}">{{$category->name}}</option>
+                                        <option value="{{$category->id}}" @if($category->id == $course->category_id) selected @endif>{{$category->name}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -92,7 +92,7 @@
                             <div class="col-sm-5">
                                 <select class="form-control" name="master_id" required>
                                     @foreach($masters as $master)
-                                        <option value="{{$master->id}}">{{$master->name}}</option>
+                                        <option value="{{$master->id}}" @if($master->id == $course->master_id) selected @endif>{{$master->name}}</option>
                                     @endforeach
                                 </select>
                             </div>

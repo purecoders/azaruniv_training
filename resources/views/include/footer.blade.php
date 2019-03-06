@@ -38,7 +38,9 @@
             <div class="col-md-4">
                 <h4 class="heading-primary">پیوند های خارجی</h4>
                 <ul class="nav nav-list d-flex flex-column">
-                    <li><a class="text-light hover-link" title="دانشگاه تبریز" href="http://www.tabrizu.ac.ir">دانشگاه تبریز</a></li>
+                    <li><a target="_blank" class="text-light hover-link" title="صندوق نوآوری و شکوفایی" href="https://nsfund.ir">صندوق نوآوری و شکوفایی</a></li>
+                    <li><a target="_blank" class="text-light hover-link" title="پارک علم و فناوری تبریز" href="http://www.eastp.ir">پارک علم و فناوری تبریز</a></li>
+                    <li><a target="_blank" class="text-light hover-link" title="منطقه ویژه علم و فناوری ربع رشیدی" href="http://tabrizcoridor.ir">منطقه ویژه علم و فناوری ربع رشیدی</a></li>
                 </ul>
             </div>
         </div>

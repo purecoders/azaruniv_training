@@ -10,7 +10,7 @@
         }
         .content{
 
-            margin:40mm 40mm 30mm 40mm;
+            margin:75mm 40mm 30mm 40mm;
             line-height: 50pt;
             font-size: 20pt;
             position: running(content);
@@ -38,9 +38,19 @@
             direction: rtl;
             margin: 0;
         }
+        .cert-logo{
+            height: 100px;
+            position: absolute;
+            top:40mm;
+            left:46vw;
+        }
     </style>
 </head>
 <div class=" mt-5 rtl">
+
+
+    <img class="cert-logo" src="{{asset('img/certLogo.png')}}" alt="">
+
     <p class="content">
         احتراماً  گواهی می شود
             <span>پویا آکلیون</span>

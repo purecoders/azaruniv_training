@@ -24,7 +24,7 @@
             margin: 3px;
         }
         .center-content{
-            margin:30mm 30mm 0mm 30mm;
+            margin:30mm 10mm 0mm 35mm;
             line-height: 50pt;
             font-size: 20pt;
             position: running(content);
@@ -88,13 +88,13 @@
         در دانشگاه شهید مدنی آذربایجان با موفقیت به پایان رسانده اند.
     </p>
     <p class="center-content d-flex justify-content-around">
-        <span>{{$authority2}}</span>
         <span>{{$authority1}}</span>
+        <span>{{$authority2}}</span>
     </p>
     <p class="footer-content d-flex justify-content-around">
         {{--<span class="title-one">معاون پژوهش و فناوری</span>--}}
-        <span>معاون پژوهش و فناوری</span>
         <span>مدیر امور فناوری</span>
+        <span>معاون پژوهش و فناوری</span>
     </p>
 </div>
 

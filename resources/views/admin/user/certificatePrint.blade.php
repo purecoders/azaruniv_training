@@ -26,14 +26,14 @@
         .center-content{
             margin:30mm 10mm 0mm 35mm;
             line-height: 50pt;
-            font-size: 20pt;
+            font-size: 27pt;
             position: running(content);
             font-family: IranNastaliq;
         }
         .footer-content{
             margin:0mm 15mm 30mm 30mm;
             line-height: 50pt;
-            font-size: 20pt;
+            font-size: 27pt;
             position: running(content);
             font-family: IranNastaliq;
         }

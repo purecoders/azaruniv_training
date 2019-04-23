@@ -14,7 +14,7 @@
         .content{
             margin:75mm 40mm 30mm 40mm;
             line-height: 50pt;
-            font-size: 20pt;
+            font-size: 30pt;
             position: running(content);
             font-family: IranNastaliq;
         }
@@ -72,19 +72,19 @@
         @else
             <span> سرکار خانم </span>
         @endif
-        <span class="bolds"> (({{$user->name}})) </span>
+        <span class="bolds"> «{{$user->name}}» </span>
         به شماره ملی
-        <span class="bolds"> (({{\App\Http\Controllers\helper\PersianNumber::latinToPersian($user->national_code)}})) </span>
+        <span class="bolds"> «{{\App\Http\Controllers\helper\PersianNumber::latinToPersian($user->national_code)}}» </span>
         دوره مهارتی
-        <span class="bolds"> (({{$course->title}})) </span>
+        <span class="bolds"> «{{$course->title}}» </span>
         را به مدت
-        <span class="bolds"> (({{\App\Http\Controllers\helper\PersianNumber::latinToPersian($course->duration)}})) </span>
+        <span class="bolds"> «{{\App\Http\Controllers\helper\PersianNumber::latinToPersian($course->duration)}}» </span>
         ساعت ، در تاریخ
         @php
             $date = new \App\Http\Controllers\helper\PersianDate();
             $date = $date->to_date($course->finish_date, 'Y/m/d')
         @endphp
-        <span class="bolds"> (({{\App\Http\Controllers\helper\PersianNumber::latinToPersian($date)}})) </span>
+        <span class="bolds"> «{{\App\Http\Controllers\helper\PersianNumber::latinToPersian($date)}}» </span>
         در دانشگاه شهید مدنی آذربایجان با موفقیت به پایان رسانده اند.
     </p>
     <p class="center-content d-flex justify-content-around">

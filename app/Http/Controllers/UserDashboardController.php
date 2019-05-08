@@ -7,6 +7,7 @@ use App\Http\Controllers\helpers\FileHelper;
 use App\Photo;
 use App\RecommendedCourse;
 use App\Ticket;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
@@ -77,6 +78,17 @@ class UserDashboardController extends Controller
     return redirect(route('user-tickets'));
 
   }
+
+    public function editInfo(Request $request){
+      $user = User::find(Auth::user()->id);
+      $user->name = $request->name;
+      $user->major = $request->major;
+      $user->mobile = $request->mobile;
+      $user->student_number = $request->student_number;
+      $user->national_code = $request->national_code;
+      $user->save();
+      return back();
+    }
 
     public function changeAvatar(Request $request){
     $this->validate($request,[

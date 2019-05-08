@@ -57,6 +57,7 @@ Route::post('/user-change-avatar', 'UserDashboardController@changeAvatar')->name
 Route::post('/user-change-password', 'UserDashboardController@changePassword')->name('user-change-password');
 Route::get('/user-course-offer', 'UserDashboardController@offerCourse')->name('user-course-offer');
 Route::post('/user-recommend-course', 'UserDashboardController@recommendCourse')->name('user-recommend-course');
+Route::post('/user-edit-info', 'UserDashboardController@editInfo')->name('user-edit-info');
 
 
 

@@ -29,12 +29,12 @@
                     <div class="collapse navbar-collapse h-100">
                         <ul class="navbar-nav h-100">
 
-                            @if(request()->path() !== '/')
-                            <li class=" pt-1">
-                                <a href="{{route('home')}}" class="btn btn-light mr-5 " style = " width : 200px;"> <i class="fa fa-home"></i>  بازگشت به صفحه اصلی </a>
+                            {{--@if(request()->path() !== '/')--}}
+                            {{--<li class=" pt-1">--}}
+                                {{--<a href="{{route('home')}}" class="btn btn-light mr-5 " style = " width : 200px;"> <i class="fa fa-home"></i>  بازگشت به صفحه اصلی </a>--}}
 
-                            </li>
-                            @endif
+                            {{--</li>--}}
+                            {{--@endif--}}
 
                         </ul>
                     </div>

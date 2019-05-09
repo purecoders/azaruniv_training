@@ -6,7 +6,7 @@
                 <h6>پیشنهاد دوره</h6>
                 <p class="alert alert-info">اگر دوره ای مد نظر شما هست که مایلید آن را برگزار کنیم به ما اطلاع دهید</p></div>
             <div class="col-md-5 p-1">
-                <img src="{{asset('img/recommendation.png')}}" class="float-left" style="max-height: 128px" alt="">
+                {{--<img src="{{asset('img/recommendation.png')}}" class="float-left" style="max-height: 128px" alt="">--}}
             </div>
         </div>
         <h6>پیشنهاد دوره جدید</h6>

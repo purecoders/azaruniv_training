@@ -51,6 +51,15 @@
                         @endif
                     </a>
                 </li>
+
+
+                <li  class="dropdown mx-2 btn-primary">
+                    <a id="adminNavUsers" class="nav-link" href="{{route('admin-backup')}}" role="button" >
+                        <i class=""></i>
+                        ایجاد فایل پشتیبان و دانلود
+                    </a>
+                </li>
+
             </ul>
             <ul class="navbar-nav ml-auto">
             </ul>

@@ -133,7 +133,7 @@ class AdminDashboardController extends Controller
 
 
   public function userTickets($id){
-    $user = User::find($id);
+    $user = User::withTrashed()->find($id);
     $users_id = DB::select("SELECT  user_id FROM  tickets GROUP BY user_id ORDER BY MAX(id) DESC ");
     $users = array();
     foreach ($users_id as $user_id){

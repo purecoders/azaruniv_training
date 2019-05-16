@@ -3,6 +3,11 @@
     <div class="container-fluid">
         <div class="d-flex justify-content-between align-items-center flex-wrap ">
             <h6 class="m-1 mb-3"> لیست همه کاربران</h6>
+            {{--<form action="" class="d-flex">--}}
+                {{--<input type="text" class="form-control m-1" placeholder="بر اساس کد ملی">--}}
+                {{--<input type="text" class="form-control m-1" placeholder="بر اساس نام دانشجو">--}}
+                {{--<button class="btn btn-primary btn-sm m-1">جستجو</button>--}}
+            {{--</form>--}}
             <button class="btn btn-sm btn-blue m-1" onclick="excelReport(this)"><i class="fal fa-file-excel mr-1"></i>ذخیره
                 فایل اکسل
             </button>

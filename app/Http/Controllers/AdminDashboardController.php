@@ -461,4 +461,25 @@ class AdminDashboardController extends Controller
   }
 
 
+  public function searchUser(Request $request){
+    if($request->name !== null){
+      $users = User::where('name' ,'like', '%'.$request->name.'%')->paginate(30);
+    }elseif ($request->national_code !== null){
+      $users = User::where('national_code', 'like', $request->national_code)->paginate(30);
+    }else{
+      $users = User::where('name' ,'like', '%'.$request->name.'%')
+        ->orWhere('national_code', 'like', $request->national_code)->paginate(30);
+    }
+
+
+    //get recent two month records
+    $originaldate = date("Y-m-d H:i:s");
+    $converted = DateTime::createFromFormat("Y-m-d H:i:s", $originaldate);
+    $converted2months = $converted->sub(new DateInterval("P2M"));
+    $recommends = RecommendedCourse::orderBy('id', 'desc')->where('created_at', '>=', $converted2months)->get();
+
+    return view('admin.user.users', compact(['users', 'recommends']));
+  }
+
+
 }

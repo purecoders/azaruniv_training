@@ -111,4 +111,7 @@ Route::post('/admin-add-rule','AdminDashboardController@addRule')->name('admin-a
 Route::post('/admin-remove-rule','AdminDashboardController@removeRule')->name('admin-remove-rule');
 Route::get('/admin-authorities', 'AdminDashboardController@authorities')->name('admin-authorities');
 Route::post('/admin-edit-authorities', 'AdminDashboardController@editAuthorities')->name('admin-edit-authorities');
+Route::post('/admin-search-user', 'AdminDashboardController@searchUser')->name('admin-search-user');
+
+
 Route::get('/admin-backup', 'BackupController@index')->name('admin-backup');

@@ -3,6 +3,14 @@
     <div class="container-fluid">
         <div class="d-flex justify-content-between align-items-center flex-wrap ">
             <h6 class="m-1 mb-3"> لیست همه کاربران</h6>
+
+            <form action="{{route('admin-search-user')}}" method="post" class="d-flex">
+                @csrf
+                <input name="national_code" type="text" class="form-control m-1" placeholder="کدملی">
+                <input name="name" type="text" class="form-control m-1" placeholder="نام دانشجو">
+                <button class="btn btn-primary btn-sm m-1">جستجو</button>
+            </form>
+
             <a href="{{route('admin-users-all')}}" class="btn btn-sm btn-blue m-1">مشاهده همه کاربران</a>
         </div>
         <div class="table-responsive">
